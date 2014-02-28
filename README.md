@@ -7,7 +7,7 @@ Smartfanpage is a project developed by Delgence
 
 ----------------
 
-Contact
+Contact details
 ------------
 [![Delgence](http://delgence.com/wp-content/themes/twentyeleven/images/logo.png)](http://www.delgence.com)
 ------------
