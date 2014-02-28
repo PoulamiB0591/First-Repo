@@ -2,7 +2,7 @@ SFP2.0
 ======
 
 [![Smartfanpage](http://www.smartfanpage.com/)](http://www.smartfanpage.com)
- 
+
 Smartfanpage is a project developed by Delgence
 
 ----------------
