@@ -17,8 +17,8 @@ function curPageURL()
     }
     return $pageURL;
 }
-$href = explode("/", curPageURL());
-$page = @$href[4];
+$page = explode("/", curPageURL());
+
 
 
 ?>
@@ -32,7 +32,7 @@ $page = @$href[4];
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
-        <?php if($page == 'becomepublisher'){ 
+        <?php if(in_array('becomepublisher',$page)){ 
               echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . ''))
                         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
                         ->prependStylesheet($this->basePath() . '/css/style.css')
@@ -77,7 +77,7 @@ $page = @$href[4];
 <!--===== body start ===-->
 
       <?php echo $this->content; ?>
-      <?php if($page == 'becomepublisher'){ ?>
+      <?php if(in_array('becomepublisher',$page)){ ?>
 
 <!--===================================tab html end=================================-->
 
