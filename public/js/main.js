@@ -5,9 +5,8 @@
 	$(function(){
 	   // general setup
        // added by koushik roy
-       var href = document.URL.split("/");
-       var page = href[4]; // to get the page name from the browser url 
-       
+       var page = document.URL.split("/"); // to get the page name from the browser url
+      
        //Note: url where module name is not present. if in the url you have module name then use href[5] instead of href[4]
        //alert(page);
        // end koushik roy
