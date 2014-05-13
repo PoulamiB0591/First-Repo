@@ -34,6 +34,20 @@ return array(
                         'action' => 'index',
                     ),
                 ),
+                
+                'developer' => array(
+                		'type'    => 'segment',
+                		'options' => array(
+                				'route'    => '/developer[/:action]',
+                				'constraints' => array(
+                						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                						'id'     => '[0-9]+',
+                				),
+                				'defaults' => array(
+                						'controller' => 'Album\Controller\Developer',
+                						'action'     => 'index',
+                				),
+                		),
                 'may_terminate' => true,
                 'child_routes' => array(
                     'default' => array(
