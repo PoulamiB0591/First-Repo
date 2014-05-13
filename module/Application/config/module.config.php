@@ -34,20 +34,6 @@ return array(
                         'action' => 'index',
                     ),
                 ),
-                
-                'developer' => array(
-                		'type'    => 'segment',
-                		'options' => array(
-                				'route'    => '/developer[/:action]',
-                				'constraints' => array(
-                						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                						'id'     => '[0-9]+',
-                				),
-                				'defaults' => array(
-                						'controller' => 'Album\Controller\Developer',
-                						'action'     => 'index',
-                				),
-                		),
                 'may_terminate' => true,
                 'child_routes' => array(
                     'default' => array(
@@ -88,7 +74,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Developer' => 'Application\Controller\DeveloperController' // edited by Poulami
+            'Application\Controller\Add' => 'Application\Controller\AddController'
         ),
     ),
     'view_manager' => array(
