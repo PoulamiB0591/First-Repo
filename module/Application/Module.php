@@ -12,6 +12,11 @@ namespace Application;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
+use Application\Model\Developer;
+use Application\Model\DeveloperTable;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
+
 class Module
 {
     public function onBootstrap(MvcEvent $e)
@@ -37,4 +42,22 @@ class Module
         );
     }
     
+    public function getServiceConfig() //added by Poulami
+    {
+     return array(
+         'factories' => array(
+             'Application\Model\DeveloperTable' => function($sm) {
+             $tableGateway = $sm->get('DeveloperTableGateway');
+             $table = new DeveloperTable($tableGateway);
+             return $table;
+             },
+            'DeveloperTableGateway' => function ($sm) {
+             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+             $resultSetPrototype = new ResultSet();
+             $resultSetPrototype->setArrayObjectPrototype(new Developer());
+             return new TableGateway('developer', $dbAdapter, null, $resultSetPrototype);
+             },
+         ),
+       );
+    }
 }

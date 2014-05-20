@@ -1,5 +1,5 @@
 <?php 
-if(in_array('index',$page)|| in_array('store',$page))
+if(($page == 'index') || ($page == 'store'))
 { 
     echo $this->headScript()
             ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
@@ -12,7 +12,7 @@ if(in_array('index',$page)|| in_array('store',$page))
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
             ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js'); 
 } 
-elseif(in_array('howswork',$page)) 
+elseif($page == 'howswork') 
 {
     echo $this->headScript()
             ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')

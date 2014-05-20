@@ -1,0 +1,111 @@
+<?php 
+function curPageURL() 
+{
+    $pageURL = 'http';
+    if (@$_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+    $pageURL .= "://";
+    if ($_SERVER["SERVER_PORT"] != "80") {
+        if($_SERVER["REQUEST_URI"] == "/")
+            $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].'/index/index';
+        else
+            $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+    } else {
+        if($_SERVER["REQUEST_URI"] == "/")
+            $pageURL .= $_SERVER["SERVER_NAME"].'/index/index';
+        else
+            $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+    }
+    return $pageURL;
+}
+$page = explode("/", curPageURL());
+
+
+
+?>
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <?php echo $this->headTitle('SFPv2 '. $this->translate('Smartfanpage | Home'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <?php if(in_array('becomepublisher',$page)){ 
+              echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . ''))
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/nav_menu.css')
+                        ->prependStylesheet($this->basePath() . '/css/easy-responsive-tabs.css')
+                        ->prependStylesheet($this->basePath() . '/css/responsive.css');
+        } else { 
+              echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . ''))
+                        ->prependStylesheet($this->basePath() . '/css/responsive.css')
+                        ->prependStylesheet($this->basePath() . '/css/owl.theme.css')
+                        ->prependStylesheet($this->basePath() . '/css/nav_menu.css')
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css');
+        } 
+        ?>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+    <body>
+    <!--//========for mobile social icons===========-->
+<div class="mobile-social">
+        <a href="#" class="button"></a>
+        <ul class="social_icon3">
+         
+          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+        </ul>
+        </div>
+<!--//========End for mobile social icons===========-->
+<!--===== start menu ===-->
+<div class="mobile_menu">
+  <div class="logo-cont"> <a href="<?php echo $this->url('home') ?>" class="logo"></a> </div>
+  <a href="#" class="menu-trigger navicon "><span>Open menu</span></a> </div>
+  <?= $this->render('layout/sitemap.phtml') ?>
+  <?= $this->render('layout/mob-sitemap.phtml')?>
+  <!--===== end menu ===-->
+
+<!--===== body start ===-->
+
+      <?php echo $this->content; ?>
+      <?php if(in_array('becomepublisher',$page)){ ?>
+
+<!--===================================tab html end=================================-->
+
+<!--<a class="prev-button" href="#">Previous step</a>-->
+  <a href="#" class="submit-button">Let's do it</a>
+<div style="position:relative;"><hr> <a href="#" class="go_to_up" id="back-to-top"></a></div> <!--=== sign up section ===--> </div>
+</div>
+      <?php }else{ ?> 
+  
+        <hr>
+      <div class="row row_text">
+      <h4>Sign up now, it's free! <?php echo "test_1"; ?></h4>
+      <p class="row">You can have a 14 days free trial to convince yourself and experience<br>
+the power of Smartfanpage. What are you waiting for?</p>
+<a href="#" class="sign_up">Sign up free</a>
+</div>
+
+     <div style="position:relative;">
+          <hr>
+          <a href="#" class="go_to_up" id="back-to-top"></a></div>
+      </div>
+    </div><!--===== body_container end ===--> 
+  </div> <!--===== main_container end ===--> 
+      <?php } ?>
+<?php echo $this->inlineScript() ?>
+<?=include_once('js.phtml') ?>
+<!-- Scripts -->
+        
+
+    </body>
+</html>

@@ -54,4 +54,30 @@ class IndexController extends AbstractActionController
     {
         //return new ViewModel();
     }
+    /*public function addAction()
+	{
+	   
+       /*$title = 'Add a Developer';
+       $this->headTitle($title);
+       
+		$dForm   = new DForm();
+        
+        $request = $this->getRequest();
+        
+        if($request->isPost())
+        {
+            $developer = new Developer();
+            $dForm->setData($request->getPost());
+            
+            if($dForm->isValid())
+            {
+                $developer->exchangeArray($dForm->getData());
+                $this->getDeveloperTable()->saveDeveloper($developer);
+                
+                //return $this->redirect()->toRoute('defaults');
+            }
+        } 
+        
+        return array('form'=> $dForm);
+	}*/
 }

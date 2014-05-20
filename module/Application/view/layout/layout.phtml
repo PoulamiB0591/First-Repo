@@ -17,8 +17,8 @@ function curPageURL()
     }
     return $pageURL;
 }
-$page = explode("/", curPageURL());
-
+$href = explode("/", curPageURL());
+$page = @$href[4];
 
 
 ?>
@@ -32,7 +32,7 @@ $page = explode("/", curPageURL());
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
-        <?php if(in_array('becomepublisher',$page)){ 
+        <?php if($page == 'becomepublisher'){ 
               echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . ''))
                         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
                         ->prependStylesheet($this->basePath() . '/css/style.css')
@@ -71,13 +71,13 @@ $page = explode("/", curPageURL());
   <div class="logo-cont"> <a href="<?php echo $this->url('home') ?>" class="logo"></a> </div>
   <a href="#" class="menu-trigger navicon "><span>Open menu</span></a> </div>
   <?= $this->render('layout/sitemap.phtml') ?>
-  <?= $this->render('layout/mob-sitemap.phtml')?>
+  <?= $this->render('layout/mob-sitemap.phtml') ?>
   <!--===== end menu ===-->
 
 <!--===== body start ===-->
 
       <?php echo $this->content; ?>
-      <?php if(in_array('becomepublisher',$page)){ ?>
+      <?php if($page == 'becomepublisher'){ ?>
 
 <!--===================================tab html end=================================-->
 
@@ -89,7 +89,7 @@ $page = explode("/", curPageURL());
   
         <hr>
       <div class="row row_text">
-      <h4>Sign up now, it's free! <?php echo "test_1"; ?></h4>
+      <h4>Sign up now, it's free!</h4>
       <p class="row">You can have a 14 days free trial to convince yourself and experience<br>
 the power of Smartfanpage. What are you waiting for?</p>
 <a href="#" class="sign_up">Sign up free</a>

@@ -52,20 +52,7 @@ return array(
                     ),
                 ),
                 
-                'developer' => array(
-                		'type'    => 'segment',
-                		'options' => array(
-                				'route'    => '/developer[/:action]',
-                				'constraints' => array(
-                						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                						'id'     => '[0-9]+',
-                				),
-                				'defaults' => array(
-                						'controller' => 'Album\Controller\Developer',
-                						'action'     => 'index',
-                				),
-                		),
-                	),
+               
             ),
         ),
     ),
@@ -94,6 +81,7 @@ return array(
             'Application\Controller\Developer' => 'Application\Controller\DeveloperController' // edited by Poulami
         ),
     ),
+    
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions' => true,
@@ -110,6 +98,16 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
+     'translator' => array(
+   'locale' => 'en_US',
+      'translation_file_patterns' => array(
+         array(
+            'type'     => 'gettext',
+            'base_dir' => __DIR__ . '/../language',
+            'pattern'  => '%s.mo',
+         ),
+      ),
+   ),// Added by Baishakhi
     // Placeholder for console routes
     'console' => array(
         'router' => array(
