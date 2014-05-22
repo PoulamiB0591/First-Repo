@@ -13,7 +13,7 @@
 //added by Poulami
 return array(
     'db' => array(
-     'driver' => 'mysqli' ,
+     'driver' => 'pdo',
      'dsn' => 'mysql:dbname=sfp_staging;host=54.72.188.10',
      'username'       =>'phpmyadmin',
      'password'      =>'Testing1@',
