@@ -16,10 +16,7 @@ return array(
      'driver' => 'mysqli',
      'dsn' => 'mysql:dbname=sfp_staging;host=54.72.188.10',
      'username'       =>'phpmyadmin',
-     'password'      =>'Testing1@',
-     'driver_options' => array(
-        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
-     ),
+     'password'      =>'Testing1@'
  ),
  'service_manager' => array(
      'factories' => array(
