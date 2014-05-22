@@ -14,7 +14,7 @@
 return array(
     'db' => array(
      'driver' => 'pdo',
-     'dsn' => 'mysql:dbname=sfp_staging;host=54.72.188.10',
+     'dsn' => 'mysql:dbname=sfp_staging;host=localhost',
      'username'       =>'phpmyadmin',
      'password'      =>'Testing1@',
      'driver_options' => array(
