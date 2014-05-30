@@ -167,7 +167,7 @@ $ignore = array( 'cgi-bin', '.', '..' );
     
 
     $dh = @opendir($path); 
-    echo $path;  
+
      
     while( false !== ( $file = @readdir( $dh ) ) ){ 
    $dirArray[]=$file;
@@ -187,7 +187,7 @@ $ignore = array( 'cgi-bin', '.', '..' );
                  
              
             if( is_dir( "$path/$file" )){ 
-        echo "in if check";
+     
               echo "<div class='site'>";
     echo "<div class='container-fluid'><div class='dirleft col-lg-3'><strong>$spaces $file</strong><br />"; 
                // $dir_arr = "$spaces $file";
@@ -195,11 +195,11 @@ $ignore = array( 'cgi-bin', '.', '..' );
               
              
             } else { 
-            	echo "in else check";
+            
                $currentUrl = $_SERVER["SERVER_NAME"];
                     
-             
-                echo "<div><a class='fileLink' href='#' cursor:pointer>$file</a><a id='lidet' style='cursor:pointer;'  onclick='requestUrlWithAjax(this.innerHTML)'>http://$currentUrl/$str_arr/$file</a></div><br />";  
+               echo "<div class='site'>";
+                echo "<div class='container-fluid'><div class='dirleft col-lg-3'><a class='fileLink' href='#' cursor:pointer>$file</a><a id='lidet' style='cursor:pointer;'  onclick='requestUrlWithAjax(this.innerHTML)'>http://$currentUrl/$str_arr/$file</a></div><br />";  
              
                 //$file= "http://$currentUrl/$str_arr/$file";
                 //$fileLink[]= "$file";
