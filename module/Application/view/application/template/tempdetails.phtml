@@ -5,7 +5,7 @@
 
    <?php 
  
-   foreach($templatedetails as $temp)
+   foreach($templates as $temp)
    {
    ?>
    <a href="<?php echo $this->url('application/default',array('controller'=>'template','action' => 'tempedit','id'=>$temp['template_name']));?>">Edit Template</a>
