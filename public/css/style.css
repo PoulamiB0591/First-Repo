@@ -3227,35 +3227,7 @@ hr.mar-eaighteen{ margin: 30px 18px;}
   width: 100%;
 }
 
-#appForm{   
-   width: 700px;
-   border: solid 1px #ccc;
-}
 
-#appForm ul{
-   list-style: none inside;
-   padding: 5px;
-   margin: 0px;
-}
-
-#appForm li{
-   padding: 5px;
-   border-bottom: dashed 1px #ccc;
-}
-
-#appForm li span{
-   font-weight: bold;
-   width: 150px;
-   display: inline-block;
-   
-}
-
-#appForm .txtInput{
-   font-family: Arial, Helvetica, sans-serif;
-   font-size:  13px;
-   border: 1px solid #ccc;
-   padding: 3px;
-}
 
 .txtSort{
    width: 200px;
@@ -3263,4 +3235,105 @@ hr.mar-eaighteen{ margin: 30px 18px;}
 
 .txtMedium{
    width: 300px;
+}
+
+#lidet{
+
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .center{ text-align: center;}
+.dev-form {border: 1px solid #CCCCCC;padding: 5% 2%;}
+.dev-form span {display: block;float: left;width: 110px;}
+.dev-form input[type="text"], #devForm input[type="password"] {
+  border: 1px solid #CCCCCC;
+  height: 40px;
+  line-height: 40px;
+  width: 75%;
+  float: right;
+}
+
+.dev-form input[type="submit"]{
+  border: 1px solid #CCCCCC;
+  height: 40px;
+  line-height: 40px;
+  width: 20%;
+  float: right;
+}
+#appForm ul{ width: 100%; height: auto; overflow: hidden;}
+
+.dev-form2 {border: 1px solid #CCCCCC;padding:2%;}
+.dev-form2 ul > li {
+  display: block;
+  height: auto;
+  list-style: none outside none;
+  overflow: hidden;
+  width: 100%;
+}
+.dev-form2 ul li > label {
+  width: 100%;
+}
+.dev-form2 ul li > label > input[type="text"] {
+  width: 68%;
+}
+.dev-form2 span {
+  display: block;
+  float: left;
+  width: 192px;
+}
+.dev-form input[type="file"]{
+  border: 1px solid #000;
+  height: 40px;
+  line-height: 40px;
+  width: 68%;
+  float: right;
+}
+
+.dev-form2 ul li span > label {
+  width: 192px;
+}
+.edit-temp{ float: right;}
+.button-wrapper.col-lg-8 {
+  margin-top: 38px;
+}
+.dashboard {
+  margin: 12px 0;
+}
+
+.menu2 {
+  left: -241px !important;
+}
+.menu3 {
+  background: #fff !important;
+}
+.dirleft {
+  border: 1px solid #CCCCCC;
+}
+
+#lidet {
+  left: 0;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+.dirleft.col-lg-3 > div {
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  
+}
+
+.fileopen {
+  border: 1px solid #CCCCCC;
+}
+.fileopen textarea {
+  width: 100%;
 }
