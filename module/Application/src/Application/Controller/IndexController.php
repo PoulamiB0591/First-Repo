@@ -16,6 +16,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
+        echo $_SERVER['DOCUMENT_ROOT'];
         //return new ViewModel();
     }
     public function storeAction()

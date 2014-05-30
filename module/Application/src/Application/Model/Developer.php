@@ -1,4 +1,5 @@
 <?php
+//added by Poulami
 namespace Application\Model;
 
 /*use Zend\InputFilter\InputFilter;
@@ -26,6 +27,10 @@ class Developer
 		$this->pwd = (!empty($data['pwd'])) ? $data['pwd'] : null;
 	} 
     
+    public function getArrayCopy() //added by Poulami
+    {
+         return get_object_vars($this);
+    }
     /*public function setInputFilter(InputFilterInterface $inputFilter)
     {
         throw new \Exception("not used");

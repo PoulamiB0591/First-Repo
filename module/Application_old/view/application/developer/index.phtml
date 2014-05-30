@@ -1,0 +1,9 @@
+<div class="site">
+<?php  
+$form->setAttribute('action', $this->url('application/default', array('controller'=>'developer','action' => 'add')));
+$form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formCollection($form);
+ echo $this->form()->closeTag();
+?>

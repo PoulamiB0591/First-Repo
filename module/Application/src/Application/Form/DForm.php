@@ -12,7 +12,7 @@ class DForm extends Form
         
         $this->add(array(
             'name' => 'id',
-            'type' => 'text',
+            'type' => 'hidden',
         ));
         
         $this->add(array(
