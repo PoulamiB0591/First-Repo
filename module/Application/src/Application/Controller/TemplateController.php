@@ -187,7 +187,7 @@ $ignore = array( 'cgi-bin', '.', '..' );
                  
              
             if( is_dir( "$path/$file" )){ 
-        
+        echo "in if check";
               echo "<div class='site'>";
     echo "<div class='container-fluid'><div class='dirleft col-lg-3'><strong>$spaces $file</strong><br />"; 
                // $dir_arr = "$spaces $file";
@@ -195,6 +195,7 @@ $ignore = array( 'cgi-bin', '.', '..' );
               
              
             } else { 
+            	echo "in else check";
                $currentUrl = $_SERVER["SERVER_NAME"];
                     
              
