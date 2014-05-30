@@ -66,7 +66,7 @@ class TemplateController extends AbstractActionController {
             $nameExt = explode(".",$fileName);
             $scExt   = explode(".",$scName);
             
-            $dirPath = $_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$data['templateName'];
+            $dirPath = $_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$data['templateName'];
             
             $uform->setData($data1);
             
