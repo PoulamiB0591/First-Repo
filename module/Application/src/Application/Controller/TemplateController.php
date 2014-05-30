@@ -180,7 +180,7 @@ $ignore = array( 'cgi-bin', '.', '..' );
       $abc="";
       $abc= $path;
       $parts = Explode('/', $abc);
-      $array = array_diff($parts, array('xampp','D:','htdocs'));
+      $array = array_diff($parts, array('var','www'));
          
       
         $str_arr = implode("/",$array);  
@@ -229,7 +229,7 @@ public function tempeditAction() {
 
     $folder = $this->getEvent()->getRouteMatch()->getParam('id');
 
-   $retEditor = $this->getDirectory( "D:/xampp/htdocs/staging/public/files/$folder" );
+   $retEditor = $this->getDirectory( "/var/www/staging/public/files/$folder" );
       
        $request = $this->getRequest();
        
@@ -240,11 +240,11 @@ public function tempeditAction() {
   
    if ($textvalurl != '') {
    $part = Explode('/', $textvalurl);
-      $array = array_diff($part, array('http:','localhost'));
+      $array = array_diff($part, array('http:','54.72.188.10'));
 
         $str_arr1 = implode("/",$array);  
 
-   $filename = "D:/xampp/htdocs$str_arr1";
+   $filename = "/var/www$str_arr1";
 if ($newdata != '') {
 
 
@@ -267,7 +267,7 @@ $data = fread($fh, filesize($filename)) or die("Could not read file!");
    
  }
  else{
-    $filename ="D:/xampp/htdocs/staging/public/files/$folder/index.php";
+    $filename ="/var/www/staging/public/files/$folder/index.php";
 if ($newdata != '') {
 
 
