@@ -167,7 +167,7 @@ $ignore = array( 'cgi-bin', '.', '..' );
     
 
     $dh = @opendir($path); 
-  
+    echo $path;  
      
     while( false !== ( $file = @readdir( $dh ) ) ){ 
    $dirArray[]=$file;
