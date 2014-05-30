@@ -189,7 +189,7 @@ $ignore = array( 'cgi-bin', '.', '..' );
             if( is_dir( "$path/$file" )){ 
         
               echo "<div class='site'>";
-                echo "<div class='container-fluid'><div class='dirleft col-lg-3'><strong>$spaces $file</strong><br />"; 
+    echo "<div class='container-fluid'><div class='dirleft col-lg-3'><strong>$spaces $file</strong><br />"; 
                // $dir_arr = "$spaces $file";
                 $this->getDirectory( "$path/$file", ($level+1)); 
               
