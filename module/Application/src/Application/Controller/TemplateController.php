@@ -80,7 +80,7 @@ class TemplateController extends AbstractActionController {
 
                     $uploadObj = new \Zend\File\Transfer\Adapter\Http(); 
                        
-                    $uploadObj->setDestination($_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files');
+                    $uploadObj->setDestination($_SERVER['DOCUMENT_ROOT'].'/staging/public/files');
                     
                       if($uploadObj->receive($fileName)) {
                          mkdir($dirPath,0777,true); //added by Poulami
@@ -90,11 +90,11 @@ class TemplateController extends AbstractActionController {
                     $filter = new \Zend\Filter\Decompress(array(
                                     'adapter' => 'Zip',
                                     'options' => array(
-                                    'target' => $_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$data['templateName'],
+                                    'target' => $_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$data['templateName'],
                                                         )
                                                         ));
                                                                   
-                   $decompressed = $filter->filter($_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$fileName); 
+                   $decompressed = $filter->filter($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$fileName); 
                    
                    
                    if(is_file($dirPath.'/index.php') == "true") //added by Poulami
@@ -102,7 +102,7 @@ class TemplateController extends AbstractActionController {
                         if($scExt[1] == 'jpg' || $scExt[1] == 'jpeg' || $scExt[1] == 'png')
                         {
                             /******* the screenshot image is moved to the unzipped folder ********/
-                            $mfilter = new \Zend\Filter\File\RenameUpload($_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$data['templateName']);
+                            $mfilter = new \Zend\Filter\File\RenameUpload($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$data['templateName']);
 
                             $mfilter->setUseUploadName(true);
                             $mfilter->filter($data['scImage']);
@@ -121,11 +121,11 @@ class TemplateController extends AbstractActionController {
                    else
                    {
             
-                     $files = glob($_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$nameExt[0].'/*.*');
+                     $files = glob($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$nameExt[0].'/*.*');
                               foreach($files as $file)
                                   @unlink($file);
                                   
-                      if(is_dir($_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$nameExt[0])){ rmdir($_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$nameExt[0]);  }             
+                      if(is_dir($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$nameExt[0])){ rmdir($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$nameExt[0]);  }             
                     
                      echo "<br>index file is missing.Sorry to upload!!";   
                      
@@ -229,7 +229,7 @@ public function tempeditAction() {
 
     $folder = $this->getEvent()->getRouteMatch()->getParam('id');
 
-   $retEditor = $this->getDirectory( "D:/xampp/htdocs/zf_new/public/files/$folder" );
+   $retEditor = $this->getDirectory( "D:/xampp/htdocs/staging/public/files/$folder" );
       
        $request = $this->getRequest();
        
@@ -267,7 +267,7 @@ $data = fread($fh, filesize($filename)) or die("Could not read file!");
    
  }
  else{
-    $filename ="D:/xampp/htdocs/zf_new/public/files/$folder/index.php";
+    $filename ="D:/xampp/htdocs/staging/public/files/$folder/index.php";
 if ($newdata != '') {
 
 
@@ -316,11 +316,11 @@ $data = fread($fh, filesize($filename)) or die("Could not read file!");
         $template = $this->getTemplateTable()->fetchAll($id);
         
         
-        $files = glob($_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$template->templateName.'/*.*');
+        $files = glob($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$template->templateName.'/*.*');
                               foreach($files as $file)
                                   @unlink($file);
-        rmdir($_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$template->templateName);                         
-        @unlink($_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$template->tempZipName); 
+        rmdir($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$template->templateName);                         
+        @unlink($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$template->tempZipName); 
         
         
         $this->getTemplateTable()->delTemplate($id);
