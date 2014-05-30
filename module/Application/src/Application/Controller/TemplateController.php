@@ -168,7 +168,8 @@ $ignore = array( 'cgi-bin', '.', '..' );
 
     $dh = @opendir($path); 
     
-     
+    echo "<div class='site'>";
+    echo "<div class='container-fluid'><div class='dirleft col-lg-3'>";
     while( false !== ( $file = @readdir( $dh ) ) ){ 
    $dirArray[]=$file;
   
@@ -198,8 +199,7 @@ $ignore = array( 'cgi-bin', '.', '..' );
             
                $currentUrl = $_SERVER["SERVER_NAME"];
                     
-               echo "<div class='site'>";
-                echo "<div class='container-fluid'><div class='dirleft col-lg-3'><div><a class='fileLink' href='#' cursor:pointer>$file</a><a id='lidet' style='cursor:pointer;'  onclick='requestUrlWithAjax(this.innerHTML)'>http://$currentUrl/$str_arr/$file</a></div><br />";  
+               echo "<div><a class='fileLink' href='#' cursor:pointer>$file</a><a id='lidet' style='cursor:pointer;'  onclick='requestUrlWithAjax(this.innerHTML)'>http://$currentUrl/$str_arr/$file</a></div><br />";  
              
                 //$file= "http://$currentUrl/$str_arr/$file";
                 //$fileLink[]= "$file";
