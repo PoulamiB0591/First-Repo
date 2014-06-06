@@ -6,25 +6,25 @@ namespace Application\Model;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;*/
 
-class Developer 
+class Template 
 {
 	public $id;
-	public $fName;
-	public $lName;
-	public $eId;
-	public $uname;
-	public $pwd;
+    public $devId;
+	public $templateName;
+	public $scImage;
+	public $tempZipName;
     
     //protected $inputFilter;
 	
-	public function exchangeArray($data)
-	{
-		$this->id = (!empty($data['id'])) ? $data['id'] : null;
-		$this->fName = (!empty($data['fName'])) ? $data['fName'] : null;
-		$this->lName = (!empty($data['lName'])) ? $data['lName'] : null;
-		$this->eId = (!empty($data['eId'])) ? $data['eId'] : null;
-		$this->uname = (!empty($data['uname'])) ? $data['uname'] : null;
-		$this->pwd = (!empty($data['pwd'])) ? $data['pwd'] : null;
+	function exchangeArray($data)
+	{       
+	    $this->id = (!empty($data['id'])) ? $data['id'] : null;
+        $this->devId = (!empty($data['devId'])) ? $data['devId'] : null;
+		$this->templateName = (!empty($data['templateName'])) ? $data['templateName'] : null;
+        
+		$this->scImage = (!empty($data['scImage'])) ? $data['scImage'] : $data['scImage'];
+        
+		$this->tempZipName = (!empty($data['tempZipName'])) ? $data['tempZipName'] : $data['tempZipName'];
 	} 
     
     public function getArrayCopy() //added by Poulami

@@ -77,7 +77,7 @@ function requestUrlWithAjax(url)
             document.getElementById('ajaxResultTarget').value = xmlhttp.responseText;
 
             //2. copy the name of the file retrieved directly above the text-area
-            //document.getElementById('editingFilename').innerHTML = url;
+            document.getElementById('editingFilename').innerHTML = url;
             
             
              $('#textvalurl').val(url);
@@ -86,11 +86,11 @@ function requestUrlWithAjax(url)
 
  
             //4. scroll the document down to editingFilename - just above the text-area
-           // var xPos, yPos, tgtElem;
-           // tgtElem = document.getElementById('editingFilename');
-           // xPos = 0;
-           // yPos = tgtElem.offsetTop;
-           // window.scrollTo(xPos, yPos);
+            var xPos, yPos, tgtElem;
+            tgtElem = document.getElementById('editingFilename');
+            xPos = 0;
+            yPos = tgtElem.offsetTop;
+            window.scrollTo(xPos, yPos);
         }
     }
  
@@ -108,17 +108,12 @@ function requestUrlWithAjax(url)
 </head>
  
 <body>
-<div class="site">
-<div class="temphead">
-<div class="tempedt col-lg-3">
-<?php 
-print_r($this->editor);
-?>
 </div>
+
 <div class="fileopen col-lg-8 pull-right">
-<h3>OPEN, EDIT AND SAVE ANY FILE FROM THE LIST OF FILES  </h3>
+<h3>OPEN, EDIT AND SAVE ANY FILE IN LIST FILE OF FOLDER</h3>
+        <span>Current File: </span><span id='editingFilename'></span><br>
        
-          
         <form name="read_form" method="post" action="#">
          <input type='hidden' name='textvalurl' id='textvalurl'/>
 <!--        <input type='hidden' name='fileName' id='frmFileName'/> -->
@@ -127,9 +122,8 @@ print_r($this->editor);
         <br />
         <input type="submit" name="update" value="UPDATE" />
         </form>
-  </div>   
-  
-  </div>   
-
+  </div>      
+</div>
+</div>
 
 </body>

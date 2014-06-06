@@ -11,6 +11,7 @@ if(($page == 'index') || ($page == 'store'))
             ->prependFile($this->basePath() . '/js/jquery.fittext.js')
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
             ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js'); 
+            
 } 
 elseif($page == 'howswork') 
 {
@@ -28,6 +29,9 @@ elseif($page == 'howswork')
 else
 {
     echo $this->headScript()
+            
+            ->prependFile($this->basePath() . '/js/template.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.nice-file-input.min.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
@@ -36,13 +40,6 @@ else
             ->prependFile($this->basePath() . '/js/jquery.selectBox.js', 'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery.fittext.js')
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-            //->prependFile($this->basePath() . '/js/new.js')
             ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js');
-            
-   /* echo $this->headScript()->prependFile($this->basePath() . 'ckeditor/ckeditor.js')
-                        ->prependFile($this->basePath() . 'ckeditor/adapters/jquery.js');
-                        
-                        
-echo $this->headLink()->prependStylesheet($this->basePath() . 'ckeditor/samples/sample.css');*/
 }
 ?>

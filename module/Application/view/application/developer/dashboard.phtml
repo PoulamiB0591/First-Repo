@@ -1,42 +1,52 @@
 <!-- added by Poulami -->
 <div class="site">
+
 <div class="container-fluid">
 <div class="row"><p id="fly-it" class="top_heading col-md-12 center">Dashboard</p></div>
+<a href="<?php echo $this->url('application/default',array('controller'=>'developer','action'=>'logout'));?>">LOGOUT</a>
 <div class="col-md-8 col-md-offset-2 dev-form clearfix">
 <a href="<?php echo $this->url('application/default',array('controller'=>'template'));?>">UPLOAD FILE</a>
+
+
 <?php if($count>1)
 {
 ?>
     <div class="dashboard-wrap col-lg-12">
-    <?php foreach ($templates as $template) : ?>
-    <div class="dashboard col-lg-12">
-    <p><?php echo $template->templateName;?></p>
-    <div class="dash-img-holder col-lg-4"> 
-    <img src='<?php echo $this->basePath('files/'.$template->templateName."/".$template->scImage);?>' style="height: 100px; width: 200px;"/>
-    </div>
-    <div class="button-wrapper col-lg-8">
-    <a href="<?php echo $this->url('application/default',array('controller'=>'template','action'=>'tempdetails',));?>">DELETE TEMPLATE</a>
-    
-    </div>
-    
-    </div>
-    <?php endforeach; ?>
+        <?php foreach ($templates as $template) : ?>
+        <div class="dashboard col-lg-12">
+            <p><?php echo $template->templateName;?></p>
+            <div class="dash-img-holder col-lg-4"> 
+                <img src='<?php echo $this->basePath('files/'.$template->templateName."/".$template->scImage);?>' style="height: 100px; width: 200px;"/>
+            </div>
+            <div class="button-wrapper col-lg-8">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'template','action'=>'delete','id'=>$template->id));?>">DELETE TEMPLATE</a>
+                
+                <a href="<?php echo $this->url('application/default',array('controller'=>'template','action' => 'tempedit','id'=>$template->templateName));?>">EDIT TEMPLATE</a>
+            
+            </div>
+        
+        </div>
+        <?php endforeach; ?>
     </div>
     
 <?php }
 else
 {
 ?>
-    <div>
-
-    <p><?php echo $templates->templateName;?></p>
-    <img src='<?php echo $this->basePath('files/'.$templates->templateName."/".$templates->scImage);?>' style="height: 100px; width: 200px;"/>
-    <a href="<?php echo $this->url('application/default',array('controller'=>'template','action'=>'delete','id'=>$template->id));?>">DELETE TEMPLATE</a>
-  
+    <div class="dashboard-wrap col-lg-12">
+        <div class="dashboard col-lg-12">
+            <p><?php echo $templates->templateName;?></p>
+            <div class="dash-img-holder col-lg-4"> 
+                <img src='<?php echo $this->basePath('files/'.$templates->templateName."/".$templates->scImage);?>' style="height: 100px; width: 200px;"/>
+            </div>
+            <div class="button-wrapper col-lg-8">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'template','action'=>'delete','id'=>$templates->id));?>">DELETE TEMPLATE</a>
+                
+                <a href="<?php echo $this->url('application/default',array('controller'=>'template','action' => 'tempedit','id'=>$templates->templateName));?>">EDIT TEMPLATE</a>
+            </div>
+        </div>
     </div>
 <?php }?>
-
-<a href="<?php echo $this->url('application/default',array('controller'=>'template','action' => 'tempdetails'));?>">Show Template</a>
 </div>
 </div>
 </div>

@@ -14,10 +14,11 @@
     <td><?php echo $this->escapeHtml($developer->fName);?></td>
     <td><?php echo $this->escapeHtml($developer->lName);?></td>
     <td><?php echo $this->escapeHtml($developer->eId);?></td>
-     <td><a href="#">Update</a><p></p><a href="#">delete</a></td>
+    <td><a href="<?php echo $this->url('application/default',array('controller'=>'developer','action'=>'edit','id'=>$developer->id));?>">Update</a><p></p><a href="<?php echo $this->url('application/default',array('controller'=>'developer','action'=>'delete','id'=>$developer->id));?>">delete</a></td> 
     
     
   
 </tr>
 <?php endforeach; ?>
+<tr><a href="<?php echo $this->url('application/default',array('controller'=>'developer','action'=>'index'));?>">ADD NEW DEVELOPER</a></tr>
 </table>

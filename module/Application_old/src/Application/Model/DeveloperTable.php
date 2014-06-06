@@ -1,8 +1,10 @@
 <?php
+//added by Poulami
 namespace Application\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Db\ResultSet\ResultSet;
+use Zend\Session\Container;
 
 class DeveloperTable
 {
@@ -13,11 +15,11 @@ class DeveloperTable
 		$this->tableGWay = $tableGateway;
 	}
     
-    public function getDeveloper($id)
+    public function getDeveloper($id) 
     {
         $id = (int) $id;
         
-        $rowset = $this->tableGateWay->select(array('id' => $id));
+        $rowset = $this->tableGWay->select(array('id' => $id));
         $row = $rowset->current();
         
         if(!$row)
@@ -28,7 +30,7 @@ class DeveloperTable
         return $row;
     }
 	
-	public function saveDeveloper(Developer $dev)
+	public function saveDeveloper(Developer $dev) //edited by Poulami
 	{
 	   $data = array(
 			'fName' => $dev->fName,
@@ -37,17 +39,41 @@ class DeveloperTable
 				'uname'=> $dev->uname,
 				'pwd'=> $dev->pwd 
 		);
-
-        $this->tableGWay->insert($data);
+  
+        $id = (int) $dev->id;
+        
+        if($id == 0)
+        {
+            $this->tableGWay->insert($data); 
+            
+            $id = $this->tableGWay->lastInsertValue;
+            $user_session = new Container('devId');
+            $user_session->devId = $id;   
+        }
+        else
+        {
+            if($this->getDeveloper($id))
+            {
+                $this->tableGWay->update($data,array('id'=>$id));
+            }
+            else
+            {
+                throw new \Exception('Developer does not exist');
+            }
+        }
 	}
     
     public function delDeveloper($id)
     {
         $this->tableGWay->delete(array('id' => (int)$id));
     }
-    public function fetchAll(){
-        $resultSet = $this->tableGWay->select();
-        return $resultSet;
+    
+    public function fetchtemplate(){
+        $resultSet = $this->tableGWay->select(array('devId' => $devId));
+       $row = $rowset->current();
     }
+    
+
+
 }
 ?>

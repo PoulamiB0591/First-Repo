@@ -13,6 +13,8 @@ class Template
 	public $templateName;
 	public $scImage;
 	public $tempZipName;
+    public $tempZipDesc;
+    public $approval;
     
     //protected $inputFilter;
 	
@@ -21,10 +23,12 @@ class Template
 	    $this->id = (!empty($data['id'])) ? $data['id'] : null;
         $this->devId = (!empty($data['devId'])) ? $data['devId'] : null;
 		$this->templateName = (!empty($data['templateName'])) ? $data['templateName'] : null;
+        $this->templateDesc = (!empty($data['templateDesc'])) ? $data['templateDesc'] : null;
         
 		$this->scImage = (!empty($data['scImage'])) ? $data['scImage'] : $data['scImage'];
         
 		$this->tempZipName = (!empty($data['tempZipName'])) ? $data['tempZipName'] : $data['tempZipName'];
+        $this->approval = (!empty($data['approval'])) ? $data['approval'] : $data['approval'];
 	} 
     
     public function getArrayCopy() //added by Poulami

@@ -14,6 +14,8 @@ use Zend\Mvc\MvcEvent;
 
 use Application\Model\Developer;
 use Application\Model\DeveloperTable;
+use Application\Model\Template;
+use Application\Model\TemplateTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
@@ -44,7 +46,8 @@ class Module
     
     public function getServiceConfig() //added by Poulami
     {
-     return array(
+        
+        return array(
          'factories' => array(
              'Application\Model\DeveloperTable' => function($sm) {
              $tableGateway = $sm->get('DeveloperTableGateway');
@@ -56,6 +59,18 @@ class Module
              $resultSetPrototype = new ResultSet();
              $resultSetPrototype->setArrayObjectPrototype(new Developer());
              return new TableGateway('developer', $dbAdapter, null, $resultSetPrototype);
+             },
+             
+              'Application\Model\TemplateTable' => function($sm) {
+             $tableGateway = $sm->get('TemplateTableGateway');
+             $table = new TemplateTable($tableGateway);
+             return $table;
+             },
+            'TemplateTableGateway' => function ($sm) {
+             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+             $resultSetPrototype = new ResultSet();
+             $resultSetPrototype->setArrayObjectPrototype(new Template());
+             return new TableGateway('template', $dbAdapter, null, $resultSetPrototype);
              },
          ),
        );

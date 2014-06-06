@@ -16,6 +16,9 @@ use Application\Model\Developer;
 use Application\Model\DeveloperTable;
 use Application\Model\Template;
 use Application\Model\TemplateTable;
+use Application\Model\Admin;
+use Application\Model\AdminTable;
+
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
@@ -71,6 +74,18 @@ class Module
              $resultSetPrototype = new ResultSet();
              $resultSetPrototype->setArrayObjectPrototype(new Template());
              return new TableGateway('template', $dbAdapter, null, $resultSetPrototype);
+             },
+             
+             'Application\Model\AdminTable' => function($sm) {
+             $tableGateway = $sm->get('AdminTableGateway');
+             $table = new AdminTable($tableGateway);
+             return $table;
+             },
+            'AdminTableGateway' => function ($sm) {
+             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+             $resultSetPrototype = new ResultSet();
+             $resultSetPrototype->setArrayObjectPrototype(new Admin());
+             return new TableGateway('admin', $dbAdapter, null, $resultSetPrototype);
              },
          ),
        );

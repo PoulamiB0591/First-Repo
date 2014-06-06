@@ -15,7 +15,7 @@ class DeveloperTable
 		$this->tableGWay = $tableGateway;
 	}
     
-    public function getDeveloper($id) 
+    public function getDeveloperWithId($id) 
     {
         $id = (int) $id;
         
@@ -28,6 +28,34 @@ class DeveloperTable
         }
         
         return $row;
+    }
+    
+    public function getDeveloper($uname,$pwd) 
+    {
+        $rowset = $this->tableGWay->select(array('uname' => $uname,'pwd'=>$pwd));
+        
+        $rset = array();
+        
+        foreach($rowset as $rset){
+            $arr['id']=$rset->id;
+        }
+        
+        
+        
+        $id = $arr['id'];
+        $user_session = new Container('devId');
+        $user_session->devId = $id;
+    
+        if(0 === $rowset->count())
+        {
+            echo "Row not found";
+        }
+        else
+        {
+            return $rowset;
+        }
+        
+        
     }
 	
 	public function saveDeveloper(Developer $dev) //edited by Poulami
@@ -73,7 +101,28 @@ class DeveloperTable
        $row = $rowset->current();
     }
     
+     public function fetchEmail($id)
+   {
+     $id = (int) $id;
+        
+        $rowset = $this->tableGWay->select(array('id' => $id));        
+        
+        $arr=array();
+        foreach($rowset as $rset){
+            $arr[]=array( 
+            "eId"=>$rset->eId,
+            
+            );
+        }
+     return $arr;
 
+    
+   } 
+    
+ public function fetchAll(){
+        $resultSet = $this->tableGWay->select();
+        return $resultSet;
+    }
 
 }
 ?>

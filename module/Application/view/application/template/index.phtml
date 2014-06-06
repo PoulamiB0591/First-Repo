@@ -1,48 +1,264 @@
 <!----------- added by Poulami ----------->
 <div class="site">
-<div class="container-fluid">
-<div class="row"><p id="fly-it" class="top_heading col-md-12 center">Upload File</p></div>
-<div class="col-lg-8 col-md-offset-2 dev-form dev-form2">
-<?php 
 
+
+
+<div class="container-fluid"> 
+    <!--===== start banner ===-->
+     <!--===== start banner ===-->
+    <div class="row">
+      <div class="banner wizard">
+      	
+      </div>
+      
+    </div><!--===== end banner ===--> <!--===== end banner ===--> 
+    
+
+
+<!--===================================tab html start=================================-->
+<div class="wizard-cont row col-lg-12">
+<div class="horizontalTab" >
+  <ul class="resp-tabs-list home_publisher_tab">
+  <li><a href="#tab-1">1) Upload archive file</a></li>
+  <li><a href="#tab-2">2) Set up pages</a></li>
+  <li><a href="#tab-3">3) Validation</a></li>
+  </ul>
+  <hr>
+
+  <div id="tab-1" class="creat-acc-section">
+  
+  
+  
+  
+  <h1 class="heading">Step 1 - Upload archive file</h1>
+    <?php 
 $uform = $this->uform;
-$uform->setAttribute('action', $this->url('application/default', array('controller'=>'template','action' => 'addTemplate')));
+$uform->setAttribute('action', $this->url('application/default', array('controller'=>'template','action' => 'addtemplate')));
 $uform->prepare();
-
+echo $this->form()->openTag($uform);
 ?>
+    <div class="personal-data-form">
+    
+     <div class="info company-profile-info">
+        <label>Name your campaign</label>
+        <span class="first-name"><?php echo $this->formRow($uform->get('templateName'));?></span></div>        
+     
 
-<!-- T?o th? <form...> và các giá tr? thu?c tính c?a th? này -->
-<?php echo $this->form()->openTag($uform);?>
+        
+      
+        
+      <div class="info company-profile-info">
+        <label>Campaign description</label>
+        <span class="first-name company-profile"><?php echo $this->formRow($uform->get('templateDesc'));?></span></div>
+        
+      <div class="info company-profile-info">
+        <label>Your template archive</label>
+        <a class="first-name"><span id="button"><?php echo $this->formElement($uform->get('file')); ?></span><p class="word-limitation">Exact 200 x 200 pixels (max. filesize 500 kb)(perfect)</p></a></div>
+        
+        
+        <div class="info company-profile-info">
+        <label>Your template screenshot</label>
+        <a class="first-name"><span id="button"> <?php echo $this->formElement($uform->get('scImage')); ?></span></a></div>
+         
+      <div class="info company-profile-info">
+        <label>Suported platforms</label>
+        
+        
+        <ul class="blog_social">
+            <li><a href="https://www.facebook.com/" target="_blank" title="Facebook">facebook</a></li>
+            <li><a href="http://www.twitter.com/" target="_blank" title="Twitter">twitter</a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" title="Linkedin">linkedin</a></li>
+            <li><a href="http://instagram.com/" target="_blank" title="Instagram">instagram</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" title="Pinterest">pinterest</a></li>
+        </ul>
+        
+        </div>
+        
+        
+      
+      
 
-<ul class="col-lg-12">
-<li>
-<?php echo $this->formHidden($uform->get('devId'));?>
-</li>
-<li>
-<?php echo $this->formRow($uform->get('templateName'));?>
-</li>
-<li>
-      <!--In ra giá tr? nhãn  -->
-      <span><?php echo '<br />'; echo $this->formLabel($uform->get('file')); ?></span>
+    
+    </div>
+  
+    <hr/>
+    <?php echo $this->formElement($uform->get('submit'));?>
+    <?php echo $this->form()->closeTag() ?>
+  </div>
+<div id="tab-2" class="creat-acc-section">
+
+ <h1 class="heading">Step 2 - Set up your pages</h1>
+  <p class="pro_war">We've found the following files in your archive, please indicate how you<br />wish to use them in the step process of your app</p>
+
+
+
+<div class="set_page">
+  
+  
+  <div class="verticalTab">
+  <ul class="resp-tabs-list">
+  <li><a href="#tabs-1">File 1.html</a></li>
+  <li><a href="#tabs-2">File 2.html</a></li>
+  <li><a href="#tabs-3">File 3a.html</a></li>
+  <li><a href="#tabs-4">File 3b.html</a></li>
+  <li><a href="#tabs-5">File 4.html</a></li>
+  <li><a href="#tabs-6">File 5.html</a></li>
+  </ul>
+  <div id="tabs-1" class="creat-acc-section">
+  
+  
+ 
+  
+  
+  <div class="personal-data-form"><form>
+  
+   <div class="info select">
+        <label>Filename</label>
+        <p>File 2.php</p></div>
+  
+  
+  <div class="info select">
+        <label>Order</label>
+        <span class="first-name company-type" ><select name="" id="company-profile-option">
+        <option value="1" class="test-class-1">Choose..</option>
+        <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
+        <option value="1" class="test-class-1">make your choise</option>
+        </select></span></div>
+  
+  
+  
+     <div class="info company-profile-info">
+        <label>Pagename</label>
+        <span class="first-name"><input name="first-name" type="text" value="For example: Choose a product type" /></span></div> 
+        
+        
+                
+     
+
+        
       
-      <!--T?o ph?n t? HTML cho vi?c Upload -->
-      <?php echo $this->formElement($uform->get('file')); ?>
-   </li>
-<li>
-      <!--In ra giá tr? nhãn  -->
-      <span><?php echo '<br />'; echo $this->formLabel($uform->get('scImage')); ?></span>
+        
+      <div class="info company-profile-info">
+        <label>Description</label>
+        <span class="first-name company-profile"><textarea name="des" cols="" rows="">For example:
+This page let's the user choose the product 
+that they want to participate for in the 
+contest.</textarea></span></div>
+  
+        
+        <div class="info company-profile-info">
+        <label>&nbsp;</label>
+        <span class="first-name"><a href="#" class="btn_sv">save</a></span></div>
       
-      <!--T?o ph?n t? HTML cho vi?c Upload -->
-      <?php echo $this->formElement($uform->get('scImage')); ?>
-   </li>
-<li>
-      <!--T?o nút Submit -->
-      <?php echo $this->formElement($uform->get('submit'));?>
-   </li>
-</ul>
-<!-- Ðóng th? </form>
--->
-<?php echo $this->form()->closeTag() ?>
+      
+
+    </form>
+    </div>
+  
+  
+  
+  
+  </div>
+  <div id="tabs-2"></div>
+  <div id="tabs-3"></div>
+  <div id="tabs-4"></div>
+  <div id="tabs-5"></div>
+  <div id="tabs-6"></div>
+  
+  </div>
+  
+  
+   
+  
+  </div>
+
+
+  <hr>
+  
+  <a href="#" class="back_page" title="Previous step">Previous step</a>
+  <input name="submit" type="submit" value="Save &amp; continue" class="save_btn" />
+
+
+    
+  </div>
+  <div id="tab-3" class="creat-acc-section">
+  
+ <h1 class="heading">Step 3 - Validating your pages</h1>
+  <p class="pro_war">In order to continue you have to fix <span>2 problems</span>.<br />
+Even though they are not required whenever possible please fix the <span>3 warnings</span>.</p>
+
+
+
+
+
+<div class="result_tab">
+	
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th>Problems (2)</th>
+    <th colspan="2">&nbsp;</th>
+  </tr>
+  <tr>
+    <td width="120">file2.php</td>
+    <td>PHP error found in line 8</td>
+    <td width="130"><a href="#" title="Expand details">Expand details</a></td>
+  </tr>
+  <tr>
+    <td width="120">file1.php</td>
+    <td>YouTube tag not closed</td>
+    <td width="130"><a href="#" title="Expand details">Expand details</a></td>
+  </tr>
+</table>
+
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th>Warnings (3)</th>
+    <th colspan="2">&nbsp;</th>
+  </tr>
+  <tr>
+    <td width="120">file2.php</td>
+    <td>This is an warning about something</td>
+    <td width="130"><a href="#" title="Expand details">Expand details</a></td>
+  </tr>
+  <tr>
+    <td width="120">file1.php</td>
+    <td>This is an warning about something</td>
+    <td width="130"><a href="#" title="Expand details">Expand details</a></td>
+  </tr>
+  <tr>
+    <td width="120">file3a.php</td>
+    <td>This is an warning about something</td>
+    <td width="130"><a href="#" title="Expand details">Expand details</a></td>
+  </tr>
+</table>
+
 </div>
+
+<hr>
+  
+  <a href="#" class="back_page" title="Previous step">Previous step</a>
+  <input name="submit" type="submit" value="Save &amp; continue" class="save_btn" />
+
+    
+  </div>
+
+
 </div>
-</div>
+
+
+<div style="position:relative;"><hr> <a id="back-to-top" class="go_to_up" href="#"></a></div>
+
+
+ </div> 
+
+  
+
+<!--===================================tab html end=================================-->
+
+
+
+
+
+ 
+    </div>

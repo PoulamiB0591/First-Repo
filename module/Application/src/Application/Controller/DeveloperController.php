@@ -26,7 +26,12 @@ class DeveloperController extends AbstractActionController {
 	
 	public function indexAction()
 	{
-	   
+	   /*$error = (int) $this->params()->fromRoute('id');
+       
+       if($error)
+       {
+        echo "Please register to log in";
+       }
        /*$title = 'Add a Developer';
        $this->headTitle($title);*/
        
@@ -34,8 +39,38 @@ class DeveloperController extends AbstractActionController {
         return array('form'=> $dForm);
 	}
     
+    public function loginAction()
+    {
+        $dForm   = new DForm();
+        
+        $request = $this->getRequest();
+        
+        if($request->isPost())
+        {
+            $developer = new Developer();
+            $dForm->setData($request->getPost());
+            
+            $uname = $request->getPost('uname');
+            $pwd = $request->getPost('pwd');
+            
+            if($dForm->isValid())
+            {
+                //$developer->exchangeArray($dForm->getData());
+                if($this->getDeveloperTable()->getDeveloper($uname,$pwd))
+                {
+                    $this->redirect()->toRoute('application/default',array('controller'=>'developer','action'=>'dashboard'));
+                }
+                else
+                {
+                    $this->redirect()->toRoute('application/default',array('controller'=>'developer','action'=>'index','id'=>'0'));
+                }
+            }
+        }
+    }
+    
     public function dashboardAction() //added by Poulami
     {
+        
         $user_session = new Container('devId');
         $id  = $user_session->devId; 
         
@@ -125,7 +160,13 @@ class DeveloperController extends AbstractActionController {
         
         $this->redirect()->toRoute('application/default',array('controller'=>'developer','action'=>'get'));
         
-    }  
+    } 
+    
+    public function logoutAction() 
+    {
+        unset($_SESSION['devId']); 
+        $this->redirect()->toRoute('application/default',array('controller'=>'developer'));
+    }
          
     public function getDeveloperTable()
     {
@@ -144,158 +185,5 @@ class DeveloperController extends AbstractActionController {
         }
         return $this->templateTable;
     }
-    
-    
-    
- /*public function getDirectory( $path = '.', $level = 0){ 
-   
-         $user_session = new Container('devId');
-        $id  = $user_session->devId; 
-    $res = $this->getTemplateTable()->selectTemplate($id);
-
-      foreach($res as $row){
-        $folder =  $row['template_name'];
-        
-      }
-//$file=array();
-//$fileLink = array();
-//$dir_arr=array();
-$ignore = array( 'cgi-bin', '.', '..' ); 
-    
-
-    $dh = @opendir($path); 
-   
-     
-    while( false !== ( $file = @readdir( $dh ) ) ){ 
-   $dirArray[]=$file;
-  
-     
-        if( !in_array( $file, $ignore ) ){ 
-       
-             
-            $spaces = str_repeat( '&nbsp;', ( $level * 4 ) ); 
-      $abc="";
-      $abc= $path;
-      $parts = Explode('/', $abc);
-      $array = array_diff($parts, array('xampp','D:','htdocs'));
-         
-      
-        $str_arr = implode("/",$array);  
-                 
-             
-            if( is_dir( "$path/$file" )){ 
-        
-             
-                echo "<strong>$spaces $file</strong><br /><br />"; 
-               // $dir_arr = "$spaces $file";
-                $this->getDirectory( "$path/$file", ($level+1)); 
-              
-             
-            } else { 
-               $currentUrl = $_SERVER["SERVER_NAME"];
-                    
-             
-                echo "<a class='fileLink' href='#' cursor:pointer><li id='lidet' style='opacity:0;' onclick='requestUrlWithAjax(this.innerHTML)'>http://$currentUrl/$str_arr/$file</li>$file</a><br />";  
-                //$file= "http://$currentUrl/$str_arr/$file";
-                //$fileLink[]= "$file";
- 
-         
-             
-            } 
-         
-        } 
-     
-    } 
-   
-      
-     
-    closedir( $dh ); 
-    // Close the directory handle 
-    
-   // return new ViewModel(array(
-//           
-//            'fileLink' => $fileLink,
-//        ));
-
-} 
-    
-public function testAction() {
-     $user_session = new Container('devId');
-        $id  = $user_session->devId; 
-        
-  
-      $res = $this->getTemplateTable()->selectTemplate($id);
-      
-      foreach($res as $row){
-        $folder =  $row['template_name'];
-        
-      }
-   $retEditor = $this->getDirectory( "D:/xampp/htdocs/zf_new/public/files/$folder" );
-      
-       $request = $this->getRequest();
-    
-   $newdata = $request->getpost('read_file');
-  $textvalurl = $request->getpost('textvalurl');
-  
-   if ($textvalurl != '') {
-   $part = Explode('/', $textvalurl);
-      $array = array_diff($part, array('http:','localhost'));
-
-        $str_arr1 = implode("/",$array);  
-
-   $filename = "D:/xampp/htdocs$str_arr1";
-if ($newdata != '') {
-
-
-$fw = fopen($filename, 'w') or die('Could not open file!');
-
-$fb = fwrite($fw,stripslashes($newdata)) or die('Could not write
-to file');
-
-fclose($fw);
-}
-
-  $fh = fopen($filename, "r") or die("Could not open file!");
-
-$data = fread($fh, filesize($filename)) or die("Could not read file!");
- return array('data'=>$data);
- 
-// close file
-  fclose($fh);
-   return $retEditor;
-   
- }
- else{
-    $filename ="D:/xampp/htdocs/zf_new/public/files/$folder/index.php";
-if ($newdata != '') {
-
-
-$fw = fopen($filename, 'w') or die('Could not open file!');
-
-$fb = fwrite($fw,stripslashes($newdata)) or die('Could not write
-to file');
-
-fclose($fw);
-}
-
-  $fh = fopen($filename, "r") or die("Could not open file!");
-
-$data = fread($fh, filesize($filename)) or die("Could not read file!");
- return array('data'=>$data);
- 
-// close file
-  fclose($fh);
-   return $retEditor;
-   
- }
-
-  //// return new ViewModel(array(
-//            'tempname' => $this->getTemplateTable()->selectTemplate($id),
-//        ));
-}*/
-
-     
-
-    
     
 }

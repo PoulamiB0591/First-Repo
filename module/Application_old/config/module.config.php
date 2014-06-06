@@ -78,7 +78,8 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Developer' => 'Application\Controller\DeveloperController' // edited by Poulami
+            'Application\Controller\Developer' => 'Application\Controller\DeveloperController', // edited by Poulami
+            'Application\Controller\Template' => 'Application\Controller\TemplateController' // edited by Poulami
         ),
     ),
     

@@ -59,7 +59,16 @@ class DForm extends Form
             'name' => 'submit',
             'type' => 'submit',
             'attributes' => array(
-                'value' => 'Register',
+                'value' => 'REGISTER',
+                'id' => 'regButton',
+            )
+        ));
+        
+        $this->add(array(
+            'name' => 'login',
+            'type' => 'submit',
+            'attributes' => array(
+                'value' => 'LOGIN',
                 'id' => 'regButton',
             )
         ));

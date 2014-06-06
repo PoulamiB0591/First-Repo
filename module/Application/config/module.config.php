@@ -41,7 +41,7 @@ return array(
                     'default' => array(
                         'type' => 'Segment',
                         'options' => array(
-                            'route' => '[:controller[/:action]][/:id]', //edited by koushik
+                            'route' => '[:controller[/:action]][/:id][/:devId]', //edited by koushik
                             'constraints' => array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
@@ -79,7 +79,8 @@ return array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\Developer' => 'Application\Controller\DeveloperController', // edited by Poulami
-            'Application\Controller\Template' => 'Application\Controller\TemplateController' // edited by Poulami
+            'Application\Controller\Template' => 'Application\Controller\TemplateController', // edited by Poulami
+            'Application\Controller\Admin' => 'Application\Controller\AdminController' // 
         ),
     ),
     

@@ -15,26 +15,6 @@ class TemplateTable
 		$this->tableGWay = $tableGateway;
 	}
     
-   public function getResult($id)
-   {
-     $id = (int) $id;
-        
-        $rowset = $this->tableGWay->select(array('devId' => $id));        
-        
-        $arr=array();
-        foreach($rowset as $rset){
-            $arr[]=array(
-            
-            "devId"=>$rset->devId,
-            "template_name"=>$rset->templateName,
-            "tempalte_img"=>$rset->scImage,
-            "approval"=>$rset->approval
-            );
-        }
-     return $arr;
-
-    
-   } 
    public function getTemplate($id) 
     {
         $id = (int) $id;
@@ -72,11 +52,8 @@ class TemplateTable
 	   $data = array(
             'devId'=> $temp->devId,
 			'templateName' => $temp->templateName,
-            'templateDesc' => $temp->templateDesc,
 				'scImage'=> $temp->scImage,
 				'tempZipName' => $temp->tempZipName,
-                'approval'=>$temp->approval
-                
 		);
         
         $id = (int) $temp->id;
@@ -97,29 +74,6 @@ class TemplateTable
             }
         }
 	}
-    
-    
-    
-	public function approveTemplate($templateName,$devId) 
-	{
-	   $data = array(
-            'approval'=> '1',
-		);
-    
-                $this->tableGWay->update($data,array('templateName'=>$templateName,'devId'=>$devId));
-            
-	}
-    
-    	public function rejectTemplate($templateName,$devId) 
-	{
-	   $data = array(
-            'approval'=> '0',
-		);
-    
-                $this->tableGWay->update($data,array('templateName'=>$templateName,'devId'=>$devId));
-            
-	}
-    
     
  public function selectTemplate($id)
  {

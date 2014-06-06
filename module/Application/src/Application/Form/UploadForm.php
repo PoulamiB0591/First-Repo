@@ -20,17 +20,19 @@ class UploadForm extends Form
         $this->add(array(
             'name' => 'devId',
             'type' => 'hidden',
-            'options' => array(
-                'label' => 'DevId',
-            ),
+            
         )); /***** added by Poulami ends ******/
         
         $this->add(array(
             'name' => 'templateName',
             'type' => 'Text',
-            'options' => array(
-                'label' => 'Template Name',
-            )
+            
+        ));
+
+        $this->add(array(
+            'name' => 'templateDesc',
+            'type' => 'Textarea',
+            
         ));
         
          $this->add(array(
@@ -38,11 +40,9 @@ class UploadForm extends Form
             'attributes' => array(
                'type'  => 'file',
       'required' => 'required',
-               'class' => 'txtInput txtMedium'
+               'class' => 'nicefile'
             ),
-            'options' => array(
-                'label' => 'File upload:',
-            ),
+            
         ));
         
         $this->add(array(
@@ -50,11 +50,9 @@ class UploadForm extends Form
             'attributes' => array(
                'type'  => 'file',
       'required' => 'required',
-               'class' => 'txtInput txtMedium'
+               'class' => 'nicefile'
             ),
-            'options' => array(
-                'label' => 'Screenshot upload:',
-            ),
+           
         ));
        
         
@@ -63,7 +61,8 @@ class UploadForm extends Form
               'name' => 'submit',
               'attributes' => array(
                     'type'  => 'submit',
-                    'value' => 'Send data'
+                    'value' => 'Send data',
+                    'class' => 'save_btn'
               ),
         ));
         
