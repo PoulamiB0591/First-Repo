@@ -3,13 +3,6 @@
 		
 
 	$(function(){
-	   // general setup
-       // added by koushik roy
-       var page = document.URL.split("/"); // to get the page name from the browser url
-      
-       //Note: url where module name is not present. if in the url you have module name then use href[5] instead of href[4]
-       //alert(page);
-       // end koushik roy
 			//	========back to top start =========	
 			$('#back-to-top').click(function(){
 		$('html, body').animate({scrollTop : 0},800);
@@ -242,20 +235,26 @@
 	//	======== tab to accordion start =========	
 	
 
-         $('#horizontalTab').responsiveTabs({
+         $('.horizontalTab').responsiveTabs({
                 rotate: false,
                 startCollapsed: 'accordion',
                 collapsible: 'accordion',
                 setHash: true,
                 //disabled: [3,4]
             });
+			
+			 $(".verticalTab").responsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true
+        });
    
 	//	======== tab to accordion end =========	
 	//	======== prettyphoto start =========		
-		$("ul#mycarousel li a[rel^='prettyPhoto[gallery1]']").prettyPhoto({
-			animation_speed:'normal',
-			theme:'light_square',
-		});	
+	//	$("ul#mycarousel li a[rel^='prettyPhoto[gallery1]']").prettyPhoto({
+//			animation_speed:'normal',
+//			theme:'light_square',
+//		});	
 		//	======== prettyphoto end =========	
 			
 	
@@ -298,7 +297,24 @@
       $('#listdisplay').fadeIn(200);  
     });
   });
-
+  
+  
+  
+  
+  //	======== slideUp start =========	
+  $("ul.campaigns-list > li > div + div ul").slideUp();
+	
+	$("a.setting_clk").click(function(){
+		if($(this).parent().children("ul").is(":hidden")){
+			$("ul.campaigns-list > li > div + div ul").slideUp();
+			$(this).parent().children("ul").slideDown();
+		}else{
+			$(this).parent().children("ul").slideUp();
+		};
+		return false;
+	});
+  //	======== slideUp end =========	
+  
 
 
 	

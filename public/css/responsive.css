@@ -93,15 +93,19 @@
 .t-store a{ height: 30px; line-height: 30px; width:137px}
  }
 /*@media all and (min-width:1023px) and (max-width:1025px){#home_publisher_tab{ width: 69%;}}	*/  
-@media all and (max-width:800px){.introduction-section{width:100%;} .content{margin-left:0 !important;}}
+@media all and (max-width:800px){.introduction-section{width:100%;} .content{margin-left:0 !important;}
+}
 @media all and (max-width:1025px){
 	.creat-acc-section .personal-data-form{width:100%;}
+	.wizard{padding: 0 0 28%;}
 	}
 	
 	 @media all and (max-width:1025px){.data-info{width:100% !important;}}
  @media all and (max-width:700px){.info.company-profile-info > img{margin:0; }.correct-arrow , .rate_publisher , .rate3 , rate2{display:none;}}
  @media all and (max-width:361px){.abt-title, .abt-social, .social_icon3 { float:none}
  .abt-img-wrap{padding-bottom: 5px;}
+ .blog-msg ul li > span{ float:none; margin:0 auto 12px;}
+	 .blog-msg ul li div {text-align: center;width: 100%;}
  
  }
  
@@ -112,6 +116,8 @@
 	-moz-background-size: cover;
   -o-background-size: cover;
   background-size: 100% auto;}
+
+
   .social_icon{ display:none}
   .banner_caption h2{ display:none}
   
@@ -165,6 +171,10 @@
 @media all and (max-width:680px){
 .big_button{margin-bottom:12px;}
 
+section.documentation-cont > h4 {
+  margin-top: 29px;
+}
+
 
 }
 	  
@@ -183,6 +193,30 @@
     min-height: 690px;
 }
 
+.campaign-report-left {text-align: center;float:none}
+.campaign-report-right {float:none }
+.download-report{ float:none; margin:0 auto}
+.report-pagnination ul {text-align: center; float:none}
+.report-pagnination ul li { float:none; display:inline-block}	
+.view-rows {width: 100%;margin-bottom: 10px;}
+.report-view-rows{margin-bottom: 13px;}
+
+
+
+.developers-cont h2{ font-size:32px;}
+.developers-cont a{ font-size:14px; width:100%;}
+.documentation h1{ font-size:44px;}
+ul.campaigns-list > li > span {display: block;margin: 0 auto 12px;float:none; width: 48px;}
+.campaigns_head a{ float:none; margin:0 auto;}
+.campaigns_head h3{ float:none; text-align:center}
+.creat-acc-section form .info label{ width:100%;}
+.wizard-cont input.save_btn[type="submit"]{ margin-bottom:24px;}
+.blog-details-video{ width:100%;}
+.blog-overview-cont h5 span:last-child {
+  display: block;
+  float: none;
+}
+
 	
 	
 	 }
@@ -194,6 +228,11 @@
 		 .form-conatainer ul li input[type="text"], .form-conatainer ul li label, .form-conatainer ul li textarea{width: 100%; float:none}
 		 .contact-author ul li{ margin-top:30px;}
 		 .social_icon3{ display:none}
+		 
+		 
+		 
+	 
+	 .blog-overview-cont h5 span:last-child{ float:none; display:block}
 	 
 	 } 
 	 
@@ -213,10 +252,83 @@
        .owl-carousel .owl-wrapper-outer{width: 99%;}
        
        }
+	   
+	   
+	   
+@media all and (min-width:1025px) and (max-width:1260px){
+		.blog-overview h1 {padding: 0 0 30%;}
+		.developers {padding:0 0 76% 0;}
+		.wizard {padding: 0 0 44%;}
+}
+
+@media all and (min-width:640px) and (max-width:767px){
+		.blog-overview h1 {font-size:45px;}
+}    
        
-       
+@media all and (min-width:640px) and (max-width:1024px){
+		.blog-overview h1 {padding: 0 0 5%;}
+} 
+
+@media all and (min-width:1175px) and (max-width:1240px){
+		.blog-overview h1 {padding: 0 0 30%;}
+		.developers {padding:0 0 59% 0;}
+}      
   /*@media all and (min-width:1024px) and (max-width:1200px){
   
     .site{ padding-left:22% !important}
     
   }*/
+  
+/*////////////////////////FOR RESPONSIVE SORTING TABLE/////////////////////////////////////////*/
+
+@media only screen and (max-width: 800px) {
+    
+    /* Force table to not be like tables anymore */
+	#no-more-tables table, 
+	#no-more-tables thead, 
+	#no-more-tables tbody, 
+	#no-more-tables th, 
+	#no-more-tables td, 
+	#no-more-tables tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#no-more-tables thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#no-more-tables tr { border: 1px solid #ccc; }
+ 
+	#no-more-tables td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50% !important; 
+		white-space: normal;
+		text-align:right;
+	}
+ 
+	#no-more-tables td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+	}
+	.campaign-reports .table-bordered{ border:none}
+ 
+	/*
+	Label the data
+	*/
+	#no-more-tables td:before { content: attr(data-title); }
+}
+  
