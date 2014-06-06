@@ -53,7 +53,7 @@ class TemplateController extends AbstractActionController {
         $uform   = new UploadForm();
        
         $request = $this->getRequest();
-        
+        print_r($request); exit;
         if($request->isPost())
         {
             /******* added by Poulami ******/
@@ -120,7 +120,7 @@ class TemplateController extends AbstractActionController {
                                 
                                 /************** a mail is sent to admin *****************/
                                 $from = 'info@smartfanpage.com';
-                                $to = 'poulami@delgence.com';
+                                $to = 'koushik.roy@delgence.com';
                                 $subject = 'TestSubject';
                                 $textPart = new MimePart('This is the text of the mail');
                                 $textPart->type = "text/plain";
