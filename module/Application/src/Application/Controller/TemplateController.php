@@ -11,6 +11,9 @@ use Zend\Http\PhpEnvironment\Request;
 use Zend\Session\Container;
 
 use Zend\Mail;
+use ZendMail;
+use ZendMimeMessage as MimeMessage;
+use ZendMimePart as MimePart;
 /**
  * DeveloperController
  *
@@ -116,16 +119,26 @@ class TemplateController extends AbstractActionController {
                                 $this->getTemplateTable()->saveTemplate($template);
                                 
                                 /************** a mail is sent to admin *****************/
-                                $mail = new Mail\Message();
-                                $mail->setBody('This is the text of the email.');
-                                $mail->setFrom('info@smartfanpage.com', 'Smartfanpage 2.0');
-                                $mail->addTo('poulami@delgence.com', 'Admin');
-                                $mail->setSubject('TestSubject');
+                                $from = 'info@smartfanpage.com';
+                                $to = 'poulami@delgence.com';
+                                $subject = 'TestSubject';
+                                $textPart = new MimePart('This is the text of the mail');
+                                $textPart->type = "text/plain";
+                                $body = new MimeMessage();
+                                $body->setParts(array($textPart));
+                                $message = new MailMessage();
+                                $message->setFrom($from);
+                                $message->addTo($to);
+                                $message->setSubject($subject);
                                 
-                                $transport = new Mail\Transport\Sendmail();
-                                $transport->send($mail);
+                                $message->setEncoding("UTF-8");
+                                $message->setBody($body);
+                                $message->getHeaders()->get('content-type')->setType('multipart/alternative');
                                 
+                                $transport = new MailTransportSendmail();
+                                $transport->send($message);
                                 $msg = "<br>Uploaded Successfully";
+                                
                                 
                                 //echo "<br>Uploaded Successfully";
                             }
