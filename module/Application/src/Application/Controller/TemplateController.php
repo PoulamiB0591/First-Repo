@@ -60,7 +60,7 @@ class TemplateController extends AbstractActionController {
                 $this->getRequest()->getPost()->toArray(), $this->getRequest()->getFiles()->toArray() 
             ); 
             
-            $file = $_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$data['templateName'];
+            $file = $_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$data['templateName'];
             
             if (false === file_exists($file)) 
             {          
