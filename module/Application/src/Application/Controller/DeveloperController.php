@@ -39,7 +39,7 @@ class DeveloperController extends AbstractActionController {
         return array('form'=> $dForm);
 	}
     
-    public function loginAction()
+    public function login1Action()
     {
         $dForm   = new DForm();
         
@@ -67,7 +67,20 @@ class DeveloperController extends AbstractActionController {
             }
         }
     }
-    
+    public function loginAction()
+    {
+    	/*$error = (int) $this->params()->fromRoute('id');
+    	  
+    	if($error)
+    	{
+    	echo "Please register to log in";
+    	}
+    	/*$title = 'Add a Developer';
+    	$this->headTitle($title);*/
+    	 
+    	$dForm   = new DForm();
+    	return array('form'=> $dForm);
+    }
     public function dashboardAction() //added by Poulami
     {
         
