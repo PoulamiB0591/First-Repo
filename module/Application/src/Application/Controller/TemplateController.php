@@ -378,7 +378,7 @@ class TemplateController extends AbstractActionController {
         $this->redirect()->toRoute('application/default',array('controller'=>'developer','action'=>'dashboard'));
     }
     
-    public function getTemplateTable()
+    public function getTemplateTable() 
     {
         if (!$this->templateTable) {
          $sm = $this->getServiceLocator();
