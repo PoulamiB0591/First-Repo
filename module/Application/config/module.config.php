@@ -80,7 +80,8 @@ return array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\Developer' => 'Application\Controller\DeveloperController', // edited by Poulami
             'Application\Controller\Template' => 'Application\Controller\TemplateController', // edited by Poulami
-            'Application\Controller\Admin' => 'Application\Controller\AdminController' // 
+            'Application\Controller\Admin' => 'Application\Controller\AdminController', // 
+            'Application\Controller\Frontend' => 'Application\Controller\FrontendController'
         ),
     ),
     
