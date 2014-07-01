@@ -1,0 +1,106 @@
+ .imgedit {
+               
+             height:320px;
+             width: 796px;
+                overflow: hidden;
+            }
+
+.kinetic-moving-up {
+                border-top-color: green !important;
+            }
+            .kinetic-moving-down {
+                border-bottom-color: green !important;
+            }
+            .kinetic-moving-left {
+                border-left-color: green !important;
+            }
+            .kinetic-moving-right {
+                border-right-color: green !important;
+            }
+
+            .kinetic-decelerating-up {
+                border-top-color: red !important;
+            }
+            .kinetic-decelerating-down {
+                border-bottom-color: red !important;
+            }
+            .kinetic-decelerating-left {
+                border-left-color: red !important;
+            }
+            .kinetic-decelerating-right {
+                border-right-color: red !important;
+            }
+
+
+
+
+.setting-2{
+    background: url("http://localhost/zf_new/public/images/setting_bg.png") repeat scroll left top rgba(0, 0, 0, 0);
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  right: 26px;
+  top: 6px;
+   border-radius: 3px;
+  padding: 10px;
+  z-index: 9999;
+}
+
+.setting-2 a.edit {
+ background: url("http://localhost/zf_new/public/images/edit_icon2.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+  display: block;
+  float: left;
+  height: 28px;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 32px;
+  clear: none;
+}
+
+
+.setting-2 a.delete {
+  background: url("http://localhost/zf_new/public/images/delete_icon2.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+  display: block;
+  float: left;
+  height: 26px;
+  margin: 1px 0 0 10px;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 26px;
+   clear: none;
+}
+
+
+.setting-2 a.edit:hover, .setting-2 a.delete:hover {
+  opacity: 0.8;
+}
+
+.what_is_this > p {
+  float: left;
+  width: 70%;
+}
+.what_is_this {
+  background: none repeat scroll 0 0 #000;
+  border-radius: 5px;
+  display: block;
+  padding: 10px;
+  position: absolute;
+  right: 81px;
+  top: 65px;
+  width: 10%;
+  z-index: 999;
+}
+
+#upload{
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  left: 26px;
+  top: 286px;
+  z-index: 9999;
+    
+}
+.imgedit, .textedit, .tool-tip {
+  position: relative;
+}
+   
