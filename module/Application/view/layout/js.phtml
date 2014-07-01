@@ -10,7 +10,13 @@ if(($page == 'index') || ($page == 'store'))
             ->prependFile($this->basePath() . '/js/jquery.selectBox.js', 'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery.fittext.js')
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-            ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js'); 
+            ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js')
+            ->prependFile($this->basePath() . '/js/main2.js')
+             ->prependFile($this->basePath() . '/js/jquery.bxslider.js')
+              ->prependFile($this->basePath() . '/js/jquery.customSelect.js')
+              ->prependFile($this->basePath() . '/js/jquery.datetimepicker.js')
+              ->prependFile($this->basePath() . '/js/jscrollpane.min.js')
+              ->prependFile($this->basePath() . '/js/mousewheel.js'); 
             
 } 
 elseif($page == 'howswork') 
@@ -24,7 +30,22 @@ elseif($page == 'howswork')
             ->prependFile($this->basePath() . '/js/jquery.fittext.js')
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
             ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js');
-    
+             
+}
+
+elseif($pagefront == 'edit'){
+      echo $this->headScript()
+                ->prependFile($this->basePath() . '/js/style.js')
+                 ->prependFile($this->basePath() . '/js/main2.js')
+                   ->prependFile($this->basePath() . '/js/jquery.datetimepicker.js','text/javascript')
+                   ->prependFile('http://code.jquery.com/ui/1.10.4/jquery-ui.js')
+                ->prependFile($this->basePath() . '/js/jquery.bxslider.js')
+              ->prependFile($this->basePath() . '/js/jquery.customSelect.js')
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+              ->prependFile($this->basePath() . '/js/jscrollpane.min.js')
+              ->prependFile($this->basePath() . '/js/mousewheel.js')
+              ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js');
+              
 }
 else
 {
@@ -40,6 +61,7 @@ else
             ->prependFile($this->basePath() . '/js/jquery.selectBox.js', 'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery.fittext.js')
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-            ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js');
+            ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js'); 
+            
 }
 ?>

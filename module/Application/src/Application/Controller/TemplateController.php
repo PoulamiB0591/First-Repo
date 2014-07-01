@@ -160,7 +160,7 @@ class TemplateController extends AbstractActionController {
                                   foreach($files as $file)
                                       @unlink($file);
                                       
-                         if(is_dir($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$nameExt[0])){ rmdir($_SERVER['DOCUMENT_ROOT'].'/zf_new/public/files/'.$nameExt[0]);  }             
+                         if(is_dir($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$nameExt[0])){ rmdir($_SERVER['DOCUMENT_ROOT'].'/staging/public/files/'.$nameExt[0]);  }             
                         
                          $msg = "<br>index file is missing.Sorry to upload!!";
                                 
@@ -219,7 +219,7 @@ class TemplateController extends AbstractActionController {
                 $abc="";
                 $abc= $path;
                 $parts = Explode('/', $abc);
-                $array = array_diff($parts, array('xampp','D:','htdocs'));
+                $array = array_diff($parts, array('var','www'));
                 
                 
                 $str_arr = implode("/",$array);  
@@ -264,7 +264,7 @@ class TemplateController extends AbstractActionController {
          $abc="";
          $abc= $newPath;
          $parts = Explode('/', $abc);
-         $array = array_diff($parts, array('xampp','D:','htdocs'));
+         $array = array_diff($parts, array('var','www'));
             $str_arr = implode("/",$array);  
              $currentUrl = $_SERVER["SERVER_NAME"];
              
@@ -282,7 +282,7 @@ class TemplateController extends AbstractActionController {
          $abc="";
          $abc= $path;
          $parts = Explode('/', $abc);
-         $array = array_diff($parts, array('xampp','D:','htdocs'));
+         $array = array_diff($parts, array('var','www'));
           $str_arr = implode("/",$array); 
             $currentUrl = $_SERVER["SERVER_NAME"]; 
        $hold .= "<a id='lidet' style='cursor:pointer;'  onclick='requestUrlWithAjax(this.innerHTML)'>http://$currentUrl/$str_arr/$item</a><a style='cursor:pointer;'>$item</a>".'<br/>';
