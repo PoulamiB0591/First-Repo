@@ -1,0 +1,108 @@
+<!----------- added by Poulami ----------->
+<div class="site">
+
+
+
+<div class="container-fluid"> 
+    <!--===== start banner ===-->
+     <!--===== start banner ===-->
+    <div class="row">
+      <div class="banner wizard">
+      	
+      </div>
+      
+    </div><!--===== end banner ===--> <!--===== end banner ===--> 
+    
+
+
+<!--===================================tab html start=================================-->
+<div class="wizard-cont row col-lg-12">
+<div class="horizontalTab" >
+  <ul class="resp-tabs-list home_publisher_tab">
+  <li><a href="#tab-1">1) Upload archive file</a></li>
+
+  </ul>
+  <hr>
+
+  <div id="tab-1" class="creat-acc-section">
+  
+  
+  
+  
+  <h1 class="heading">Step 1 - Upload archive file</h1>
+    <?php 
+$uform = $this->uform;
+$uform->setAttribute('action', $this->url('application/default', array('controller'=>'template','action' => 'addtemplate')));
+$uform->prepare();
+echo $this->form()->openTag($uform);
+?>
+    <div class="personal-data-form">
+    
+     <div class="info company-profile-info">
+        <label>Name your campaign</label>
+        <span class="first-name"><?php echo $this->formRow($uform->get('templateName'));?></span></div>        
+     
+
+        
+      
+        
+      <div class="info company-profile-info">
+        <label>Campaign description</label>
+        <span class="first-name company-profile"><?php echo $this->formRow($uform->get('templateDesc'));?></span></div>
+        
+      <div class="info company-profile-info">
+        <label>Your template archive</label>
+        <a class="first-name"><span id="button"><?php echo $this->formElement($uform->get('file')); ?></span><p class="word-limitation">Exact 200 x 200 pixels (max. filesize 500 kb)(perfect)</p></a></div>
+        
+        
+        <div class="info company-profile-info">
+        <label>Your template screenshot</label>
+        <a class="first-name"><span id="button"> <?php echo $this->formElement($uform->get('scImage')); ?></span></a></div>
+         
+      <div class="info company-profile-info">
+        <label>Suported platforms</label>
+        
+        
+        <ul class="blog_social">
+            <li><a href="https://www.facebook.com/" target="_blank" title="Facebook">facebook</a></li>
+            <li><a href="http://www.twitter.com/" target="_blank" title="Twitter">twitter</a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" title="Linkedin">linkedin</a></li>
+            <li><a href="http://instagram.com/" target="_blank" title="Instagram">instagram</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" title="Pinterest">pinterest</a></li>
+        </ul>
+        
+        </div>
+        
+        
+      
+      
+
+    
+    </div>
+  
+    <hr/>
+    <?php echo $this->formElement($uform->get('submit'));?>
+    <?php echo $this->form()->closeTag() ?>
+  </div>
+
+  
+
+
+</div>
+
+
+<div style="position:relative;"><hr> <a id="back-to-top" class="go_to_up" href="#"></a></div>
+
+
+ </div> 
+
+  
+
+<!--===================================tab html end=================================-->
+
+
+
+
+
+ 
+    </div>

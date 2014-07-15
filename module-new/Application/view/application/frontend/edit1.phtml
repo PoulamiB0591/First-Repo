@@ -1,0 +1,171 @@
+
+
+<!--[if lt IE 9]>
+	<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+
+<style type="text/css" media="screen">
+
+div.checkbox_onoff {
+    border-radius:2px;
+    display: block;
+    height: 24px;
+    overflow: hidden;
+    width: 68px;
+	cursor:pointer;
+}
+div.checkbox_onoff input[type="checkbox"] {
+    display: none;
+}
+div.checkbox_onoff input[type="checkbox"] + label {
+    background: url(images/on.png) no-repeat scroll -68px 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    text-indent: -9999px;
+    transition: background-position 0.3s ease-in-out 0s;
+    width: 68px;
+}
+div.checkbox_onoff input[type="checkbox"]:checked + label {
+    background-position: 0 0;
+    transition: background-position 0.3s ease-in-out 0s;
+}
+
+div.popup {
+	background:#FFF;
+	border:10px solid #f1f1f1;
+	width:500px;
+	height:500px;
+	position:fixed;
+	left:50%;
+	top:50%;
+	margin:-260px 0 0 -260px;
+	display:none;
+	z-index:9999;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	-webkit-box-shadow: 0 0 20px 0 #444444;
+	box-shadow: 0 0 20px 0 #444444;
+}
+div.popup a.close {
+	background:url(http://test.scampaigns.com/images/close-popup.png) no-repeat left top;
+	width:40px;
+	height:40px;
+	display:block;
+	overflow:hidden;
+	text-indent:-9999px;
+	position:absolute;
+	right:10px;
+	top:10px;
+}
+div.mask {
+	background:#000;
+	width:100%;
+	height:100%;
+	position:fixed;
+	left:0;
+	top:0;
+	opacity:0.5;
+	z-index: 999;
+}
+
+</style>
+<?php 
+$form = '<form action="" class="editform">
+<ul class="sortable-list">
+	<li><p id="editH2" contenteditable="true">EmaiL address</p2><input name="" type="text" /></li>
+	<li><p id="editH2" contenteditable="true">What kind of campaign are you Looking for? </p2>
+    <div class="checksboxes">
+    <div class="jui-checkbox-row"> 
+        <span class="checkboxWrapper">
+            <input type="checkbox" value="1" />
+        </span>
+    <p>option</p>
+    </div>
+    <div class="jui-checkbox-row"> 
+        <span class="checkboxWrapper">
+            <input type="checkbox" value="2" />
+        </span>
+    <p>option</p>
+    </div>
+    <div class="jui-checkbox-row"> 
+        <span class="checkboxWrapper">
+            <input type="checkbox" value="3" />
+        </span>
+    <p>option</p>
+    </div>
+    </div>
+    </li>
+	<li><p id="editH2" contenteditable="true">Your message</p2><textarea name="" cols="" rows=""></textarea> </li>
+	<li><input name="" type="submit" value="Send"></li>
+</ul>
+</form>';
+
+?>
+<body>
+<div class="popup"><a href="#" class="close">close</a></div> <!-- popup part -->
+<div class="site">
+<div class="slide_right">
+	<a href="#" class="slide_button"></a>
+    <h3>Page navigation</h3>
+    <a href="#" id="prev2">Prev</a> <a href="#" id="next2">Next</a>
+    <ul class="slide_banner">
+    <?php 
+  $url = "http://test.scampaigns.com/user_template/".$id."/index.php";
+ ?>
+
+  <?php 
+  print_r($this->editor); 
+  ?>
+ 
+
+
+    </ul>
+</div>
+
+<div class="container clearfix">
+	<h2>Hot one hundred</h2>
+    <a style="display: none;" href="#" title="Open" class="open">Open</a>
+    <a style="display: none;" href="#" title="Open2" class="open2">Open2</a>
+    <div class="publish">
+    	<a href="#" title="Publish settings" class="settings_button">Publish settings</a>
+        <div class="publish_settings">
+        	<div class="heading">
+            	<h4>MAnage your campaign</h4>
+                <div>
+                	<img alt="" src="images/question_icon2.png" />
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
+                </div>
+            </div>
+            <form method="post" name="" action="/">
+                <label>Campaign saved as:</label>
+                <input type="text" name="" value="Photocontest" onblur="if(this.value=='') this.value='Photocontest';" onfocus="if(this.value=='Photocontest') this.value='';" />
+                <label>Campaign saved as: <a href="#" title="Down" class="down">down</a></label>
+                <div class="date_time">
+                    <input type="text" name="date"  class="datepicker" />
+                    <input type="text" name="time" id="datetimepicker1" />
+                </div>
+                <input type="submit" name="submit" value="Save" />
+                <input type="reset" name="reset" value="Cancel" />
+                <a href="#" title="Preview" class="preview">Preview</a>
+            </form>
+        </div>
+    </div>
+    <div class="option">
+    	<span>Autosave</span>
+        <div class="checkbox_onoff">
+            <input id="check" name="1" type="checkbox" value="1" />
+            <label for="check">Check-me</label>
+        </div>
+        <a href="javascript:void(0)" class="save" title="Save">Save</a>
+    </div>
+    
+    
+       
+	<div class="wrapper" style="height: auto !important;">
+<?php
+ $a = file_get_contents($url); 
+ echo str_replace('{{htmlform}}',$form,$a);
+ ?>
+    </div>

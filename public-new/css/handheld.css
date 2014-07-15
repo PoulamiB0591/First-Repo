@@ -1,0 +1,36 @@
+ .debugging *:hover {
+	cursor: pointer;
+	border:1px solid red;
+/* 	margin: -1px 0 0 -1px; */
+ }
+
+ #eltreeDebug {
+	position: fixed;
+	top: 100px;
+	right: 100px;
+	padding: 20px;
+	background: #ffffff;
+	border: 1px solid #EFEFEF;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+	#elemtree {
+		margin-bottom: 10px;
+	}
+		#eltreeCSSSel, #eltreeJSSel {
+			display: block;
+			margin-bottom: 20px;
+			width: 215px;
+			border-bottom: 1px solid #DDDDDD;
+		}
+			#eltreeCSSSel:before {
+				padding-right: 5px;
+				content: "CSS:";
+				font-weight: bold;
+			}
+			#eltreeJSSel:before {
+				padding-right: 5px;
+				content: "JS: ";
+				font-weight: bold;
+			}

@@ -1,0 +1,66 @@
+<?php 
+if(($page == 'index') || ($page == 'store'))
+{ 
+    echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/owl.carousel.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.selectBox.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.fittext.js')
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',   'text/javascript'); 
+            
+} 
+elseif($page == 'howswork') 
+{
+    echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.selectBox.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.fittext.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js');
+             
+}
+
+elseif($pagefront == 'edit'){
+    
+      echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/style.js')
+           
+            ->prependFile($this->basePath() . '/js/file-upload.js')
+            ->prependFile($this->basePath() . '/js/min.js')
+            ->prependFile($this->basePath() . '/js/jquery.form.js')
+            ->prependFile($this->basePath() . '/js/jquery.fileuploadmulti.min.js')
+            ->prependFile($this->basePath() . 'http://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.2/ckeditor.js')
+            //->prependFile($this->basePath() . '/ckeditor/ckeditor.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.datetimepicker.js','text/javascript')
+            ->prependFile('http://code.jquery.com/ui/1.10.4/jquery-ui.js')
+            ->prependFile($this->basePath() . '/js/jquery.customSelect.js')
+            ->prependFile($this->basePath() . '/js/jscrollpane.min.js')
+            ->prependFile($this->basePath() . '/js/mousewheel.js')
+            //->prependFile('http://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.2/ckeditor.js',   'text/javascript')
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
+              
+}
+else
+{
+    echo $this->headScript()
+            
+            ->prependFile($this->basePath() . '/js/template.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.nice-file-input.min.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/owl.carousel.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.selectBox.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.fittext.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js'); 
+            
+}
+?>

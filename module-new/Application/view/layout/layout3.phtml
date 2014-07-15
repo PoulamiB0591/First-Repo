@@ -1,0 +1,149 @@
+<?php 
+function curPageURL() 
+{
+    $pageURL = 'http';
+    if (@$_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+    $pageURL .= "://";
+    if ($_SERVER["SERVER_PORT"] != "80") {
+        if($_SERVER["REQUEST_URI"] == "/")
+            $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].'/index/index';
+        else
+            $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+    } else {
+        if($_SERVER["REQUEST_URI"] == "/")
+            $pageURL .= $_SERVER["SERVER_NAME"].'/index/index';
+        else
+            $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+    }
+    return $pageURL;
+}
+$href = explode("/", curPageURL());
+$page = @$href[4];
+$pagefront = @$href[4];
+
+
+
+?>
+
+
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+<head>
+    <?php echo $this->headTitle('SFPv2 '. $this->translate('Smartfanpage | Home'))->setSeparator(' - ')->setAutoEscape(false) ?>
+    
+    <?php echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+        
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . ''))
+                        ->prependStylesheet($this->basePath() . '/css/jquery.datetimepicker.css')
+                        ->prependStylesheet($this->basePath() . 'http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css')
+                        ->prependStylesheet($this->basePath() . '/css/jscrollpane.css')
+                        ->prependStylesheet($this->basePath() . '/css/styles.css')
+                        ->prependStylesheet($this->basePath() . '/css/textarea.css')
+                        ->prependStylesheet($this->basePath() . '/css/style1.css')
+                        ->prependStylesheet($this->basePath() . '/css/style-sort.css')
+                        ->prependStylesheet($this->basePath() . '/css/handheld.css');
+    ?>
+<style type="text/css" media="screen">
+div.checkbox_onoff {
+    border-radius:2px;
+    display: block;
+    height: 24px;
+    overflow: hidden;
+    width: 68px;
+	cursor:pointer;
+}
+div.checkbox_onoff input[type="checkbox"] {
+    display: none;
+}
+div.checkbox_onoff input[type="checkbox"] + label {
+    background: url(images/on.png) no-repeat scroll -68px 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    text-indent: -9999px;
+    transition: background-position 0.3s ease-in-out 0s;
+    width: 68px;
+}
+div.checkbox_onoff input[type="checkbox"]:checked + label {
+    background-position: 0 0;
+    transition: background-position 0.3s ease-in-out 0s;
+}
+</style>    
+
+</head>
+<body>
+
+<div class="panel clearfix">
+	<strong class="button"><b>&nbsp;</b></strong>
+    <a href="#" class="small_logo"><img src="<?php echo $this->basePath('images/small_logo.png')?>" alt="" /></a>
+    <a href="#" class="big_logo"><img src="<?php echo $this->basePath('images/big_logo.png')?>" alt="" /></a>
+    <div class="download"><img src="<?php echo $this->basePath('images/download.png')?>" alt="" /></div>
+	<div class="logout">
+    	<img src="<?php echo $this->basePath('images/icon1.png')?>images/logout.png" alt="" />
+        <p><strong>Studio 365</strong>Amsterdam</p>
+        <span>67%</span>
+    </div>
+    <span class="rate">
+    	<img src="<?php echo $this->basePath('images/rate.png')?>" alt="" />
+    	<img src="<?php echo $this->basePath('images/rate.png')?>" alt="" />
+    	<img src="<?php echo $this->basePath('images/rate.png')?>" alt="" />
+    	<img src="<?php echo $this->basePath('images/unrate.png')?>" alt="" />
+    	<img src="<?php echo $this->basePath('images/unrate.png')?>" alt="" />
+    </span>
+    <ul class="nav" id="nav">
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon1.png')?>" alt="" /><span>Home</span><img src="images/nav_arrow.png" alt="" class="arrow" /><img src="images/nav_arrow2.png" alt="" class="arrow2" /></a>
+            <div>
+                <a href="#">Template store</a>
+                <a href="#">Template store</a>
+                <a href="#">Template store</a>
+                <a href="#">Template store</a>
+                <a href="#">Template store</a>
+            </div>
+        </li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon2.png')?>" alt="" /><span>Template store</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon3.png')?>" alt="" /><span>How does it work?</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon4.png')?>" alt="" /><span>COnnected publishers</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon5.png')?>" alt="" /><span>Case Studies</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon6.png')?>" alt="" /><span>FAQ</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon7.png')?>" alt="" /><span>About us</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon8.png')?>" alt="" /><span>Blog</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon9.png')?>" alt="" /><span>Contact</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon1.png')?>" alt="" /><span>Home</span><img src="images/nav_arrow.png" alt="" class="arrow" /><img src="images/nav_arrow2.png" alt="" class="arrow2" /></a>
+        	<div>
+                <a href="#">Template store</a>
+                <a href="#">Template store</a>
+                <a href="#">Template store</a>
+                <a href="#">Template store</a>
+                <a href="#">Template store</a>
+            </div>
+        </li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon11.png')?>" alt="" /><span>My Campaigns</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon12.png')?>" alt="" /><span>Favourites</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon13.png')?>" alt="" /><span>Reports</span></a></li>
+    	<li><a href="#"><img src="<?php echo $this->basePath('images/icon14.png')?>" alt="" /><span>Coins</span></a></li>
+    </ul>
+    <form action="" method="post" name="search" class="search">
+    	<input type="text" name="search" value="" />
+    </form>
+    <div class="questions">
+    	<p>Questions or<br />
+        comments about<br />
+        this campaign?</p>
+        <span>Join the<br />
+        chatroom</span>
+    </div>
+    <ul class="menu">
+    	<li><a href="#">For developers</a></li>
+    	<li><a href="#">Terms &amp; service</a></li>
+    	<li><a href="#">Disclaimer</a></li>
+    	<li><a href="#">Privacy policy</a></li>
+    </ul>
+    <p class="copyright">© Copyright 2013 <a href="#">Smart Fanpage</a></p>
+</div>
+<?php echo $this->content; ?>
+<?php include_once('js1.phtml') ?>
+</body>
+</html>

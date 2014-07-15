@@ -1,0 +1,18 @@
+<div class="site">
+<?php  
+
+$form = $this->form;
+
+$form->setAttribute('action', $this->url('application/default', array('controller'=>'developer','action' => 'add')));
+$form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ echo $this->formRow($form->get('fName'));
+ echo $this->formRow($form->get('lName'));
+ echo $this->formRow($form->get('eId'));
+ echo $this->formRow($form->get('uname'));
+ echo $this->formSubmit($form->get('submit'));
+ //echo $this->formCollection($form);
+ echo $this->form()->closeTag();
+?>

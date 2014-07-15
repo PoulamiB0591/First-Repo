@@ -1,0 +1,23 @@
+<div class="site">
+
+<div class="container-fluid">
+<div class="row"><p id="fly-it" class="top_heading col-md-12 center">Template</p></div>
+<div class="col-md-8 col-md-offset-2 dev-form clearfix">
+
+
+
+    <div class="dashboard-wrap col-lg-12">
+        <?php foreach ($temp as $template){ ?>
+        <div class="dashboard col-lg-12">
+        <?php if($template->approval == 1){ ?>
+            <p><?php echo $template->templateName;?></p>
+            <div class="dash-img-holder col-lg-4"> 
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action' =>'templatecopy','id'=>$template->templateName));?>"><img src='<?php echo $this->basePath('files/'.$template->templateName."/".$template->scImage);?>' style="height: 300px; width: 300px;"/></a>
+            </div>
+        </div>
+        <?php }} ?>
+    </div>
+</div>
+</div>
+</div>
+

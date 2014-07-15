@@ -1,0 +1,32 @@
+<style>
+.add-del{ height: auto; overflow: hidden; margin-bottom: 15px;}
+.add-del > img{ display: block; margin-right: 15px; float: left;}
+.add-del input[type="button"]{ margin-top: 7%;}
+</style>
+
+
+<div class="site">
+
+<?php 
+foreach ($res as $a){
+    
+    $imgurl = $a->bannerPath;
+	$createac = $a -> filFormOneHeader;
+	$companyac = $a -> filFormTwoHeader;
+    ?>
+    <div class="add-del">
+    <img src="<?php echo $imgurl,$createac,$compnyac;	?>" style="width: 150px;height:200px;"/>
+    <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'showbecomepublisherbanner','id' => $a->slideno));?>">edit</a>
+  
+
+  
+   </div>
+    <?php
+    
+}
+
+?>
+
+ Insert Slide <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'slideadd'));?>">INSERT</a>
+ </div>
+

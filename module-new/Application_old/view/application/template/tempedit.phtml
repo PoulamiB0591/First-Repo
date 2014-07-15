@@ -1,0 +1,129 @@
+
+
+<!DOCTYPE html>
+<head>
+<style>
+table
+{
+    width: 100%;
+    padding: 5px 5px 0px 5px;
+    text-decoration:none;
+}
+ 
+a
+{
+    text-decoration:none;
+}
+ 
+h3
+{
+    padding: 5px 0px 5px 0px;
+    color:#000;
+}
+ 
+tr
+{
+    height: 20px;
+}
+ 
+/*
+    make elements with this class appear like a link
+    we need to request the filename that these elements contain with ajax, so we _dont_ want a real link.
+*/
+.fileLink
+{
+    color: blue;
+    cursor: pointer;
+}
+ 
+.fileLink:hover
+{
+    text-decoration: underline;
+}
+ 
+/* rule for the name of the file currently being edited */
+#editingFilename
+{
+    color: #f90;   /* CP-orange text */
+    font-weight: bold;
+}
+</style>
+ 
+<script>
+ 
+function requestUrlWithAjax(url)
+{
+    //alert(url);
+    var xmlhttp;
+ 
+    //1. create the xmlhttp object
+ 
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+ 
+    //2. assign the handler for the onchange event of the object
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            // we arrive here when we have successfully retrieved  the url we asked for
+            //1. Set the response text to the text area's value
+            document.getElementById('ajaxResultTarget').value = xmlhttp.responseText;
+
+            //2. copy the name of the file retrieved directly above the text-area
+            document.getElementById('editingFilename').innerHTML = url;
+            
+            
+             $('#textvalurl').val(url);
+            //3. set the filename to the hidden input - see line 199
+//          document.getElementById('frmFileName').value = url;
+
+ 
+            //4. scroll the document down to editingFilename - just above the text-area
+            var xPos, yPos, tgtElem;
+            tgtElem = document.getElementById('editingFilename');
+            xPos = 0;
+            yPos = tgtElem.offsetTop;
+            window.scrollTo(xPos, yPos);
+        }
+    }
+ 
+    //3. specify a GET request for the indicated filename,
+    //   set asynchronous to true (dont wait for the send method to complete before continuing)
+    xmlhttp.open("GET",url,true);
+ 
+    //4. make the request
+    xmlhttp.send();
+}
+ 
+</script>
+ 
+
+</head>
+ 
+<body>
+</div>
+
+<div class="fileopen col-lg-8 pull-right">
+<h3>OPEN, EDIT AND SAVE ANY FILE IN LIST FILE OF FOLDER</h3>
+        <span>Current File: </span><span id='editingFilename'></span><br>
+       
+        <form name="read_form" method="post" action="#">
+         <input type='hidden' name='textvalurl' id='textvalurl'/>
+<!--        <input type='hidden' name='fileName' id='frmFileName'/> -->
+        <textarea id='ajaxResultTarget' name="read_file" cols="110" rows="35" wrap="off">
+        </textarea>
+        <br />
+        <input type="submit" name="update" value="UPDATE" />
+        </form>
+  </div>      
+</div>
+</div>
+
+</body>

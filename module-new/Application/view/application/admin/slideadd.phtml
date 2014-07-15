@@ -1,0 +1,56 @@
+<div class="site">
+
+
+<?php 
+
+$form = $this->form;
+$form->prepare();
+?>
+<div class="row">
+<div class="col-lg-8 col-md-offset-2">
+<?php echo $this->form()->openTag($form);?>
+<div class="table_button">
+<a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back to page details</a>
+
+<?php  $id;?>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_wrap">
+<tr><th colspan="2">Add Slider</th></tr>
+
+   
+   
+ <tr><td><?php echo $this->formLabel($form->get('slideHeader')); ?></td>
+      <td><?php echo $this->formElement($form->get('slideHeader'));?></td></tr>
+
+
+   
+  
+  <tr><td><?php echo $this->formLabel($form->get('slideSubHeader')); ?></td>
+      <td><?php echo $this->formElement($form->get('slideSubHeader'));?></td></tr>
+ 
+   
+  
+<tr><td> <?php echo $this->formLabel($form->get('slideDescription')); ?></td>
+     <td> <?php echo $this->formElement($form->get('slideDescription'));?></td></tr>
+   
+   
+   
+<tr><td> <?php echo $this->formLabel($form->get('slideAmount')); ?></td>
+      <td><?php echo $this->formElement($form->get('slideAmount'));?></td></tr>
+   
+  
+   
+
+  
+     <tr><td> <?php echo $this->formLabel($form->get('picture')); ?></td>
+      
+ 
+      <td><?php echo $this->formElement($form->get('picture')); ?></td></tr>
+      
+     <tr><td></td><td> <?php echo $this->formElement($form->get('submit'));?></td></tr>
+ 
+   </table>
+
+</div>
+</div>
+<?php echo $this->form()->closeTag() ?>
+
