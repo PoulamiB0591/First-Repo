@@ -1,290 +1,338 @@
+<style type="text/css">
+        .banner {
+            /*background:url(<?php echo $content->plink;?>) no-repeat top center;*/
+			background:url(<?php echo $content->plink;?>) no-repeat top center; 
+            overflow:hidden;
+            width:100%;
+            background-size:cover;
+            overflow:hidden;
+            margin:auto;
+            min-height: 420px;
+        }
+ .wrap-text a.read-more {
+  background: none repeat scroll 0 0 #5f6369;
+  border-radius: 1px;
+  color: #fff;
+  margin-top: 13px;
+  width: 150px;
+}
+.selectBox-dropdown .selectBox-label {width: 353px !important;}
+.selectBox-dropdown{margin:0;}
+div#loader12 {
+  float: left;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+    </style>
+  <script>
+  function fbs_click()
+    {
+        var base_url = window.location.origin;
+    u=base_url+"/"
+    t='smartfanpage';
+    var child = window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+    }
+    
+     function twt_click()
+    {
+       var base_url = window.location.origin;
+    u=base_url+"/"
+     t='smartfanpage';
+    var child = window.open('http://twitter.com/share?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');   
+    }
+    
+    function linkedinButton(){
+    var base_url = window.location.origin;
+    
+   var articleUrl = encodeURIComponent(base_url+'/');
+       var articleTitle = encodeURIComponent('smartfanpage');
+       var articleSummary = encodeURIComponent('home');
+       var articleSource = encodeURIComponent('best');
+       var goto = 'http://www.linkedin.com/shareArticle?mini=true'+
+           '&url='+articleUrl+
+           '&title='+articleTitle+
+           '&summary='+articleSummary+
+           '&source='+articleSource;
+       window.open(goto, "LinkedIn", "width=660,height=600,scrollbars=yes;resizable=no");         
+} 
+
+
+  </script>  
+
+<?php
+
+     $protocol = '';
+        if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'HTTPS') {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+
+?>
+<link type="text/css" rel="stylesheet" href="<?php echo $url; ?>/css/desktop-mob-main.css" />
+
+
+<!--WINDOWLOAD POPUP-->
+<div id="boxes">
+  <div style="top:0; left: 551.5px; display: none; margin-top:0;" id="dialog" class="window"> 
+  <figure>
+  <img src="/img/popup-ban.png" alt="smartfanpage-popup-image"/>
+  </figure>
+  <span class="logo"><img src="/img/popup-logo.png" alt="smartfanpage-popup-image"/></span>
+    <div id="smart-beta-col">
+      <h2>Smartfanpage Beta</h2>
+      <p>Now available only  to specific invites only</p>
+
+      <input type="text" onkeypress="return runScript(event)" name="textcode" id ="textcode" placeholder="Please enter your access code">
+      <input type="button" name="go oto smartfanpage" value="Go to Smartfanpage" onclick="accessLogin()">
+    
+    </div>
+    <div class="request-an-invite">
+    <a href="<?php echo $dynamicPath?>/index/requestaccess">Request an invite to access smartfanpage now</a>
+    </div>
+    <div class="pop-foot">
+    <p>Click above link to request an access code</p>
+    </div>
+    
+  </div>
+  <div style="width: 1478px; font-size: 32pt; color:white; height: 602px; display: none; opacity: 0.95;" id="mask"></div>
+</div>
+
+<!--END OF WINDOWLOAD POPUP-->
+ <div class="mob-desktop" style="display: none;">
+
+<div class="mother-con">
+
+<a class="close"><span class="icon-cross"></span></a>
+	<div class="con_slider">
+    
+        <?php
+        // This section modified by koushik
+        $hgfgh = array();
+        $tempdesign1 = $tempdesign;
+        foreach ($tempdesign1 as $template1){
+            if($template1->approval == 1 && $template1->disableDeveloper == 0){
+                $hgfgh[] = $template1;
+            }
+        }
+        $i=1;
+        $j=count($hgfgh);
+        $k=count($hgfgh); 
+            foreach ($hgfgh as $template1){
+         $temp =  $template1->tempFoldName;  
+            ?>
+    	<div class="demo<?php echo $i; ?>" data-template="demo<?php echo $i; ?>" data-next="demo<?php if($i==$k) echo "1"; else echo ++$i; ?>" data-prev="demo<?php if($j==$k){ echo $j;$j=1;} else { echo $j++; } ?>">
+        
+            <div class="wrap-previews">
+                <div class="wrap-mobile infront">
+                    <div class="content-mobile">
+                    	<div class="overlay"></div>
+                        
+                        <iframe src="<?php echo $url; ?>/htmlforindex/<?php echo $temp; ?>.html" frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="wrap-b ser behind">
+                    <div class="chrome-bar">
+                        <div class="chrome-controls"></div>
+                    </div>
+                    <div class="content-browser">
+                    	<div class="overlay"></div>
+                        <iframe src="<?php echo $url; ?>/htmlforindex/<?php echo $temp; ?>.html" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-text">
+            <div class="wrapping">
+                <h2><?php if($template1->templateName == "epic") { echo "Neon"; }else{
+                 // echo $template1->templateName;   
+                  echo str_replace("_"," ",$template1->templateName);
+                } ?></h2>
+                <p><?php echo $template1->templateDesc; ?> </p>
+                <?php
+                if($sid != "")
+                {
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action'=>'templatecopy','id'=>$template1->templateName));?>">Add content to this template <span class="icon-arrow-right-thick"></span></a>
+                <?php    
+                }
+                else
+                {
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action'=>'addcontent','id'=>$template1->templateName));?>">Add content to this template <span class="icon-arrow-right-thick"></span></a>
+                <?php
+                }
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'index','action'=>'marketing','id'=>$template1->id));?>" class="read-more">Read more&nbsp;<span class="icon-arrow-right-thick"></span></a>
+                </div>
+            </div>
+        </div>
+        <?php
+        //$i++;
+        
+       }
+        ?>
+   </div>
+    <div class="nav">
+        <a style="cursor:pointer" id="prev"><span class="icon-angle-left"></span></a>
+        <a style="cursor:pointer" id="next"><span class="icon-angle-right"></span></a>
+    </div>
+</div>
+</div>
+ 
 <div  class="site">
-  <div class="container-fluid"> 
+
+  <div class="container-fluid">
+  
+  
     <!--===== start banner ===-->
     <div class="row">
       <div class="banner">
         <ul class="social_icon">
-          <li><a href="#">Share this website</a></li>
-          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+          <li><a style="cursor:pointer">Share this website</a></li>
+          <li><a style="cursor:pointer" onclick="return fbs_click()"></a> <a style="cursor:pointer" onclick="return twt_click()"></a> <a style="cursor:pointer" onclick="return linkedinButton()"></a></li>
         </ul>
         
+ 
         
+    
+        <div class="container container-for-standard-desktop">
+        <div class="row">
+        <div class="banner_caption col-lg-12">
+            <h1><?php  echo $content->change_tagline;?></h1>
+            
+            <div class="signup col-lg-8 col-xs-offset-2" <?php if(isset($sid)){ ?> style="visibility:hidden;" <?php } ?>>
+                <div>
+                    <input type="text" name="" id="fullname" placeholder="Enter your full name*" />
+                    <input type="text" name="" id="emailForRegister" placeholder="Enter your email*" />
+                    <input type="submit" name="submit" value="GET STARTED NOW" onclick="setPassword()"/>                    
+                </div>
+            </div>
+            
+            <p class="formSubmitResponse">
+            <img id="submitButtonLoader" src="/img/homeSumbitButtonLoader.gif" style="display: none;" />
+            <span id="signupGeneralMessage"></span>
+            <span class="signupGeneralMessageReverse" id="email_exists" style="display: none;">Email already exists</span>
+            <span class="signupGeneralMessageReverse" id="mail_sent" style="display: none;">Check your mail inbox to set password</span></p>
+            
+    
+        </div>
         
-        <div class="banner_caption col-md-8" >
-          <h1 class="fittext2">Smart Fanpage<br>
-            PUBLISH. BOOST. ENGAGE! </h1>
-          <h2>Find and customize the most challenging<br>
-            and effective online campaign templates</h2>
-          <a href="#">Sign up free</a> </div>
+        </div>
+        </div>
       </div>
+   
       
-    </div>
+   
     <!--===== end banner ===--> 
-    <div class="container-fluid" > 
+     
       
       <!--===== start dropdown ===-->
-      <div class="row" >
-        <p class="top_heading col-md-12" id="fly-it">What kind of campaign are you looking for?</p>
-        <div class="col-md-3 col-xs-12" >
-          <select id="standard-dropdown" name="standard-dropdown" class="custom-class1 custom-class2">
-            <option value="1" class="test-class-1">Keyword</option>
-            <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
-            <option value="1" class="test-class-1">Select category</option>
-          </select>
-        </div>
-        <div class="col-md-3 col-xs-12">
-          <select id="standard-dropdown" name="standard-dropdown" class="custom-class1 custom-class2">
-            <option value="1" class="test-class-1">Select category</option>
-            <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
-            <option value="1" class="test-class-1">Publishing platform</option>
-          </select>
-        </div>
-        <div class="col-md-3 col-xs-12">
-          <select id="standard-dropdown" name="standard-dropdown" class="custom-class1 custom-class2">
-            <option value="1" class="test-class-1">Publishing platform</option>
-            <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
-            <option value="1" class="test-class-1">Price</option>
-          </select>
-        </div>
-        
-        
-        
-        
-        
-        <!--<form class="navbar-form col-md-2 col-xs-12">
-            <input type="text" placeholder="Search..." class="form-control">
-          </form>-->
-      <!--  <div class="col-md-2 col-xs-12"><a href="#" class="discover_button">Discover</a></div>-->
-        <div class="col-md-1 col-xs-12 pull-right"><a href="#" class="refresh_button"></a></div>
-        <div class="col-md-3 col-xs-12 pull-right">
-         
-          
-          <div class="input-group cust-search">
-            <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-            </div>
-          </div>
-        
-         
-        </div>
-       <!-- <div class="col-md-2 col-xs-12"><a href="#" class="see_all">No filter
-          see all</a></div>-->
-      </div>
-      <!--===== end dropdown ===--> 
-      <!--===== start first caraousal ===-->
       
-      <div class="row row_margin">
-        <hr class="mar-eaighteen">
-        <h3>Hot one hundred</h3>
-        <div class="slider_wrap col-lg-12 col-xs-12" >
-          <div class="carousel-normal">
-            <div class="owl-demo" >
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel_nav"> <a class="carousel_nav_prev">prev</a> <a class="carousel_nav_next">next</a> </div>
-        </div>
-      </div>
-      <!--===== end first caraousal ===--> 
-      <!--===== start secoend caraousal ===-->
-      <div class="row row_margin"  id="spotlight_section">
-        <h3>In the spotlight</h3>
-        <div class="owl-demo2 owl-carousel col-lg-12 col-xs-12">
-          <div class="item"> <img src="<?php echo $this->basePath('img/slider1.jpg') ?>" alt="" />
-            <div class="text_option">
-              <h3>Restaurant</h3>
-              <h2>coupon give-away</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit est at massa commodo porttitor. Nulla dictum pharetra libero eget facilisis. Lorem ipsum dolor amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit est at massa commodo porttitor. Nulla dictum pharetra libero eget facilisis. Lorem ipsum dolor amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit est at massa commodo porttitor.</p>
-              <a href="#">Use now</a><b>€19</b> </div>
-          </div>
-          <div class="item"> <img src="<?php echo $this->basePath('img/slider1.jpg') ?>" alt="" />
-            <div class="text_option">
-              <h3>Restaurant</h3>
-              <h2>coupon give-away</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit est at massa commodo porttitor. Nulla dictum pharetra libero eget facilisis. Lorem ipsum dolor amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit est at massa commodo porttitor. Nulla dictum pharetra libero eget facilisis. Lorem ipsum dolor amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit est at massa commodo porttitor.</p>
-              <a href="#">Use now</a><b>€19</b> </div>
-          </div>
-          <div class="item"> <img src="<?php echo $this->basePath('img/slider1.jpg') ?>" alt="" />
-            <div class="text_option">
-              <h3>Restaurant</h3>
-              <h2>coupon give-away</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit est at massa commodo porttitor. Nulla dictum pharetra libero eget facilisis. Lorem ipsum dolor amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit est at massa commodo porttitor. Nulla dictum pharetra libero eget facilisis. Lorem ipsum dolor amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit est at massa commodo porttitor.</p>
-              <a href="#">Use now</a><!--<b>€19</b>--> </div>
-          </div>
-        </div>
-      </div>
       
-      <!--===== end secoend caraousal ===--> 
-      <!--===== start third caraousal ===-->
-      <div class="row row_margin">
-        <h3> Top rated </h3>
-        <div class="slider_wrap col-lg-12 col-xs-12" >
-          <div class="carousel-normal">
-            <div class="owl-demo" >
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel_nav"> <a class="carousel_nav_prev">prev</a> <a class="carousel_nav_next">next</a> </div>
+      
+      
+  
+<div class="container container-for-standard-desktop">
+<div class="row">
+
+	<div class="col-lg-12">
+        <div class="used">
+            <h2><?php  echo $content->text2;?></h2>
+            <ul>
+             <?php foreach($slideImage as $slide) {?>
+                <li>
+               
+                <a href="<?php echo $slide->imageLink;?>"><img src="<?php echo $slide->ImagePath;?>" alt="" /></a>
+                
+                </li>
+                <?php }?>
+               <!--   <li><a ><img src="<?php echo $url; ?>/img/used_img2.jpg" alt="" /></a></li>
+                <li><a ><img src="<?php echo $url; ?>/img/used_img3.jpg" alt="" /></a></li>
+                <li><a ><img src="<?php echo $url; ?>/img/used_img4.jpg" alt="" /></a></li>
+                <li><a ><img src="<?php echo $url; ?>/img/used_img5.jpg" alt="" /></a></li>
+                <li><a ><img src="<?php echo $url; ?>/img/used_img6.jpg" alt="" /></a></li>
+                <li><a ><img src="<?php echo $url; ?>/img/used_img7.jpg" alt="" /></a></li>
+                <li><a ><img src="<?php echo $url; ?>/img/used_img8.jpg" alt="" /></a></li>-->
+            </ul>
         </div>
-      </div>
-      <!--===== end third caraousal ===--> 
-      </div>
+    </div>
+    <div class="col-lg-12">
      
-      <!--===== start forth caraousal ===-->
-      <div class="row row_margin carausal_bg">
-        <h3>New releases</h3>
-        <div class="slider_wrap col-lg-12 col-xs-12" >
-          <div class="carousel-normal">
-            <div class="owl-demo" >
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
-              <div class="item small_carausal"> <strong>Blog competition</strong> <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-                <div>
-                  <p>Blog / Creative / Writing /  Facebook app</p>
-                  <strong>Author: Studio 365 (Amsterdam)</strong> <span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span> <a href="#">Use now</a> <b>€19</b> </div>
-              </div>
+        <div class="ani_img">
+       
+            <img src="<?php echo $animation[0] ;?>" alt="" /></div>
+           
+        </div>
+    </div>
+    </div>    
+    <div class="engage">
+    <div class="container container-for-standard-desktop">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2><?php  echo $content->text3;?></h2>
+            <p><?php  echo $content->text5;?></p>
+        </div>
+        </div>
+        </div>
+    </div>
+    
+    <div class="temp_section">
+        <div class="container">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <h2><?php  echo $content->text6;?></h2>
+                <p><?php  echo $content->header;?></p>
             </div>
-          </div>
-          <div class="carousel_nav"> <a class="carousel_nav_prev">prev</a> <a class="carousel_nav_next">next</a> </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <img src="<?php echo $animation[1] ;?>" alt="" />
+            </div>
+            
         </div>
-      </div>
-      <!--===== end forth caraousal ===--> 
-       <div class="container-fluid">
-      <!--===== start Wall of fame ===-->
-      <div class="row row_text row_margin">
-        <h4>Wall of fame</h4>
-        <p>Smart Fanpage is a community with design & development agencies. These agencies provide our platform of beautiful campaign templates 
-          for you to use and transform into your own campaign... suited for your business or needs. We've recently given these fresh new producers 
-          a warm welcome:</p>
-        <div id="show" class="introduction-section col-lg-12" style="margin-top:24px;">
-          <ul class="introduction-details">
-            <li class="col-lg-4 col-sm-4"><img alt="" src="<?php echo $this->basePath('img/fame.jpg') ?>"> <span>Studio 365</span> </li>
-            <li  class="col-lg-4 col-sm-4"><img alt="" src="<?php echo $this->basePath('img/fame2.jpg') ?>"><span style="float:none;">Kittyhawk</span></li>
-            <li class="col-lg-4 col-sm-4"><img alt="" src="<?php echo $this->basePath('img/fame3.jpg') ?>"><span>Lost Boys</span></li>
-          </ul>
+    </div>
+    
+    <div class="container container-for-standard-desktop">
+    <div class="row">
+    <div class="col-lg-12">
+        <div class="inspired">
+            <h2><?php  echo $content->hdescription;?></h2>
+            
+            <ul>
+            <?php foreach($wallofFame as $wall) {?>
+                <li>
+                    <span><a href="#"><img src="<?php echo $wall->piclink; ?>" alt="" /></a></span>
+                    <strong><?php echo $wall->pname; ?></strong>
+                    <p><?php echo $wall->description; ?></p>
+                </li>
+                <?php }?>
+                <!--  <li>
+                    <span><a href="#"><img src="<?php echo $url; ?>/img/used_img8.jpg" alt="" /></a></span>
+                    <strong>Friends Enterprise</strong>
+                    <p>Friends Enterprise is specialized in offering great campaigns for companies who want to get more leads in. There USP is high service and make sure that the template which is published is succesfull in conversion.</p>
+                </li>
+                <li>
+                    <span><a href="#"><img src="<?php echo $url; ?>/img/jengordon.jpg" alt="" /></a></span>
+                    <strong>Jen Gordon</strong>
+                    <p>Jen Gordon is a freelance designer who already designed more than 275 landing pages. She is specialized in conversion increase and is exited to offer some of their template in our store.</p>
+                </li>-->
+            </ul>
+            <div>
+            	<a href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action'=>'devlogin'));?>">WANT TO OFFER YOUR APP<br />IN OUR TEMPLATE STORE?</a>
+            	<a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'store'));?>">Go to our marketplace<br />to get inspired</a>
+            </div>
         </div>
-      </div>
-      <div class="row row_text row_margin"> <a href="#" class="big_button">FInd a publisher in your area</a><a href="#" class="big_button">become a publisher</a> </div>
-      <!--===== end Wall of fame ===--> 
-      <!--===== start campaigns ===-->
-      <hr>
-      <div class="row row_text row_margin">
-        <h4>Publish your campaigns</h4>
-        <p>We do not only provide Facebook apps, you can easily<br>
-          publish your campaigns as:</p>
-        <div style="margin-top:35px;"> <img src="<?php echo $this->basePath('img/home_publisher.png') ?>"> </div>
-        <div class="row" style="margin-top:40px;"> <a href="#" class="big_button">More about publishing</a> </div>
-      </div>
-      <!--===== end campaigns ===--> 
+    </div>
+    </div></div>
+    
+</div>
+
+       </div>
+      
+
+    

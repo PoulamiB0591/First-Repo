@@ -1,0 +1,342 @@
+<style>
+.selectBox-dropdown .selectBox-label {width: 353px !important;}
+.selectBox-dropdown{margin:0;}
+div#loader12 {
+  float: left;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 0;
+}
+ .wrap-text a.read-more {
+  background: none repeat scroll 0 0 #5f6369;
+  border-radius: 1px;
+  color: #fff;
+  margin-top: 13px;
+  width: 150px;
+}
+.select-div {
+  float: left;
+}
+</style>
+ <script>
+  function fbs_click()
+    {
+    var basepath = window.location.protocol+"//" + window.location.host;    
+    var u=basepath+"/index/store"
+    var t='smartfanpage';
+    var child = window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+    }
+    
+       function twt_click()
+    {
+      var basepath = window.location.protocol+"//" + window.location.host;    
+    var u=basepath+"/index/store"
+    var t='smartfanpage'
+    var child = window.open('http://twitter.com/share?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');   
+    }
+    
+    function linkedinButton(){
+     var basepath = window.location.protocol+"//" + window.location.host;    
+    var u=basepath+"/index/store"
+   var articleUrl = encodeURIComponent(u);
+       var articleTitle = encodeURIComponent('smartfanpage');
+       var articleSummary = encodeURIComponent('store');
+       var articleSource = encodeURIComponent('best');
+       var goto = 'http://www.linkedin.com/shareArticle?mini=true'+
+           '&url='+articleUrl+
+           '&title='+articleTitle+
+           '&summary='+articleSummary+
+           '&source='+articleSource;
+       window.open(goto, "LinkedIn", "width=660,height=600,scrollbars=yes;resizable=no");         
+} 
+  </script> 
+  <?php
+
+     $protocol = '';
+        if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'HTTPS') {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+
+?> 
+<link type="text/css" rel="stylesheet" href="<?php echo $url; ?>/css/desktop-mob-main.css" />
+
+<div class="mob-desktop" style="display: none;">
+
+<div class="mother-con">
+
+<a class="close"><span class="icon-cross"></span></a>
+	<div class="con_slider">
+    
+        <?php
+        // This section modified by koushik
+        $hgfgh = array();
+        
+        $tempdesign1 = $tempdesign;
+      
+        foreach ($tempdesign1 as $template1){
+        	echo $template1['approval'] ;
+            if($template1['approval'] == 1 && $template1['disableDeveloper'] == 0){
+                $hgfgh[] = $template1;
+              
+               
+            }
+        }
+        $i=1;
+        $j=count($hgfgh);
+        $k=count($hgfgh); 
+       
+            foreach ($hgfgh as $template1){
+         $temp = $template1['tempFoldName'] ;  
+            ?>
+    	<div class="demo<?php echo $i; ?>" data-template="demo<?php echo $i; ?>" data-next="demo<?php if($i==$k) echo "1"; else echo ++$i; ?>" data-prev="demo<?php if($j==$k){ echo $j;$j=1;} else { echo $j++; } ?>">
+        
+            <div class="wrap-previews">
+                <div class="wrap-mobile infront">
+                    <div class="content-mobile">
+                    	<div class="overlay"></div>
+                        
+                        <iframe src="<?php echo $url; ?>/htmlforindex/<?php echo $temp; ?>.html" frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="wrap-browser behind">
+                    <div class="chrome-bar">
+                        <div class="chrome-controls"></div>
+                    </div>
+                    <div class="content-browser">
+                    	<div class="overlay"></div>
+                        <iframe src="<?php echo $url; ?>/htmlforindex/<?php echo $temp; ?>.html" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-text">
+            <div class="wrapping">
+                <h2><?php if($template1['templateName'] == "epic") { echo "Neon"; }else{
+                  $templateName = $template1['templateName']; $templateName = str_replace("_"," ",$templateName);echo $templateName;  
+                  
+                } ?></h2>
+                <p><?php echo $template1->templateDesc; ?> </p>
+                 <?php
+                if($sid != "")
+                {
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action'=>'templatecopy','id'=>$template1['templateName']));?>">Add content to this template <span class="icon-arrow-right-thick"></span></a>
+                <?php    
+                }
+                else
+                {
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action'=>'addcontent','id'=>$template1['templateName']));?>">Add content to this template <span class="icon-arrow-right-thick"></span></a>
+                <?php
+                }
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'index','action'=>'marketing','id'=>$template1['id']."|".$template1['encryptedTempid']));?>" class="read-more">Read more&nbsp;<span class="icon-arrow-right-thick"></span></a>
+                </div>
+            </div>
+        </div>
+        <?php
+        //$i++;
+       
+       }
+        ?>
+   </div>
+    <div class="nav">
+        <a style="cursor:pointer" id="prev"><span class="icon-angle-left"></span></a>
+        <a style="cursor:pointer" id="next"><span class="icon-angle-right"></span></a>
+    </div>
+</div>
+</div>
+
+<div  class="site">
+  <div class="container-fluid"> 
+   <!--===== start banner ===-->
+    <div class="row">
+      <div class="store_banner">
+        <ul class="social_icon" style="	visibility: hidden;">
+          <li><a href="javascript:void(0)">Share this website</a></li>
+          <li><a style="cursor:pointer" onclick="return fbs_click()"></a> <a style="cursor:pointer" onclick="return twt_click()"></a> <a style="cursor:pointer" onclick="return linkedinButton()"></a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="banner_caption col-md-12 t-store" >
+          <h1 class="fittext2"> <?php echo $content->BannerHeader;?></h1>
+          <h2><?php echo $content->BannerDesc;?></h2>
+          <!--<a href="javascript:void(0)" onclick="logInWithYourFaceBookAccount()">Sign up free</a> </div>-->
+          <a href="<?php echo $url; ?>/index/accountsignup">Sign up free</a>
+      </div>
+      
+    </div>
+    <!--===== end banner ===--> 
+    <div class="container-fluid store-wrapper" > 
+      
+     <!--===== start dropdown ===-->
+      <div class="row" >
+      <div class="col-lg-12" >
+        <p class="top_heading col-md-12" id="fly-it"><?php echo $content->campaignques;?></p>
+       <form method="post" style="clear: both; float: left; overflow: hidden;">
+        
+        <div class="col-lg-4 col-xs-12">
+        <div class="select-div" style="visibility:hidden">
+          <select id="dropdowns" name="standard-dropdown" >
+          <option value="0"  >Select Template Category</option>
+            <option value="Hotels, restaurants and bars"  >Hotels, restaurants and bars</option>
+            <option value="Sports sector"  >Sports sector</option>
+            <option value="Events and conferences"  >Events and conferences</option>
+            <option value="Small businesses and retail"  >Small businesses and retail</option>
+            <option value="Reseller"  >Reseller</option>
+          </select>
+          </div>
+        </div>
+        <input type="submit"  id="templateSelect" name="templateCat" value="templateCat" style="visibility: hidden;"/>
+        </form>
+      <div id="loader12"  style="display: none;"><img src="<?php echo $url; ?>/img/frontend_loading.GIF" /> </div>
+         
+        
+         
+        <!--<form class="navbar-form col-md-2 col-xs-12">
+            <input type="text" placeholder="Search..." class="form-control">
+          </form>-->
+      <!--  <div class="col-md-2 col-xs-12"><a href="#" class="discover_button">Discover</a></div>-->
+        <form method="post">
+        
+        
+        <div class="col-md-1 col-xs-12 pull-right"><!--for ajax function<input type="button" id="refreshed" class="refresh_button"/></div>-->
+        <button type="submit" class="refresh_button"> </button> 
+        </div> 
+             
+        <div class="col-md-3 col-xs-12 pull-right">
+         
+          
+          <div class="input-group cust-search">
+            <input class="form-control" placeholder="Search" name="srchItem" type="text">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit" id="srchtermchng" name="allSearch" value="search"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+          </div>
+       
+         
+        </div>
+       <!-- <div class="col-md-2 col-xs-12"><a href="#" class="see_all">No filter
+          see all</a></div>-->
+     </form>
+      <!--===== end dropdown ===--> 
+      <!--===== start first caraousal ===-->
+      
+     <!---<div class="row">
+        <hr>
+          
+         <div class="row store-margin">
+         <div class="col-lg-12">
+         <ul class="slider">
+    	
+        
+        
+        
+        
+        
+        
+        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        	<strong>Blog competition</strong>
+            <span><img src="<?php //echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
+            <div>
+            	<p>Blog / Creative / Writing /  Facebook app + Web</p>
+                <strong>Author: Studio 365 (Amsterdam)</strong>
+                <span>
+                    <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" />
+                    <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" />
+                    <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" />
+                    <img src="<?php //echo $this->basePath('img/unrate2.png') ?>" alt="" />
+                    <img src="<?php //echo $this->basePath('img/unrate2.png') ?>" alt="" />
+                </span>
+                <a href="#">Start right away!</a>
+                <b>&euro;19</b>
+            </div>
+        </li>
+        
+        
+        
+        
+    </ul>
+         </div>
+         
+         
+         </div>--->
+         
+        </div>
+        
+      </div>
+      <div class="row">
+            <div class="container-cust">
+        <hr class="mar-eaighteen">
+        <h3><?php echo $content->text5;?></h3>
+        <div class="slider_wrap">
+          <div class="carousel-normal">
+            <div class="slider" >
+            <?php 
+            $i=1;
+            
+            foreach ($template as $template){ 
+       
+         if($template->approval == 1 && $template->disableDeveloper == 0 ){ ?>
+         
+        <div style="cursor: pointer;" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 small_carausal"> <strong><?php if($template->templateName == "epic"){ echo "neon"; }else{
+      $store =  $template->templateName;  $malestr = str_replace("_", " ", $store);
+echo $malestr;    
+        } ?></strong> <span><img src='<?php echo $this->basePath('files/'.$template->templateName."/".$template->scImage);?>' alt=""/></span>
+                <div>
+                  <p> <!--Blog / Creative / Writing /-->  Facebook app + Web</p>                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                  <strong>Author: <?php echo $template->fName." ".$template->lName;   ?></strong> <!--<span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span>--> <a style="cursor: pointer;">Use now</a> <b>
+        <?php 
+        $value=$template->templatePrice;
+         if($value == 0 || $value == NULL)
+         {
+            echo "FREE";
+         }
+        else
+        {
+            echo $value."&#8364;";
+        }
+        
+        ?></b><!--<b>&euro;19</b>---> </div>
+                  <input type="hidden" id="hiddens" value="<?php echo $i; ?>"/>
+              </div>
+             <?php 
+             $lock = $i; 
+             
+             $i++; }} ?>
+             
+            </div>
+          </div>
+          <div class="carousel_nav"> <a class="carousel_nav_prev">prev</a> <a class="carousel_nav_next">next</a> </div>
+        </div>
+      </div>
+      </div>
+      <input type="hidden" id="hidden_val" value="<?php echo $lock; ?>"/>
+      <!--===== end first caraousal ===--> 
+    
+      
+      
+      
+    
+      
+     
+      
+      
+      
+       
+
+     
+      
+     <style type="text/css">
+     .store_banner{background:url(<?php echo $content->plink;?>) no-repeat top center; background-size: cover -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% auto;}
+     </style>
+     

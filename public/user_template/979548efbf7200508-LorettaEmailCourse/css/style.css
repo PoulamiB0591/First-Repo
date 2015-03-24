@@ -1,0 +1,267 @@
+.main_section {
+    background: url("../images/bkg-images.original.jpg") center top repeat #ffffff;
+}
+
+
+
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Raleway, Arial, sans-serif;
+}
+
+p {
+    line-height: 24px;
+}
+
+.header .container {
+    padding-bottom: 60px;
+    background: url("../images/paper-bkg-top.original.png") center bottom no-repeat transparent;
+}
+
+.company-logo {
+    display: block;
+    margin: 36px auto 0;
+    width: 256px;
+    height: 52px;
+}
+
+.main .container {
+    padding-top: 70px;
+    padding-bottom: 90px;
+    background: url("../images/paper-bkg-middle.original.png") repeat-y top left #ffffff;
+    border-right: 1px solid #949494;
+}
+
+.main-heading {
+    text-align: center;
+}
+
+.main-heading h1 {
+    color: #191919;
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+.main-heading h4 {
+    font-size: 20px;
+}
+
+.main-center {
+    margin-top: 60px;
+}
+
+.main-center .envelope {
+    float: right;
+}
+
+.main-center form {
+    margin-top: 30px;
+}
+
+.main-center label {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 18px;
+    color: #8a8a8a;
+}
+
+.main-center input {
+    -webkit-box-shadow: inset 0px 2px 3px #dddddd;
+    -moz-box-shadow: inset 0px 2px 3px #dddddd;
+    box-shadow: inset 0px 2px 3px #dddddd;
+}
+
+.main-center form .btn {
+    margin-top: 30px;
+    padding: 24px 0 24px 30px;
+    background: url("../images/1qv3owc-icon-animated-envelope.gif") 96% center no-repeat rgba(253,0,0,1);
+    color: #ffffff;
+    font-family: Raleway, Arial, sans-serif;
+    text-align: left;
+}
+
+.main-center form .btn:hover {
+    background-color: rgba(240,0,0,1);
+}
+
+.main-center .note {
+    margin-top: 6px;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.main-center .note a,
+.main-center .note a:hover {
+    color: #fd0000;
+    text-decoration: none;
+}
+
+.bullet-points-intro h3 {
+    font-weight: 600;
+}
+
+.bullet-points {
+    margin-top: 40px;
+}
+
+.bullet-points .row {
+    padding-bottom: 32px;
+}
+
+.bullet-points .has-bullet-line {
+    background: url("../images/bullet-line.gif") 4% top repeat-y transparent;
+}
+
+.bullet-points .bullet-number {
+    display: block;
+    padding: 6px 8px;
+    background: rgba(253,0,0,1);
+    line-height: 16px;
+    color: #ffffff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.bullet-points h4 {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.footer {
+    height: 180px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer .container {
+    background: url("../images/bkg-paper-bottom.original.png") center top no-repeat transparent;
+}
+
+.footer p {
+    margin-top: 60px;
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 1199px) {
+
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 991px) {
+    .header .container {
+        background-image: none;
+    }
+
+    .main .container {
+        background-image: none;
+        border: 1px solid #949494;
+    }
+
+    .footer .container {
+        background-image: none;
+    }
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+    .main .container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .main-heading h1 {
+        font-size: 28px;
+    }
+
+    .main-heading h4 {
+        font-size: 16px;
+    }
+
+    .main-center .envelope {
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .main-center h3 {
+        font-size: 20px;
+    }
+    
+    .bullet-points-intro {
+        margin-top: 50px;
+    }
+
+    .bullet-points .has-bullet-line {
+        background-position: 8.33%;
+    }
+
+    .bullet-points-intro h3 {
+        font-size: 20px;
+    }
+
+    .bullet-points h4 {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+.wrapper .container, .wrapper_tab .container, .wrapper_mobile .container  {
+	width: 90%;
+	margin:15px auto;
+	padding: 0;
+}
+.wrapper .main-heading, .wrapper_tab .main-heading, .wrapper_mobile .main-heading, .wrapper .main-center, .wrapper_tab .main-center, .wrapper_mobile .main-center {
+	padding:15px;
+}
+
+.wrapper .header .container, .wrapper_tab .header .container, .wrapper_mobile .header .container, .wrapper .footer .container, .wrapper_tab .footer .container, .wrapper_mobile .footer .container  {
+	background-image: none;
+}
+
+.wrapper .main .container, .wrapper_tab .main .container, .wrapper_mobile .main .container {
+	background-image: none;
+	border: 1px solid #949494;
+}
+
+.wrapper .inner-container, .wrapper_tab .inner-container, .wrapper_mobile .inner-container {
+	width: 98%;
+	margin: 1%;
+}
+
+.wrapper div.bullet-points-intro, .wrapper_tab div.bullet-points-intro, .wrapper_mobile div.bullet-points-intro {
+	padding:15px;
+}
+.wrapper div.bullet-points, .wrapper_tab div.bullet-points, .wrapper_mobile div.bullet-points {
+	padding:15px;
+}
+
+.wrapper .bullet-points .has-bullet-line, .wrapper_tab .bullet-points .has-bullet-line, .wrapper_mobile .bullet-points .has-bullet-line {
+	background: none;
+}
+
+.wrapper .bullet-number, .wrapper_tab .bullet-number, .wrapper_mobile .bullet-number {
+	margin: 20px auto;
+	display: block;
+	width: 30px;
+}
+ 

@@ -1,0 +1,28 @@
+
+    <div class="row"> 
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'addcountry'));?>"> Add Country Name</a>
+                 <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'detailscompany'));?>"> Show Company Type</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back </a>
+                
+       
+            </div>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+                <tr>
+                    <th colspan="2">List of Country</th>
+                </tr>
+                <?php foreach ($country as $a){ $countryList=$a->countryName; ?>
+                <tr>
+                    <td><?php echo $countryList; ?></td>
+                    <td><a class="table_btn" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'editcountry','id' => $a->id));?>">edit</a><a class="table_btn" onclick="if(!confirm('Are you want to delete'))return false;" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'deletecountry','id' => $a->id));?>">Delete</a></td>
+                </tr>
+                <?php } ?>
+                </table>
+        </div>
+        
+        
+    </div>
+
+
+

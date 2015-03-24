@@ -1,0 +1,1194 @@
+<style>
+h5.dev-title {
+    color: #fff;
+    font-family: "Economica",sans-serif;
+    font-size: 22px;
+    margin: 22px 0;
+    text-align: center;
+}
+
+.copyright-menu ul{ padding: 0;}
+
+.copyright-menu li a{ text-decoration: none;color: #fff;}
+.copyright-menu li:last-child {
+  color: #7c7f83;
+  margin-top: 12px;
+}
+
+.copyright-menu li:last-child {
+	color:#7c7f83;
+	margin-top:12px
+}
+.copyright-menu ul li a span {
+	display: block;
+	float: left;
+	margin: -2px 6px 0 0;
+}
+
+
+
+#tab1,#tab2 {
+    overflow: visible !important;
+}
+</style>
+    <style>
+    .jquery-ratings-star {
+  width: 22px;
+  height: 36px;
+  background-image: url('/star-empty.png');
+  background-repeat: no-repeat;
+  position: relative;
+  float: left;
+  margin-right: 2px;
+}
+a.logo {
+  display: block;
+  float: none;
+}
+.jquery-ratings-full {
+  background-image: url('/img/star-full.png');
+  }
+  
+  .log-out-bt {
+  background: none repeat scroll 0 0 #00ad6a;
+  border-radius: 2px;
+  color: #fff;
+  display: block;
+  float: left;
+  padding: 4px;
+}
+.log-out-bt > img {
+  width: 22px;
+}
+
+.onlyforrate {
+    height: 32px;
+    left: 0;
+    position: relative;
+    top: 32px;
+    width: 170px;
+    z-index: 99;
+}
+    
+    </style>
+  
+<?php
+if($devlink != '')
+{
+?>
+<?php
+
+     $protocol = '';
+        if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'HTTPS') {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+
+?>
+
+ <div id="developer-main-container" class="clearfix">      
+ <div class="developer-menu-left-pannel">
+ 
+    <div class="development-center-wrapper clearfix">
+    <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'index'));?>" class="logo"><figure><img src="<?php echo $this->basePath('sfpdeveloper/img/dev_logo.png') ?>" alt=""></figure></a>
+       <h5 class="dev-title">-  Development centre  - </h5>
+      <div class="log-out-container clearfix">
+        <a class="log-out-bt" href="<?php echo $url; ?>/sfpdeveloper/devlogout"><img src="<?php echo $this->basePath('img/logout.png') ?>" alt="" /></a>
+         <div class="log-out-person">
+        <strong><a><?php echo $developer->fName." ".$developer->lName; ?></a></strong><p><?php echo $developer->ccity; ?></p>
+        <!--<span>67%</span>-->
+      <!--<span class="rate"> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate.png') ?>" alt="" /> </span>--->
+    </div>
+     </div>
+      </div>
+      <div class="main-menu2">
+        <ul> 
+        
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action' =>'dashboard','id'=>$devlink."|".$developerIdEncrypted));?>">Dashboard </a> </li>
+        	<!--  <li><a href="javascript:void(0)">My campaigns</a></li>
+        	<li><a href="javascript:void(0)">Upload wizard</a></li>
+        	<li><a href="javascript:void(0)">My account</a></li> -->
+        	<li><a  target="_blank" href="<?php echo $url; ?>/index/documentation/<?php echo $devlink?>#tab-1">Documentation</a></li>
+            <!--  <li><a href="<?php echo $this->url('application/default',array('controller'=>'index','action' =>'blogdetails','id'=>$result->id));?>">Blog</a></li>
+            <li><a href="<?php echo $this->url('application/default',array('controller'=>'developer','action' =>'createapp'));?>">Create App</a></li>-->
+    
+        </ul>
+        </div>
+    </div>
+   
+     <div class="copyright-menu clearfix">
+        <ul>
+        	<li><a href="#"><span class=""><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"></span> Terms & service </a></li>
+        	<li><a href="#"> <span class=""><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"></span> Disclaimer </a></li>
+        	<li><a href="#"><span class=""><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"></span> Privacy policy </a></li>
+        	<li> � Copyright 2014 Smart Fanpage</li>
+        </ul>
+        </div>
+        
+
+        
+        
+<div  class="developer-menu-right-pannel clearfix">
+<input type="hidden" id="markethidden" value="<?php echo $tempid; ?>" />
+  <div class="container-fluid"> 
+     <!--===== start banner ===-->
+    <div class="row">
+      <div class="banner_detail_info backgrounddyn" style="background-image: url('<?php echo $promote->bannerimage; ?>');">
+      <input type="hidden" id="imgforbnr" value="<?php echo $promote->bannerimage; ?>"/>
+        <ul class="social_icon" style="visibility: hidden;">
+          <li><a href="#">Share this website</a></li>
+          <li><a href="javascript:void(0)"  onclick="return fbs_click()"></a> <a href="#"></a> <a href="#"></a></li>
+        </ul> <!--=== social icon ===-->
+        <div class="marketing-title-text">
+       <h2> <?php echo $promote->bannertext; ?></h2>
+        </div>
+      </div>
+      
+    </div><!--===== end banner ===--> 
+    <!-- <div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1546857545560281&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script> -->
+<div id="detail-info-cont" class="row">
+   <div class="information-n-comment-left  col-lg-7">
+           <div class="horizontalTab">
+            <ul class="resp-tabs-list col-md-6">
+                <li class="col-lg-4"><a href="#tab1">Information</a></li>
+                <li class="col-lg-4 clickforfb"><a href="#tab2">Comments</a></li>
+                 </ul>
+            <section class="resp-tabs-container">
+                <div class="information-wrapper" id="tab1">
+                
+                <div class="information-left-cont col-lg-12">
+                <div class="about-this clearfix">
+                <h3 class="col-lg-12">About this campaign</h3>
+                <p><?php echo $promote->aboutCmp; ?></p>
+                                </div>
+                
+              <!-- <div class="about-this clearfix">
+                <h5>Campain goals</h5>
+                <p><?php echo $promote->campGoal; ?></p>
+                </div>--> 
+                
+                <div class="about-this clearfix">
+                <h5>Screenshots</h5>
+                 <br/>
+                <ul class="screenshots" id="mycarousel">
+                <?php
+                $i=1;
+                foreach($screen as $screens)
+                {
+                    //echo $screens->screenshot_image;
+                ?>
+                	<li>
+                    <span class="image">
+                    	<figure><a href="#"><img src="<?php echo $screens->screenshot_image; ?>" alt=""/></a></figure>
+                        <div class="popup">
+<a href="<?php echo $screens->screenshot_image; ?>"  rel="prettyPhoto[gallery1]" class="sreach-button"><img src="<?php echo $url;?>/img/magnifine-glass.png" alt="" /></a>
+</div>
+                    </span>
+                    <span>
+                    <p>Step <?php echo $i; ?>: <?php echo $screens->screenshot_header; ?></p>
+                    <p><?php echo $screens->screenshot_desc; ?></p>
+                    </span>
+                    
+                    </li>
+                	
+                <?php
+                $i++;
+                }
+                ?>	
+                	
+                </ul>
+                </div>
+                
+                
+                
+                <!--<div class="about-this clearfix">
+                <h5>Responsive app</h5>
+                <p>We have adjusted and incorporated Visual Composer plugin into our theme. You can easily build unlimited number of layout, because you can visualize what you will get at site page in the process of creation. Also it is very easy to rearrange and edit already created layouts.</p>
+                <span>
+                <figure>
+                <img src="http://test.scampaigns.com/img/d-img-6.jpg" alt="">
+                </figure>
+                </span>
+                </div>-->
+                
+                <!--<div class="about-this clearfix">
+                <h5>Key features</h5>
+                <div class="key-feature">
+                <ul>
+                	<li><a href="#">Feature  1</a></li>
+                	<li><a href="#">Feature  2</a></li>
+                	<li><a href="#">Feature  3</a></li>
+                	<li><a href="#">Feature  4</a></li>
+                	<li><a href="#">Feature  5</a></li>
+                    </ul>
+                    <ul>
+                	<li><a href="#">Feature  6</a></li>
+                	<li><a href="#">Feature  7</a></li>
+                	<li><a href="#">Feature  8</a></li>
+                	<li><a href="#">Feature  9</a></li>
+                    <li><a href="#">Feature  10</a></li>
+                </ul>
+                
+                </div>--->
+                <div class="down-arrow">
+                <a href=".sign-up-wrapper" class="drop-arrow-main js_onPageLink"><img src="<?php echo $url; ?>/img/arrow.png" alt=""></a>
+                </div>
+                </div>
+                
+                
+                
+              
+                </div>
+                
+              <!--  ================================================== first tab end   ==================================================-->
+                
+                <div class="information-wrapper comment-wrapper" id="tab2">
+                  <div class="information-left-cont col-lg-12">
+                <div class="about-this clearfix">
+                <div class="commnt-head">
+             
+                <h3 id="commentTag">Comments about this campaign (<?php echo count($comment);?>)</h3>
+                <!--<a class="main-comment" style="cursor: pointer;"><span><figure><img src="http://test.scampaigns.com/img/commnt-2.png" alt=""></figure><p>Leave a new comment</p></span></a>-->
+                <div class="form-conatainer" style="display: none;">
+                <form method="post" name="login">
+                    <ul>
+                        <li class="clearfix">
+                            <label id="emailtab"> Name</label>
+                            <input type="text" name=" Name" id="name" value="">
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"> Email</label>
+                            <input type="text" name=" Email" id="email" value="">
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"> Comment</label>
+                            <textarea name="comment" cols="" rows="" id="comment" ></textarea>
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"></label>
+                            <input type="button" class="cancel" name=" cancel" value="CANCEL" />
+                            <input type="button" id="submit1" name="submit" value="SUBMIT COMMENT" />
+                        </li>
+                        
+                    </ul>
+                </form>
+                </div>
+                </div>
+                
+                
+                </div>
+                <input type="hidden" value="<?php echo $template1->id; ?>" id="hiddentemp" />
+                <div class="commnt-box">
+                <ul>
+ 	              <!--   <li class="" id="#" style="display: block;">
+                    <span>
+                    <h5>weibinhuang </h5><p>12 december 2013</p>
+                    </span>
+                    <span>Hi, I am a beginner of using wordpress. May I know how to reduce the space between the header and post in this theme? I have set the static page as homepage. Many thanks!</span>
+                    </li>-->
+                    <?php
+                    
+                    foreach($comment as $com)
+                    { 
+                    	
+                        if($com->tempid == $template1->id)
+                        {
+                        	
+                    ?>
+                	<li class="" id="#">
+                    <div class="commnt-fig"><figure><img src="<?php echo $com->profimage; ?>" alt="" style="height: 50px;width: 50px;"></figure></div>
+                    <div class="commnt-raw">
+                    <span>
+                    <h5><?php echo $com->name; ?> </h5><p><?php echo $com->timeStamp; ?></p>
+                    </span>
+                    <span><?php echo $com->comment; ?></span>
+                    </div>
+                    </li>
+                    <?php
+                    }
+                    
+                    }
+                    
+                    ?>
+                </ul>
+                </div>
+                <div class="leave-a-reply" style="cursor: pointer;">
+                <figure><img src="<?php echo $url; ?>/img/commnt-2.png" alt=""></figure><p>Leave a new comment</p>
+                </div>
+                <!-- <div class="commnt-box">
+                <ul>
+                	<li>
+                    <span>
+                    <h5>weibinhuang </h5><p>12 december 2013</p>
+                    </span>
+                    <span>Hi, I am a beginner of using wordpress. May I know how to reduce the space between the header and post in this theme? I have set the static page as homepage. Many thanks!</span>
+                    </li>
+                	<li>
+                    <div class="commnt-fig"><figure><img src="http://test.scampaigns.com/img/cmmnt.jpg" alt=""></figure></div>
+                    <div class="commnt-raw">
+                    <span>
+                    <h5>eaf1ef </h5><p>12 december 2013</p>
+                    </span>
+                    <span>Hi! Please provide link to your page (or just screenshot) and explain what space do you mean. Thanks!</span>
+                    </div>
+                    </li>
+                </ul>
+                </div>-->
+                
+                 <div class="form-conatainer" style="display: none;">
+                <form method="post" name="login">
+                    <ul>
+                        <li class="clearfix">
+                            <label id="emailtab"> Name*</label>
+                            <input type="text" name=" Name" id="name" value="">
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"> Email*</label>
+                            <input type="text" name=" Email" id="email" value="">
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"> Comment*</label>
+                            <textarea name="comment" cols="" rows="" id="comment" ></textarea>
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"></label>
+                            <input type="button" class="cancel" name=" cancel" value="CANCEL" />
+                            <input type="button" id="submit1" name="submit" value="SUBMIT COMMENT" />
+                        </li>
+                        
+                    </ul>
+                </form>
+                </div>
+                <!--  <div class="commnt-box">
+                <ul>
+                	<li>
+                    <span>
+                    <h5>weibinhuang </h5><p>12 december 2013</p>
+                    </span>
+                    <span>Hi, I am a beginner of using wordpress. May I know how to reduce the space between the header and post in this theme? I have set the static page as homepage. Many thanks!</span>
+                    </li>
+                	<li>
+                    <div class="commnt-fig"><figure><img src="http://test.scampaigns.com/img/cmmnt.jpg" alt=""></figure></div>
+                    <div class="commnt-raw">
+                    <span>
+                    <h5>eaf1ef </h5><p>12 december 2013</p>
+                    </span>
+                    <span>Hi! Please provide link to your page (or just screenshot) and explain what space do you mean. Thanks!</span>
+                    </div>
+                    </li>
+                </ul>
+                </div> -->
+                <!--<div class="leave-a-reply">
+                <figure><img src="http://test.scampaigns.com/img/commnt-2.png" alt=""></figure><p>Leave a new comment</p>
+                </div>-->
+                <a class="big-leave-comment">
+                Leave a new comment
+                </a>
+                
+                
+                
+                
+                
+                
+                
+                </div>
+             
+                  </div>
+                
+                <!--  ================================================== secoend tab end   ==================================================-->
+            </section>
+        </div>
+   </div>
+   <div class="signup-free-right col-lg-5">
+     <div class="information-right-cont">
+                <!---<h4>Campaign costs: <strong>&#8364;19,</strong>- p/m</h4>--->
+                 <h5>Use this campaign?</h5> 
+                 
+ <?php
+if($devlink == '')
+{
+?>
+                    
+                 <?php
+                 if($sid == "")
+                 {
+                 	
+                 ?>
+                 <a href="<?php echo $url; ?>/index/accountsignup" class="sign-up-free">Sign up free</a> 
+                 <?php
+                 }
+                 else
+                 {
+                  ?>
+                  <a href="<?php echo $url; ?>/Frontend/templatecopy/<?php echo $template1->templateName; ?>" class="sign-up-free">Start Directly</a> 
+                  <?php  
+                 }
+}
+else
+{?>
+
+	<a style="cursor:pointer;" class="sign-up-free">Sign up free</a>
+ 
+<?php } ?>
+                 
+                  <div class="social-wrap">
+                  <ul>
+                  	<li>Suitable for:</li>
+                  	<li><a class="active"></a></li>
+                  	<li><a></a></li>
+                  	
+                  
+                  </ul>
+                  </div>
+                    <div class="onlyforrate"></div>
+                   <div class="rateyo-widg-2"></div><input type="hidden" id="ratme" value="<?php echo ($rating[0]['rating']); ?>"/>
+                  
+              <!--     <div class="ratings-wrapp" style="visibility:hidden">
+                  <ul>
+                  	<li>Campaign rating:</li>
+                    <li><div id="example-2"></div></li>
+                  <li><span id="example-rating-2"><?php echo round($rating[0]['rating']/$rating[0]['hits'],2); ?> average based on <?php echo $rating[0]['hits'];  ?> ratings </span></li>
+                  </ul>
+                  
+                  </div>--> 
+                  <div class="other-user-campaign-info">
+                  <table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <th colspan="3" scope="col">Other users who have used this campaign</th>
+    </tr>
+    <?php
+    
+    $count = count($promotion);
+    $j=1;
+for($i=$count;$i>0;$i--)
+{
+    if($promotion[$i][0]['fbemail'] != "")
+    {
+    if($j<=3)
+    {
+    ?>
+    
+  <tr>
+    <td><?php echo $j;?>.</td>
+    <td><?php echo $promotion[$i][0]['fbName']; ?></td>
+    <td></td>
+  </tr>
+<?php
+}
+$j++;
+}
+}
+?>
+</table>
+
+                  </div>
+               <!--  <div class="purchase-n-cmmnt" style="visibility:hidden">
+                  
+                  <div class="purchases">
+                  <span>
+                  <figure>
+                  <img src="<?php echo $url; ?>/img/cart.png" alt="">
+                  </figure>
+                  </span>
+                  <div class="pur-infos">
+                  <span>Purchases</span>
+                  <span>0</span>
+                  </div>
+                  </div>
+                     <?php
+                $result = count($comment);
+                ?>
+             
+                      <div class="purchases cmmnt">
+                  <span>
+                  <figure>
+                 <a href="#tab2"><img src="<?php echo $url; ?>/img/commnt.png" alt=""/></a> 
+                  </figure>
+                  </span>
+                  <div class="pur-infos">
+                  <span>Comments</span>
+                  <span id="commnts"><?php echo $result; ?></span>
+                  </div>
+                  </div>
+                   <input type="hidden" id="ratinghidden" value="<?php echo ceil($rating[0]['rating']/$rating[0]['hits']); ?>"/>
+                  </div>-->   
+                                                
+                  <div class="social-share-new">
+                  <ul>
+                  	<li class="fbli"><div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div><div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=785736171461837&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script></li>
+                  	<li><a class="twitter-share-button" href="https://twitter.com/share">Tweet</a>
+<script type="text/javascript">
+window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
+</script></li>
+                  
+                  </ul>
+                  </div>
+                  
+                  <div class="publisher-wrap">
+                  
+                  <h3>Author</h3>
+                  <span><figure><img src="<?php echo $developer->cimage; ?>" alt=""></figure></span>
+                  <span><?php echo $developer->fName." ".$developer->lName; ?></span>
+                  <p><?php echo $developer->cdesc; ?></p>
+                  <div class="rating-cont"></div>
+                 <!--- <div class="publish-bt">
+                  <ul>
+                  	<li><a href="#">campaigns</a></li>
+                  	<li><img src="http://test.scampaigns.com/img/icon-1.png" alt=""></li>
+                  </ul>
+                  </div>--->
+                  
+                  <div class="contact-author" style="visibility:hidden">
+                  <h3>Contact author</h3>
+                  <ul>
+                  	<li><?php echo $developer->cphone; ?> </li>
+                  	<li>Send a request</li>
+                  </ul>
+                  </div>
+                  
+                  
+                  </div>
+                  
+                  <!--<div class="tag-container">
+                  <h3>Tags</h3>
+                  <div class="tags">
+			<ul class="alt">
+				<li><a href="#">Lorem ipsum</a></li> 
+				<li class="active"><a href="#">Dolor sit amet</a></li>
+				<li><a href="#">Consectetur adipiscing elit</a></li>
+				<li><a href="#">Proin </a></li>
+				<li><a href="#">Sagittis libero</a></li>
+				<li><a href="#">Aliquet augue</a></li>
+				<li><a href="#">Quisque dui lacus</a></li>
+				<li><a href="#">Consequat</a></li>
+				<li><a href="#">Dictum non</a></li>
+				<li><a href="#">Venenatis et tortor</a></li>
+				<li><a href="#">Suspendisse mauris</a></li>
+				<li><a href="#">In accumsan </a></li>
+				<li><a href="#">Egestas neque</a></li>
+				<li><a href="#">Mauris eget felis</a></li>
+				<li><a href="#">Suspendisse</a></li>
+				<li><a href="#">condimentum eleifend nulla</a></li>
+			</ul>
+		</div>
+                  </div>--->
+                    
+                  </div>
+   </div>
+
+        </div>
+        </div>
+        <div style="position:relative;">
+        <hr/>
+        <a href="#" class="go_to_up" id="back-to-top"></a></div>
+        </div>
+        
+</div>
+<?php
+}
+else { ?>
+	<div  class="site" id="menu">
+<input type="hidden" id="markethidden" value="<?php echo $tempid; ?>" />
+  <div class="container-fluid"> 
+     <!--===== start banner ===-->
+    <div class="row">
+      <div class="banner_detail_info backgrounddyn" style="background-image: url('<?php echo $promote->bannerimage; ?>');">
+      <input type="hidden" id="imgforbnr" value="<?php echo $promote->bannerimage; ?>"/>
+        <ul class="social_icon" style="visibility: hidden;">
+          <li><a href="#">Share this website</a></li>
+          <li><a href="javascript:void(0)"  onclick="return fbs_click()"></a> <a href="#"></a> <a href="#"></a></li>
+        </ul> <!--=== social icon ===-->
+        <div class="marketing-title-text">
+       <h2> <?php echo $promote->bannertext; ?></h2>
+        </div>
+      </div>
+      
+    </div><!--===== end banner ===--> 
+   <!--   <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1546857545560281&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>-->
+<div id="detail-info-cont" class="row">
+     <div class="information-n-comment-left  col-lg-7">
+        <div class="horizontalTab">
+            <ul class="resp-tabs-list col-md-6">
+                <li class="col-lg-4"><a href="#tab1">Information</a></li>
+                <li class="col-lg-4 clickforfb"><a href="#tab2">Comments</a></li>
+                 </ul>
+            <section class="resp-tabs-container">
+                <div class="information-wrapper" id="tab1">
+                
+                <div class="information-left-cont col-lg-12">
+                <div class="about-this clearfix">
+                <h3 class="col-lg-12">About this campaign</h3>
+                <p><?php echo $promote->aboutCmp; ?></p>
+                                </div>
+                
+             <!--     <div class="about-this clearfix">
+                <h5>Campain goals</h5>
+                <p><?php echo $promote->campGoal; ?></p>
+                </div> -->
+                
+                <div class="about-this clearfix">
+                <h5>Screenshots</h5>
+                 <br/>
+                <ul class="screenshots" id="mycarousel">
+                <?php
+                $i=1;
+                foreach($screen as $screens)
+                {
+                    
+                ?>
+                	<li>
+                	
+                    <span class="image">
+                    	<figure><a href="#"><img src="<?php echo $screens->screenshot_image; ?>" alt=""/></a></figure>
+                        <div class="popup">
+<a href="<?php echo $screens->screenshot_image; ?>"  rel="prettyPhoto[gallery1]" class="sreach-button"><img src="<?php echo $url;?>/img/magnifine-glass.png" alt="" /></a>
+</div>
+                    </span>
+                    <span>
+                    <p>Step <?php echo $i; ?>: <?php echo $screens->screenshot_header; ?></p><br/>
+                    <hr/>
+                    <p><?php echo $screens->screenshot_desc; ?></p>
+                    </span>
+                    
+                    </li>
+                	
+                <?php
+                $i++;
+                }
+                ?>	
+                	
+                </ul>
+                </div>
+                
+                
+                
+                <!--<div class="about-this clearfix">
+                <h5>Responsive app</h5>
+                <p>We have adjusted and incorporated Visual Composer plugin into our theme. You can easily build unlimited number of layout, because you can visualize what you will get at site page in the process of creation. Also it is very easy to rearrange and edit already created layouts.</p>
+                <span>
+                <figure>
+                <img src="http://test.scampaigns.com/img/d-img-6.jpg" alt="">
+                </figure>
+                </span>
+                </div>-->
+                
+                <!--<div class="about-this clearfix">
+                <h5>Key features</h5>
+                <div class="key-feature">
+                <ul>
+                	<li><a href="#">Feature  1</a></li>
+                	<li><a href="#">Feature  2</a></li>
+                	<li><a href="#">Feature  3</a></li>
+                	<li><a href="#">Feature  4</a></li>
+                	<li><a href="#">Feature  5</a></li>
+                    </ul>
+                    <ul>
+                	<li><a href="#">Feature  6</a></li>
+                	<li><a href="#">Feature  7</a></li>
+                	<li><a href="#">Feature  8</a></li>
+                	<li><a href="#">Feature  9</a></li>
+                    <li><a href="#">Feature  10</a></li>
+                </ul>
+                
+                </div>--->
+                <div class="down-arrow">
+                <a href=".sign-up-wrapper" class="drop-arrow-main js_onPageLink"><img src="<?php echo $url; ?>/img/arrow.png" alt=""></a>
+                </div>
+                </div>
+                
+  
+                </div>
+                
+              <!--  ================================================== first tab end   ==================================================-->
+                
+                <div class="information-wrapper comment-wrapper" id="tab2">
+                  <div class="information-left-cont col-lg-12">
+                <div class="about-this clearfix">
+                <div class="commnt-head">
+             
+                <h3 id="commentTag">Comments about this campaign (<?php echo count($comment);?>)</h3>
+                <!--<a class="main-comment" style="cursor: pointer;"><span><figure><img src="http://test.scampaigns.com/img/commnt-2.png" alt=""></figure><p>Leave a new comment</p></span></a>
+                <div class="form-conatainer" style="display: none;">
+                <form method="post" name="login">
+                    <ul>
+                        <li class="clearfix">
+                            <label id="emailtab"> Name</label>
+                            <input type="text" name=" Name" id="name" value="">
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"> Email</label>
+                            <input type="text" name=" Email" id="email" value="">
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"> Comment</label>
+                            <textarea name="comment" cols="" rows="" id="comment" ></textarea>
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"></label>
+                            <input type="button" class="cancel" name=" cancel" value="CANCEL" />
+                            <input type="button" id="submit1" name="submit" value="SUBMIT COMMENT" />
+                        </li>
+                        
+                    </ul>
+                </form>
+                </div>-->
+                </div>
+                
+                
+                </div>
+                <input type="hidden" value="<?php echo $template1->id; ?>" id="hiddentemp" />
+                <div class="commnt-box">
+                <ul>
+ 	             <!--   <li class="" id="#" style="display: block;">
+                    <span>
+                    <h5>weibinhuang </h5><p>12 december 2013</p>
+                    </span>
+                    <span>Hi, I am a beginner of using wordpress. May I know how to reduce the space between the header and post in this theme? I have set the static page as homepage. Many thanks!</span>
+                    </li>-->
+                    <?php
+                    $blogCount=0;
+                    foreach($comment as $com)
+                    {
+                        if($com->tempid == $template1->id)
+                        {
+                        	$blogCount=$blogCount+1;
+                    ?>
+                	<li class="" id="#">
+                    <div class="commnt-fig"><figure><img src="<?php echo $com->profimage; ?>" alt="" style="height: 50px;width: 50px;"></figure></div>
+                    <div class="commnt-raw">
+                    <span>
+                    <h5><?php echo $com->name; ?> </h5><p><?php echo $com->timeStamp; ?></p>
+                    </span>
+                    <span><?php echo $com->comment; ?></span>
+                    </div>
+                    </li>
+                    <?php
+                    }
+                    }
+                    ?>
+                </ul>
+                </div>
+                <div class="leave-a-reply" style="cursor: pointer;">
+                <figure><img src="<?php echo $url; ?>/img/commnt-2.png" alt=""></figure><p>Leave a new comment</p>
+                </div>
+                <!--<div class="commnt-box">
+                <ul>
+                	<li>
+                    <span>
+                    <h5>weibinhuang </h5><p>12 december 2013</p>
+                    </span>
+                    <span>Hi, I am a beginner of using wordpress. May I know how to reduce the space between the header and post in this theme? I have set the static page as homepage. Many thanks!</span>
+                    </li>
+                	<li>
+                    <div class="commnt-fig"><figure><img src="http://test.scampaigns.com/img/cmmnt.jpg" alt=""></figure></div>
+                    <div class="commnt-raw">
+                    <span>
+                    <h5>eaf1ef </h5><p>12 december 2013</p>
+                    </span>
+                    <span>Hi! Please provide link to your page (or just screenshot) and explain what space do you mean. Thanks!</span>
+                    </div>
+                    </li>
+                </ul>
+                </div>-->
+                
+                 <div class="form-conatainer" style="display: none;">
+                <form method="post" name="login">
+                    <ul>
+                        <li class="clearfix">
+                            <label id="emailtab"> Name*</label>
+                            <input type="text" name=" Name" id="name" value="">
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"> Email*</label>
+                            <input type="text" name=" Email" id="email" value="">
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"> Comment*</label>
+                            <textarea name="comment" cols="" rows="" id="comment" ></textarea>
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label id="emailtab"></label>
+                            <input type="button" class="cancel" name=" cancel" value="CANCEL" />
+                            <input type="button" id="submit1" name="submit" value="SUBMIT COMMENT" />
+                        </li>
+                        
+                    </ul>
+                </form>
+                </div>
+                <!--<div class="commnt-box">
+                <ul>
+                	<li>
+                    <span>
+                    <h5>weibinhuang </h5><p>12 december 2013</p>
+                    </span>
+                    <span>Hi, I am a beginner of using wordpress. May I know how to reduce the space between the header and post in this theme? I have set the static page as homepage. Many thanks!</span>
+                    </li>
+                	<li>
+                    <div class="commnt-fig"><figure><img src="http://test.scampaigns.com/img/cmmnt.jpg" alt=""></figure></div>
+                    <div class="commnt-raw">
+                    <span>
+                    <h5>eaf1ef </h5><p>12 december 2013</p>
+                    </span>
+                    <span>Hi! Please provide link to your page (or just screenshot) and explain what space do you mean. Thanks!</span>
+                    </div>
+                    </li>
+                </ul>
+                </div>-->
+                <!--<div class="leave-a-reply">
+                <figure><img src="http://test.scampaigns.com/img/commnt-2.png" alt=""></figure><p>Leave a new comment</p>
+                </div>-->
+                <a class="big-leave-comment">
+                Leave a new comment
+                </a>
+                
+                
+                
+                
+                
+                
+                
+                </div>
+  
+                  </div>
+                
+                <!--  ================================================== secoend tab end   ==================================================-->
+            </section>
+        </div>
+      </div>  
+
+          <div class="signup-free-right  col-lg-5">
+                 
+                
+                <div class="information-right-cont">
+                <!---<h4>Campaign costs: <strong>&#8364;19,</strong>- p/m</h4>--->
+                 <h5>Use this campaign?</h5> 
+ <?php
+if($devlink == '')
+{
+?>
+                    
+                 <?php
+                 if($publisherDetails == "")
+                 {
+                 ?>
+                
+                 <a href="<?php echo $url; ?>/index/accountsignup" class="sign-up-free">Sign up free</a> 
+                 <?php
+                 }
+                 else
+                 {
+                  ?>
+                  <a href="<?php echo $url; ?>/Frontend/templatecopy/<?php echo $template1->templateName; ?>" class="sign-up-free">Start Directly</a> 
+                  <?php  
+                 }
+}
+else
+{?>
+  
+	<a style="cursor:pointer;" class="sign-up-free">Sign up free</a>
+ 
+<?php } ?>
+                 
+                  <div class="social-wrap">
+                  <ul>
+                  	<li>Suitable for:</li>
+                  	<li><a class="active"></a></li>
+                  	<li><a></a></li>
+                  	
+                  
+                  </ul>
+                  </div>
+                   <div class="rateyo-widg-2"></div><input type="hidden" id="ratme" value="<?php echo ($rating[0]['rating']); ?>"/>
+                  
+              <!--     <div class="ratings-wrapp" style="visibility:hidden">
+                  <ul>
+                  	<li>Campaign rating:</li>
+                    <li><div id="example-2"></div></li>
+                  <li><span id="example-rating-2"><?php echo round($rating[0]['rating']/$rating[0]['hits'],2); ?> average based on <?php echo $rating[0]['hits'];  ?> ratings </span></li>
+                  </ul>
+                  
+                  </div>--> 
+                  <div class="other-user-campaign-info">
+                  <table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <th colspan="3" scope="col">Other users who have used this campaign</th>
+    </tr>
+    <?php
+    
+    $count = count($promotion);
+    $j=1;
+for($i=$count;$i>0;$i--)
+{
+    if($promotion[$i][0]['fbemail'] != "")
+    {
+    if($j<=3)
+    {
+    ?>
+    
+  <tr>
+    <td><?php echo $j;?>.</td>
+    <td><?php echo $promotion[$i][0]['fbName']; ?></td>
+    <td></td>
+  </tr>
+<?php
+}
+$j++;
+}
+}
+?>
+</table>
+
+                  </div>
+               <!--  <div class="purchase-n-cmmnt" style="visibility:hidden">
+                  
+                  <div class="purchases">
+                  <span>
+                  <figure>
+                  <img src="<?php echo $url; ?>/img/cart.png" alt="">
+                  </figure>
+                  </span>
+                  <div class="pur-infos">
+                  <span>Purchases</span>
+                  <span>0</span>
+                  </div>
+                  </div>
+                     <?php
+                $result = count($comment);
+                ?>
+             
+                      <div class="purchases cmmnt">
+                  <span>
+                  <figure>
+                 <a href="#tab2"><img src="<?php echo $url; ?>/img/commnt.png" alt=""/></a> 
+                  </figure>
+                  </span>
+                  <div class="pur-infos">
+                  <span>Comments</span>
+                  <span id="commnts"><?php echo $result; ?></span>
+                  </div>
+                  </div>
+                   <input type="hidden" id="ratinghidden" value="<?php echo ceil($rating[0]['rating']/$rating[0]['hits']); ?>"/>
+                  </div>-->   
+                                                
+                  <div class="social-share-new">
+                  <ul>
+                  	<li><div class="fb-share-button" data-href="<?php echo  $_SERVER['REQUEST_URI']; ?>" data-layout="button_count"></div><div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=785736171461837&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script></li>
+                  	<li><a class="twitter-share-button"
+  href="https://twitter.com/share">
+Tweet
+</a>
+<script>
+window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+</script></li>
+                  
+                  </ul>
+                  </div>
+                  
+                  <div class="publisher-wrap">
+                  
+                  <h3>Author</h3>
+                  <span><figure><img src="<?php echo $developer->cimage; ?>" alt=""></figure></span>
+                  <span><?php echo $developer->fName." ".$developer->lName; ?></span>
+                  <p><?php echo $developer->cdesc; ?></p>
+                  <div class="rating-cont"></div>
+                 <!--- <div class="publish-bt">
+                  <ul>
+                  	<li><a href="#">campaigns</a></li>
+                  	<li><img src="http://test.scampaigns.com/img/icon-1.png" alt=""></li>
+                  </ul>
+                  </div>--->
+                  
+                  <div class="contact-author" style="visibility:hidden">
+                  <h3>Contact author</h3>
+                  <ul>
+                  	<li><?php echo $developer->cphone; ?> </li>
+                  	<li>Send a request</li>
+                  </ul>
+                  </div>
+                  
+                  
+                  </div>
+                  
+                  <!--<div class="tag-container">
+                  <h3>Tags</h3>
+                  <div class="tags">
+			<ul class="alt">
+				<li><a href="#">Lorem ipsum</a></li> 
+				<li class="active"><a href="#">Dolor sit amet</a></li>
+				<li><a href="#">Consectetur adipiscing elit</a></li>
+				<li><a href="#">Proin </a></li>
+				<li><a href="#">Sagittis libero</a></li>
+				<li><a href="#">Aliquet augue</a></li>
+				<li><a href="#">Quisque dui lacus</a></li>
+				<li><a href="#">Consequat</a></li>
+				<li><a href="#">Dictum non</a></li>
+				<li><a href="#">Venenatis et tortor</a></li>
+				<li><a href="#">Suspendisse mauris</a></li>
+				<li><a href="#">In accumsan </a></li>
+				<li><a href="#">Egestas neque</a></li>
+				<li><a href="#">Mauris eget felis</a></li>
+				<li><a href="#">Suspendisse</a></li>
+				<li><a href="#">condimentum eleifend nulla</a></li>
+			</ul>
+		</div>
+                  </div>--->
+                    
+                  </div>
+   </div>   
+   
+
+	
+<?php  } ?>
+
+
+<script>
+setTimeout(function(){   
+	var imgforbnr= $('#imgforbnr').val(); 
+	 //$('.backgrounddyn').css({backgroundImage: "url("+imgforbnr+")"});
+
+}, 50);
+</script>
+     <script>
+     
+  function fbs_click()
+    {
+    var id = document.getElementById('markethidden').value;
+    var basepath = window.location.protocol+"//" + window.location.host;   
+    var u=basepath+"/index/marketing/"+id;
+    var t='smartfanpage';
+    var child = window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+    }
+
+
+
+
+
+  
+  </script> 
+
+     
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    
+
+    <script>
+
+    setTimeout(function() {
+
+if(($('#ratme').val()) != '')
+{
+		$(".rateyo-widg-2").rateYo({
+
+          rating: <?php echo ($rating[0]['rating']); ?>,
+		  ratedFill: "#dbb106"
+        }).on("rateyo.set", function (e, data) {
+ 
+        	  var res = data.rating;
+        	  var base_url = window.location.origin;
+        	    var hidtemp = $("#hiddentemp").val();
+        	         $.ajax({
+        	            type:'POST',
+        	            data:{tempid:hidtemp,rate:res},
+        	            url:base_url+"/index/ratestar",
+        	            success:function(response){
+        	      
+        	            	// alert("The rating is set to " + data.rating + "!");
+        	            	 
+        	            }
+        	        });
+              });
+
+}
+else
+  {
+	$(".rateyo-widg-2").rateYo({
+
+        rating: 0,
+		  ratedFill: "#dbb106"
+      }).on("rateyo.set", function (e, data) {
+
+    	  var res = data.rating;
+    	  var base_url = window.location.origin;
+    	    var hidtemp = $("#hiddentemp").val();
+    	         $.ajax({
+    	            type:'POST',
+    	            data:{tempid:hidtemp,rate:res},
+    	            url:base_url+"/index/ratestar",
+    	            success:function(response){
+        	            
+    	            	// alert("The rating is set to " + data.rating + "!");
+    	            }
+    	        });
+            });
+   }
+
+   
+          
+      },1000);
+    </script>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+           
+   
+
+        

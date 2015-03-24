@@ -1,0 +1,27 @@
+<div class="site">
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back to page details</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'addstep'));?>">Insert More</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'admin','action'=>'howsworkedit','id'=>3));?>">Back</a>
+            </div>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+                <tr>
+                    <th>Header</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Do your operation</th>
+                </tr>
+        <?php foreach ($list as $listing) : ?>
+                <tr>
+                    <td><?php echo $this->escapeHtml($listing->header);?></td>
+                    <td><img src="<?php echo $listing->Imagepath;?>" /> </td>
+                    <td width="420"><?php echo $this->escapeHtml($listing->Description);?></td>
+                    <td><a class="table_btn" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'editheader','id' => $listing->id));?>">edit</a><a class="table_btn" onclick="if(!confirm('Are you want to delete'))return false;" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'deletehwk','id' => $listing->id));?>">Delete</a></td>
+                </tr>
+        <?php endforeach; ?>
+        </table>
+        </div>
+    </div>
+ 

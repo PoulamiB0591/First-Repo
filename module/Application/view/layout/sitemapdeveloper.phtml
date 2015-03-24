@@ -1,0 +1,214 @@
+<?php
+ $protocol = '';
+        if (isset($_SERVER[‘HTTPS’]) &&
+       ($_SERVER[‘HTTPS’] == ‘on’ || $_SERVER[‘HTTPS’] == 1) ||
+        isset($_SERVER[‘HTTP_X_FORWARDED_PROTO’]) &&
+        $_SERVER[‘HTTP_X_FORWARDED_PROTO’] == ‘https’) {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+?>
+<link href='http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic' rel='stylesheet' type='text/css'/>
+<style>
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts2/icomoon.eot?-e0hb3x');
+	src:url('../fonts2/icomoon.eot?#iefix-e0hb3x') format('embedded-opentype'),
+		url('../fonts2/icomoon.woff?-e0hb3x') format('woff'),
+		url('../fonts2/icomoon.ttf?-e0hb3x') format('truetype'),
+		url('../fonts2/icomoon.svg?-e0hb3x#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+.icon-cancel:before {
+	content: "\e610";
+}
+.icon-cog:before {
+	content: "\e606";
+}
+.icon-power-off:before {
+	content: "\f011";
+}
+.icon-instagram:before {
+	content: "\f16d";
+}
+.icon-info-outline:before {
+	content: "\e60b";
+}
+.icon-social-twitter-circular:before {
+	content: "\e601";
+}
+.icon-social-linkedin-circular:before {
+	content: "\e602";
+}
+.icon-social-facebook-circular:before {
+	content: "\e603";
+}
+.icon-check:before {
+	content: "\f03a";
+}
+.icon-pencil:before {
+	content: "\f058";
+}
+.icon-checkmark-circle:before {
+	content: "\e607";
+}
+.icon-arrow-left:before {
+	content: "\e609";
+}
+.icon-warning:before {
+	content: "\e604";
+}
+.icon-arrow-down:before {
+	content: "\e608";
+}
+.icon-arrow-right:before {
+	content: "\e600";
+}
+.icon-arrow-up:before {
+	content: "\e605";
+}
+.icon-dot:before {
+	content: "\e60a";
+}
+.icon-twitter:before {
+	content: "\e60c";
+}
+.icon-facebook:before {
+	content: "\e60d";
+}
+.icon-pinterest:before {
+	content: "\e60e";
+}
+.icon-linkedin:before {
+	content: "\e60f";
+}
+
+h5.dev-title {
+    color: #fff;
+    font-family: "Economica",sans-serif;
+    font-size: 22px;
+    margin: 22px 0;
+    text-align: center;
+}
+
+.copyright-menu {
+    bottom: 19px;
+    left: 12px;
+    position: absolute;
+}
+.copyright-menu ul{ padding: 0;}
+.copyright-menu li {
+  display: block;
+  font-family: "ubunturegular";
+  font-size: 12px;
+  margin-bottom: 5px;
+  
+}
+.copyright-menu li a{ text-decoration: none;color: #fff;}
+.copyright-menu li:last-child {
+  color: #7c7f83;
+  margin-top: 12px;
+}
+.main-menu li {
+	height:auto;
+	overflow:hidden;
+	display:block;
+	font-size:12px;
+}
+.main-menu li > a {
+	height:42px;
+	line-height:42px;
+	border-bottom:1px solid #39404b;
+	display:block;
+	text-transform: uppercase;
+	padding-left: 12px;
+}
+.main-menu li:first-child a {
+	border-top:1px solid #39404b;
+}
+.main-menu {
+	margin-top: 48px;
+}
+.main-menu li a:hover {
+	color:#a9c5bc
+}
+.main-menu li a:hover:after {
+	content:">";
+	float:right;
+	margin-right:12px;
+	font-size:15px
+}
+.main-menu ul {
+  min-width: 216px;
+  padding: 0;
+}
+.main-menu li > a {
+  color: #fff;
+  }
+  
+  .copyright-menu li {
+	display:block;
+	font-size:12px;
+	font-family: 'ubunturegular';
+	margin-bottom:5px;
+}
+.copyright-menu li:last-child {
+	color:#7c7f83;
+	margin-top:12px
+}
+.copyright-menu ul li a span {
+	display: block;
+	float: left;
+	margin: 3px 6px 0 0;
+}
+.copyright-menu {
+	bottom: 19px;
+	position: absolute;
+    left: 12px;
+}
+
+.publisher-wrap h3 + span + span {
+    display: block;
+    margin: 12px 182px;
+}
+</style>
+<aside class="main container-fluid">
+  <div class="wrapper">  
+        <nav id="menu" > <!--<strong class="button"><b>&nbsp;</b></strong>--> <a href="#" class="small_logo"><img src="<?php echo $this->basePath('img/small_logo.png') ?>" alt="" /></a> <a href="<?php echo $this->url('home') ?>" class="big_logo"><img src="<?php echo $this->basePath('img/big_logo.png') ?>" alt="" /></a>
+      
+      <h5 class="dev-title"> -  Development centre  - </h5>
+      <div class="download"><img src="<?php echo $this->basePath('img/download.png') ?>" alt="" /></div>
+     <a href="<?php echo $url; ?>/sfpdeveloper/devlogout"> <div class="logout"> <img src="<?php echo $this->basePath('img/logout.png') ?>" alt="" /></a>
+        <p><a><?php echo $uname; ?></a><?php echo $city; ?></p>
+        <!--<span>67%</span>--> </div>
+      <!--<span class="rate"> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate.png') ?>" alt="" /> </span>--->
+      <div class="main-menu2 clearfix">
+        <ul>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action' =>'dashboard','id'=>$devid."|".$encryptedDeveloperId,));?>">Dashboard </a> </li>
+        	
+        	<li><a  target="_blank" href="<?php echo $url; ?>/index/documentation#tab-1">Documentation</a></li>
+        <!--    <li><a href="<?php echo $this->url('application/default',array('controller'=>'index','action' =>'blogoverview'));?>">Blog</a></li>
+           -->
+        </ul>
+        </div>
+   
+     <div class="copyright-menu clearfix">
+        <ul>
+        	<li><a href="#"><span class=""><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"></span> Terms & service </a></li>
+        	<li><a href="#"> <span class=""><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"></span> Disclaimer </a></li>
+        	<li><a href="#"><span class=""><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"></span> Privacy policy </a></li>
+        	<li>© Copyright 2014 Smart Fanpage</li>
+        </ul>
+        </div>
+    </nav>
+</div>
+</aside>

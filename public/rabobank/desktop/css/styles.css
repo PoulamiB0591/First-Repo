@@ -1,0 +1,664 @@
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+	background: url(../img/map-pat.jpg);
+	margin:0;
+	padding:0;
+	font-family: 'Open Sans', sans-serif;
+	position:relative;
+	
+}
+a { cursor: pointer;}
+ul{ margin:0; padding:0}
+li{ list-style:none}
+h1{
+	color: white;
+	text-align: center;
+	font-size: 40pt;
+}
+#menu{
+	transition: all 0.3s ease;
+	position: fixed;
+	width: 0%;
+	top: 0;
+	left: -200px;
+	background: none repeat scroll 0 0 #c8b18b;
+	height: 100%;
+	z-index: 999;
+	/*box-shadow: 0px 0px 10px black;*/
+}
+
+#menu a{
+	color: white;
+	display: block;
+	transition: all 0.2s ease;
+}
+
+#menu a:hover{
+	background: rgb(50, 50, 50);
+}
+
+#menu-toggle{
+	position: fixed;
+	top: 20px;
+	left: 7px;
+	z-index: 1000;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	transition: all 0.3s ease;
+}
+
+#menu-toggle:hover{
+	cursor: pointer;
+}
+
+#menu.open{
+	left: 0;
+	width: 266px;
+	display: block;
+}
+
+#menu-toggle.open {
+  left: 272px;
+  
+}
+
+.map-container{
+/*background:url(../img/map.jpg)center center;
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% 100%;
+  min-height:1046px;
+*/}
+/*.map-container > img{width:100%}*/
+
+.map-container > img, img.mothermap {
+  height: 944px;
+  left: 50%;
+  margin-left: -650px;
+  position: relative;
+  width: 1300px;
+}
+#menu header {
+  background: url("../img/divider.jpg") repeat-x scroll left bottom rgba(0, 0, 0, 0);
+  display: block;
+  height: 82px;
+  line-height: 71px;
+}
+#menu header h1 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 300;
+  padding-left: 10px;
+  text-align: left;
+}
+#menu ul {
+  background: url("../img/divider.jpg") repeat-x scroll left bottom rgba(0, 0, 0, 0);
+  height: auto;
+  list-style: outside none none;
+  padding-bottom: 28px;
+}
+#menu ul li {
+	display: block;
+    cursor: pointer;
+}
+#menu ul li a {
+	position: relative;
+	display: block;
+	color:#000099;
+	border:1px solid #c8b18b;
+	padding: 8px 11px;
+	font-weight: 700;
+	font-size: 16px;
+	text-decoration: none;
+	height:auto;
+	overflow:hidden
+}
+#menu ul li a:hover {
+	text-decoration: none;
+	background:#d9c9ae;
+	border:1px solid #a08e6f;
+}
+#menu ul li a::after {
+ display: block;
+ width: 6px;
+ height: 6px;
+ border-right: 3px solid #d0d0d8;
+ border-top: 3px solid #d0d0d8;
+ position: absolute;
+ right: 30px;
+ top: 45%;
+ color:#000099;
+ font-weight:600;
+}
+#menu ul li a:hover::after {
+border-color: #000099;
+content:"";
+-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+#menu ul li a span {
+  float: left;
+}
+.short-name {
+  background: none repeat scroll 0 0 blue;
+  border-radius: 50%;
+  color: #fff;
+  float: left;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  width: 34px;
+}
+#menu ul li a p {
+  float: left;
+  padding: 5px 0 0 15px;
+}
+#menu ul li:first-child a p {
+  float: left;
+  padding: 26px 0 0 15px;
+}
+.color-grid {
+  background:#c8b18b;
+  height: 100%;
+  position: absolute;
+  width: 54px;
+  top:0;
+  z-index: 999;
+}
+.servicekantoren-wrap {
+  background: url("../img/bg.jpg") repeat-y scroll left top #000099;
+  color: #fff;
+  left: 200px;
+  padding: 15px 15px 15px 77px;
+  position: absolute;
+  top: 81px;
+}
+#menu.open .servicekantoren-wrap {
+  left: 266px;
+}
+
+.nav-foot-infos > h2 {
+  color: #fff;
+  font-family: inherit;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 34px;
+  margin: 0 0 13px;
+  padding: 0;
+  text-align: left;
+}
+.nav-foot-infos strong {
+  color: #000099;
+  display: block;
+  font-size: 14px;
+  margin-top: 16px;
+}
+.nav-foot-infos p {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+}
+.nav-foot-infos h5 {
+  font-size: 14px;
+  color:#fff
+}
+.nav-foot-infos {
+  bottom: 0;
+  padding: 18px;
+  position: absolute;
+  background: url("../img/divider.jpg") repeat-x scroll left bottom rgba(0, 0, 0, 0);
+}
+
+.service-infos-col {
+  padding: 10px;
+  width: 324px;
+}
+.service-infos-col ul li {
+  color: #282828;
+  font-size: 14px;
+  width: 100%;
+}
+.left-col-2 {
+  float: left;
+  width: 60%;
+}
+.right-col-2 {
+  float: right;
+  width: 40%;
+}
+.popup-container {
+  background: none repeat scroll 0 0 #fff;
+  border: 5px solid #000099;
+  left: 67px;
+  position: absolute;
+  top: -45px;
+  z-index: 9999;
+}
+.popup-container:before {
+  background: url("../img/aroow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  content: "";
+  height: 39px;
+  left: -17px;
+  position: absolute;
+  top: 72px;
+  width: 14px;
+}
+.kadootjes-container {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 8% 4%;
+  width: 324px;
+}
+.kadoot-col-left {
+  float: left;
+  width: 20%;
+}
+.kadoot-col-right {
+  float: right;
+  width: 78%;
+  word-wrap: break-word;
+}
+.kadoot-col-right strong {
+  color: #000099;
+  font-size: 15px;
+}
+.kadoot-col-right img {
+  float: left;
+}
+.kadoot-col-right span > p {
+  color: #f78a2f;
+  display: block;
+  float: left;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 7px 0 0 14px;
+}
+.kadoot-col-right > p {
+  color: #5a5b5b;
+  font-size: 14px;
+  font-weight: 400;
+}
+.left-col {
+  color: #000099;
+  float: left;
+  font-size: 14px;
+  font-weight: 600;
+}
+.right-col {
+  float: right;
+}
+a.short-name {
+  background: none repeat scroll 0 0 blue;
+  font-size: 8px;
+  height: 20px;
+  line-height: 16px;
+  margin: 0 0 0 6px;
+  text-decoration: none;
+  width: 20px;
+}
+.service-infos-col ul li img {
+  float: left;
+  margin-right: 10px;
+}
+.service-infos-col ul li p {
+  float: left;
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+.service-infos-col ul li:nth-child(4) {
+  margin-top: 21px;
+}
+.service-infos-col ul li:nth-child(6) {
+  margin-top: 21px;
+}
+.bel > p{ color: #282828;}
+.bel {
+  display: none;
+  float: left;
+ 
+}
+.gift-bel {
+  color: #ff7400;
+  display: block;
+  float: right;
+}
+#bestellen-col{ width:328px; position:absolute; right:0; top:0; background:#fff; border:1px solid #dddddd;height: 100%;}
+.bestellen-wrap-1 {
+  background: url("../img/bg-n.jpg") repeat-y scroll left top #000099;
+  color: #fff;
+  padding: 15px 15px 15px 42px;
+}
+.bestellen-wrap-1 > h2, .servicekantoren-wrap > h2 {
+  color: #fff;
+  font-family: inherit;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 34px;
+  margin: 0 0 13px;
+  padding: 0;
+  text-align: left;
+}
+.bestellen-wrap-1 p {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: normal;
+  margin-bottom: 15px;
+}
+.bestellen-form-container {
+  padding: 9% 11% 2%;
+  width: 79%;
+}
+.bestellen-form-container h4 {
+  color: #000099;
+  font-size: 14px;
+  font-weight: 700;
+}
+.bestellen-form-container figure {
+  margin: 17px 0;
+}
+.bestellen-form-container > ul li {
+  list-style: outside none none;
+  margin-bottom: 17px;
+  width: 100%;
+}
+.bestellen-form-container label {
+  color: #282828;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+.bestellen-form-container input[type="text"] {
+  border: 1px solid #828282;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  height: 46px;
+  text-indent: 6px;
+  width: 100%;
+}
+.bestellen-form-container label sup {
+  color: red;
+  font-weight: 700;
+}
+.bekijk-bt {
+  background-color: #f2a569;
+  background-image: linear-gradient(to bottom, #f2a569, #ed4d08);
+  border: 1px solid #eb651c;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  height: auto;
+  margin: 18px auto 0;
+  overflow: hidden;
+  padding: 3px 12px;
+  text-align: center;
+  text-decoration: none;
+  width: 46%;
+}
+.bekijk-bt > img {
+  float: left;
+}
+.bekijk-bt > span {
+  display: block;
+  margin: 4px 0 0 11px;
+}
+button.bekijk-bt {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 13px;
+  padding: 9px 12px;
+  width: 100%;
+}
+/*.map-container > img {
+  display: block;
+  margin: 0 auto;
+}*/
+
+.gift-coontainer-col {
+  left: 50%;
+  margin-left: -62px;
+  position: absolute;
+  top: 150px;
+}
+
+.gift-coontainer-col-2 {
+  left: 50%;
+  margin-left: 43px;
+  position: absolute;
+  top: 146px;
+}
+
+.gift-coontainer-col-3 {
+  left: 50%;
+  margin-left: 16px;
+  position: absolute;
+  top: 362px;
+}
+.gift-coontainer-col-4 {
+  left: 50%;
+  margin-left: -375px;
+  position: absolute;
+  top: 391px;
+}
+.gift-coontainer-col-5 {
+  left: 50%;
+  margin-left: -92px;
+  position: absolute;
+  top: 369px;
+}
+.gift-coontainer-col-6 {
+  left: 50%;
+  margin-left: 85px;
+  position: absolute;
+  top: 472px;
+}
+.gift-coontainer-col-7 {
+  left: 50%;
+  margin-left: 329px;
+  position: absolute;
+  top: 295px;
+}
+.gift-coontainer-col-8 {
+  left: 50%;
+  margin-left: -197px;
+  position: absolute;
+  top: 775px;
+}
+
+
+.map-list {
+  bottom: -14px;
+  left: 53px;
+  position: fixed;
+}
+
+
+
+.image-map-ticker-container {
+  margin-right: -500px;
+  position: absolute;
+  right: 50%;
+  top: 74px;
+  
+}
+.image-map-ticker-container-2 {
+  margin-right: -433px;
+  position: absolute;
+  right: 50%;
+  top: 206px;
+}
+
+.image-map-ticker-container-3 {
+  margin-right: -219px;
+  position: absolute;
+  right: 50%;
+  top: 223px;
+}
+
+.image-map-ticker-container-4 {
+  margin-right: -120px;
+  position: absolute;
+  right: 50%;
+  top: 286px;
+}
+.extra-4{
+     left: 132px !important;
+}
+
+.image-map-ticker-container-5 {
+  margin-right: 62px;
+  position: absolute;
+  right: 50%;
+  top: 253px;
+  
+}
+.image-map-ticker-container-6 {
+  margin-right: 47px;
+  position: absolute;
+  right: 50%;
+  top: 315px;
+  
+}
+
+.image-map-ticker-container-7 {
+  margin-right: 171px;
+  position: absolute;
+  right: 50%;
+  top: 380px;
+  
+}
+
+.image-map-ticker-container-8 {
+  margin-right: 156px;
+  position: absolute;
+  right: 50%;
+  top: 583px;
+  
+}
+
+.image-map-ticker-container-9 {
+  margin-right: 37px;
+  position: absolute;
+  right: 50%;
+  top: 734px;
+  
+}
+
+.image-map-ticker-container-10 {
+  margin-right: -172px;
+  position: absolute;
+  right: 50%;
+  top: 587px;
+  
+}
+.image-map-ticker-container-11 {
+  margin-right: 437px;
+  position: absolute;
+  right: 50%;
+  top: 83px;
+  
+}
+.image-map-ticker-container-12 {
+  margin-right: 263px;
+  position: absolute;
+  right: 50%;
+  top: 30px;
+  
+}
+.image-map-ticker-container-13 {
+  margin-right: -67px;
+  position: absolute;
+  right: 50%;
+  top: 859px;
+  
+}
+.image-map-ticker-container-14 {
+  margin-right: -637px;
+  position: absolute;
+  right: 50%;
+  top: 360px;
+  
+}
+.map-ticker-popup {
+  background: none repeat scroll 0 0 #fff;
+  border: 5px solid #000099;
+  left: 95px;
+  position: absolute;
+  top: -34px;
+  z-index: 999;
+}
+.map-ticker-popup:before {
+  background: url("../img/aroow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  content: "";
+  height: 39px;
+  left: -18px;
+  position: absolute;
+  top: 22px;
+  width: 14px;
+}
+
+
+
+
+/*//////////////////FOR-RIGHT-POPUPS////////////////////*/
+.map-ticker-popup-left{
+  background: none repeat scroll 0 0 #fff;
+  border: 5px solid #000099;
+  left: -377px;
+  position: absolute;
+  top: -34px;
+  z-index: 999;
+}
+.map-ticker-popup-left:before {
+  background: url("../img/aroow-right.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  content: "";
+  height: 39px;
+  left: 348px;
+  position: absolute;
+  top: 22px;
+  width: 14px;
+}
+
+

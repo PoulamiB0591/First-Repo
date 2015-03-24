@@ -1138,9 +1138,10 @@ abstract class AbstractAdapter implements TranslatorAwareInterface
                 } else {
                     $result[$key] = $value['size'];
                 }
-            } elseif (empty($value['options']['ignoreNoFile'])) {
-                throw new Exception\InvalidArgumentException("The file '{$value['name']}' does not exist");
-            } else {
+            } //elseif (empty($value['options']['ignoreNoFile'])) {
+//                throw new Exception\InvalidArgumentException("The file '{$value['name']}' does not exist");
+//            } 
+                else {
                 continue;
             }
         }

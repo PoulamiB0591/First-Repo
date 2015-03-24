@@ -1,0 +1,328 @@
+<!--[if lt IE 9]>
+	<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<style type="text/css" media="screen">
+div.checkbox_onoff {
+    border-radius:2px;
+    display: block;
+    height: 24px;
+    overflow: hidden;
+    width: 68px;
+	cursor:pointer;
+}
+div.checkbox_onoff input[type="checkbox"] {
+    display: none;
+}
+div.checkbox_onoff input[type="checkbox"] + label {
+    background: url(images/on.png) no-repeat scroll -68px 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    text-indent: -9999px;
+    transition: background-position 0.3s ease-in-out 0s;
+    width: 68px;
+}
+div.checkbox_onoff input[type="checkbox"]:checked + label {
+    background-position: 0 0;
+    transition: background-position 0.3s ease-in-out 0s;
+}
+</style>
+<?php 
+$form = '<form action="" class="editform">
+<ul class="sortable-list">
+	<li><p id="editH2" contenteditable="true">EmaiL address</p><input name="" type="text" /></li>
+	<li><p id="editH2" contenteditable="true">What kind of campaign are you Looking for? </p2>
+    <div class="checksboxes">
+    <div class="jui-checkbox-row"> 
+        <span class="checkboxWrapper">
+            <input type="checkbox" value="1" />
+        </span>
+    <p>option</p>
+    </div>
+    <div class="jui-checkbox-row"> 
+        <span class="checkboxWrapper">
+            <input type="checkbox" value="2" />
+        </span>
+    <p>option</p>
+    </div>
+    <div class="jui-checkbox-row"> 
+        <span class="checkboxWrapper">
+            <input type="checkbox" value="3" />
+        </span>
+    <p>option</p>
+    </div>
+    </div>
+    </li>
+	<li><p id="editH2" contenteditable="true">Your message</p><textarea name="" cols="" rows=""></textarea> </li>
+	<li><input name="" type="submit" value="Send"></li>
+</ul>
+</form>';
+
+$libraryImgaes = $this->libraryImage;
+?>
+<body>
+<div class="popup">
+<a href="#" title="Close" class="close">Close</a>
+<div class="pop_img1 allPopup" style="display:block;">
+        	<h3>image manager</h3>
+            <div class="pointer">
+            <div class="upload">
+                <label><span id="ImageUploadForm">Upload</span></label>
+                <input type="button" name="library" value="Library" id="showUserImageLibrary" />
+            </div>
+            <a href="https://www.google.com/" target="_blank" title="Google" class="google">google</a><a href="https://www.dropbox.com/" target="_blank" title="Dropbox" class="dropbox">dropbox</a><a href="http://instagram.com/" target="_blank" title="Instagram" class="instagram">instagram</a><a href="https://www.pinterest.com/" target="_blank" title="Pinterest" class="pinterest">pinterest</a><a href="https://www.flickr.com" target="_blank" title="Flickr" class="flickr">flickr</a></div>
+            <div class="question">
+                <h4>Search Google for images</h4>
+                <div>
+                	<img src="<?php echo $this->basePath('popImg/question_icon.png') ?>" alt="!icon" />
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
+                </div>
+            </div>
+            <form action="/" method="post" name="field" class="field">
+                <ul>
+                    <li>
+                        <input type="text" name="username" value="Restaurant" onblur="if(this.value=='') this.value='Restaurant';" onfocus="if(this.value=='Restaurant') this.value='';" />
+                    </li>
+                    <li style="visibility: hidden;">
+                        <input type="submit" name="submit" value="Search" />
+                        <input type="reset" name="cancel" value="cancel" />
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="pop_img3 allPopup" style="display:none;">
+        	<h3>image manager</h3>
+            <div class="pointer">
+            <div class="upload">
+            <form action="/" method="post" name="upload">
+                <label><span style="background: #aac5bc;">Upload</span></label>
+                <input type="button" name="library" value="Library" id="showUserImageLibrary" />
+            </form>
+            </div>
+            <a href="#" target="_blank" title="Not available" class="google">google</a><a href="https://www.dropbox.com/" target="_blank" title="Dropbox" class="dropbox">dropbox</a><a href="http://instagram.com/" target="_blank" title="Instagram" class="instagram">instagram</a><a href="https://www.pinterest.com/" target="_blank" title="Pinterest" class="pinterest">pinterest</a><a href="https://www.flickr.com" target="_blank" title="Flickr" class="flickr">flickr</a></div>
+            <div class="drop" ondragover="dragover(event)" ondragenter="dragenter(event)" ondragleave="dragleave(event)" ondrop="drop(event)">
+                <p>Drop an image here</p>
+                <img src="<?php echo $this->basePath('popImg/drop_img.png') ?>" alt="" />
+                <span>or</span>
+            </div>
+            <form action="<?php echo $dynamicPath; ?>/Frontend/submit/<?php echo $id ?>" method="post" name="upload" id="image_upload1" method="post" enctype="multipart/form-data" name="field" class="field">
+                <ul>
+                    <li>
+                        <input type="text" name="username" value="After browsing the link is shown here in this color" onblur="if(this.value=='') this.value='After browsing the link is shown here in this color';" onfocus="if(this.value=='After browsing the link is shown here in this color') this.value='';" id="showImagePath" />
+                        <div class="uploadfile">
+                        	<span>Browse</span>
+                        	<input id="images1" type="file" name="images1" />
+                        </div>
+                    </li>
+                    <li style="visibility: hidden;">
+                        
+                    </li>
+                </ul>
+            </form>
+        </div>
+</div>
+<div class="popup2">
+    	<a href="#" title="Close" class="close2">Close</a>
+        <div class="pop_img2">
+        	<h3>Image manager</h3>
+            <div class="pointer">
+            <div class="upload">
+            <form action="/" method="post" name="upload">
+                <label><span id="ImageUploadFormNext1">Upload</span></label>
+                <input type="button" name="library" value="Library" style="background: #aac5bc;" />
+            </form>
+            </div>
+            <a href="https://www.google.com/" target="_blank" title="Google" class="google">google</a><a href="https://www.dropbox.com/" target="_blank" title="Dropbox" class="dropbox">dropbox</a><a href="http://instagram.com/" target="_blank" title="Instagram" class="instagram">instagram</a><a href="https://www.pinterest.com/" target="_blank" title="Pinterest" class="pinterest">pinterest</a><a href="https://www.flickr.com" target="_blank" title="Flickr" class="flickr">flickr</a></div>
+            <h4>Select an image</h4>
+            <div class="gallery">
+                <div class="scroll-pane">
+                    <ul>
+                    <?php foreach($libraryImgaes as $s){ ?>
+                        <li>
+                            <strong><a href="<?php  echo $s['path'] ?>" title="Loading image"><img src="<?php  echo $s['pathThumb'] ?>" alt="libraryimages" /></a></strong>
+                            <form action="/" method="post" name="upload">
+                                <select class="styled" name="select">
+                                    <option value="select" selected="selected">Select</option>
+                                    <option>Preview</option>
+                                    <option value="<?php  echo $s['id'] ?>">Delete</option>
+                                </select>
+                            </form>
+                        </li> 
+                    <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup3">
+        <a href="#" title="Close" class="close3">Close</a>
+        <h3>Imageeeeeeeeeeeeeeeeeeeee</h3>
+        <div class="big_img">
+        	<img src="" alt="Big image" />
+        </div>
+    </div>
+
+
+<div class="abc_left_panel_jkfghuyghughiudhgihfeauygwr8uwr8wer8werge_jhgfhjhfdjhfdhfjdhfd5465446544">
+    	<a href="#" class="logo_jyhjhdfhuydgdfuydguy654gd64g8548489"><img src="<?php echo $this->basePath('editImg/logo.png') ?>" alt="" /></a>
+        <div class="icon_show_kjfghjhfduugdihgdsugsiudgh687d8ry798h994978">
+        	<a href="#"><img src="<?php echo $this->basePath('editImg/desktop_icon.png') ?>" alt="" /></a>
+        	<a href="#"><img src="<?php echo $this->basePath('editImg/tablet_icon.png') ?>" alt="" /></a>
+        	<a href="#"><img src="<?php echo $this->basePath('editImg/phone_icon.png') ?>" alt="" /></a>
+        </div>
+    	<a href="#" class="bell_dkjnhguhhhuyfghuighuigfhiugfhugfuhgfuhgf"><span>7</span></a>
+    	<div class="client_name_kjuhguydfgytaguwre9uwr9e8u87441989">
+        	<a href="#">
+            	<span></span>
+                <p>John kensington</p>
+            </a>
+            <div>
+            	<ul>
+                <li><a href="#"><span><img src="<?php echo $this->basePath('editImg/top_side_icon1.jpg') ?>" alt="" /></span><p>My Profile</p></a></li>
+                <li><a href="#"><span><img src="<?php echo $this->basePath('editImg/top_side_icon2.jpg') ?>" alt="" /></span><p>Settings</p></a></li>
+                <li><a href="#"><span><img src="<?php echo $this->basePath('editImg/top_side_icon3.jpg') ?>" alt="" /></span><p>Dashboard</p></a></li>
+                <li><a href="#"><span><img src="<?php echo $this->basePath('editImg/top_side_icon4.jpg') ?>" alt="" /></span><p>Create New Campaign</p></a></li>
+               	<li><a href="#"><span><img src="<?php echo $this->basePath('editImg/top_side_icon5.jpg') ?>" alt="" /></span><p>My Campaign</p></a></li>
+                <li><a href="#"><span><img src="<?php echo $this->basePath('editImg/top_side_icon6.jpg') ?>" alt="" /></span><p>Statistic</p></a></li>
+               	<li><a href="#"><span><img src="<?php echo $this->basePath('editImg/top_side_icon1.jpg') ?>" alt="" /></span><p>Log out</p></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="left_nav_jhufghugfxhughug5654448">
+    	<ul class="menu_two_hfdhufghdfhughudyudfghuifhugf448456">
+        	<li><a href="#">one</a></li>
+        	<li><a href="#">two</a>
+            	<ul>
+                	<li>Change pages</li>
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                    <li><a href="#">Page 4</a></li>
+                </ul>
+            </li>
+        	<li><a href="#">three</a></li>
+        	<li><a href="#">four</a></li>
+        </ul>
+        <div class="do_btn_hughhuygughuignghuhhuh45656656">
+            <a href="#" class="redo_btn_hughhuygughuignghuhhuh45656656"><span>Redo</span></a>
+            <a href="#" class="undo_btn_hughhuygughuignghuhhuh45656656"><span>Undo</span></a>
+        </div>
+        
+        
+        <a href="#" class="publish_btn_ujyguygfugfyguyddg54654645"><span>Publish campaign</span></a>
+        <a href="#" class="form_btn_jhuyhguh8ujgijuhuihuhf65858"></a>
+        
+    	<div class="option_ijdghughuiyhuyjhjokdiughui6849848">
+    	<strong>Autosave</strong>
+        <div class="checkbox_onoff_jhgdugfyhfuyhdg6565656">
+            <input id="check" name="1" type="checkbox" value="1" />
+            <label for="check">Check-me</label>
+        </div>
+        <a href="#" class="save_hgdfggfdgdfgfdsygfyfdsy" title="Save">Save</a>
+        <span>Saved On<br />15:53 17/06/2014</span>
+    </div>
+    </div>
+	<div class="left_side_bar_one_jidghuygyudghuy7fsea7dfh8dfhfdah8dfa4847">
+    	<ul>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon1.jpg" alt="" /></span>
+                    <p>Title</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon2.jpg" alt="" /></span>
+                    <p>Paragraph</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon3.jpg" alt="" /></span>
+                    <p>Email</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon4.jpg" alt="" /></span>
+                    <p>Single line text</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon5.jpg" alt="" /></span>
+                    <p>Multi-line text</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon6.jpg" alt="" /></span>
+                    <p>Checkbox</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon7.jpg" alt="" /></span>
+                    <p>Radio Button</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon8.jpg" alt="" /></span>
+                    <p>Select drop-down</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon9.jpg" alt="" /></span>
+                    <p>MultiSelect drop-down</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon10.jpg" alt="" /></span>
+                    <p>Upload</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon11.jpg" alt="" /></span>
+                    <p>Image</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon12.jpg" alt="" /></span>
+                    <p>Date</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon13.jpg" alt="" /></span>
+                    <p>Time</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon14.jpg" alt="" /></span>
+                    <p>Captcha</p>
+                </a>
+            </li>
+        	<li>
+            	<a href="#">
+                	<span><img src="images/side_icon15.jpg" alt="" /></span>
+                    <p>Submit button</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+<div class="wrapper" style="height: auto !important;">
+<?php 
+$url = $dynamicPath."/user_template/".$id."/index.php";
+$a = file_get_contents($url); 
+echo str_replace('{{htmlform}}',$form,$a);
+?>
+</div>
+
+

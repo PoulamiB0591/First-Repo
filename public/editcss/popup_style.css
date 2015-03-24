@@ -1,0 +1,444 @@
+@font-face {
+ font-family: 'ubuntubold';
+ src: url('/popupFonts/ubuntu-bold-webfont.eot');
+ src: url('/popupFonts/ubuntu-bold-webfont.eot?#iefix') format('embedded-opentype'), url('/popupFonts/ubuntu-bold-webfont.woff') format('woff'), url('/popupFonts/ubuntu-bold-webfont.ttf') format('truetype'), url('/popupFonts/ubuntu-bold-webfont.svg#ubuntubold') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+@font-face {
+ font-family: 'ubunturegular';
+ src: url('/popupFonts/ubuntu-regular-webfont.eot');
+ src: url('/popupFonts/ubuntu-regular-webfont.eot?#iefix') format('embedded-opentype'), url('/popupFonts/ubuntu-regular-webfont.woff') format('woff'), url('/popupFonts/ubuntu-regular-webfont.ttf') format('truetype'), url('/popupFonts/ubuntu-regular-webfont.svg#ubunturegular') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+@font-face {
+ font-family: 'ubuntumedium';
+ src: url('/popupFonts/ubuntu-medium-webfont.eot');
+ src: url('/popupFonts/ubuntu-medium-webfont.eot?#iefix') format('embedded-opentype'), url('/popupFonts/ubuntu-medium-webfont.woff') format('woff'), url('/popupFonts/ubuntu-medium-webfont.ttf') format('truetype'), url('/popupFonts/ubuntu-medium-webfont.svg#ubuntumedium') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+body {
+	background:#FFF;
+	margin: 0;
+	padding: 0;
+}
+div.popup_new {
+	background:#FFF;
+	width:800px;
+	position:fixed;
+	left:50%;
+	top:0;
+	margin:0 0 0 -400px;
+	display:none;
+	z-index:9999;
+}
+a.close_btn {
+	background:url(/popupImg/close_btn.png) no-repeat left top;
+	width:26px;
+	height:26px;
+	display:block;
+	overflow:hidden;
+	text-indent:-9999px;
+	position:absolute;
+	right:10px;
+	top:8px;
+}
+div.mask2 {
+	background:#2e3641;
+	width:100%;
+	height:100%;
+	position:fixed;
+	left:0;
+	top:0;
+	z-index: 999;
+}
+div.popup_new h6 {
+	background:#e8e6e2;
+	height: 42px;
+	line-height: 42px;
+	margin: 0;
+	text-align: center;
+	font-family: 'ubuntubold';
+	color: #2e3641;
+	font-size: 16px;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+div.popup_new div#tabPrv > p {
+	margin: 0 26px 20px 26px;
+	text-align: right;
+	font-family: 'ubuntubold';
+	color: #92b1a7;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+.nav-pills {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 30px 26px;
+	text-transform: uppercase;
+	font-size: 13px;
+	overflow: hidden;
+	font-family: 'ubunturegular';
+}
+.nav-pills.nav-wizard > li {
+	position: relative;
+	overflow: visible;
+	border-right: 15px solid #fff;
+	border-left: 15px solid #fff;
+	float: left;
+	width: 31%;
+	text-indent: 5px;
+}
+.nav-pills.nav-wizard > li:first-child {
+	border-left: 0;
+}
+.nav-pills.nav-wizard > li:last-child {
+	border-right: 0;
+}
+.nav-pills.nav-wizard > li a {
+	border-radius: 0;
+	background-color: #eee;
+	height: 54px;
+	line-height: 54px;
+	display: block;
+	text-decoration: none;
+	color: #2e3641;
+    padding: 0;
+}
+.nav-pills.nav-wizard > li .nav-arrow {
+	position: absolute;
+	top: 0px;
+	right: -20px;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 24px 0 30px 20px;
+	border-color: transparent transparent transparent #eee;
+	z-index: 150;
+}
+.nav-pills.nav-wizard > li .nav-wedge {
+	position: absolute;
+	top: 0px;
+	left: -20px;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 24px 0 30px 20px;
+	border-color: #eee #eee #eee transparent;
+	z-index: 150;
+}
+.nav-pills.nav-wizard > li:hover .nav-arrow {
+	border-color: transparent transparent transparent #aaa;
+}
+.nav-pills.nav-wizard > li:hover .nav-wedge {
+	border-color: #aaa #aaa #aaa transparent;
+}
+.nav-pills.nav-wizard > li:hover a, .nav-pills.nav-wizard > li:focus a {
+	background-color: #aaa;
+	color: #fff;
+}
+.nav-pills.nav-wizard > li.active .nav-arrow {
+	border-color: transparent transparent transparent #a9c5bc;
+}
+.nav-pills.nav-wizard > li.active .nav-wedge {
+	border-color: #a9c5bc #a9c5bc #a9c5bc transparent;
+}
+.nav-pills.nav-wizard > li.active a {
+	background-color: #a9c5bc;
+	color: #fff;
+}
+div.tab_content4 {
+	clear: both;
+	width: 746px;
+	margin:0 auto;
+}
+div.tab_content4 > div {
+	border:1px solid #eaebec;
+	padding: 30px 0 0 0;
+	margin: 0 0 20px 0;
+	overflow: hidden;
+}
+div.tab_content4 ul {
+	margin: 0 0 30px 30px;
+	padding: 0;
+	list-style: none;
+}
+div.tab_content4 ul li {
+	margin: 0 0 20px 0;
+}
+div.tab_content4 h5 {
+	margin: 0;
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #2e3641;
+	font-family: 'ubuntubold';
+	font-weight: normal;
+}
+div.tab_content4 strong {
+	margin: 0;
+	font-size: 14px;
+	color: #2e3641;
+	font-family: 'ubuntubold';
+	font-weight: normal;
+}
+div.tab_content4 a {
+	margin: 0;
+	font-size: 14px;
+	color: #a9c5bc;
+	font-family: 'ubuntubold';
+	font-weight: normal;
+	text-decoration: none;
+	display: block;
+}
+div.tab_content4 a:hover {
+	color: #a9c5bc;
+	text-decoration: underline;
+	display: block;
+}
+div.tab_content4 hr {
+	margin:20px 0;
+	height: 1px;
+	border:none;
+	background:#eaebec;
+}
+ul.blog_icon_all {
+	overflow: hidden;
+}
+div.tab_content4 ul.blog_icon_all li {
+	margin: 0;
+	float: left;
+}
+ul.blog_icon_all li a {
+	background-image:url(/popupImg/facebook_icon_btn.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	display: block;
+	width: 60px;
+	height: 60px;
+	text-indent: -9999px;
+	margin: 0 10px 0 0;
+}
+ul.blog_icon_all li a.facebook:hover {
+	background-position:left bottom;
+}
+ul.blog_icon_all li a.instagram {
+	background-image:url(/popupImg/instagram_icon_btn.png);
+}
+ul.blog_icon_all li a.instagram:hover {
+	background-position:left bottom;
+}
+ul.blog_icon_all li a.twitter {
+	background-image:url(/popupImg/twitter_icon_btn.png);
+}
+ul.blog_icon_all li a.twitter:hover {
+	background-position:left bottom;
+}
+ul.blog_icon_all li a.linkedin {
+	background-image:url(/popupImg/linkedin_icon_btn.png);
+}
+ul.blog_icon_all li a.linkedin:hover {
+	background-position:left bottom;
+}
+ul.blog_icon_all li a.pinterest {
+	background-image:url(/popupImg/pinterest_icon_btn.png);
+}
+ul.blog_icon_all li a.pinterest:hover {
+	background-position:left bottom;
+}
+div.tab {
+	padding: 0 0 20px 0;
+	overflow: hidden;
+}
+div.tab_content4 a.step_back {
+	font-size: 12px;
+	color: #92b1a7;
+	font-family: 'ubuntubold';
+	text-transform: uppercase;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+div.tab_content4 a.step_back:hover {
+	color: #2e3641;
+	text-decoration:none;
+}
+div.tab_content4 a.close_bottom, .save-n-continue {
+	background:#aac5bc;
+	width: 140px;
+	height: 32px;
+	line-height: 36px;
+	font-size: 12px;
+	color: #FFF;
+	font-family: 'ubuntubold';
+	text-transform: uppercase;
+	text-decoration: none;
+	float: right;
+	display: block;
+	text-align: center;
+}
+.save-n-continue{margin: 15px 36px 13px 0;}
+
+div.tab_content4 a.close_bottom:hover, .save-n-continue:hover {
+	background:#aac5bc;
+	color: #FFF;
+	text-decoration:none;
+}
+span.publish {
+	display: block;
+	margin: 60px auto;
+	width: 250px;
+}
+div.side_opti div.checkboxes {
+	padding: 0;
+	margin: 0 0 0 30px;
+	border:none;
+	overflow: hidden;
+}
+div.side_opti h4 {
+	margin: 20px 0 20px 30px;
+	font-family: 'ubuntumedium';
+	font-size: 14px;
+	font-weight: normal;
+}
+.has-js .label_check_popup {
+	padding: 0 0 0 46px;
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	background: url(/popupImg/check-off.png) no-repeat left top;
+	font-family: 'ubuntumedium';
+	font-size: 14px;
+	cursor:pointer;
+}
+.has-js .span_check{
+	padding: 0 0 0 46px;
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	background: url(/popupImg/check-off.png) no-repeat left top;
+	font-family: 'ubuntumedium';
+	font-size: 14px;
+	cursor:pointer;
+}
+.has-js .label_radio_new {
+	/*background: url(/popupImg/radio-off.png) no-repeat left top;*/
+	font-family: 'ubuntumedium';
+	font-size: 14px;
+	padding: 0 0 0 40px;
+	display: block;
+	height: 38px;
+	line-height: 20px;
+	margin: 0 0 10px 0;
+	display: inline-block;
+	clear: both;
+	float: left;
+	cursor:pointer;
+}
+.has-js .span_radio {
+	background: url(/popupImg/radio-off.png) no-repeat left top;
+	font-family: 'ubuntumedium';
+	font-size: 14px;
+	padding: 0 0 0 40px;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	margin: 0 0 10px 0;
+	display: inline-block;
+	clear: both;
+	float: left;
+	cursor:pointer;
+}
+
+.has-js label.c_on {
+	background: url(/popupImg/check-on.png) no-repeat;
+}
+.has-js span.c_on {
+	background: url(/popupImg/check-on.png) no-repeat;
+}
+.has-js label.r_on {
+	background: url(/popupImg/radio-on.png) no-repeat;
+}
+.has-js span.r_on {
+	background: url(/popupImg/radio-on.png) no-repeat;
+}
+.has-js .label_check_popup input, .has-js .label_radio_new input {
+	position: absolute;
+	left: -9999px;
+}
+.has-js .span_check input, .has-js .span_radio input {
+	position: absolute;
+	left: -9999px;
+}
+div.side_opti {
+	width: 50%;
+	border-right:1px solid #ebeced;
+	float: left;
+	overflow: hidden;
+	padding: 30px 0 20px 0;
+    color:#2e3641;
+}
+div.side_opti:last-child {
+	width: 49%;
+	border-right:none;
+	border-left:1px solid #ebeced;
+    margin-left: -1px;
+}
+div.tab_content4 div.side_opti a.close_bottom {
+	float: left;
+	margin: 0 0 0 30px;
+}
+div.tab_content4 div.side_opti select {
+	width: 320px;
+	padding: 10px;
+	border:1px solid #7E7E7E;
+	margin: 0 0 30px 30px;
+	font-size: 14px;
+	color: #7E7E7E;
+	font-family: 'ubuntubold';
+	font-style: italic;
+}
+iframe#tabPr {
+    display: block;
+    height: 400px;
+    width: 760px;
+    margin: 0 20px;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+div.radios {
+  margin: 10px 0 0 23px;
+}
+
+.camName {
+  display: block;
+  float: left;
+  font-family: ubuntumedium;
+  font-size: 14px;
+  margin: 0 28px;
+}
+.camName > input[type="text"] {
+  border: 1px solid #ccc;
+  float: left;
+  height: 32px;
+  width: 246px;
+}
+.camName .close_bottom {
+  margin: 0 !important;
+  width: 69px !important;
+}
+#webPart > h4 {
+  clear: both;
+  display: block;
+  margin: 0 27px;
+  padding: 20px 0 0;
+}
+#webPart {
+  margin: 21px 0 0;
+}
+label#webUrl
+{
+    margin: 0 0 0 9px;
+}

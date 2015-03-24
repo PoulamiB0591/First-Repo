@@ -1,0 +1,151 @@
+<div  class="site">
+  <div class="container-fluid"> 
+    <!--===== start banner ===-->
+     <!--===== start banner ===-->
+    <div class="row">
+      <div class="become-publisher">
+        <ul class="social_icon">
+          <li><a href="#">Share this website</a></li>
+          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+        </ul> <!--=== social icon ===-->
+        <div class="cont-title">
+        <h1><?php echo $content->bannerHeader; ?></h1>
+        </div>
+      </div>
+      
+    </div><!--===== end banner ===--> <!--===== end banner ===--> 
+    
+
+
+<!--===================================tab html start=================================-->
+<div id="detail-info-cont" class="row">
+<div id="horizontalTab" >
+  <ul class="resp-tabs-list" id="home_publisher_tab">
+  <li><a href="#tab-1">introduction</a></li>
+  <li><a href="#tab-2">create account</a></li>
+  <li><a href="#tab-3">company profile</a></li>
+  <li><a href="#tab-4">confirmation</a></li>
+  </ul>
+  <hr>
+
+  <!--======================introduction section start=======================--> 
+<div class="introduction-section2" id="tab-1">
+    <ul class="introduction-details2">
+     <?php foreach ($contentpass as $p) :?>
+      <li class="col-lg-6 col-sm-6"> <span><img src="<?php echo $p->picPath; ?>" alt="" /></span>
+      <div class="content">
+        <h3><?php echo $p->picHeader; ?></h3>
+        <p><?php echo $p->picDescription; ?></p>
+        </div>
+      </li>
+      <?php endforeach; ?>
+      
+    </ul>
+  </div>
+  <!--======================introduction section end=======================--> 
+  
+  <!--======================creat acc. section start=======================-->
+ <div class="creat-acc-section" id="tab-2">
+    <h1 class="heading"><?php echo $content->filFormOneHeader; ?></h1>
+    <p class="data-info"><?php echo $content->filFormOneDescription; ?></p>
+    <div class="personal-data-form"><form class="form-horizontal" role="form">
+      <div class="info">
+        <label>Saluation</label>
+        <span class="mr">
+        <fieldset class="radios">
+            <label class="label_radio" for="radio-01"><input name="sample-radio" id="radio-01" value="1" type="radio" checked /> MR.</label>
+            <label class="label_radio" for="radio-02"><input name="sample-radio" id="radio-02" value="1" type="radio" />MRS.</label>
+            
+        </fieldset></span></div>
+        <div class="info">
+        <label>First name</label>
+        <span class="first-name"><input name="first-name" type="text"></span></div>
+        <div class="info">
+        <label>Last name</label>
+        <span class="first-name"><input name="first-name" type="text"></span></div>
+        <div class="info">
+        <label>Email</label>
+        <span class="first-name"><input name="first-name" type="text"></span></div>
+    </form>
+    </div>
+  
+  </div>
+  <!--======================creat acc. section end=======================--> 
+<!--/*==============================company profile html start==============================*/--> 
+ <div class="creat-acc-section company-profile" id="tab-3">
+    <h1 class="heading"><?php echo $content->filFormTwoHeader; ?></h1>
+    <p class="data-info"><?php echo $content->filFormTwoDescription; ?></p>
+    <div class="personal-data-form"><form>
+     <div class="info company-profile-info">
+        <label>Company name</label>
+        <span class="first-name"><input name="first-name" type="text"></span></div>
+        
+     <div class="info select">
+        <label>Company type</label>
+        <span class="first-name company-type" ><select name="" id="company-profile-option">
+        <option value="1" class="test-class-1">Choose..</option>
+        <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
+        <option value="1" class="test-class-1">make your choise</option>
+        </select></span></div>
+        
+     <div class="info company-profile-info">
+        <label>Phone</label>
+        <span class="first-name"><input name="first-name" type="text"></span></div>
+        
+        
+     <div class="info company-profile-info">
+        <label>City</label>
+        <span class="first-name"><input name="first-name" type="text"></span></div>
+        
+      <div class="info select">
+        <label>Country</label>
+        <span class="first-name company-type" ><select name="" id="company-profile-option">
+        <option value="1" class="test-class-1">Choose..</option>
+        <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
+        <option value="1" class="test-class-1">make your choise</option>
+        </select></span></div>
+        
+      <div class="info company-profile-info">
+        <label>Description</label>
+        <span class="first-name company-profile"><textarea name="des" cols="" rows=""></textarea><div class="clearfix"></div><p class="word-limitation">Max. 150 characters</p></span><span class="correct-arrow"><img src="<?php echo $this->basePath('img/correct-arrow.png') ?>" alt="" /></span><a class="rate_publisher"><p>+25</p><img src="<?php echo $this->basePath('img/img2.png') ?>" alt="" /></a></div>
+        
+      <div class="info company-profile-info">
+        <label>Company avatar</label>
+        <a class="first-name"><span id="button"><input name="Browse" type="file" value="Browse" class="nicefile"></span><p class="word-limitation">Exact 200 x 200 pixels (max. filesize 500 kb)(perfect)</p></a><span class="correct-arrow correct-arrow2"><img src="<?php echo $this->basePath('img/correct-arrow.png') ?>" alt="" /></span><a class="rate_publisher rate2"><p>+25</p><img src="<?php echo $this->basePath('img/img2.png') ?>" alt="" /></a></div>
+         
+      <div class="info company-profile-info"><img src="<?php echo $this->basePath('img/img3.png') ?>" alt="" /></div>
+      
+      <!--<div class="info company-profile-info">
+        <label>Company avatar</label>
+        <a class="first-name"><span id="button"><input name="Browse" type="file" value="Browse" class="nicefile"></span><p class="word-limitation">Exact 200 x 200 pixels (max. filesize 500 kb)<strong>(to small)</strong></p><a class="rate rate2 rate3"><img src="img/img4.png" alt="" /></a></a></div>-->
+    </form>
+    </div>
+    
+  </div>
+<!--/*==============================company profile html end==============================*/-->
+<!--===============================confirmation start-================================-->
+<div class="creat-acc-section confirmation" id="tab-4">
+     <?php foreach ($studio as $std) :?>    
+    <h1 class="heading"><?php echo $std->headLine; ?><strong><?php echo $std->subHeadLine; ?></strong></h1>
+    <p class="media-marketing"><?php echo $std->tagLine; ?></p>
+    <p class="data-info"><?php echo $std->description; ?></p>
+    <div class="personal-data-form confirmation-sec">
+    <div class="result-img"><img src="<?php echo $std->subImagePath; ?>" alt="" /></div>
+    <div class="info company-profile-info confirm-img"><img src="<?php echo $std->mainImagePath; ?>" alt="" /></div>
+    <?php endforeach; ?>
+    </div>
+  </div>
+</div>
+</div>
+<style type="text/css">
+.become-publisher
+{
+ background:url(<?php echo $content->bannerPath; ?>) no-repeat top center;
+    display: block;
+    height: 330px;
+    margin: auto;
+    overflow: hidden;
+    width: 100%;
+
+}
+</style>

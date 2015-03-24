@@ -1,0 +1,23 @@
+<div class="site">
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'faqpublisher','id'=>2));?>">Insert More</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'faqpages'));?>">Back</a>
+            </div>
+          <table width="76%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+                <tr>
+                    <th colspan="2">Question</th>
+                </tr>
+                <?php /*echo '<pre/>';print_r($res);*/foreach($result as $v) {?>
+                
+                <tr>
+                    <td width="420"><?php echo $v['question'];?></td>
+                    <td><a class="table_btn" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'faqpublisherview','id' => $v['id']));?>">edit</a><a class="table_btn" onclick="if(!confirm('Are you want to delete'))return false;" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'deletefaqpublisher','id' => $v['id']));?>">Delete</a></td>
+                </tr>
+                 
+                <?php } ?>
+            </table>
+        </div>
+    </div>
+ 

@@ -1,764 +1,358 @@
+<style>
+.selectBox-dropdown .selectBox-label {width: 353px !important;}
+.selectBox-dropdown{margin:0;}
+div#loader12 {
+  float: left;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 0;
+}
+ .wrap-text a.read-more {
+  background: none repeat scroll 0 0 #5f6369;
+  border-radius: 1px;
+  color: #fff;
+  margin-top: 13px;
+  width: 150px;
+}
+.select-div {
+  float: left;
+}
+</style>
+ <script>
+  function fbs_click()
+    {
+    var basepath = window.location.protocol+"//" + window.location.host;    
+    var u=basepath+"/index/store"
+    var t='smartfanpage';
+    var child = window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+    }
+    
+       function twt_click()
+    {
+      var basepath = window.location.protocol+"//" + window.location.host;    
+    var u=basepath+"/index/store"
+    var t='smartfanpage'
+    var child = window.open('http://twitter.com/share?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');   
+    }
+    
+    function linkedinButton(){
+     var basepath = window.location.protocol+"//" + window.location.host;    
+    var u=basepath+"/index/store"
+   var articleUrl = encodeURIComponent(u);
+       var articleTitle = encodeURIComponent('smartfanpage');
+       var articleSummary = encodeURIComponent('store');
+       var articleSource = encodeURIComponent('best');
+       var goto = 'http://www.linkedin.com/shareArticle?mini=true'+
+           '&url='+articleUrl+
+           '&title='+articleTitle+
+           '&summary='+articleSummary+
+           '&source='+articleSource;
+       window.open(goto, "LinkedIn", "width=660,height=600,scrollbars=yes;resizable=no");         
+} 
+  </script> 
+  <?php
+
+     $protocol = '';
+        if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'HTTPS') {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+
+?> 
+<link type="text/css" rel="stylesheet" href="<?php echo $url; ?>/css/desktop-mob-main.css" />
+
+<div class="mob-desktop" style="display: none;">
+
+<div class="mother-con">
+
+<a class="close"><span class="icon-cross"></span></a>
+	<div class="con_slider">
+    
+        <?php
+        // This section modified by koushik
+        $hgfgh = array();
+        
+        $tempdesign1 = $tempdesign;
+      
+        foreach ($tempdesign1 as $template1){
+        	echo $template1['approval'] ;
+            if($template1['approval'] == 1 && $template1['disableDeveloper'] == 0){
+                $hgfgh[] = $template1;
+              
+               
+            }
+        }
+        $i=1;
+        $j=count($hgfgh);
+        $k=count($hgfgh); 
+       
+            foreach ($hgfgh as $template1){
+         $temp = $template1['tempFoldName'] ; 
+         $desktop =  $template1['desktopImage'] ; 
+         $mobile = $template1['mobileImage'] ; 
+        
+            ?>
+    	<div class="demo<?php echo $i; ?>" data-template="demo<?php echo $i; ?>" data-next="demo<?php if($i==$k) echo "1"; else echo ++$i; ?>" data-prev="demo<?php if($j==$k){ echo $j;$j=1;} else { echo $j++; } ?>">
+        
+            <div class="wrap-previews">
+                <div class="wrap-mobile infront">
+                    <div class="content-mobile">
+                    	<div class="overlay"></div>
+                        
+                        <img src="<?php echo $url."/".'files'."/".$temp."/".$mobile; ?>" >
+                    </div>
+                </div>
+                <div class="wrap-browser behind">
+                    <div class="chrome-bar">
+                        <div class="chrome-controls"></div>
+                    </div>
+                    <div class="content-browser">
+                    	<div class="overlay"></div>
+                        <img src="<?php echo $url."/".'files'."/".$temp."/".$desktop; ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-text">
+            <div class="wrapping">
+                <h2><?php if($template1['templateName'] == "epic") { echo "Neon"; }else{
+                  $templateName = $template1['templateName']; $templateName = str_replace("_"," ",$templateName);echo $templateName;  
+                  
+                } ?></h2>
+                <p><?php echo $template1['templateDesc']; ?> </p>
+                 <?php
+                if($sid != "")
+                {
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action'=>'templatecopy','id'=>$template1['templateName']));?>">Add content to this template <span class="icon-arrow-right-thick"></span></a>
+                <?php    
+                }
+                else
+                {
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action'=>'addcontent','id'=>$template1['templateName']));?>">Add content to this template <span class="icon-arrow-right-thick"></span></a>
+                <?php
+                }
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'index','action'=>'marketing','id'=>$template1['id']."|".$template1['encryptedTempid']));?>" class="read-more">Read more&nbsp;<span class="icon-arrow-right-thick"></span></a>
+                </div>
+            </div>
+        </div>
+        <?php
+        //$i++;
+       
+       }
+        ?>
+   </div>
+    <div class="nav">
+        <a style="cursor:pointer" id="prev"><span class="icon-angle-left"></span></a>
+        <a style="cursor:pointer" id="next"><span class="icon-angle-right"></span></a>
+    </div>
+</div>
+</div>
+
 <div  class="site">
   <div class="container-fluid"> 
    <!--===== start banner ===-->
     <div class="row">
       <div class="store_banner">
-        <ul class="social_icon">
-          <li><a href="#">Share this website</a></li>
-          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+        <ul class="social_icon" >
+          <li><a href="javascript:void(0)">Share this website</a></li>
+          <li><a style="cursor:pointer" onclick="return fbs_click()"></a> <a style="cursor:pointer" onclick="return twt_click()"></a> <a style="cursor:pointer" onclick="return linkedinButton()"></a></li>
         </ul>
-        <div class="clearfix"></div>
-        <div class="banner_caption col-md-8 t-store" >
-          <h1 class="fittext2">Template store</h1>
-          <h2>Find and customize the most challenging<br>
-            and effective online campaign templates</h2>
-          <a href="#">Sign up free</a> </div>
+        <div class="banner_caption col-md-12 t-store" >
+          <h1> <?php echo $content->BannerHeader;?></h1>
+          <h2><?php echo $content->BannerDesc;?></h2>
+          <!--<a href="javascript:void(0)" onclick="logInWithYourFaceBookAccount()">Sign up free</a> </div>-->
+          <?php if($sid != NULL || $sid != ' '){?>
+          <a href="<?php echo $url; ?>/index/accountsignup" style="display: none">Sign up free</a>
+          <?php }else{?>
+          
+           <a href="<?php echo $url; ?>/index/accountsignup" >Sign up free</a> <?php } ?>
       </div>
       
     </div>
     <!--===== end banner ===--> 
-    <div class="container-fluid store-wrapper" > 
+    <div class="container store-wrapper container-for-standard-desktop" > 
       
      <!--===== start dropdown ===-->
       <div class="row" >
-        <p class="top_heading col-md-12" id="fly-it">What kind of campaign are you looking for?</p>
-        <div class="col-md-3 col-xs-12" >
-          <select id="standard-dropdown" name="standard-dropdown" class="custom-class1 custom-class2">
-            <option value="1" class="test-class-1">Keyword</option>
-            <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
-            <option value="1" class="test-class-1">Select category</option>
+      <div class="col-lg-12" >
+        <p class="top_heading col-md-12" id="fly-it"><?php echo $content->campaignques;?></p>
+       <form method="post" style="clear: both; float: left; overflow: hidden;">
+        
+        <div class="col-lg-4 col-xs-12">
+        <div class="select-div" style="visibility:hidden">
+          <select id="dropdowns" name="standard-dropdown" >
+          <option value="0"  >Select Template Category</option>
+            <option value="Hotels, restaurants and bars"  >Hotels, restaurants and bars</option>
+            <option value="Sports sector"  >Sports sector</option>
+            <option value="Events and conferences"  >Events and conferences</option>
+            <option value="Small businesses and retail"  >Small businesses and retail</option>
+            <option value="Reseller"  >Reseller</option>
           </select>
+          </div>
         </div>
-        <div class="col-md-3 col-xs-12">
-          <select id="standard-dropdown" name="standard-dropdown" class="custom-class1 custom-class2">
-            <option value="1" class="test-class-1">Select category</option>
-            <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
-            <option value="1" class="test-class-1">Publishing platform</option>
-          </select>
-        </div>
-        <div class="col-md-3 col-xs-12">
-          <select id="standard-dropdown" name="standard-dropdown" class="custom-class1 custom-class2">
-            <option value="1" class="test-class-1">Publishing platform</option>
-            <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
-            <option value="1" class="test-class-1">Price</option>
-          </select>
-        </div>
+        <input type="submit"  id="templateSelect" name="templateCat" value="templateCat" style="visibility: hidden;"/>
+        </form>
+
+      <div id="loader12"  style="display: none;"><img src="<?php echo $url; ?>/img/frontend_loading.GIF" /> </div>
+         
         
-        
-        
-        
-        
+         
         <!--<form class="navbar-form col-md-2 col-xs-12">
             <input type="text" placeholder="Search..." class="form-control">
           </form>-->
       <!--  <div class="col-md-2 col-xs-12"><a href="#" class="discover_button">Discover</a></div>-->
-        <div class="col-md-1 col-xs-12 pull-right"><a href="#" class="refresh_button"></a></div>
+        <form method="post">
+        
+        
+        <div class="col-md-1 col-xs-12 pull-right"><!--for ajax function<input type="button" id="refreshed" class="refresh_button"/></div>-->
+        <button type="submit" class="refresh_button"> </button> 
+        </div> 
+             
         <div class="col-md-3 col-xs-12 pull-right">
          
           
           <div class="input-group cust-search">
-            <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+            <input class="form-control" placeholder="Search" name="srchItem" type="text">
             <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+              <button class="btn btn-default" type="submit" id="srchtermchng" name="allSearch" value="search"><span class="glyphicon glyphicon-search"></span></button>
             </div>
           </div>
-        
+       
          
         </div>
        <!-- <div class="col-md-2 col-xs-12"><a href="#" class="see_all">No filter
           see all</a></div>-->
-      </div>
+     </form>
       <!--===== end dropdown ===--> 
       <!--===== start first caraousal ===-->
       
-      <div class="row">
+     <!---<div class="row">
         <hr>
           
          <div class="row store-margin">
          <div class="col-lg-12">
          <ul class="slider">
-    	<li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
+    	
+        
+        
+        
+        
+        
         
         <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
+            <span><img src="<?php //echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
             <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
+            	<p>Blog / Creative / Writing /  Facebook app + Web</p>
                 <strong>Author: Studio 365 (Amsterdam)</strong>
                 <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
+                    <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" />
+                    <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" />
+                    <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" />
+                    <img src="<?php //echo $this->basePath('img/unrate2.png') ?>" alt="" />
+                    <img src="<?php //echo $this->basePath('img/unrate2.png') ?>" alt="" />
                 </span>
                 <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
+                <b>&euro;19</b>
             </div>
         </li>
         
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
+        
+        
+        
     </ul>
          </div>
          
          
-         </div>
+         </div>--->
          
+        </div>
+       
         
-        
+    
+      
       </div>
+      <div class="row">
+            <div class="container-cust clearfix">
+        <hr class="mar-eaighteen"/>
+        <h3><?php echo $content->text5;?></h3>
+        <div class="slider_wrap">
+          <div class="carousel-normal">
+            <div class="slider" >
+            <?php 
+            $i=1;
+            
+            foreach ($template as $template){ 
+       
+         if($template->approval == 1 && $template->disableDeveloper == 0 ){ ?>
+         
+        <div style="cursor: pointer;" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 small_carausal"> <strong><?php if($template->templateName == "epic"){ echo "neon"; }else{
+      $store =  $template->templateName;  $malestr = str_replace("_", " ", $store);
+echo $malestr;    
+        } ?></strong> <span><img src='<?php echo $this->basePath('files/'.$template->templateName."/".$template->scImage);?>' alt=""/></span>
+                <div>
+                  <p> <!--Blog / Creative / Writing /-->  Facebook app + Web</p>                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                  <strong>Author: <?php echo $template->fName." ".$template->lName;   ?></strong> <!--<span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span>--> <a style="cursor: pointer;">Use now</a> <b>
+        <?php 
+        $value=$template->templatePrice;
+         if($value == 0 || $value == NULL)
+         {
+            echo "FREE";
+         }
+        else
+        {
+            echo $value."&#8364;";
+        }
+        
+        ?></b><!--<b>&euro;19</b>---> </div>
+                  <input type="hidden" id="hiddens" value="<?php echo $i; ?>"/>
+              </div>
+             <?php 
+             $lock = $i; 
+             
+             $i++; }} ?>
+             
+            </div>
+          </div>
+          <div class="carousel_nav"> <a class="carousel_nav_prev">prev</a> <a class="carousel_nav_next">next</a> </div>
+        </div>
+      </div>
+      </div>
+      <input type="hidden" id="hidden_val" value="<?php echo $lock; ?>"/>
       <!--===== end first caraousal ===--> 
-      <hr>
-      <div class="row store">
-      <div class="col-lg-9 col-sm-7">
-       <h3>Inspiring<br><strong>Share-in- Moment</strong></h3>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a role="button" href="#" class="btn btn-primary">TRY THIS CAMPAIGN</a></p>
-      </div>
-      <div class="col-lg-3 col-sm-5">
-       <figure>
-                <img alt="" src="<?php echo $this->basePath('img/store-img-1.jpg') ?>"/>
-                </figure>
-      </div>
-      </div>
-      <hr>
+    
       
-      <div class="row store-margin">
-         <div class="col-lg-12 padd-less">
-         <ul class="slider">
-    	<li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-    </ul>
-         </div>
-         
-         
-         </div>
       
-       <hr>
-      <div class="row store-2">
-      <div class="col-lg-7 pull-right col-sm-8">
-       <h3>Resturant<br><strong>Coupon Give away</strong></h3>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a role="button" href="#" class="btn btn-primary">START RIGHT AWAY</a></p>
-      </div>
       
-      </div>
-      <hr>
+    
       
-      <div class="row store-margin">
-         <div class="col-lg-12 padd-less">
-         <ul class="slider">
-    	<li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        	<strong>Blog competition</strong>
-            <span><img src="<?php echo $this->basePath('img/slider_img.jpg') ?>" alt="" /></span>
-            <div>
-            	<p>Blog / Creative / Writing /  Facebook app</p>
-                <strong>Author: Studio 365 (Amsterdam)</strong>
-                <span>
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                    <img src="<?php echo $this->basePath('img/unrate2.png') ?>" alt="" />
-                </span>
-                <a href="#">Start right away!</a>
-                <b>€19</b>
-            </div>
-        </li>
-    </ul>
-         </div>
-         
-         
-         </div>
+     
+      
+      
       
        
-      <div class="row store-3">
-      <div class="col-lg-7 pull-right col-sm-8">
-       <h3>Try Our Spicy<br><strong>Hot or not campaign app</strong></h3>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a role="button" href="#" class="btn btn-primary">START RIGHT AWAY</a></p>
-      </div>
-      
-      </div>
+
      
       
-     
-     
+<style type="text/css">
+.store_banner{
+	background:url(<?php echo $content->plink;?>) no-repeat top center;
+	width:100%;
+	background-size:cover;
+	overflow:hidden;
+	margin:auto;
+	min-height: 420px;
+}
+</style>
+
+<div class="blank-for-space">&nbsp;</div>
+     </div>

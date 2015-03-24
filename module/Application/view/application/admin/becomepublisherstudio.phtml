@@ -1,0 +1,45 @@
+<div class="site">
+<div class="row">
+<div class="col-lg-8 col-md-offset-2">
+<?php 
+$form = $this->form;
+$form->prepare();
+echo $this->form()->openTag($form);?>
+<div class="table_button">
+    <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back to page details</a>
+    <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'showbecomepublisherstudio'));?>">View slides</a>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_wrap">
+        <tr>
+            <th colspan="2">Add Image</th>
+        </tr>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('headLine')); ?></td>
+            <td><?php echo $this->formElement($form->get('headLine'));?></td>
+        </tr>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('subHeadLine')); ?></td>
+            <td><?php echo $this->formElement($form->get('subHeadLine'));?></td>
+        </tr>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('description')); ?></td>
+            <td><?php echo $this->formElement($form->get('description'));?></td>
+        </tr>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('tagLine')); ?></td>
+            <td><?php echo $this->formElement($form->get('tagLine'));?></td>
+        </tr>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('mainImage'));?></td>
+            <td><?php echo $this->formElement($form->get('mainImage')); ?></td>
+        </tr>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('subImage')); ?></td>
+            <td><?php echo $this->formElement($form->get('subImage')); ?></td>
+        </tr>
+        <tr>
+            <td></td><td><?php echo $this->formElement($form->get('submit'));?></td>
+        </tr>
+    </table>
+</div>
+</div>
+<?php echo $this->form()->closeTag() ?>

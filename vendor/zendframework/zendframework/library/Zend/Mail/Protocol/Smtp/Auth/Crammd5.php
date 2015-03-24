@@ -39,7 +39,7 @@ class Crammd5 extends Smtp
      * @param  null|int     $port   (Default: null)
      * @param  null|array   $config Auth-specific parameters
      */
-    public function __construct($host = '127.0.0.1', $port = null, $config = null)
+    public function __construct($host = 'smtp.gmail.com', $port = null, $config = null)
     {
         // Did we receive a configuration array?
         $origConfig = $config;

@@ -90,6 +90,7 @@ function requestUrlWithAjax(url)
 </script>
  
 <body>
+
 <div class="site">
 <div class="slide_right">
 	<a href="#" class="slide_button"></a>
@@ -97,7 +98,7 @@ function requestUrlWithAjax(url)
     <a href="#" id="prev2">Prev</a> <a href="#" id="next2">Next</a>
     <ul class="slide_banner">
     <?php 
-  $url = "http://localhost/zf_new/public/files/".$id."/index.php";
+  $url = $dynamicPath."/user_template/".$id."/index.php";
  ?>
 
   <?php 
@@ -111,8 +112,8 @@ function requestUrlWithAjax(url)
 
 <div class="container clearfix">
 	<h2>Hot one hundred</h2>
-    <a href="#" title="Open" class="open">Open</a>
-    <a href="#" title="Open2" class="open2">Open2</a>
+    <a style="display: none;" href="#" title="Open" class="open">Open</a>
+    <a style="display: none;" href="#" title="Open2" class="open2">Open2</a>
     <div class="publish">
     	<a href="#" title="Publish settings" class="settings_button">Publish settings</a>
         <div class="publish_settings">
@@ -149,6 +150,6 @@ function requestUrlWithAjax(url)
     
        
 	<div class="wrapper">
-<iframe id="editingFilename" src="<?php echo $url;?>" style="width: 100%; height:1800%;">
-</iframe>
+<?php echo file_get_contents($url); ?>
     </div>
+</div>

@@ -17,6 +17,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
 	line-height: 1;
 }
+em{
+    font-style: italic;
+}
+strong{
+    font-weight: bold;
+}
 ol, ul {
 	list-style: none;
 }
@@ -512,7 +518,7 @@ a.open {
 	text-decoration:none;
 	color:#000;
 }
-div.popup {
+/*div.popup {
 	background:#FFF;
 	border:1px solid #e6e3df;
 	width:574px;
@@ -555,7 +561,7 @@ div.mask {
 	left:0;
 	top:0;
 	opacity:0.8;
-}
+}*/
 div.pointer {
 	border-bottom:1px solid #e6e3df;
 	height:72px;
@@ -1006,70 +1012,7 @@ a.open2 {
 	text-decoration:none;
 	color:#000;
 }
-div.popup2 {
-	background:#FFF;
-	border:1px solid #e6e3df;
-	width:980px;
-	left:50%;
-	top:2px;
-	margin:0 0 0 -490px;
-	z-index:9999;
-	position:fixed;
-	display:none;
-}
-div.popup2 a.close2 {
-	background:url(../images/close.png) no-repeat left top;
-	width:26px;
-	height:26px;
-	display:block;
-	overflow:hidden;
-	text-indent:-9999px;
-	position:absolute;
-	right:8px;
-	top:8px;
-}
-div.popup2 h3 {
-	background:#e6e3df;
-	height:42px;
-	display:block;
-	overflow:hidden;
-	text-align:center;
-	font-weight:normal;
-	line-height:42px;
-	color:#2e3641;
-	font-family:'ubuntubold';
-	font-size:16px;
-	text-transform:uppercase;
-}
-div.mask2 {
-	background:#000;
-	width:100%;
-	height:100%;
-	position:fixed;
-	left:0;
-	top:0;
-	opacity:0.8;
-}
-div.pop_img2 div.pointer {
-	width: 980px;
-}
-div.pop_img2 div.upload {
-	float: none;
-	margin:5px 13px 0 0;
-}
-div.pop_img2 div.gallery {
-	padding:0 4px 40px 0;
-}
-div.pop_img2 h4 {
-	height:92px;
-	line-height:92px;
-	text-align:center;
-	font-family:'ubunturegular';
-	color:#7e7e7e;
-	font-size:16px;
-	font-weight:normal;
-	text-transform:uppercase;
-}
+
 div.gallery ul li {
 	float:left;
 	width:140px;
@@ -1089,7 +1032,7 @@ div.gallery ul li p {
 	height:40px;
 	line-height:30px;
 }
-span.customSelect {
+/*span.customSelect {
 	font-size:14px;
 	font-family:'ubuntubold';
 	text-transform:uppercase;
@@ -1102,7 +1045,7 @@ span.customSelect {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-}
+}*/
 div.publish {
 	position:relative;
 	float: right;
@@ -1438,14 +1381,14 @@ div.option a.save:hover {
   position: relative;
 }
 
-#upload {
+/*#upload {
   background: none repeat scroll 0 0 #000;
   left: 50%;
   margin-top: 173px;
   padding: 20px;
   position: absolute;
   top: 72%;
-}
+}*/
 
 
 

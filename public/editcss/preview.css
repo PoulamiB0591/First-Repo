@@ -1,0 +1,136 @@
+body, html {
+    height: 100%;
+}
+body {
+	background:#161616;
+	padding: 0;
+	margin: 0;
+}
+div.main_wrapper {
+	background:#161616;
+	width: 100%;
+	height: 100%;
+}
+div.device_top {
+	background:#2e3641;
+	width: 100%;
+	overflow: hidden;
+	padding: 20px 0;
+}
+div.device_top ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+	width: 144px;
+}
+div.device_top ul li {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 2px;
+}
+div.device_top ul li a {
+	display: block;
+	vertical-align: middle;
+	cursor:pointer;
+}
+div.device_top ul li a img {
+	display: block;
+	vertical-align: middle;
+}
+div.device_top ul li:hover a img {
+	opacity:0.6;
+}
+div.device_top form {
+	color: #fff;
+    float: right;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin-top: -30px;
+}
+div.device_top label {
+    display: block;
+    float: left;
+    line-height: 29px;
+}
+div.device_top select {
+	background:#FFF;
+	border:none;
+	display: block;
+	padding: 5px;
+	margin: 0 10px;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: normal;
+	float: left;
+}
+div#device_section {
+	height:100%;
+}
+div.desktop {
+    width: 100%;
+	height:100%;
+}
+div.desktop iframe {
+    width: 100%;
+	height:100%;
+}
+div.padport {
+	background:url(../img/padport.png) no-repeat left top;
+	height: 1213px;
+    margin: 20px auto;
+    width: 901px;
+}
+div.padport iframe {
+	height: 1038px;
+    margin: 65px 0 0 58px;
+    width: 785px;
+}
+div.padland {
+	background:url(../img/padland.png) no-repeat left top;
+	height: 798px;
+    margin: 20px auto;
+    overflow: auto;
+    width: 1242px;
+}
+div.padland iframe {
+	height: 690px;
+    margin: 51px 0 0 80px;
+    width: 1039px;
+}
+div.phoneport {
+	background:url(../img/phoneport.png) no-repeat left top;
+	height: 762px;
+    margin: 20px auto;
+    width: 395px;
+}
+div.phoneport iframe {
+	height: 495px;
+    margin: 133px 0 0 30px;
+    width: 337px;
+}
+div.phoneland {
+	background:url(../img/phoneland.png) no-repeat left top;
+	height: 395px;
+    margin: 150px auto 20px;
+    width: 759px;
+}
+div.phoneland iframe {
+	height: 335px;
+    margin: 28px 0 0 133px;
+    width: 495px;
+}
+
+
+/*Baishakhi*/
+
+
+ iframe 
+ {
+   pointer-events: none;
+   cursor: default;
+     
+  }
+  

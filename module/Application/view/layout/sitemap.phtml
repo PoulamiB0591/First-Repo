@@ -1,38 +1,92 @@
-<aside style="left: 0px;" class="main container-fluid">
-  <div class="wrapper">
+<?php
+ $protocol = '';
+        if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+?>
+<aside class="main container-fluid">
+  <div class="wrapper"> 
+ 
         <nav id="menu" > <!--<strong class="button"><b>&nbsp;</b></strong>--> <a href="#" class="small_logo"><img src="<?php echo $this->basePath('img/small_logo.png') ?>" alt="" /></a> <a href="<?php echo $this->url('home') ?>" class="big_logo"><img src="<?php echo $this->basePath('img/big_logo.png') ?>" alt="" /></a>
       <div class="download"><img src="<?php echo $this->basePath('img/download.png') ?>" alt="" /></div>
-      <div class="logout"> <img src="<?php echo $this->basePath('img/logout.png') ?>" alt="" />
-        <p><a>Studio 365</a>Amsterdam</p>
-        <span>67%</span> </div>
-      <span class="rate"> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate.png') ?>" alt="" /> <img src="<?php echo $this->basePath('img/unrate.png') ?>" alt="" /> </span>
+      
+      <?php
+      if($uname != "")
+      {
+      ?>
+      <div class="logout"><a title="Log Out" class="lgot" style="cursor: pointer;" id="logout"><img src="<?php echo $this->basePath('img/logout.png') ?>" alt="" /></a>
+        <p><a> <?php 
+            echo $uname;
+        ?></a><a href="<?php echo $url; ?>/Frontend/dashboard">My Dashboard </a><?php  //if($city == "undefined"){echo "";}else{
+            //echo $city;
+        //} ?></p>
+       <!---<span>67%</span>---></div>
+      <!--<span class="rate"> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php // echo $this->basePath('img/unrate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate.png') ?>" alt="" /> </span>---->
+      <?php
+      }
+      else
+      {
+        ?>
+      <div class="login"><a class="login-bt" href="<?php echo $url; ?>/index/accountsignin">sign in</a></div>
+      <?php
+      }
+      ?>
       <ul class="nav drop_nav" id="nav">
       
        <li><a href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath('img/icon1.png') ?>" alt="" /><span>Home</span></a></li>
        
         <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'store')); ?>"><img src="<?php echo $this->basePath('img/icon2.png') ?>" alt="" /><span>Template store</span></a></li>
-        <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'howswork')); ?>"><img src="<?php echo $this->basePath('img/icon3.png') ?>" alt="" /><span>How does it work?</span></a></li>
-        <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'becomepublisher')); ?>"><img src="<?php echo $this->basePath('img/icon4.png') ?>" alt="" /><span>Connected publishers</span></a></li>
-        <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'casestudies')); ?>"><img src="<?php echo $this->basePath('img/icon5.png') ?>" alt="" /><span>Case Studies</span></a></li>
+       <!--</a> <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'howswork')); ?>"><img src="<?php echo $this->basePath('img/icon3.png') ?>" alt="" /><span>How does it work?</span></a></li>-->
+        <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'becomepublisher')); ?>"><img src="<?php echo $this->basePath('img/icon4.png') ?>" alt="" /><span>Connected developers</span></a></li>
+       <!--- <li><a href="<? /*echo  $this->url('application/default', array('controller' => 'index', 'action' => 'casestudies')); */ ?>"><img src="<?php /* echo $this->basePath('img/icon5.png') */ ?>" alt="" /><span>Case Studies</span></a></li>--->
         <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'faq')); ?>"><img src="<?php echo $this->basePath('img/icon6.png') ?>" alt="" /><span>FAQ</span></a></li>
         <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'aboutus')); ?>"><img src="<?php echo $this->basePath('img/icon7.png') ?>" alt="" /><span>About us</span></a></li>
-         <li><a href="#"><img src="<?php echo $this->basePath('img/icon8.png') ?>" alt="" /><span>Blog</span><img src="<?php echo $this->basePath('img/nav_arrow.png') ?>" alt="" class="arrow" /><img src="<?php echo $this->basePath('img/nav_arrow2.png') ?>" alt="" class="arrow2" /></a>
-          <div> <a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'detailinformation')); ?>">Detail information</a> <a href="#">Template store</a> <a href="#">Template store</a> <a href="#">Template store</a> <a href="#">Template store</a> </div>
-        </li>
+        <li><span></span></li>
+        
+         <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'blogoverview')); ?>" ><img src="<?php echo $this->basePath('img/icon8.png') ?>" alt="" /><span>Blog</span></a></li>
+         <!---<img src="<?php //echo $this->basePath('img/nav_arrow.png') ?>" alt="" class="arrow"/><img src="<?php// echo $this->basePath('img/nav_arrow2.png') ?>" alt="" class="arrow2"/>---->
+          <!---<div> <a href="<?//=$this->url('application/default', array('controller' => 'index', 'action' => 'blogarchive')); ?>">BLOG ARCHIVE</a> <a href="<?//=$this->url('application/default', array('controller' => 'index', 'action' => 'blogoverview')); ?>">BLOG OVERVIEW</a> <a href="<?//=$this->url('application/default', array('controller' => 'index', 'action' => 'blogdetails')); ?>">BLOG DETAILS</a> </div>--->
+        
         
         
         <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'contact')); ?>"><img src="<?php echo $this->basePath('img/icon9.png') ?>" alt="" /><span>Contact</span></a></li>
       </ul>
-      <form action="" method="post" name="search" class="search">
+      <!--<form action="search" method="post" name="search" class="search">
         <input type="text" name="search" value="" />
-      </form>
-      <ul class="menu">
-        <li><a target="_blank" href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'developers')); ?>">For developers</a></li>
+      </form>-->
+      
+      
+      
+      <div class="new-dev-section clearfix">
+<div class="dev-title-bar">
+For Developers
+</div>
+<ul>
+	<li><a href="<?php echo $url; ?>/sfpdeveloper/index"><img src="../img/dev-img-2.png" alt=""><span>Developer Login</span></a></li>
+     <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'documentation')); ?>"><img src="../img/dev-api.png" alt=""><span>Developer's API</span></a></li>
+    <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'termscondition')); ?>"><img src="../img/dev-img-3.png" alt=""><span>Terms & Service</span></a></li>
+    <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'Disclaimer')); ?>"><img src="../img/dev-img-4.png" alt=""><span>Disclaimer</span></a></li>
+    <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'privacypolicy')); ?>"><img src="../img/dev-img-5.png" alt=""><span>Privacy Policy</span></a></li>
+</ul>
+</div><!--new developer section-->
+     <!-- <ul class="menu">
+      
+      
+        <li><a href="<?php echo $url; ?>/sfpdeveloper/index">For developers</a></li>
+        <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'documentation')); ?>">Developer's API</a></li>
         <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'termscondition')); ?>">Terms &amp; service</a></li>
-        <li><a href="#">Disclaimer</a></li>
-        <li><a href="#">Privacy policy</a></li>
-      </ul>
-      <p class="copyright">© Copyright 2013 <a href="#">Smart Fanpage</a></p>
+        <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'Disclaimer')); ?>">Disclaimer</a></li>
+        <li><a href="<?=$this->url('application/default', array('controller' => 'index', 'action' => 'privacypolicy')); ?>">Privacy policy</a></li>
+      </ul>-->
+      <p class="copyright">&copy; Copyright 2015 <a href="#">Smart Fanpage</a></p>
     </nav>
-  </div>
+</div>
 </aside>

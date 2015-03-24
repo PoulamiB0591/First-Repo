@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->basePath('img/favicon.ico') ?>" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href='http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function fbs_click() {
+            var basepath = window.location.protocol + "//" + window.location.host;
+            var u = basepath + "/sfpdeveloper/devlogin";
+            var t = 'smartfanpage';
+            var child = window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(u) + '&t=' + encodeURIComponent(t), 'sharer', 'toolbar=0,status=0,width=626,height=436');
+        }
+        function twt_click() {
+            var basepath = window.location.protocol + "//" + window.location.host;
+            var u = basepath + "/sfpdeveloper/index"
+            var t = 'smartfanpage';
+            var child = window.open('http://twitter.com/share?u=' + encodeURIComponent(u) + '&t=' + encodeURIComponent(t), 'sharer', 'toolbar=0,status=0,width=626,height=436');
+        }
+        function linkedinButton() {
+            var basepath = window.location.protocol + "//" + window.location.host;
+            var u = basepath+'/sfpdeveloper/index';
+            var articleUrl = encodeURIComponent(u);
+            var articleTitle = encodeURIComponent('smartfanpage');
+            var articleSummary = encodeURIComponent('developer login');
+            var articleSource = encodeURIComponent('best');
+            var goto = 'http://www.linkedin.com/shareArticle?mini=true' +
+                '&url=' + articleUrl +
+                '&title=' + articleTitle +
+                '&summary=' + articleSummary +
+                '&source=' + articleSource;
+            window.open(goto, "LinkedIn", "width=660,height=600,scrollbars=yes;resizable=no");
+        }
+        function continuelog() {
+            var base_url = window.location.origin;
+            var user = $("#username").val();
+            var pass = $("#pass").val();
+            $.ajax({
+                type: 'POST',
+                data: {
+                    user: user,
+                    pass: pass
+                },
+                url: base_url + "/sfpdeveloper/loginsuccess",
+                success: function(data) {
+                   
+                    var res = data.split("||");
+                   
+                    if (res[0] == "1") {
+                        
+                        window.location.href = base_url + "/sfpdeveloper/dashboard/"+res[1]+"|"+res[2];
+                    } else {
+                        alert("please enter proper login credentials");
+                        return false;
+                    }
+                }
+            });
+        }
+        function enterkey(e, t) {
+            if (window.event) {
+                var charCode = window.event.keyCode;
+            } else if (e) {
+                var charCode = e.which;
+            } else {
+                return true;
+            }
+
+            if ((charCode == 13))
+                continuelog();
+            else
+                return true;
+        }
+    </script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <div id="developer-main-container" class="clearfix">
+        <div class="developer-menu-left-pannel">
+            <a href="<?php echo $this->url('home') ?>" class="logo">
+                <figure><img src="<?php echo $this->basePath('sfpdeveloper/img/dev_logo.png') ?>" alt="">
+                </figure>
+            </a>
+            <h5 class="dev-title">-  Development centre  - </h5>
+
+
+        </div>
+        <div class="copyright-menu clearfix">
+            <ul>
+                <li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'termscondition'));?>"><span class="icon-arrow-right"></span> Terms & service </a>
+                </li>
+                <li>
+                    <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'disclaimer'));?>"> <span class="icon-arrow-right"></span> Disclaimer </a>
+                </li>
+                <li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'privacypolicy'));?>"><span class="icon-arrow-right"></span> Privacy policy </a>
+                </li>
+                <li>© Copyright 2015 Smart Fanpage</li>
+            </ul>
+        </div>
+        <div class="developer-menu-right-pannel clearfix">
+            <div class="developer-menu-right-pannel-image-holder clearfix">
+                <figure><img src="<?php echo $this->basePath('sfpdeveloper/img/developers-2.jpg') ?>" alt="">
+                </figure>
+                <div class="social-share clearfix">
+                    <ul>
+                        <li>Share this website</li>
+                        <li><a href="javascript:void(0)" onclick="return fbs_click()"><span class="icon-social-facebook-circular"></span></a>
+                        </li>
+                        <li><a href="javascript:void(0)" onclick="return twt_click()"><span class="icon-social-twitter-circular"></span></a>
+                        </li>
+                        <li><a href="javascript:void(0)" onclick="return linkedinButton()"><span class="icon-social-linkedin-circular"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <section class="developer-body-section clearfix">
+
+                <div class="devs-login-content">
+                    <h2>Developer login</h2>
+                    
+                    <ul>
+
+                        <li>
+                            <label for="">Username or email</label>
+                            <input name="" type="text" id="username" onkeydown="return enterkey(event,this);" />
+                        </li>
+                        <li>
+                            <label for="">Password</label>
+                            <input name="" type="password" id="pass" onkeydown="return enterkey(event,this);" />
+                        </li>
+
+                        <li>
+                            <label for="">&nbsp;</label>
+                            <a href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action'=>'forgetpassword'));?>">Forgot password?</a>
+                            <p>New to Smart Fanpage?</p> <a href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action'=>'devregister'));?>">Sign up!</a>
+                        </li>
+                    </ul>
+
+                    <a href="javascript:void(0)" onclick="continuelog()" class="continue">continue</a>
+                </div>
+
+                <div class="back-to-top-cont" style="position:relative;">
+                    <hr>
+                    <a id="back-to-top" class="go_to_up" href="#">Back to top</a>
+                </div>
+
+            </section>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+<script type="text/javascript">
+</script>

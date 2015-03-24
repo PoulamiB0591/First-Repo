@@ -1,0 +1,306 @@
+<style type="text/css">
+        .banner {
+            background:url(<?php echo $content->plink;?>) no-repeat top center; 
+            overflow:hidden;
+            width:100%;
+            background-size:cover;
+            overflow:hidden;
+            margin:auto;
+            background-size:cover;
+        }
+ .wrap-text a.read-more {
+  background: none repeat scroll 0 0 #5f6369;
+  border-radius: 1px;
+  color: #fff;
+  margin-top: 13px;
+  width: 150px;
+}
+.selectBox-dropdown .selectBox-label {width: 353px !important;}
+.selectBox-dropdown{margin:0;}
+div#loader12 {
+  float: left;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+    </style>
+  <script>
+  function fbs_click()
+    {
+        var base_url = window.location.origin;
+    u=base_url+"/"
+    t='smartfanpage';
+    var child = window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+    }
+    
+     function twt_click()
+    {
+       var base_url = window.location.origin;
+    u=base_url+"/"
+     t='smartfanpage';
+    var child = window.open('http://twitter.com/share?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');   
+    }
+    
+    function linkedinButton(){
+    var base_url = window.location.origin;
+    
+   var articleUrl = encodeURIComponent(base_url+'/');
+       var articleTitle = encodeURIComponent('smartfanpage');
+       var articleSummary = encodeURIComponent('home');
+       var articleSource = encodeURIComponent('best');
+       var goto = 'http://www.linkedin.com/shareArticle?mini=true'+
+           '&url='+articleUrl+
+           '&title='+articleTitle+
+           '&summary='+articleSummary+
+           '&source='+articleSource;
+       window.open(goto, "LinkedIn", "width=660,height=600,scrollbars=yes;resizable=no");         
+} 
+  </script>  
+
+<?php
+
+     $protocol = '';
+        if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+
+?>
+<link type="text/css" rel="stylesheet" href="<?php echo $url; ?>/css/desktop-mob-main.css" />
+
+ <div class="mob-desktop" style="display: none;">
+
+<div class="mother-con">
+
+<a class="close"><span class="icon-cross"></span></a>
+	<div class="con_slider">
+    
+        <?php
+        // This section modified by koushik
+        $hgfgh = array();
+        $tempdesign1 = $tempdesign;
+        foreach ($tempdesign1 as $template1){
+            if($template1->approval == 1 && $template1->disableDeveloper == 0){
+                $hgfgh[] = $template1;
+            }
+        }
+        $i=1;
+        $j=count($hgfgh);
+        $k=count($hgfgh); 
+            foreach ($hgfgh as $template1){
+         $temp =  $template1->tempFoldName;  
+            ?>
+    	<div class="demo<?php echo $i; ?>" data-template="demo<?php echo $i; ?>" data-next="demo<?php if($i==$k) echo "1"; else echo ++$i; ?>" data-prev="demo<?php if($j==$k){ echo $j;$j=1;} else { echo $j++; } ?>">
+        
+            <div class="wrap-previews">
+                <div class="wrap-mobile infront">
+                    <div class="content-mobile">
+                    	<div class="overlay"></div>
+                        
+                        <iframe src="<?php echo $url; ?>/htmlforindex/<?php echo $temp; ?>.html" frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="wrap-browser behind">
+                    <div class="chrome-bar">
+                        <div class="chrome-controls"></div>
+                    </div>
+                    <div class="content-browser">
+                    	<div class="overlay"></div>
+                        <iframe src="<?php echo $url; ?>/htmlforindex/<?php echo $temp; ?>.html" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-text">
+            <div class="wrapping">
+                <h2><?php if($template1->templateName == "epic") { echo "Neon"; }else{
+                 // echo $template1->templateName;   
+                  echo str_replace("_"," ",$template1->templateName);
+                } ?></h2>
+                <p><?php echo $template1->templateDesc; ?> </p>
+                <?php
+                if($sid != "")
+                {
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action'=>'templatecopy','id'=>$template1->templateName));?>">Add content to this template <span class="icon-arrow-right-thick"></span></a>
+                <?php    
+                }
+                else
+                {
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action'=>'addcontent','id'=>$template1->templateName));?>">Add content to this template <span class="icon-arrow-right-thick"></span></a>
+                <?php
+                }
+                ?>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'index','action'=>'marketing','id'=>$template1->id));?>" class="read-more">Read more&nbsp;<span class="icon-arrow-right-thick"></span></a>
+                </div>
+            </div>
+        </div>
+        <?php
+        //$i++;
+        
+       }
+        ?>
+   </div>
+    <div class="nav">
+        <a style="cursor:pointer" id="prev"><span class="icon-angle-left"></span></a>
+        <a style="cursor:pointer" id="next"><span class="icon-angle-right"></span></a>
+    </div>
+</div>
+</div>
+ 
+<div  class="site">
+
+  <div class="container-fluid">
+  
+  <?php
+  ?>
+    <!--===== start banner ===-->
+    <div class="row">
+      <div class="banner">
+        <ul class="social_icon">
+          <li><a style="cursor:pointer">Share this website</a></li>
+          <li><a style="cursor:pointer" onclick="return fbs_click()"></a> <a style="cursor:pointer" onclick="return twt_click()"></a> <a style="cursor:pointer" onclick="return linkedinButton()"></a></li>
+        </ul>
+        
+ 
+        
+        
+        
+        <div class="banner_caption col-md-8" >
+          <h1 class="fittext2">
+          
+        <?php echo $content->change_tagline;?><br/>
+        
+            </h1>
+          <h2> <?php echo $content->text2;?>
+            </h2>
+          <?php if($sid==""){ ?><a href="<?php echo $url; ?>/index/accountsignup">Sign up free</a><?php } 
+          else{?><a href="<?php echo $url; ?>/frontend/index1" style="visibility: hidden">Dashboard </a><?php }?> </div>
+      </div>
+   
+      
+    </div>
+    <!--===== end banner ===--> 
+     
+      
+      <!--===== start dropdown ===-->
+      
+      <div class="container-fluid">
+     <!-- <div class="row" >
+        <p class="top_heading col-md-12" id="fly-it"> <?php //echo $content->text3;?></p>
+      
+        <div id="selectbox-load" class="col-lg-4 col-xs-12">
+          <select id="dropdowns" name="standard-dropdown">
+          <option value="0"  >Select Template Category</option>
+            <option value="Hotels, restaurants and bars"  >Hotels, restaurants and bars</option>
+            <option value="Sports sector"  >Sports sector</option>
+            <option value="Events and conferences"  >Events and conferences</option>
+            <option value="Small businesses and retail"  >Small businesses and retail</option>
+            <option value="Reseller"  >Reseller</option>
+          </select>
+        </div>
+      <div id="loader12"  style="display: none;"><img src="<?php //echo $url; ?>/img/frontend_loading.GIF" /> </div>
+        
+        
+        
+        <!--<form class="navbar-form col-md-2 col-xs-12">
+           <!-- <input type="text" placeholder="Search..." class="form-control">
+          </form>-->
+      <!--  <div class="col-md-2 col-xs-12"><a style="cursor:pointer" class="discover_button">Discover</a></div>-->
+        <!--<div class="col-md-1 col-xs-12 pull-right"><input type="button" id="refreshed" class="refresh_button"/></div>
+        <div class="col-md-3 col-xs-12 pull-right">
+         
+          
+          <div class="input-group cust-search">
+            <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text"/>
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit" id="srchterm"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+          </div>
+        </div>
+       <!-- <div class="col-md-2 col-xs-12"><!--<a style="cursor:pointer" class="see_all">No filter see all</a></div>-->
+     <!-- </div> -->
+      <!--===== end dropdown ===--> 
+      <!--===== start first caraousal ===-->
+      
+      <div class="row row_margin">
+       <!-- <hr class="mar-eaighteen">-->
+        <h3><?php echo $content->text5;?></h3>
+        <div class="slider_wrap col-lg-12 col-xs-12" >
+          <div class="carousel-normal">
+            <div class="owl-demo owl-select" >
+            <?php 
+            
+            $i=1;
+            foreach ($template as $template){ 
+       
+         if($template->approval == 1 && $template->disableDeveloper == 0){ ?>
+         
+        <div style="cursor: pointer;" class="item small_carausal"> <strong><?php if($template->templateName == "epic"){ echo "neon"; }else{
+      echo $template->templateName;      
+        } ?></strong> <span><img src='<?php echo $this->basePath('files/'.$template->templateName."/".$template->scImage);?>' alt=""/></span>
+                <div>
+                  <p> <!--Blog / Creative / Writing /-->  Facebook app</p>
+                  <strong>Author: Smartfanpage</strong> <!--<span> <img src="<?php echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate2.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate2.png') ?>" alt="" /> </span>--> <a style="cursor: pointer;">Use now</a> <!--<b>&euro;19</b>---> </div>
+        <input type="hidden" id="hiddens" value="<?php echo $i; ?>"/>
+              </div>
+             <?php
+              $lock = $i; 
+             
+             $i++;
+             
+              }} ?>
+             
+            </div>
+          </div>
+          <div class="carousel_nav"> <a class="carousel_nav_prev">prev</a> <a class="carousel_nav_next">next</a> </div>
+        </div>
+      </div>
+      <input type="hidden" id="hidden_val" value="<?php echo $lock; ?>"/>
+      <!--===== end first caraousal ===--> 
+      <!--===== start secoend caraousal ===-->
+      <div class="row row_margin"  id="spotlight_section">
+        <h3><?php echo $content->text6;?></h3>
+        <div class="owl-demo2 owl-carousel col-lg-12 col-xs-12">
+        
+          
+          <?php foreach ($slideImage as $p) :?>
+          <div class="item"> <img src="<?php echo $this->escapeHtml($p->slideImagePath); ?>" alt="" />
+            <div class="text_option">
+              <h3><?php echo $this->escapeHtml($p->slideHeader);?></h3>
+              <h2><?php echo $this->escapeHtml($p->slideSubHeader);?></h2>
+              <p><?php echo $this->escapeHtml($p->slideDescription);?></p>
+              <a style="cursor:pointer">Use now</a><b>&euro;<?php echo $this->escapeHtml($p->slideAmount);?></b>
+               </div>
+          </div>
+            <?php endforeach; ?>   
+        </div>
+              
+      </div>
+      <!--===== end secoend caraousal ===--> 
+      <!--===== start third caraousal ===-->
+      
+      
+      </div>
+      
+      <!--===== end third caraousal ===--> 
+      
+     
+      <!--===== start forth caraousal ===-->
+      
+      <!--===== end forth caraousal ===--> 
+      
+      <!--===== start Wall of fame ===-->
+      
+      <!--===== end campaigns ===--> 
+      
+
+    

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smartfanpage || How does it works</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+<!-- Bootstrap -->
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<meta http-equiv="X-UA-Compatible" content="IE=10">
+<body>
+<!--//========for mobile social icons===========-->
+
+
+<div class="mobile-social">
+        <a href="#" class="button"></a>
+        <ul class="social_icon3">
+         
+          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+        </ul>
+        </div>
+<!--//========End for mobile social icons===========-->	
+       
+<!--===== start menu ===-->
+
+
+
+<!--===== end menu ===-->
+<!--===== body start ===-->
+<div  class="site">
+  <div class="container-fluid"> 
+  <div class="row">
+    
+    
+   
+      <div class="blog-details">
+        <ul class="social_icon2" style="display: block;">
+          <li><a href="javascript:void(0)">Share this website</a></li>
+          <li><a href="javascript:void(0)" onclick="return fbs_click()"></a> <a href="javascript:void(0)"  onclick="return twt_click()"></a> <a href="javascript:void(0)" onclick="return linkedinButton()"></a></li>
+          
+        </ul>
+        
+ 
+      
+    </div>
+    <div class="container container-for-standard-desktop"> 
+    
+    <div class="row">
+     <section class="blog-overview-cont row col-lg-12">
+     
+     
+      
+        
+        <div class="blog-wrapper col-lg-12">
+        <?php echo $details->imagePath ?>
+        	<h5><span><?php $date = $details->date;
+
+            $details1 = date("F j, Y", strtotime($date) ); 
+            echo $details1." in <b>Social media</b>"; ?></span> 
+            
+<span>
+<?php
+$datetime1 = date('Y-m-d H:i:s');
+
+$date3 = date_create($datetime1);
+//creating a date object
+$value = $details->date." ".$details->timeofinsert;
+
+$date4 = date_create($value);
+
+//calculating the difference between dates
+//the dates must be provided to the function as date objects that's why we were setting them 
+//as date objects and not just as strings
+//date_diff returns an date object wich can be accessed as seen below
+$diff34 = date_diff($date4, $date3);
+$days = $diff34->d;
+//accesing months
+$months = $diff34->m;
+//accesing years
+$years = $diff34->y;
+//accesing hours
+$hours=$diff34->h;
+//accesing minutes
+$minutes=$diff34->i;
+//accesing seconds
+$seconds=$diff34->s;
+
+if($years != "")
+{
+    if($years == '1')    
+    echo $years." "."year"." "."ago";
+    else
+    echo $years." "."years"." "."ago";
+}
+
+else if($months != "")
+{
+    if($months  == '1')    
+    echo $months." "."month"." "."ago";
+    else
+    echo $months." "."months"." "."ago";
+}
+
+else if($days != "")
+{
+    if($days == '1')    
+    echo $days." "."day"." "."ago";
+    else if( $days > 1 && $days < 7)
+    echo $days." "."days"." "."ago";
+    else
+    {
+        $weekval = $days/7;   
+        $value = explode(".",$weekval);
+        $originalvalue = $value[0];
+        if($originalvalue == '1')
+        echo $originalvalue." "."week"." "."ago"; 
+        else
+        echo $originalvalue." "."weeks"." "."ago"; 
+    }
+}
+
+else if($hours != "")
+{
+    if($hours  == '1')    
+    echo $hours." "."hour"." "."ago";
+    else
+    echo $hours." "."hours"." "."ago"; 
+}
+
+else if($minutes != "")
+{
+    if($minutes  == '1')    
+    echo $minutes." "."minute"." "."ago";
+    else
+    echo $minutes." "."minutes"." "."ago"; 
+}
+
+else 
+{
+    if($seconds == '1')    
+    echo $seconds." "."second"." "."ago";
+    else
+    echo $seconds." "."seconds"." "."ago"; 
+}
+//echo '
+//<p>The difference between '.$datetime1 .' and 2009-06-26 10:12:34 
+//<br />is: ' . $days . ' day(s), ' . $months . ' month(s), ' . $years . ' year(s), '.$hours.' hour(s),
+//'.$minutes.' minute(s), '.$seconds.' second(s) </p>
+//';
+ 
+
+
+?>
+</span></h5>
+        	
+            <h3><?php echo $details->question; ?></h3>
+              <?php echo $details->answer; ?>      
+        </div>
+        
+         
+         
+         
+         <div class="blog-details-con col-lg-12">
+         
+         	<div class="blog-details-video">
+            <span>
+                
+                </span>
+                
+                
+                
+                <a id="back-to-top" href="#">TO TOP</a>
+                
+                <ul>
+                	<li><a href="https://www.facebook.com/" target="_blank" title="facebook">facebook</a></li>
+                	<li><a href="http://www.twitter.com/" target="_blank" title="twitter">twitter</a></li>
+                	<li><a href="https://www.google.com/" target="_blank" title="googleplus">googleplus</a></li>
+                </ul>
+            
+            </div>
+         
+         </div>
+         
+         
+         
+         
+         
+         
+         <div class="blog-msg col-lg-12">
+         
+         	<ul class="list_movc">
+            <?php $c =0; foreach ($contentpass as $bkc){?>
+            	<li class="col-lg-12" id="Li<?php echo $c ;?>">
+                	<span class="col-xs-4">
+                    	<figure>
+                        
+                        	<!--<img src="../img/blog-msg-img.png" alt="" />-->
+                            <img src="<?php  echo $bkc['image'];?>" alt="" />
+                            
+                        </figure>
+                    </span>
+                    <div class="col-xs-8">
+                    	<h3>Message</h3>
+						<span><?php $date=$bkc['date']; 
+                        echo date("l, F j, Y, g:i A", strtotime($date) );?></span>
+                        
+                        <div class="blog-con">
+                        <p><?php echo $bkc['message'];?></p>
+                              </div> 
+                        <?php if(strlen($bkc['message'])>300){?><a href="#" class="blog_more_btn">read more</a><?php } ?>
+                       
+                        <a href="javascript:void(0)" title="Reply">Reply</a>
+
+                    </div>
+                    <?php $c++;?>
+                </li>
+                <?php } ?>
+                
+               <?php $c =0; foreach ($contentpass as $bkc){
+               if($c >=3)
+               {
+              echo "<button  name='read_more' class='read121' onclick='more_all();'>Read More</button>"; 
+              }
+              $c++;
+             }   ?>
+            </ul>
+         </div>
+         
+         
+         
+         
+        <div class="contact-form col-lg-12">
+       <form name="login" method="post">
+                    <ul>
+                        <li class="clearfix">
+                            <label>Your name *</label>
+                            <input type="text" <?php if($user_name!=""){?>value="<?php echo $user_name;?>" readonly="true" <?php }?> id="name" name="NAME" placeholder="Enter your name" onkeypress="return onlyAlphabets(event,this);"/>
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label>Your email *</label>
+                            <input type="text" <?php if($emaill!=""){?>value="<?php echo $emaill;?>" readonly="true" <?php }?> id="email" name="email" placeholder="Enter your email"/>
+                        </li>
+                        
+                        <li class="clearfix">
+                            <label> Message *</label>
+                            <textarea name="Message" cols="" rows="" id="message" placeholder="Enter your message"></textarea>
+                            
+                        </li>
+                        <li class="clearfix">
+                            <label></label>
+                            <input type="submit" value="Post comment" name="submit" onclick="return submitFunction();" id="submit"/>
+                        </li>
+                        
+                    </ul>
+                </form>
+
+
+</div>
+<div class="blank-for-space">&nbsp;</div>
+</section>
+
+</div>
+
+
+
+        
+        
+        
+        
+       <!-- <div style="position:relative;">
+        <hr/>
+        <a href="" class="go_to_up" id="back-to-top"></a></div>-->
+</div>
+
+</div>
+</div>
+</div>
+
+  <style type="text/css">
+ 
+ul.list_movc li{
+   display: none; 
+}
+  #Li0, #Li1, #Li2, #Li3{
+	display: block !important;  
+	}
+    
+    .akactive{
+        
+        display: block !important;  
+    }
+    button.read121 {
+  display: block;
+  height: 45px;
+  margin: 0 auto 12px;
+  width: 170px;
+}
+
+
+.blog-details {  
+	background:url(<?php echo $details->imagePath ?>) no-repeat top center;
+	overflow:hidden;
+	width:100%;
+	background-size:cover;
+	overflow:hidden;
+	margin:auto;
+	min-height: 420px;
+	margin: 0 0 50px 0;
+}
+  </style>
+
+
+
+
+<script type="text/javascript">
+function fbs_click() {
+    var basepath = window.location.protocol + "//" + window.location.host;
+    var mainPath = window.location.href ;
+    var res = mainPath.split(".com/");  
+    
+    var u = basepath +"/"+ res[1];
+    var t = 'smartfanpage';
+    var child = window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(u) + '&t=' + encodeURIComponent(t), 'sharer', 'toolbar=0,status=0,width=626,height=436');
+}
+function twt_click() {
+    var basepath = window.location.protocol + "//" + window.location.host;
+    var mainPath = window.location.href ;
+    var res = mainPath.split(".com/");  
+    
+    var u = basepath +"/"+ res[1];
+    var t = 'smartfanpage';
+    var child = window.open('http://twitter.com/share?u=' + encodeURIComponent(u) + '&t=' + encodeURIComponent(t), 'sharer', 'toolbar=0,status=0,width=626,height=436');
+}
+function linkedinButton() {
+    var basepath = window.location.protocol + "//" + window.location.host;
+    var mainPath = window.location.href ;
+    var res = mainPath.split(".com/");  
+    
+    var u = basepath +"/"+ res[1];
+    var articleUrl = encodeURIComponent(u);
+    var articleTitle = encodeURIComponent('smartfanpage');
+    var articleSummary = encodeURIComponent('Blogs');
+    var articleSource = encodeURIComponent('best');
+    var goto = 'http://www.linkedin.com/shareArticle?mini=true' +
+        '&url=' + articleUrl +
+        '&title=' + articleTitle +
+        '&summary=' + articleSummary +
+        '&source=' + articleSource;
+    window.open(goto, "LinkedIn", "width=660,height=600,scrollbars=yes;resizable=no");
+}
+
+
+function more_all(){
+	
+
+ $("ul.list_movc li").not(".akactive").slice(0, 6).addClass("akactive");
+
+}
+
+
+
+
+function onlyAlphabets(e, t) 
+{
+try 
+    {
+        if (window.event) 
+        {
+            var charCode = window.event.keyCode;
+        }
+        else if (e)
+        {
+            var charCode = e.which;
+        }
+        else 
+        { 
+            return true; 
+        }
+        //alert(charCode);exit;
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode ==8 || charCode ==32 || charCode ==0 )
+        return true;
+        else
+        return false;
+    }
+
+catch (err) 
+    {
+        alert(err.Description);
+    }
+
+}
+function submitFunction()
+{
+     var name=$("#name").val();
+     var email=$("#email").val();
+     var message=$("#message").val();
+    //alert(name);
+//    alert(email);
+//    alert(message);exit;
+    
+        
+    if (message==null || message=="")
+        {    
+        alert("Please put your message");
+        document.getElementById('message').focus();
+        
+        return false;
+        }
+        
+    if (name==null || name=="")
+        {    
+        alert("Please put your name");
+        document.getElementById('name').focus();
+        
+        return false;
+        }
+   
+    if (email==null || email=="")
+        {    
+        alert("Please put your E-mail");
+        document.getElementById('email').focus();
+        
+        return false;
+        }
+     else
+        {
+            var regexemail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (email.match(regexemail)) 
+            {
+            return true;
+            } 
+            else 
+            {
+             alert("Please put valid E-mail");
+             document.getElementById('email').focus();
+             return false;
+            }
+
+        }   
+      
+
+}
+
+</script>
+

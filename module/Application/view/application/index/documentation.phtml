@@ -1,133 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php
+
+     $protocol = '';
+        if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+
+?>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smartfanpage || About Us</title>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link href='http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<style>
+.home_publisher_tab {width: 100%;}
+
+.hTab2 .resp-tabs-list li {list-style: outside none none;width: 200px;}
+.resp-tabs-list.home_publisher_tab a {
+  padding: 9px;
+}
+
+h5.dev-title {
+    color: #fff;
+    font-family: "Economica",sans-serif;
+    font-size: 22px;
+    margin: 22px 0;
+    text-align: center;
+}
+
+.copyright-menu {
+    bottom: 19px;
+    left: 12px;
+    position: absolute;
+}
+.copyright-menu ul{ padding: 0;}
+.copyright-menu li {
+  display: block;
+  font-family: "ubunturegular";
+  font-size: 12px;
+  margin-bottom: 5px;
+  
+}
+.copyright-menu li a{ text-decoration: none;color: #fff;}
+.copyright-menu li:last-child {
+  color: #7c7f83;
+  margin-top: 12px;
+}  
+  .copyright-menu li {
+	display:block;
+	font-size:12px;
+	font-family: 'ubunturegular';
+	margin-bottom:5px;
+}
+.copyright-menu li:last-child {
+	color:#7c7f83;
+	margin-top:12px
+}
+.copyright-menu ul li a span {
+	display: block;
+	float: left;
+	margin: 3px 6px 0 0;
+}
+.copyright-menu {
+	bottom: 19px;
+	position: absolute;
+    left: 12px;
+}
+.banner_devlopers{
+	background:url(/img/devlopers_banner.jpg) no-repeat top center;
+	width:100%;
+	background-size:cover;
+	overflow:hidden;
+	margin:auto;
+	min-height: 420px;
+}
+</style>
+</head>
+
+<body>
+<div class="main-menu">
+            <ul class="accordion_side">
+                <li>
+                    <a href="#" class="active">Basic Settings</a>
+                    <div>
+                        <a href="#set1" class="js_onPageLink">Image Edit</a>
+                        <a href="#set2" class="js_onPageLink">Text Edit</a>
+                        <a href="#set3" class="js_onPageLink">Form Edit</a>
+                        <a href="#set4" class="js_onPageLink">Form Action</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Database Settings</a>
+                    <div>
+                        <a href="#set5" class="js_onPageLink">Procedure</a>
+                        <a href="#set6" class="js_onPageLink">Important Note</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#set7" class="js_onPageLink">Wizards</a>
+                </li>
+                <li>
+                    <a href="#">Template Upload</a>
+                    <div>
+                        <a href="#set8" class="js_onPageLink">Step1</a>
+                        <a href="#set9" class="js_onPageLink">Step2</a>
+                        <a href="#set10" class="js_onPageLink">Step3</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Share Button</a>
+                    <div>
+                        <a href="#set11" class="js_onPageLink">Facebook Share</a>
+                        <a href="#set12" class="js_onPageLink">Facebook Like</a>
+                        <a href="#set13" class="js_onPageLink">Twitter Share</a>
+                        <a href="#set14" class="js_onPageLink">Linkedin Share</a>
+                        <a href="#set15" class="js_onPageLink">Pinterest Share</a>
+                        <a href="#set16" class="js_onPageLink">Outlook Mail</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+<?php
+    $url="http://". $_SERVER['SERVER_NAME'];
+?>
+<?php // $this->layout('layout/documentationlayout.phtml'); ?>
+<!--//========for mobile social icons===========-->
+<div class="mobile-social">
+        <a href="#" class="button"></a>
+        <ul class="social_icon3">
+         
+          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+        </ul>
+        </div>
+<!--//========End for mobile social icons===========-->	
+       
+<!--===== start menu ===-->
+<div class="mobile_menu">
+  <div class="logo-cont"> <a href="index.html" class="logo"></a> </div>
+  <a href="#" class="menu-trigger navicon "><span>Open menu</span></a> </div>
+
+<!--===== end menu ===-->
 <!--===== body start ===-->
+
+<aside class="main container-fluid">
+
+  <div class="wrapper">  
+        <nav id="menu" > <!--<strong class="button"><b>&nbsp;</b></strong>--> <a href="#" class="small_logo"><img src="<?php echo $this->basePath('img/small_logo.png') ?>" alt="" /></a> <a href="<?php echo $this->url('home') ?>" class="big_logo"><img src="<?php echo $this->basePath('img/big_logo.png') ?>" alt="" /></a>
+      
+      <h5 class="dev-title"> -  Development centre  - </h5>
+      <div class="download"><img src="<?php echo $this->basePath('img/download.png') ?>" alt="" /></div>
+      <?php if($developer->fName == NULL || $developer->fName == ''){?>
+      <div style="display: none;">
+     <a href="<?php echo $url;?>/sfpdeveloper/devlogout"> <div class="logout"> <img src="<?php echo $this->basePath('img/logout.png') ?>" alt="" /></a>
+        <p><a><?php echo $developer->fName." ".$developer->lName; ?></a><?php echo $developer->ccity; ?></p>
+        </div>
+        <?php }else{?>
+         <a href="<?php echo $url;?>/sfpdeveloper/devlogout"> <div class="logout"> <img src="<?php echo $this->basePath('img/logout.png') ?>" alt="" /></a>
+        <p><a><?php echo $developer->fName." ".$developer->lName; ?></a><?php echo $developer->ccity; ?></p>
+        
+        <?php }?>
+        <!--<span>67%</span>--> </div>
+      <!--<span class="rate"> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/rate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate.png') ?>" alt="" /> <img src="<?php //echo $this->basePath('img/unrate.png') ?>" alt="" /> </span>--->
+        
+    
+     <div class="copyright-menu clearfix">
+        <ul>
+        	<li><a href="<?php $dynamicPath?>/index/termscondition"><span class=""><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"/></span> Terms & service </a></li>
+        	<li><a href="<?php $dynamicPath?>/index/Disclaimer"> <span class=""><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"/></span> Disclaimer </a></li>
+        	<li><a href="<?php $dynamicPath?>/index/privacypolicy"><span class=""><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"/></span> Privacy policy </a></li>
+        	<li> &copy; Copyright 2014 Smart Fanpage</li>
+        </ul>
+        </div>
+    </nav>
+</div>
+</aside>
 <div class="site">
   <div class="container-fluid"> 
-    <!--===== start banner ===-->
-  <div class="row">  
-  <div class="banner documentation">
+  <div class="row">
   
-  <h1>Devlopers Section</h1>
-  <span><!---<img src="img/documentation_bg.jpg" alt="" />---></span>
   
-      </div>
+
+  
+    <div class="banner_devlopers">
+        <div class="cont-title">
+        	<h1>Developers Section</h1>
+        </div>
+
     
     </div>
     
-    <div class="container-fluid">
+    <div class="container container-for-standard-desktop">
+    	
     
     
-   <section class="documentation-cont row col-lg-12">
-     
-    <h5>Hey Developers !!!</h5>
-    <p> It is now possible to make your facebook application in a very easiest way. Smartfanpage is helping you to reduce all hastles of facebook application building.<br />
-    Just upload your code and make your application.<br />
-    Following are the steps which will help you to upload your code.</p>
-       
-       <hr/>
-       
-       
-
-<div class="horizontalTab">
-
-
-  <ul class="resp-tabs-list home_publisher_tab">
-  <li><a href="#tab-1">Step 1</a></li>
-  <li><a href="#tab-2">Step 2</a></li>
-  <li><a href="#tab-3">Step 3</a></li>
-  <li><a href="#tab-4">Step 4</a></li>
-  </ul>
-  <hr>
-
-
-<div id="tab-1">
-
-	<div class="doc_data">
-    
-     <h2>Registration and login section :</h2>
-    <ul>
-    
-        	<li>A. If you are a new user, register your account in Developer Registration section.<a href="http://54.72.188.10/staging/public/developer/index" target="_blank">Click here</a> </li>
-        	<li>B. If you are already registered , login your profile.<a href="http://54.72.188.10/staging/public/developer/login" target="_blank">Click here</a></li></ul>
-    </div>
-    
-
-
-</div>
-
-
-<div id="tab-2">
-<div class="doc_data">
-
-      <h2>Steps To Upload Your Template</h2>
-    	<ul>
-      
-        	<li>1. You should provide the Campaign Name.This campaign name will be your root template folder name.</li>
-            <li>2. You should provide Campaign Description.</li>
-            <li>3. Please upload your ZIP template</li>
-            <li>4. Please upload your ZIP template's Screenshot</li>
-        	
-        </ul>
-    </div>
-    <p class="urg_msg">Important Information of uploading files</p>
-    <div class="doc_data">
-    <h2>Note:</h2>
-    	<ul>
-            <li>A. Your campaign name should be unique.</li>
-        	<li>B. You should upload files in ZIP format</li>
-        	<li>C. Your uploaded file format will be following:<br />
-            &nbsp;&nbsp;1. Index file should present in your root tempalte folder i.e index.php or index.html<br />
-            &nbsp;&nbsp;2. Your uploaded screen-shot image should not be present in Zip folder.
-            </li>
-            <li>D. After you upload your files an automatic mail will be sent to Admin.Admin will approve your template.</li>
-
-        </ul>
-    </div>
-    
-    
-</div>
-<div id="tab-3">
-<div class="doc_data">
-
-          <h2>Dashboard Section:</h2>
-    	<ul>
-        	<li>A. Click on 'Delete Template' to delete your uploaded templates</li>
-        	<li>B. Click on 'Upload File' to upload a new template.</li>
-        	<li>C. Click on 'Edit Template' to edit your template's file.</li>
-        </ul>
-    </div>
-
-</div>
-<div id="tab-4">
-<div class="doc_data">
-
-          <h2>Template Edit Section:</h2>
-    	<ul>
-        	<li>A. Click on any file name from left side bar, and find your code in the textarea.</li>
-        	<li>B. Edit your file.</li>
-        	<li>C. Click on 'Update' to save your edited file.</li>
-        </ul>
-    </div>
    
+            
+        <div class="devlopers">
+        	<h4>Hey Developers !!!</h4>
+            <p>It is now possible to make your facebook application in a very easiest way. Smartfanpage is helping you to reduce all hastles of facebook application building.<br />
+            Just upload your code and make your application.<br />
+            Following are the steps which will help you to upload your code.</p>
+            <hr />
+            <h2>Basic Settings</h2>
+            <p class="urg_msg">These are different TAGS we used in our SmartfanpageV2</p>
+            <h3 id="set1">Image Edit</h3>
+            <div class="devlopers_box">
+            	<h4>Description of this tag</h4>
+                <div>
+                	<h4>Name:</h4>
+                    <p>SFPTWO_IMAGEEDIT</p>
+                    <hr />
+                	<h4>How To Use:</h4>
+                    <ol>
+                    	<li>Use as a class name of any HTML element which has image TAG.</li>
+                    	<li>This class will wrap each image tag within it's HTML.</li>
+                    	<li>As soon as it does which customize images while editing Template.</li>
+                    	<li>You can achieve that by choosing from file or using drag and drop function.</li>
+                    </ol>
+                    <hr />
+                	<h4>Example:</h4>
+                    <ol>
+                    	<li>If you add SFPTWO_IMAGEEDIT to the div containing the image such as:</li>
+                    	<li>show the example</li>
+                    	<li>After that the top-img.jpg can be changed as per need.</li>
+                    </ol>
+                </div>
+            </div>
+            <h3 id="set2">Text Edit</h3>
+            <div class="devlopers_box">
+            	<h4>Title of this code field</h4>
+                <div>
+                	<h4>Name:</h4>
+                    <p>SFPTWO_TEXTEDIT</p>
+                    <hr />
+                	<h4>How To Use:</h4>
+                    <ol>
+                    	<li>Use as a class name of any HTML element which has TEXT in it.</li>
+                    	<li>This class will wrap each TEXT within it's HTML.</li>
+                    	<li>Then it will be easily edited with formatted by tinyMCE editor.</li>
+                    </ol>
+                    <hr />
+                	<h4>Example:</h4>
+                    <ol>
+                    	<li>If you add SFPTWO_TEXTEDIT to the HTML tag containing the text such as:</li>
+                    	<li>show the example</li>
+                    	<li>Then the text can be changed as per need.</li>
+                    </ol>
+                </div>
+            </div>
+            <h3 id="set3">Form Edit</h3>
+            <div class="devlopers_box">
+            	<h4>Title of this code field</h4>
+                <div>
+                	<h4>Name:</h4>
+                    <p>SFPTWO_EDITFORM</p>
+                    <hr />
+                	<h4>How To Use:</h4>
+                    <ol>
+                    	<li>Use as a class name of the form.</li>
+                    	<li>It will wrap the inner html as editable.</li>
+                    	<li>From a list of HTML elements anyone can be added.</li>
+                        <li>And this make your template more user-interactive</li>
+                    </ol>
+                    <hr />
+                	<h4>Example:</h4>
+                    <ol>
+                    	<li>If you add SFPTWO_EDITFORM to the form such as:</li>
+                    	<li>show the example</li>
+                    	<li>Then the form can be modified as per need.</li>
+                    </ol>
+                </div>
+            </div>
+            <h3 id="set4">Form Action</h3>
+            <div class="devlopers_box">
+            	<h4>Title of this code field</h4>
+                <div>
+                	<h4>Name:</h4>
+                    <p>[SFPFORM]</p>
+                    <hr />
+                	<h4>How To Use:</h4>
+                    <ol>
+                    	<li>Use this TAG as [SFPFORM]->ACTION->(ACTION_FILE_NAME)</li>
+                    	<li>Using this tag in your template file will contain a basic form</li>
+                    	<li>With a simple input field named as email address, three checkboxes grouped as the type of campaign, a textarea as comment or message and a simple submit button.</li>
+                    	<li>Check this while using this tag in the action part: [ACTION->(ACTION_FILE_NAME)]</li>
+                    	<li>While setting the action attribute of the form
+                        	<ul>
+                            	<li>Put the file name within the braces.</li>
+                            	<li>Or leave that blank.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <hr />
+                	<h4>Example:</h4>
+                    <ol>
+                    	<li> a form with action add :- [SFPFORM]->ACTION->(action.php)</li>
+                    	<li>a form without action add:- [SFPFORM]->ACTION->()</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="btn_code"><a href="#">Download Code</a></div>
+            <h2>Database Settings</h2>
+            <p class="urg_msg">This is a message bar for urgent or important messages</p>
+            <p>The SmartFanPage Version 2.0 SDK includes an database Connector that simplifies the process of connecting template with SmartFanPage Version 2.0 Database. There are some steps you must follow to setup database connection and run your template code on Smartfanpage version 2.0 .</p>
+            <h3 id="set5">Procedure</h3>
+            <p>Procedure to set up SDK</p>
+            <br />
+            <div class="devlopers_box">
+            	<h4>Create App Id to authenticate</h4>
+                <div>
+                	<h4>This is the most important thing before uploading any template code in SmartFanPage Version 2.0 .</h4>
+                    <ol>
+                    	<li>App Id is used to authenticate your template with database connection . It creates tables with respect to the template exclusively for you.</li>
+                    	<li>First login (If Registered) to developer section.</li>
+                    	<li>You will be redirected to dashboard section(Developer Dashboard).</li>
+                    	<li>Here you will get link Create App .</li>
+                    	<li>Now you can create your app Id.</li>
+                    </ol>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="devlopers_box">
+            	<h4>Use App  Id to set up connection</h4>
+                <div>
+                	<h4>You will use this app id in following cases:</h4>
+                    <ol>
+                    	<li>Create Table.</li>
+                    	<li>Insert into table</li>
+                    	<li>Select table data</li>
+                    </ol>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="devlopers_box">
+            	<h4>Set connection to connect  with database</h4>
+                <div>
+                	<h4>Create Table</h4>
+                    <p>$sfp = new SmartfanPage();  /* create an object of the class */<br />
+                    $data=array(  <br />   
+                    array(<br />
+                    'fieldname'=>'id',<br />
+                    'type'=>'int',<br />
+                    'length'=>'11',<br /> 
+                    'primary'=>1<br />
+                    ),<br />
+                    array(<br />
+                    'fieldname'=>'name',<br />
+                    'type'=>'varchar',<br />
+                    'length'=>'100' <br />
+                    ),<br />
+                    array(<br />
+                    'fieldname'=>'day',<br />
+                    'type'=>'enum',<br />
+                    'length'=>"'sun','mon','tue'"<br />
+                    )<br />
+                    );<br />
+                    
+                    $datas =  array(<br />
+                    'appId' =>'xxxxx',  /* appId which will be provided to the developer according to specific template */<br />
+                    'table' => 'student',    /* table name which will be provided by developer to specify the table they want to create */<br />
+                    'data' => $data /* this field will be in array format which is previously created by  developer */<br />
+                    );<br />       
+                    $sfp->create_table($datas);</p>
+                    <hr />
+                	<h4>Insert into table</h4>
+                    <p>$data =  array(<br />
+                    array(<br />
+                    array(<br />
+                    'field'=>'name',<br />
+                    'value'=>'name1'<br />
+                    ),<br />
+                    array(<br />
+                    'field'=>'day',<br />
+                    'value'=>'sun'<br />
+                    ),<br />
+                    ),<br />
+                    
+                    array(  <br />  
+                    array(<br />
+                    'field'=>'name',<br />
+                    'value'=>'name2'<br />
+                    ),<br />
+                    array(<br />
+                    'field'=>'day',<br />
+                    'value'=>'mon'<br />
+                    )<br />
+                    )<br />
+                    );<br />
+                    $datainsert =  array(<br />
+                    'appId' => 'xxxxx',<br />
+                    'table' => 'table_name',<br />
+                    'field' => $data<br />
+                    );<br />
+                    $sfp->insert_table($datainsert);</p>
+                    <hr />
+                	<h4>Select table data</h4>
+                    <p>$select = 'name,day';<br />
+                    $data = array(<br />
+                    Array ( 'selected'=>'day',<br />
+                    'value'=>'sun'<br />
+                    ),<br />
+                    Array ( 'selected'=>'name',<br />
+                    'value'=>'name1'<br />
+                    )<br />
+                    );<br />
+                    $dataselect =  array(<br />
+                    'appId' => 'xxxxx',<br />
+                    'table' => 'table_name',<br />
+                    'field'=>$select,<br />
+                    'value' => $data<br />
+                    );<br />
+                    $results =  $sfp->select_table($dataselect);</p>
+                </div>
+            </div>
+            <h3 id="set6">Important note</h3>
+            <div class="devlopers_box">
+            	<h4>Some Important things to remember before uploading template</h4>
+                <div>
+                	<h4></h4>
+                    <ol>
+                    	<li>Always make a file named "db.php" where you will include only code for creating table in your template folder.</li>
+                    	<li>In writing database queries like insert , select you must include a tag /* PHP DATABASECONNECT PHP */ at the starting portion in your php code.</li>
+                        <li>Do not wrap db.php file with in any folder in your template folder.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="btn_code"><a href="#">Download Code</a></div>
+            <h2 id="set7">Wizards</h2>
+            <div class="devlopers_box">
+            	<h4>Wizards Section:</h4>
+                <div>
+                	<h4></h4>
+                    <ol>
+                    	<li>MAP</li>
+                    	<li>CONTACT FORM
+                        	<ul>
+                            	<li>We have used above two wizards for now.</li>
+                            	<li>Details are given in following table.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <p class="urg_msg">This is a information bar for usefull WIZARDS we have used</p>
+            <div class="devlopers_box">
+            	<h4>WIDGETS</h4>
+                <div>
+                	<h4>Details</h4>
+                    <ol>
+                    	<li>From the aspect of any developer , who can add any widget such as map or form.</li>
+                    	<li>He will be able to select that particular widget while uploading the template.</li>
+                    	<li>If the widget is selectedinstead of added then a warning will be shown in the third step.</li>
+                    	<li>Which the developer can either skip or modify his template files.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="btn_code"><a href="#">Download Code</a></div>
+            <h2>Template Upload</h2>
+            <p class="urg_msg">This is a message bar for Uploading Your campaigns</p>
+            <h3 id="set8">step1</h3>
+            <div class="devlopers_box">
+            	<h4>Upload archive file</h4>
+                <div>
+                	<h4>In this step there are some fields which are related to your campaigns which have to be filled up.</h4>
+                    <ol>
+                    	<li>The mandatory fields are campaign name, Description, Archive file of your campaign and template screenshot. </li>
+                    	<li>The other fields like Add Your Widgets, Select Template Category, Want a database connection, Want a facebook connection, View for your template are not mandatory but this fields are required for the details of your campaign.</li>
+                    </ol>
+                	<h4>In the TEMPALTE SETTINGS section, firstly you will find a drop-down with the list of widgets which you know have added in your template.</h4>
+                    <ol>
+                    	<li>MAP - for a google map implementation, you need to add the following html part in your index.php file div id=gMap And the required jquery library for implementation of google maps api.</li>
+                    	<li>Contact Form - to make a form as contact form you need to add 'cForm' tag as a class to it.
+Secondly, an option is provided for database connection. Clicking on the checkbox you are permitted for database connected operations.
+Finally the last part allows you to choose among three options for viewing your template. After successfully filling up the full details you will able to go to next step i.e. set up pages.</li>
+                    </ol>
+                </div>
+            </div>
+            <h3 id="set9">step2</h3>
+            <div class="devlopers_box">
+            	<h4>Set up pages</h4>
+                <div>
+                	<h4></h4>
+                    <p>This section displays the list of files for a template with more than one file in your directoryand their respective order, so that these files can be re-ordered and admin can view the files in the new order (this is ongoing).you can insert the description of your campaign files and save it. This is not Mandatory fields. You can skip this step and go to next step Validation or you can insert Description and save the description and click on save and continue to go the next step. You can go to previous step from this step</p>
+                </div>
+            </div>
+            <h3 id="set10">step3</h3>
+            <div class="devlopers_box">
+            	<h4>Validation</h4>
+                <div>
+                	<h4></h4>
+                    <p>Herein, all your files are surveyed thoroughly and checked whether the class or id for the respective widget , which are chosen from STEP 1 , are perfectly added or not and finally saving you are placed to your dashboard where you can find the name of the template and its respective screenshot image. In your dashboard there are options to edit and to delete the template.</p>
+                </div>
+            </div>
+        <div class="btn_code"><a href="#">Download Code</a></div> 
+        
+        
+        <h2>Share Button</h2>
+            <p class="urg_msg">This is a message bar for Uploading Your campaigns</p>
+            <h3 id="set11">Facebook Share</h3>
+            <div class="devlopers_box">
+            	
+                <h4>Title of this code field</h4>
+                <div>
+                	<h4>Name:</h4>
+                    <p>sfp_fb_Share_Start</p>
+                    <hr />
+                	<h4>How To Use:</h4>
+                    <ol>
+                    	<li>Use this tag like this </br>
+                    	<span><</span>
+                    	<span>sfp_fb_Share_Start</span>
+                    	<span>></span></br>
+                    	pic:<""/></br>
+                   		name:<""/></br>
+                    	caption:<""/></br>
+                    	description:<""/></br>
+                    	link:<"test.scampaigns.com"/></br>
+                    	<span><</span>
+                    	<span>sfp_fb_Share_end</span>
+                    	<span>/></span></br>
+                    </li>
+                    	<li>This code must be wrap with a html element whish has class name "SFPTWO_IMAGEEDIT sfpfbDynamicShare"</li>
+                    	<li>Then it will be easily edited with formatted by tinyMCE editor.</li>
+                    </ol>
+                    <hr />
+                	<h4>Example:</h4>
+                    <ol>
+                    	<li>If you add sfp_fb_Share_Start to the HTML tag containing the text such as:</li>
+                    	<li>show the example</li>
+                    	<li>Then the text can be changed as per need.</li>
+                    </ol>
+                </div>
+            </div>
+            <h3 id="set12">Facebook Like</h3>
+            <div class="devlopers_box">
+            	
+                <h4>Title of this code field</h4>
+                <div>
+                	<h4>Name:</h4>
+                    <p>sfp_fb_like</p>
+                    <hr />
+                	<h4>How To Use:</h4>
+                    <ol>
+                    	<li>This tag wrap with a HTML element with a class "sfpLike" </li>
+                    	<li>This code must be wrap with a html element whish has class name "SFPTWO_IMAGEEDIT sfpfbDynamicLike"</li>
+                    	<li>Then it will be easily edited with formatted by tinyMCE editor.</li>
+                    </ol>
+                    <hr />
+                	<h4>Example:</h4>
+                    <ol>
+                    	<li>If you add "SFPTWO_IMAGEEDIT sfpfbDynamicLike" to the HTML tag containing the text such as:</li>
+                    	<li>show the example</li>
+                    	<li>Then the text can be changed as per need.</li>
+                    </ol>
+                </div>
+            </div>
+            <h3 id="set13">twitter Share</h3>
+            <div class="devlopers_box">
+            	
+                <h4>Title of this code field</h4>
+                <div>
+                	<h4>Name:</h4>
+                    <p>sfp_tweet_share</p>
+                    <hr />
+                	<h4>How To Use:</h4>
+                    <ol>
+                    	<li>This code must be wrap with a html element whish has class name "SFPTWO_IMAGEEDIT sfpfbDynamicTweet"</li>
+                    	<li>Then it will be easily edited with formatted by tinyMCE editor.</li>
+                    </ol>
+                    <hr />
+                	<h4>Example:</h4>
+                    <ol>
+                    	<li>If you add "SFPTWO_IMAGEEDIT sfpfbDynamicTweet" to the HTML tag containing the text such as:</li>
+                    	<li>show the example</li>
+                    	<li>Then the text can be changed as per need.</li>
+                    </ol>
+                </div>
+            </div>
+        <h3 id="set14">LinkedIn Share</h3>
+            <div class="devlopers_box">
+            	
+                <h4>Title of this code field</h4>
+                <div>
+                	<h4>Name:</h4>
+                    <p>sfp_linkedin_Share_End</p>
+                    <hr />
+                	<h4>How To Use:</h4>
+                    <ol>
+                    	<li>Use this tag like this </br>
+                    	<span><</span>
+                    	<span>sfp_linkedin_Share_End</span>
+                    	<span>></span></br>
+                    	url:<""/></br>
+                    	title:<""/></br>
+                    	summary:<""/></br>
+                   		source:<""/></br>
+                    	<span></</span>
+                    	<span>sfp_linkedin_Share_End</span>
+                    	<span>></span></br>
+                    </li>
+                    	
+                    	<li>Then it will be easily edited with formatted by tinyMCE editor.</li>
+                    </ol>
+                    <hr />
+                	<h4>Example:</h4>
+                    <ol>
+                    	<li>If you add sfp_linkedin_Share_End to the HTML tag containing the text such as:</li>
+                    	<li>show the example</li>
+                    	<li>Then the text can be changed as per need.</li>
+                    </ol>
+                </div>
+            </div>
+        <h3 id="set15">Pinterest Share</h3>
+            <div class="devlopers_box">
+            	
+                <h4>Title of this code field</h4>
+                <div>
+                	<h4>Name:</h4>
+                    <p>sfpDynamicPinterest</p>
+                    <hr />
+                	<h4>How To Use:</h4>
+                    <ol>
+                    	<li>Use this tag like this </br>
+                    	<span><</span>
+                    	<span>sfpDynamicPinterest</span>
+                    	<span>></span></br>
+                    	pinterestdesc:<""/></br>
+                   		
+                    	<span></</span>
+                    	<span>sfpDynamicPinterest</span>
+                    	<span>></span></br>
+                    </li>
+                    	
+                    	<li>Then it will be easily edited with formatted by tinyMCE editor.</li>
+                    </ol>
+                    <hr />
+                	<h4>Example:</h4>
+                    <ol>
+                    	<li>If you add sfpDynamicPinterest to the HTML tag containing the text such as:</li>
+                    	<li>show the example</li>
+                    	<li>Then the text can be changed as per need.</li>
+                    </ol>
+                </div>
+            </div>
+        <h3 id="set16">Outlook email</h3>
+            <div class="devlopers_box">
+            	
+                <h4>Title of this code field</h4>
+                <div>
+                	<h4>Name:</h4>
+                    <p>sfpDynamicMail</p>
+                    <hr />
+                	<h4>How To Use:</h4>
+                    <ol>
+                    	<li>Use this tag like this </br>
+                    	<span><</span>
+                    	<span>sfpDynamicMail</span>
+                    	<span>></span></br>
+                    	mailid:<""/></br>
+                   		
+                    	<span></</span>
+                    	<span>sfpDynamicMail</span>
+                    	<span>></span></br>
+                    </li>
+                    	
+                    	<li>Then it will be easily edited with formatted by tinyMCE editor.</li>
+                    </ol>
+                    <hr />
+                	<h4>Example:</h4>
+                    <ol>
+                    	<li>If you add sfpDynamicMail to the HTML tag containing the text such as:</li>
+                    	<li>show the example</li>
+                    	<li>Then the text can be changed as per need.</li>
+                    </ol>
+                </div>
+            </div>
+        
+        
+        
+        
+        
+        </div>   
+        
    
-</div>
-<div style="position:relative;"><hr> <a id="back-to-top" class="go_to_up" href="#"></a></div>
-</div>
-  
-        </section>
-		</div>
-    </div><!--===== body_container end ===-->     
-  </div> <!--===== main_container end ===--> 
+    <br>
+<br>
+<br>
 
-<script type="text/javascript">
-$(function(){
-    $("a.js_onPageLink").bind("click", function (event) {
-        event.preventDefault ? event.preventDefault() : event.returnValue = false;
-        var target = $(this).attr("href");
-        $("html, body").stop().animate({
-                scrollLeft: $(target).offset().left,
-                scrollTop: $(target).offset().top
-            }, 1200);
-    });
-});
-</script>
+    
+    
+    <div style="position:relative;"><hr> <a href="#" class="go_to_up" id="back-to-top"></a></div>
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+  </div>
+  </div>  
+  </div>
+
+
+
+
 </body>
 </html>

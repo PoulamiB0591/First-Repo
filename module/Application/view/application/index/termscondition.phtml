@@ -1,67 +1,46 @@
 <div  class="site">
   <div class="container-fluid"> 
-     <!--===== start banner ===-->
-    <div class="row">
+  <div class="row"> 
+  
       <div class="banner_terms">
-        <ul class="social_icon2">
-          <li><a href="#">Share this website</a></li>
-          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul> <!--=== social icon ===-->
+        <!--<ul class="social_icon2">
+          <li><a href="javascript:void(0)">Share this website</a></li>
+          <li><a href="javascript:void(0)"></a> <a href="javascript:void(0)"></a> <a href="javascript:void(0)"></a></li>
+        </ul>---> <!--=== social icon ===-->
         <div  id="terms" style="margin:0 auto;	margin-top:70px;">
-        <h1>Terms &amp; service</h1>
+        <h1><?php echo $results->pagename;?></h1>
         </div>
       </div>
       
-    </div><!--===== end banner ===--> 
+      
+      <div class="container container-for-standard-desktop">
+      
+      
+    <div class="row">
     
 <section class="terms-n-service-wrapper col-lg-12">
-  
+  <?php foreach ($contentpass as $p) :?>
         <article class="terms-content">
-        <h3>Header</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">This is a link</a></p>
+        <h3><?php echo $p->subheader;?></h3>
+        <p><?php echo $p->description;?></a></p>
         </article>
+         <?php endforeach; ?>
         
-        <article class="terms-content">
-        <h3>Header</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a link</p>
-        </article>
         
-        <article class="terms-content">
-        <h3>Header</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a link</p>
-        </article>
-        
-        <article class="terms-content">
-        <h3>Header</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a link</p>
-        </article>
-        
-        <article class="terms-content">
-        <h3>Header</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a link</p>
-        </article>
-        
-        <article class="terms-content">
-        <h3>Header</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a link</p>
-        </article>
-        
-        <article class="terms-content">
-        <h3>Header</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a link</p>
-        </article>
-        
-        <article class="terms-content">
-        <h3>Header</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a link</p>
-        </article>
-        
-        <article class="terms-content">
-
-        <h3>Header</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a link</p>
-        </article>
-        
-        <a href="#" class="terms-link">Link</a>
+        <!--<a href="javascript:void(0)" class="terms-link">Link</a>-->
         </section>
-        <div class="clearfix"></div>
+        
+       </div>
+     
+        
+        <div style="position:relative;">
+        
+        <hr/>
+        <a href="#" class="go_to_up" id="back-to-top"></a></div>
+        
+        
+        </div>     
+</div>
+</div>
+</div>
+        

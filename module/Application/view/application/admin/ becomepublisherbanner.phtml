@@ -1,0 +1,71 @@
+<style>
+.form-cont li {
+    list-style: none;
+    display: block;
+    height: auto;
+    overflow: hidden;
+}
+.form-cont ul li span > label {
+    display: block;
+    width: 250px;
+    text-transform: uppercase;
+    float: left;
+}
+
+
+.form-cont ul li input[type="file"] {
+    float: left;
+    width: 106px;
+}
+.form-cont ul li input[type="submit"] {
+    float: left;
+}
+</style>
+<div class="site">
+<h1>
+Upload File</h1>
+
+<?php 
+
+$form = $this->form;
+$form->prepare();
+?>
+<div class="form-cont">
+<?php echo $this->form()->openTag($form);?>
+
+<ul>
+<?php echo $id;?>
+<li>
+ <span> <?php echo $this->formLabel($form->get('bannerHeader')); ?></span>
+      <?php echo $this->formElement($form->get('bannerHeader'));?>
+   </li>
+<li>
+ <span> <?php echo $this->formLabel($form->get('filFormOneHeader')); ?></span>
+      <?php echo $this->formElement($form->get('filFormOneHeader'));?>
+   </li>
+   <li>
+ <span> <?php echo $this->formLabel($form->get('filFormOneDescription')); ?></span>
+      <?php echo $this->formElement($form->get('filFormOneDescription'));?>
+   </li>
+   <li>
+ <span> <?php echo $this->formLabel($form->get('filFormTwoHeader')); ?></span>
+      <?php echo $this->formElement($form->get('filFormTwoHeader'));?>
+   </li>
+   <li>
+ <span> <?php echo $this->formLabel($form->get('filFormTwoDescription')); ?></span>
+      <?php echo $this->formElement($form->get('filFormTwoDescription'));?>
+   </li>
+  
+   <li>
+  
+      <span><?php echo $this->formLabel($form->get('picture')); ?></span>
+      
+ 
+      <?php echo $this->formElement($form->get('picture')); ?>
+      <?php echo $this->formElement($form->get('submit'));?>
+   </li>
+   
+</ul>
+</div>
+<?php echo $this->form()->closeTag() ?>
+

@@ -11,15 +11,30 @@ return array(
     'router' => array(
         'routes' => array(
             'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'type' => 'Literal',
                 'options' => array(
                     'route' => '/',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
+                        '__NAMESPACE__' => 'Application\Controller',
+                        'controller' => 'Index',
                         'action' => 'index',
                     ),
                 ),
             ),
+            'innerpage' => array(
+                'type' => 'Scheme',
+                'options' => array(
+                    'route' => '/Frontend',
+                    'scheme' => 'https',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Application\Controller',
+                        'controller' => 'Frontend',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+        
+                
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -41,18 +56,20 @@ return array(
                     'default' => array(
                         'type' => 'Segment',
                         'options' => array(
-                            'route' => '[:controller[/:action]][/:id][/:devId]', //edited by koushik
+                            'route' => '[:controller[/:action]][/:id][/:pId][/:devId]', //edited by koushik
                             'constraints' => array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                             ),
                             'defaults' => array(
-                            ),
+                                'action' => 'index',
+                                '__NAMESPACE__' => 'Application\Controller'
+                            )
                         ),
                     ),
                 ),
                 
-               
+                
             ),
         ),
     ),
@@ -80,8 +97,15 @@ return array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\Developer' => 'Application\Controller\DeveloperController', // edited by Poulami
             'Application\Controller\Template' => 'Application\Controller\TemplateController', // edited by Poulami
-            'Application\Controller\Admin' => 'Application\Controller\AdminController', // 
-            'Application\Controller\Frontend' => 'Application\Controller\FrontendController'
+            'Application\Controller\Admin' => 'Application\Controller\AdminController',  
+            'Application\Controller\Frontend' => 'Application\Controller\FrontendController',
+            'Application\Controller\Ajaxcall' => 'Application\Controller\AjaxcallController',
+            'Application\Controller\Phpinfo' => 'Application\Controller\PhpinfoController',
+            'Application\Controller\Register' => 'Application\Controller\RegisterController',
+            'Application\Controller\sfpdeveloper' => 'Application\Controller\sfpdeveloperController',
+            'Application\Controller\Error' => 'Application\Controller\ErrorController', //added by dibyendu
+            'Application\Controller\App' => 'Application\Controller\AppController', //edited by arnab
+            
         ),
     ),
     
@@ -89,17 +113,25 @@ return array(
         'display_not_found_reason' => true,
         'display_exceptions' => true,
         'doctype' => 'HTML5',
-        'not_found_template' => 'error/404',
+        'not_found_template' => 'error/index',
         'exception_template' => 'error/index',
         'template_map' => array(
             'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
-            'error/404' => __DIR__ . '/../view/error/404.phtml',
             'error/index' => __DIR__ . '/../view/error/index.phtml',
+            'error/index' => __DIR__ . '/../view/error/index.phtml',
+            
         ),
+        'strategies' => array(                  //For accessing json objects
+        'ViewJsonStrategy'
+    ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),
+        'strategies' => array (            // Add
+                                           // this
+                        'ViewJsonStrategy' // line
+                ),
     ),
      'translator' => array(
    'locale' => 'en_US',
@@ -119,3 +151,4 @@ return array(
         ),
     ),
 );
+?>

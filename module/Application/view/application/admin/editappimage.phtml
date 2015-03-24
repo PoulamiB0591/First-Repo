@@ -1,0 +1,52 @@
+ <form action="submit" method="post" name="upload" id="ImageUpload" method="post" enctype="multipart/form-data" class="field">
+           <table class="table_wrap sam">
+                <tr>
+                    <th colspan="4">Used By Image Details</th>
+                </tr>
+                <tr>
+                    <td><label> Your Link</label></td>
+                    <td><input type="text" name="appLink" class ="txtInput txtMedium" value="<?php echo $res; ?>" /></td>
+                </tr>
+              <input type="hidden" name="id" value="<?php echo $id; ?>"/>
+                    <tr>
+                    <td>
+                        <label>Previous Image:</label> 
+                    </td>
+                    <td><img src="<?php echo $piclink;?>" height="100" width="100"/></td>
+                </tr>
+    <tr><td><label class="file-upload">
+                                    <span>Browse</span></td> </label>
+                                    <td><input type="file" name="pic" />
+                               
+    </td></tr>             
+                        
+                       <tr><td><input type="button" id="SendImage" name="submt" value="Send Data"/></td></tr>
+                        <!--<div class="save_btn">
+                            <a href="#" title="Save">Save</a>
+                       </div>-->
+                   </table> 
+</form>
+  
+            
+  
+  
+  <script>
+ $("#SendImage").live("click",function() {
+   var base_url = window.location.origin;
+        $("#ImageUpload").ajaxSubmit({
+            data : {picture:'pic'},
+            success: function(result) {
+                alert(result);return false;
+             if(result==1)
+             {
+              window.location.href=base_url+"/Admin/showappimage";  
+             }
+             else{
+                alert("Update failed");return false;
+             }
+             
+            },
+        });
+    });
+
+</script>      

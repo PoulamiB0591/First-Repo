@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->basePath('img/favicon.ico') ?>" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory ---->
+		<link href='http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/jquery.nice-file-input.min.css" type="text/css" />
+        <link rel="stylesheet" href="css/main.css">
+        
+        <link rel="stylesheet" href="css/easy-responsive-tabs.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <style>
+        .tab ul li input[type="button"], .tab input[type="button"] {margin: 15px auto 0;}
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="developer-main-container" class="clearfix">
+        <div class="developer-menu-left-pannel clearfix">
+        <a href="<?php echo $this->url('home') ?>" class="logo"><figure><img src="<?php echo $this->basePath('sfpdeveloper/img/dev_logo.png') ?>" alt=""></figure></a>
+        <h5 class="dev-title">-  Development centre  - </h5>
+        
+        
+        </div>
+        <div class="copyright-menu clearfix">
+        <ul>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'termscondition'));?>"><span class="icon-arrow-right"></span> Terms & service </a>
+                </li>
+                <li>
+                    <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'disclaimer'));?>"> <span class="icon-arrow-right"></span> Disclaimer </a>
+                </li>
+                <li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'privacypolicy'));?>"><span class="icon-arrow-right"></span> Privacy policy </a>
+                </li>
+        	<li>© Copyright 2015 Smart Fanpage</li>
+        </ul>
+        </div>
+        <div class="developer-menu-right-pannel clearfix">
+        <div class="developer-menu-right-pannel-image-holder clearfix">
+        <figure><img src="<?php echo $this->basePath('sfpdeveloper/img/developers-2.jpg')?>" alt=""></figure>
+        <div class="social-share clearfix">
+        <ul>
+        	<li>Share this website</li>
+        	<li><a href="#"><span class="icon-social-facebook-circular"></span></a></li>
+        	<li><a href="#"><span class="icon-social-twitter-circular"></span></a></li>
+        	<li><a href="#"><span class="icon-social-linkedin-circular"></span></a></li>
+        </ul></div>
+        </div>
+        
+        <section class="developer-body-section clearfix">
+        <div class="dev-register clearfix">
+        <div id="tabs-container">
+       
+    <ul id="tab-data">
+        <li>1) Personal data</li>
+        <li>2) Company profile</li>
+        <li class="tab-data-active">3) Confirmation</li>
+    </ul>
+     <div class="tab clearfix">
+     <div id="tab-3" class="tab-content" style="display: block;">
+            <h2><?php echo $result->cname; ?></h2>
+            <strong><?php echo $result->ccity; ?></strong>
+            <p class="media-marketing">Social media marketing</p>
+            <p><?php echo $result->cdesc; ?></p>
+            
+            <div class="confirmation-sec">
+   
+    <div class="confirm-img"><img alt="" src="<?php echo $result->cimage; ?>"></div>
+    </div>
+    		<a class="previous-step" href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action'=>'devreg1','id'=>$id."|".$encryptedDeveloperId));?>">Previous step</a>
+    		<input type="button" value="Save &amp; continue" name="" onclick="save3(<?php echo $id; ?>)">
+        </div>
+        
+            </div>
+</div> 
+ <input type="hidden" value="<?php echo $id; ?>" id="devid" />
+		<!--===================================tab html end=================================-->
+        </div>
+        
+        <div class="back-to-top-cont" style="position:relative;">
+          <hr>
+          <a id="back-to-top" class="go_to_up" href="#">Back to top</a></div>
+          
+        </section>
+        
+        </div>
+        </div>
+
+        
+        
+        
+        <script>
+$(document).ready(function () {
+    $("select").change(function () {
+        var str = "";
+        str = $(this).find(":selected").text();
+        $(this).next(".out").text(str);
+    }).trigger('change');
+})
+
+ function save3(id)
+{
+	   
+	   var basepath = window.location.protocol + "//" + window.location.host;
+	    var devid = $("#devid").val();
+	   
+	/*setTimeout(function(){
+	var basepath = window.location.protocol+"//" + window.location.host; 
+	window.location.href=basepath+"/sfpdeveloper/devlogin";},1000)*/
+
+    $.ajax({
+        type: 'POST',
+        data: {
+           
+            devid: devid
+        },
+        
+        url: basepath + "/sfpdeveloper/updatedev/" + id,
+        success: function(data) {
+         
+                window.location.href = basepath+"/sfpdeveloper/dashboard/"+id+"|"+"<?php echo $encryptedDeveloperId; ?>";
+
+            
+        }
+    });
+}
+</script> 
+    </body>
+</html>

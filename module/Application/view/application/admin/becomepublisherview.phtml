@@ -1,0 +1,47 @@
+<div class="site">
+<div class="row">
+<div class="col-lg-8 col-md-offset-2">
+<?php 
+$form = $this->form;
+$form->setAttribute('action', $this->url('application/default', array('controller'=>'admin','action' => 'becomepublisher','id'=>$id)));
+$form->prepare();
+echo $this->form()->openTag($form);
+?>
+<div class="table_button">
+    <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back to page details</a>
+    <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'showbecomepublisher'));?>">Back</a>
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+    <tr>
+        <th colspan="2">Become Publisher</th>
+    </tr>
+    <tr>
+      <td><?php echo $this->formLabel($form->get('picHeader')); ?></td>
+      <td><?php echo $this->formElement($form->get('picHeader'));?></td>
+    </tr>
+    <tr>
+      <td><?php echo $this->formLabel($form->get('picDescription')); ?></td>
+      <td><?php echo $this->formElement($form->get('picDescription'));?></td>
+    </tr>
+    <tr>
+      <td><?php echo $this->formLabel($form->get('picture')); ?></td>
+      <td><?php echo $this->formElement($form->get('picture')); ?></td>
+    </tr>
+     <tr>
+        <td><label>What do you like?</label></td>
+        <td class="radioselect"><label class="label_radio" for="radio-01"><input name="radio-01" id="radio-01" value="" type="radio" /> Golden Author </label><label class="label_radio" for="radio-02"><input name="radio-02" id="radio-02" value="" type="radio" /> Bronze Author </label><label class="label_radio" for="radio-03"><input name="radio-03" id="radio-03" value="" type="radio" /> Zilver Author </label></td>
+    </tr>
+    <tr>
+        <td><label>Previous Image</label><img src="<?php echo $content;?>" height="100" width="100" ></td>
+        <td><input type="hidden" name="actionid" id="actionid" value="<?php echo $actionid?>"></td>
+            <?php if ($contentcatagory != ''){ ?>
+        <td><label>Catagory </label><img src="<?php echo $contentcatagory;?>" height="100" width="100" /></td>
+        <td><a class="table_btn" onclick="if(!confirm('Are you want remove catagory?'))return false;" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'deletebecomepublishercatagory','id' =>$id));?>">Delete Catagory</a></td>
+            <?php }?>
+    </tr>
+    <tr>
+      <td>&nbsp;</td><td><?php echo $this->formElement($form->get('submit'));?></td>
+    </tr>
+</table>
+</div>
+</div>
+<?php echo $this->form()->closeTag() ?>

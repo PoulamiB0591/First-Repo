@@ -1,0 +1,23 @@
+<div class="site">
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <?php $form=$this->form; $form->setAttribute('action', $this->url('application/default', array('controller'=>'Admin','action' => 'showtemplatecatagory','id'=>$id))); $form->prepare(); echo $this->form()->openTag($form); ?>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+                <tr>
+                    <th colspan="2">Template Catagory</th>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label>Catagory:</label>
+                    </td>
+                    <td><?php echo $this->formRow($form->get('catagory'));?></td>
+                </tr>
+               
+                <tr>
+                    <td><?php echo $this->formSubmit($form->get('conditionsubmit'));?></td>
+                </tr>
+            </table>
+            <?php echo $this->form()->closeTag(); ?>
+        </div>
+    </div>

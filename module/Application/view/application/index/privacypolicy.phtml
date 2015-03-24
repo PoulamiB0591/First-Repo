@@ -1,0 +1,71 @@
+<style>
+#menu {
+  height: 100%;
+  min-height: 800px;
+}
+
+
+
+
+</style>
+
+<div  class="site">
+  <div class="container-fluid"> 
+      <div class="row">
+    
+      <div class="banner_terms">
+        <!--<ul class="social_icon2">
+          <li><a href="javascript:void(0)">Share this website</a></li>
+          <li><a href="javascript:void(0)"></a> <a href="javascript:void(0)"></a> <a href="javascript:void(0)"></a></li>
+        </ul>---> <!--=== social icon ===-->
+        <div  id="terms" style="margin:0 auto;	margin-top:70px;">
+        <h1><?php echo $results->pagename;?></h1>
+        </div>
+      </div>
+      
+   <div class="container store-wrapper container-for-standard-desktop">
+    
+ <div class="row"> 
+    
+<section class="terms-n-service-wrapper col-lg-12">
+ 
+        <?php foreach ($contentpass as $p) :?>
+        <article class="terms-content" style="text-align:center;">
+        <h3><?php echo $p->subheader;?></h3>
+        <p><?php echo $p->description;?></a></p>
+        </article>
+         <?php endforeach; ?>
+        
+       
+        
+        
+        <!--<a href="javascript:void(0)" class="terms-link">Link</a>-->
+        </section>
+        
+        
+      </div>  
+      
+      
+      
+        
+        
+
+        
+        <div style="position:relative;">
+        
+        <hr/>
+        <a href="#" class="go_to_up" id="back-to-top"></a></div>
+        
+      
+      
+      
+      
+      </div>  
+      
+      
+      
+      
+      
+      </div>  
+      </div>  
+      </div>  

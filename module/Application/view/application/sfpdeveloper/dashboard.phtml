@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<?php
+    $protocol = '';
+        if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+?>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>dashboard</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+     <style>
+     a#tempnme {
+         color: #000;
+         margin-top: 5px;
+         display:block;
+        }
+        .main-menu {
+  margin-top: 0;
+}
+     </style>
+        
+       <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->basePath('img/favicon.ico') ?>" />
+		<link href='http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+       <script type="text/javascript">
+      
+       $("#promote").live('click',function(){
+     
+        var temp = $(this).parent().parent().find("#temp").val();
+        var dev = $("#dev").val();
+        var encryptedSid = $("#encryptedSid").val();
+        var encryptedTempid =$(this).parent().parent().find("#encryptedTempid").val();
+
+        
+        
+        var basepath = window.location.protocol+"//" + window.location.host; 
+        $.ajax({
+            type:'POST',
+            data:{temp:temp,dev:dev},
+            url:basepath+"/sfpdeveloper/insertpromote",
+            success:function(data){ 
+               
+                window.location.href=basepath+"/sfpdeveloper/promote/"+dev+"|"+encryptedSid+"/"+temp+"|"+encryptedTempid;   
+            }
+        });   
+        
+       
+       });
+          
+       
+       </script>
+       
+       <style>
+       .developer-menu-left-pannel {
+          background: none repeat scroll 0 0 #2e3641;
+          float: left;
+          min-height: 725px;
+          padding: 12px 0;
+          position: relative;
+          width: 243px;
+         }
+       </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="developer-main-container" class="clearfix">
+        <div class="developer-menu-left-pannel clearfix new-left-pannel">
+        
+        <div class="development-center-wrapper clearfix">
+        
+        <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'index'));?>" class="logo"><figure><img src="<?php echo $this->basePath('sfpdeveloper/img/dev_logo.png') ?>" alt=""></figure></a>
+        <h5 class="dev-title"> -  Development centre  - </h5>
+        
+        <div class="log-out-container clearfix">
+        <a class="log-out-bt" href="<?php echo $url; ?>/sfpdeveloper/devlogout"><span class="icon-power-off"></span></a>
+        <div class="log-out-person">
+        <strong><?php echo $result->fName." ".$result->lName; ?></strong>
+        <p><?php echo $result->ccity; ?></p>
+        </div>
+        </div>
+        
+        </div>
+        <div class="main-menu clearfix">
+        <ul>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action' =>'dashboard','id'=>$sid."|".$encryptedSid));?>">Dashboard </a> </li>
+        	
+        	<li><a  target="_blank" href="<?php echo $url;?>/index/documentation">Documentation</a></li>
+           <!--- <li><a href="<?php echo $this->url('application/default',array('controller'=>'index','action' =>'blogoverview'));?>">Blog</a></li>--->
+            <!---<li><a href="<?php //echo $this->url('application/default',array('controller'=>'developer','action' =>'createapp'));?>">Create App</a></li>--->
+    
+        </ul>
+        </div>
+        
+        
+        
+        </div>
+        <div class="copyright-menu clearfix">
+        <ul>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'termscondition'));?>"><span class="icon-arrow-right"></span> Terms & service </a></li>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'disclaimer'));?>"> <span class="icon-arrow-right"></span> Disclaimer </a></li>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'privacypolicy'));?>"><span class="icon-arrow-right"></span> Privacy policy </a></li>
+        	<li>© Copyright 2015 Smart Fanpage</li>
+        </ul>
+        </div>
+        <div class="developer-menu-right-pannel clearfix">
+        
+        
+        <section class="developer-body-section clearfix">
+        <div class="dashboard-wrapper">
+        <div class="dasboard-title clearfix">
+        <h2>Dashboard</h2>
+        <a href="<?php echo $this->url('application/default',array('controller'=>'template','action'=>'index'));?>" class="dashboard-create-new-campaign">Create new template</a>
+        <div class="clearfix"></div>
+        <hr>
+        <div class="overall-dashboard-bar clearfix">
+        <ul>
+        	<li>
+            <div>
+            <figure>
+            <img src="<?php if($result->cimage == "" || $result->cimage == NULL){echo $url."/img/default-profile.png"; } else{echo $result->cimage;}; ?>" alt="" style="height: 80px;width: 80px;">
+            </figure>
+            </div>
+            <span>
+            <h4>Hi, <?php echo $result->fName." ".$result->lName; ?></h4>
+            <strong><?php echo $result->cname; ?></strong>
+            <p><?php echo $result->ccity; ?> <!---<a href="#">(edit)</a>--></p>
+            </span>
+            </li>
+        	<li>
+            <span class="value">
+            <strong>Balance</strong>
+            <p>&#8364;0,-</p>
+            </span>
+            
+            <span class="value">
+            <strong>Total amount sold</strong>
+            <p>&#8364;0.0,-</p>
+            </span>
+            
+            <span class="value">
+            <strong>Apps sold</strong>
+            <p>0</p>
+            </span>
+            </li>
+        	<li>
+            <span>
+            <strong><?php echo $result->fName." ".$result->lName; ?></strong>
+            <p><img src="<?php echo $this->basePath('sfpdeveloper/img/paypal.png') ?>" alt=""></p>
+            </span>
+            </li>
+        </ul>
+        </div>
+        
+        <div class="pending-campaign-container clearfix">
+        <h2>My Templates</h2>
+        <div class="clearfix"></div>
+        <input type="hidden" value="<?php echo $sid; ?>" id="dev" />
+        <input type="hidden" value="<?php echo $encryptedSid; ?>" id="encryptedSid" />
+         <?php if($count>1){?>
+        
+       <?php foreach ($templates as $template) : ?>  
+        <div class="pending-campaign-column clearfix">
+    
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #e3e0db" class="main-table" >
+  <tr>
+ 
+    <td><img  style="height: 100px; width: 200px;" src="<?php $imagePath = $this->basePath('files/'.$template['tempFoldName']."/".$template['scImage']); if($imagePath == ''){ echo $url."/img/template-no-image.jpg"; } else { echo $imagePath;} ?>" alt=""></td>
+    <td style="padding:0 15px; width: 411px;" valign="top"><a id="tempnme" href="<?php echo $url;?>/sfpdeveloper/marketing/<?php echo $sid."|".$encryptedSid; ?>/<?php echo $template['tempid']."|".$template['encryptedTempid']; ?>"><h3><?php echo $template['templateName'];?></h3></a>
+    <p><?php $res = $template['templateDesc'];
+    if(strlen($res) < 55)
+    {
+        echo $res;
+    }
+    else
+    {
+        $res = substr($res,0,55);
+        $res = $res."...";
+        echo $res;
+    }
+    
+    ?></p>
+   
+    	<p class="close-or-save">
+		  <a id="promote" class="cam-save" style="float: right!important;" href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action'=>'promote','id'=>$sid."|".$encryptedSid , 'devId'=>$template['tempid']."|".$template['encryptedTempid']));?>">Promote</a>
+		</p>
+		
+        <input type="hidden" value="<?php echo $template['tempid']; ?>" id="temp"/>
+        <input type="hidden" value="<?php echo $template['encryptedTempid']; ?>" id="encryptedTempid"/>
+    </td>
+    <td valign="top">
+    <table width="394" border="0" cellspacing="0" cellpadding="0" class="code-review">
+  <tr>
+    <td>Automatic code review</td>
+    <td>Human code review</td>
+  </tr>
+  <tr style="border-bottom:none;">
+   
+    <td>
+    <?php $chkreview =  $template['autometic_review'];?> 
+    <?php
+   if($chkreview == '0') {?>
+    <span class="icon-warning" style="color:#d09b9b"></span>
+   <? } ?>
+  <?  if($chkreview == '1')  {?>
+  <span class="icon-check"></span>
+   <? } ?>
+    <?php $chkapprove =  $template['approval'];?>
+        <td>
+    <?php $chkapprove =  $template['approval'];?>
+  <?php
+   if($chkapprove == 0) {?>
+    <span class="icon-warning" style="color:#d09b9b"></span>
+   <? } ?>
+  <?  if($chkapprove == '1')  {?>
+  <span class="icon-check"></span>
+   <? } ?>
+</td>
+   
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+
+        </div>
+     <?php endforeach; ?>
+   <?}?>      
+        
+        
+       <!-- <a href="#" class="go-to-my-campaign">Go to My Campaigns</a>-->
+        </div>
+        
+       <!-- <section class="recent-activity-n-sale-overview-container clearfix">
+        <article class="recent-activity clearfix">
+        <h2>Recent activity</h2>
+        <div class="recent-activity-col clearfix">
+        <div><img src="<?php echo $this->basePath('sfpdeveloper/img/img-3.png') ?>" alt=""></div>
+        <span>
+        <strong>Your template "photocontest"has beenapproved by the Smart 
+Fanpage team. You go girl!</strong>
+<p>4 hours ago</p>
+</span>
+        </div>
+        <div class="recent-activity-col clearfix">
+        <div><img src="<?php echo $this->basePath('sfpdeveloper/img/img-3.png') ?>" alt=""></div>
+        <span>
+        <strong>Your template "photocontest"has beenapproved by the Smart 
+Fanpage team. You go girl!</strong>
+<p>4 hours ago</p>
+</span>
+        </div>
+        <div class="recent-activity-col clearfix">
+        <div><img src="<?php echo $this->basePath('sfpdeveloper/img/img-3.png') ?>" alt=""></div>
+        <span>
+        <strong>Your template "photocontest"has beenapproved by the Smart 
+Fanpage team. You go girl!</strong>
+<p>4 hours ago</p>
+</span>
+        </div>
+        <a class="go-to-my-campaign" href="#">Load more</a>
+        </article>
+        
+        <article class="recent-activity clearfix sale-overview">
+        <h2>Sale overview</h2>
+        <div class="recent-activity-col clearfix">
+        <div><img src="<?php echo $this->basePath('sfpdeveloper/img/img-4.png') ?>" alt=""></div>
+        <span>
+        <strong>Your template "photocontest"has beenapproved by the Smart 
+Fanpage team. You go girl!</strong>
+<p>4 hours ago</p>
+</span>
+        </div>
+        <div class="recent-activity-col clearfix">
+        <div><img src="<?php echo $this->basePath('sfpdeveloper/img/img-4.png') ?>" alt=""></div>
+        <span>
+        <strong>Your template "photocontest"has beenapproved by the Smart 
+Fanpage team. You go girl!</strong>
+<p>4 hours ago</p>
+</span>
+        </div>
+        <div class="recent-activity-col clearfix">
+        <div><img src="<?php echo $this->basePath('sfpdeveloper/img/img-4.png') ?>" alt=""></div>
+        <span>
+        <strong>Your template "photocontest"has beenapproved by the Smart 
+Fanpage team. You go girl!</strong>
+<p>4 hours ago</p>
+</span>
+
+        </div>
+        <a class="go-to-my-campaign" href="#">Load more</a>
+        </article>
+        </section>-->
+        </div>
+        </div>
+        
+        <div class="back-to-top-cont" style="position:relative;">
+          <hr>
+          <a id="back-to-top" class="go_to_up" href="#">Back to top</a></div>
+          
+        </section>
+        
+        </div>
+        </div>
+
+       <!-- begin usabilla live embed code --> <script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({}); window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/a84d4108fa63.js"); /*]]>{/literal}*/</script> <!-- end usabilla live embed code -->
+    </body>
+</html>

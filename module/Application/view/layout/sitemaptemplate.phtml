@@ -1,0 +1,228 @@
+ 
+    <?php 
+  echo $this->headMeta()
+                 ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                 ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+           
+            echo $this->headLink(array('rel' => 'shortcut icon',
+                                       'type' => 'image/vnd.microsoft.icon', 
+                                       'href' => $this->basePath() . ''))
+                      
+                     
+                     // ->prependStylesheet($this->basePath() . '/sfpdeveloper/css/main.css')
+             
+  
+                    
+          
+                 
+                    
+    ?>
+    <?php
+ $protocol = '';
+        if (isset($_SERVER[‘HTTPS’]) &&
+       ($_SERVER[‘HTTPS’] == ‘on’ || $_SERVER[‘HTTPS’] == 1) ||
+        isset($_SERVER[‘HTTP_X_FORWARDED_PROTO’]) &&
+        $_SERVER[‘HTTP_X_FORWARDED_PROTO’] == ‘https’) {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+?>
+    <style>
+body {
+ /*color:#fff;*/font-family: 'ubunturegular';
+ background:url(/sfpdeveloper/img/nav-bg.jpg) left top repeat-y;
+}
+#developer-main-container {
+	height:auto;
+	width:100%;
+    position: relative;
+}
+.developer-menu-left-pannel {
+	width:/*218px18%*/ 243px;
+	padding:12px 0;
+	background:#2e3641;
+	position:relative;
+	float:left
+}
+.logo img {
+	display:block;
+	margin:0 auto
+}
+h5.dev-title {
+	font-family: 'Economica', sans-serif;
+	text-align:center;
+	font-size:21px;
+	margin:22px 0;
+	color: #fff;
+}
+.copyright-menu li {
+	display:block;
+	font-size:12px;
+	font-family: 'ubunturegular';
+	margin-bottom:5px;
+}
+.copyright-menu li:last-child {
+	color:#7c7f83;
+	margin-top:12px
+}
+.copyright-menu ul li a span {
+	display: block;
+	float: left;
+	margin: 3px 6px 0 0;
+}
+.copyright-menu {
+	bottom: 19px;
+	position: absolute;
+    left: 12px;
+}
+.main-menu li {
+	height:auto;
+	overflow:hidden;
+	display:block;
+	font-size:12px;
+}
+.main-menu li > a {
+	height:42px;
+	line-height:42px;
+	border-bottom:1px solid #39404b;
+	display:block;
+	text-transform: uppercase;
+	padding-left: 12px;
+    color: #fff;
+}
+
+.main-menu {
+	margin-top: 48px;
+}
+.main-menu li a:hover {
+	color:#a9c5bc
+}
+.main-menu li a:hover:after {
+	content:">";
+	float:right;
+	margin-right:12px;
+	font-size:15px
+}
+.new-left-pannel {
+	padding:12px 0
+}
+.development-center-wrapper {
+	padding:12px;
+}
+.developer-menu-right-pannel {
+  float: left;
+  width: 80%;
+}
+.site {
+  padding-left: 0;
+}
+.creat-acc-section .personal-data-form {
+  margin: 50px auto;
+  overflow: hidden;
+  width: 67%;
+}
+.home_publisher_tab {
+  margin: 40px auto !important;
+  overflow: hidden;
+  position: static;
+  text-align: center;
+  width: 73%;
+}
+.main-menu > ul, .copyright-menu > ul {
+  padding: 0;
+}
+.copyright-menu a {
+  color: #fff;
+}
+a.logo{ float: none;}
+
+.log-out-person {
+  height: auto;
+  overflow: hidden;
+  padding-left: 8px;
+}
+.log-out-person strong {
+  color: #fff;
+  display: block;
+  font-family: "ubuntubold";
+  font-size: 12px;
+}
+.log-out-person p {
+  color: #7e7e7e;
+  float: left;
+  font-size: 12px;
+}
+.go_to_up {
+  
+    color: #2e3641;
+    display: block;
+    font-family: "ubuntubold";
+    font-size: 12px;
+    height: 21px;
+    left: 49.7%;
+    margin-left: -47px;
+    padding-top: 24px;
+    position: absolute;
+    text-align: center;
+    top: -9px;
+    width: 95px;
+}
+.copyright-menu img {
+  margin-top: -6px;
+}
+.log-out-bt {
+  display: block;
+  float: left;
+  height: auto;
+  overflow: hidden;
+}
+.main-menu li:first-child {
+  border-top:1px solid #39404b;
+}
+    </style>
+ <div id="developer-main-container" class="clearfix">
+        
+        
+        <div class="developer-menu-left-pannel clearfix new-left-pannel">
+        
+        <div class="development-center-wrapper clearfix">
+        
+        <a href="#" class="logo"><figure><img src="<?php echo $this->basePath('sfpdeveloper/img/dev_logo.png') ?>" alt=""></figure></a>
+        <h5 class="dev-title"> -  Development centre  - </h5>
+        
+        <div class="log-out-container clearfix">
+        <a class="log-out-bt" href=" <?php echo $url; ?>/sfpdeveloper/devlogout"><span><img src=" <?php echo $url; ?>/sfpdeveloper/img/ft-img-2.jpg"/></span></a>
+        <div class="log-out-person">
+        <strong>Studio 365</strong>
+        <p>Amsterdam</p>
+        </div>
+        </div>
+        
+        </div>
+        <div class="main-menu clearfix">
+        <ul>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action' =>'dashboard'));?>">Dashboard </a> </li>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action' =>'index'));?>">My campaigns</a></li>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Template','action' =>'#'));?>">Upload wizard</a></li>
+        	<li><a href="#">My account</a></li>
+        	<li><a  target="_blank" href=" <?php echo $url; ?>/index/documentation#tab-1">Documentation</a></li>
+        </ul>
+        </div>
+        
+        
+        
+        </div>
+        <div class="copyright-menu clearfix">
+        <ul>
+        	<li><a href="#"><span><img src=" <?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"/></span> Terms & service </a></li>
+        	<li><a href="#"> <span><img src=" <?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"/></span> Disclaimer </a></li>
+        	<li><a href="#"><span><img src=" <?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"/></span> Privacy policy </a></li>
+        	<li>© Copyright 2014 Smart Fanpage</li>
+        </ul>
+        </div>
+        <div class="developer-menu-right-pannel clearfix">
+        <div class="developer-menu-right-pannel-image-holder clearfix">

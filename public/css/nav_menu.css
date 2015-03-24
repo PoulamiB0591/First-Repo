@@ -246,7 +246,7 @@ aside.main {
     float: left;
     width: 180px;
     background: #131313;
-    background: #131313 url(images/bg_menu.png) repeat-y 100% 0px;   
+    background: #131313 url(../img/nav-bg.jpg) repeat-y 100% 0px;   
     height: 100%;
     
     /*position: relative;
@@ -781,7 +781,7 @@ aside.main .bottom-cont .copy a:hover {
 .site {
    /* float: left;*/
     width: 100%;
-    padding-left: /*180px*//*18%*/224px;
+    padding-left: /*180px*//*18%*/243px;
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;  
@@ -789,7 +789,7 @@ aside.main .bottom-cont .copy a:hover {
     
     /*display: none;*/
     background: white;
-        max-width: 1442px;/*1680px*/
+      /*  max-width: 1442px;1680px*/
         
         /*
         position: relative;
@@ -801,12 +801,14 @@ aside.main .bottom-cont .copy a:hover {
 	-moz-transition: margin-left .20s ease-in-out;
 	-webkit-transition: margin-left .20s ease-in-out;     
 }
+/* Firefox */
+@-moz-document url-prefix()
+{
+.site { padding-left: /*180px*//*18%*/205px; }
 
-@media screen and (-webkit-min-device-pixel-ratio:0){
-  .site {  
-    padding-left: 18%;}
-    
 }
+@media screen and (-webkit-min-device-pixel-ratio:0){
+
 
 
 .site.work-cont {
@@ -3201,7 +3203,12 @@ body.error404 aside.mobile {
 
     aside.mobile {
        display: block; 
+       padding: 0;
     }
+
+.new-dev-section {
+  width: 100%;
+}
 
 
     .single-work  .site .action-bar {
@@ -4610,6 +4617,16 @@ body.error404 aside.mobile {
 }
 @media all and (min-width: 5000px)
 {
-.site{padding-left:435px !important;; }
+.site{padding-left:361px !important; }
 }
 
+@media all and (min-width: 2000px)
+{
+/*nav#menu{height:100vh !important; }for larger desktop nav height 100%*/
+}
+
+
+@media all and (min-width: 1900px)
+{
+.site{padding-left:204px !important;}
+}

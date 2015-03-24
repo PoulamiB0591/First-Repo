@@ -1,127 +1,213 @@
+
+ <script>
+  function fbs_click()
+    {
+        var base_url = window.location.origin;
+    u=base_url+"/index/faq"
+    t='smartfanpage';
+    var child = window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+    }
+    
+        function twt_click()
+    {
+        var base_url = window.location.origin;
+       u=base_url+"/index/faq"
+     t='smartfanpage';
+    var child = window.open('http://twitter.com/share?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');   
+    }
+    
+    function linkedinButton(){
+    var base_url = window.location.origin;
+   var articleUrl = encodeURIComponent(base_url+'/index/faq');
+       var articleTitle = encodeURIComponent('smartfanpage');
+       var articleSummary = encodeURIComponent('FAQ');
+       var articleSource = encodeURIComponent('best');
+       var goto = 'http://www.linkedin.com/shareArticle?mini=true'+
+           '&url='+articleUrl+
+           '&title='+articleTitle+
+           '&summary='+articleSummary+
+           '&source='+articleSource;
+       window.open(goto, "LinkedIn", "width=660,height=600,scrollbars=yes;resizable=no");         
+} 
+  </script> 
+
+<!--//========for mobile social icons===========-->
+<div class="mobile-social">
+        <a href="#" class="button"></a>
+        <ul class="social_icon3">
+         
+          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+        </ul>
+        </div>
+<!--//========End for mobile social icons===========-->	
+       
+<!--===== body start ===-->
 <div  class="site">
   <div class="container-fluid"> 
      <!--===== start banner ===-->
     <div class="row">
       <div class="banner_faq">
+      
         <ul class="social_icon2">
-          <li><a href="#">Share this website</a></li>
-          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+          <li><a href="javascript:void(0)">Share this website</a></li>
+         <li><a href="javascript:void(0)" onclick="return fbs_click()"></a> <a style="cursor:pointer" onclick="return twt_click()"></a> <a style="cursor:pointer" onclick="return linkedinButton()"></a></li>
         </ul> <!--=== social icon ===-->
+        
+        <div class="col-md-12">
         <div class="cont-title2">
-        <h2>We're here to help</h2>
+        <h2><?php echo $banner->bannerHeader; ?></h2>
         </div>
+        
+        </div>
+        
       </div>
       
-    </div><!--===== end banner ===--> 
-<section class="faq-wrapper row">
-        <h3 class="col-lg-12">Frequently asked questions</h3>
+   <div class="container container-for-standard-desktop">
+      <div class="row"> 
+<section class="faq-wrapper">
+        <h3 class="col-lg-12"><?php echo $banner->questionLine ; ?></h3>
         <div class="search-fanpage-bt col-lg-12">
         <div class="col-lg-7 col-md-8 col-xs-12 col-sm-7">
         <!--<input name="Smart-fan-page" type="text" placeholder="Search Smart Fanpage" class="col-lg-8 col-md-9 col-xs-12">
         <span class="col-lg-1 col-md-1 col-xs-12 col-sm-2"><img src="img/search.png" alt=""></span>-->
-        <div class="input-group cust-search2">
-            <input class="form-control" placeholder="Search Smart Fanpage" name="srch-term" id="srch-term" type="text">
+        <form method="post"><div class="input-group cust-search2">
+            <input class="form-control" placeholder="Search Smart Fanpage" name="srchTerm" id="filter" type="text">
             <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+              <!--<button class="btn btn-default" type="submit" id="searching"><span class="glyphicon glyphicon-search"></span></button>-->
+              <button class="btn btn-default" type="submit" name="submit" value="search"><span class="glyphicon glyphicon-search"></span></button>
             </div>
+           
           </div>
+           </form>
+          
         </div>
         <div class="search-right col-lg-5 col-md-4 col-xs-12 col-sm-5">
-        <a class="find-a-pub" href="#">Email us</a>
-        <a class="chat-closed" href="#">Chat closed</a>
-        </div>
-        </div>
+        <a class="find-a-pub" href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'contact'));?>">Email us</a>
         
-        
-        <div id="horizontalTab" class="col-lg-12">
+        </div>
+        <div class="col-lg-12 divide-bar"><hr /></div>
+       
+        </div>
+         
+        <div class="horizontalTab col-lg-12 searchcls">
         
         
         <ul class="faq_tab">
-            <li><a href="#tab-1">About Smart Fanpage</a></li>
-            <li><a href="#tab-2">Publishers</a></li>
-            <li><a href="#tab-3">Pricing</a></li>
-            <li><a href="#tab-4">Technical</a></li>
+            <?php if(sizeof($contentsfp)>0){?><li><a href="#tab-1" class="smart">About Smart Fanpage</a></li><?php } ?>
+            <?php if(sizeof($contentpub)>0){?><li><a href="#tab-2" class="publisher">Publishers</a></li><?php } ?>
+            <?php if(sizeof($contentprice)>0){?><li><a href="#tab-3" class="pricing">Pricing</a></li><?php } ?>
+            <?php if(sizeof($contenttech)>0){?><li><a href="#tab-4" class="technical">Technical</a></li><?php } ?>
+             <?php if(sizeof($smartFan)>0){?><li><a href="#tab-1" class="smart">About Smart Fanpage</a></li><?php } ?>
+            <?php if(sizeof($Publisher)>0){?><li><a href="#tab-2" class="publisher">Publishers</a></li><?php } ?>
+            <?php if(sizeof($Pricing)>0){?><li><a href="#tab-3" class="pricing">Pricing</a></li><?php } ?>
+            <?php if(sizeof($faqtechnical)>0){?><li><a href="#tab-4" class="technical">Technical</a></li><?php } ?>
             
         </ul>
+        <?php if(sizeof($contentsfp)>0){?>
         <div id="tab-1">
            <div class="accordion-sub">
-	<h3>What sort of campaigns can i make with Smart fanpage?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>What are the costs of Smart Fanpage campaigns?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>How does it work?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>Can i see some examples?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>How do i become a publisher?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-    
-    <h3>Can i make unlimited campaigns with Smart Fanpage?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-    
-     <h3>How do i find a suitable publisher?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-</div> 
+          <?php foreach ($contentsfp as $sfp) :?>
+	      <h3><?php echo $sfp['question']; ?></h3>
+	      <p><?php echo $sfp['answer']; ?></p>
+	      <?php endforeach; ?>
+          </div> 
            </div>
+           <?php } ?>
+           <?php if(sizeof($smartFan)>0){?>
+        <div id="tab-1">
+           <div class="accordion-sub">
+          <?php foreach ($smartFan as $sfp) :?>
+	      <h3><?php echo $sfp->question; ?></h3>
+	      <p><?php echo $sfp->answer; ?></p>
+	      <?php endforeach; ?>
+           </div></div><?php } ?>
+           <?php if(sizeof($contentpub)>0){?>
         <div id="tab-2">
             <div class="accordion-sub">
-	<h3>What sort of campaigns can i make with Smart Fanpage?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>What are the costs of Smart Fanpage campaigns?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>How does it work?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>Can i see some examples?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>How do i become a publisher?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-    
-    <h3>Can i make unlimited campaigns with Smart Fanpage?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-    
-     <h3>How do i find a suitable publisher?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	<?php foreach ($contentpub as $publishercontent) :?>
+	<h3><?php echo $publishercontent['question']; ?></h3>
+	<p><?php echo $publishercontent['answer']; ?></p>
+	 <?php endforeach; ?>
+     </div></div><?php } ?>
+      <?php if(sizeof($Publisher)>0){?>
+        <div id="tab-2">
+            <div class="accordion-sub">
+     	<?php foreach ($Publisher as $publishercontent) :?>
+	<h3><?php echo $publishercontent->question; ?></h3>
+	<p><?php echo $publishercontent->answer; ?></p>
+	 <?php endforeach; ?>
 </div>
-        </div>
+        </div><?php } ?>
+        <?php if(sizeof($contentprice)>0){?>
         <div id="tab-3">
             <div class="accordion-sub">
-	<h3>What sort of campaigns can i make with Smart fanpage?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>What are the costs of Smart Fanpage?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>How does it work?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>Can i see some examples?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>How do i become a publisher?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-    
-    <h3>Can i make unlimited campaigns with Smart Fanpage?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-    
-     <h3>How do i find a suitable publisher?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-</div>
-        </div>
+	       	<?php foreach ($contentprice as $contprice) :?>
+	<h3><?php echo $contprice['question']; ?></h3>
+	<p><?php echo $contprice['answer']; ?></p>
+	 <?php endforeach; ?>
+     </div></div><?php } ?>
+     <?php if(sizeof($Pricing)>0){?>
+        <div id="tab-3">
+            <div class="accordion-sub">
+     <?php foreach ($Pricing as $contprice) :?>
+	<h3><?php echo $contprice->question; ?></h3>
+	<p><?php echo $contprice->answer; ?></p>
+	 <?php endforeach; ?>
+     </div></div><?php } ?>
+
+        <?php if(sizeof($contenttech)>0){?>
         <div id="tab-4">
             <div class="accordion-sub">
-	<h3>What sort of campaigns can i make with Smart fanpage?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>What are the costs of Smart Fanpage campaigns?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>How does it work?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>Can i see some examples?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-	<h3>How do i become a publisher?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-    
-    <h3>Can i make unlimited campaigns with Smart Fanpage?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-    
-     <h3>How do i find a suitable publisher?</h3>
-	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
-</div>
+	<?php foreach ($contenttech as $tech) :?>
+	<h3><?php echo $tech['question']; ?></h3>
+	<p><?php echo $tech['answer']; ?></p>
+	 <?php endforeach; ?>
+      </div></div><?php } ?>
+        <?php if(sizeof($faqtechnical)>0){?>
+        <div id="tab-4">
+            <div class="accordion-sub">
+     <?php foreach ($faqtechnical as $tech) :?>
+	<h3><?php echo $tech->question; ?></h3>
+	<p><?php echo $tech->answer; ?></p>
+	 <?php endforeach; ?>
         </div>
+    </div><?php } ?>
     </div>
-</section>
+     <?php if((sizeof($contentsfp)<=0)&&(sizeof($contentpub)<=0)&&(sizeof($contentprice)<=0)&&(sizeof($contenttech)<=0)&&(sizeof($smartFan)<=0)&&(sizeof($Publisher)<=0)&&(sizeof($Pricing)<=0)&&(sizeof($faqtechnical)<=0)){?>
+     NO DATA AVAILABLE
+     <?php } ?>
+           
+        
+        </section>
+        
+     </div>
+    
+    
+        
+       <!-- <div style="position:relative;">
+        
+        <hr class="foot-hr" />
+        <a href="#" class="go_to_up" id="back-to-top"></a></div>
+     </div>-->
+ 
+
+
+
+<style type="text/css">
+.banner_faq
+{
+ background:#fff url(<?php echo $banner->bannerPath ; ?>) no-repeat top center;
+	overflow:hidden;
+            width:100%;
+            background-size:cover;
+            overflow:hidden;
+            margin:auto;
+            min-height: 420px;
+
+}
+</style>
+
+
+
+
+

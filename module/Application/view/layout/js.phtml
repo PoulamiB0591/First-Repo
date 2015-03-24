@@ -1,27 +1,151 @@
 <?php 
-if(($page == 'index') || ($page == 'store'))
+if($page == 'index')
 { 
     echo $this->headScript()
+    ->prependFile($this->basePath() . '/js/desktop-mob-main.js', 'text/javascript')
+    
+            ->prependFile($this->basePath() . '/js/jquery.nicescroll.js', 'text/javascript')
+       
+            ->prependFile($this->basePath() . '/js/facebookConnect/facebook.js',   'text/javascript')
+            ->prependFile($this->basePath() . 'http://connect.facebook.net/en_US/sdk.js')
+            ->prependFile($this->basePath() . '/js/main.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/accesscode.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/startpopup.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/onload.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery_004.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/owl.carousel.js','text/javascript')
+            ->prependFile($this->basePath() . '/js3/jquery.selectBoxtemplate.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.fittext.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.cookie.js','text/javascript')
+            
+            //->prependFile($this->basePath() . 'http://malsup.github.com/jquery.cycle.all.js') 
+             
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',   'text/javascript');
+             
+}
+else if( $page == 'becomepublisher' || $page == 'dashboard' )
+{ 
+    echo $this->headScript()
+    ->prependFile($this->basePath() . '/js/desktop-mob-main.js', 'text/javascript')
+    
+            ->prependFile($this->basePath() . '/js/jquery.nicescroll.js', 'text/javascript')
+       
+            ->prependFile($this->basePath() . '/js/facebookConnect/facebook.js',   'text/javascript')
+            ->prependFile($this->basePath() . 'http://connect.facebook.net/en_US/sdk.js')
+            ->prependFile($this->basePath() . '/js/main.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/onload.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery_004.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/owl.carousel.js','text/javascript')
+            ->prependFile($this->basePath() . '/js3/jquery.selectBoxtemplate.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.fittext.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js','text/javascript')
+            //->prependFile($this->basePath() . 'http://malsup.github.com/jquery.cycle.all.js') 
+             
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',   'text/javascript');
+             
+}
+else if($page == 'becomepublisher1')
+{
+   echo $this->headScript()
+    
+    
+            
+           ->prependFile($this->basePath() . '/js/facebookConnect/jquery.friend.selector-1.2.1.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/facebookConnect/fb.js', 'text/javascript')
+            
+            ->prependFile($this->basePath() . '/js/template.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.nice-file-input.min.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/main1.js',   'text/javascript')
+          
+            ->prependFile($this->basePath() . '/js/jquery.nicescroll.js')
+            ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabsD.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/owl.carousel.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js3/jquery.selectBoxtemplate.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.fittext.js')
+            
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.prettyPhoto.js')
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',   'text/javascript');
+
+      
+}
+else if($page == 'index1')
+{
+  echo $this->headScript()
+    ->prependFile($this->basePath() . '/js/desktop-mob-main.js')
+    
+            ->prependFile($this->basePath() . '/js/jquery.nicescroll.js')
+            ->prependFile($this->basePath() . '/js/facebookConnect/facebook.js',   'text/javascript')
+            ->prependFile($this->basePath() . 'http://connect.facebook.net/en_US/sdk.js')
+            ->prependFile($this->basePath() . '/js/main.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/onload.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery_004.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/owl.carousel.js','text/javascript')
+            ->prependFile($this->basePath() . '/js3/jquery.selectBoxtemplate.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.fittext.js','text/javascript')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js','text/javascript')
+            ->prependFile($this->basePath() . 'http://malsup.github.com/jquery.cycle.all.js') 
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',   'text/javascript');
+   
+}
+elseif($page == 'store')
+{
+    echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/desktop-mob-main.js')
+             ->prependFile($this->basePath() . '/js/jquery.nicescroll.js')
+              ->prependFile($this->basePath() . '/js/facebookConnect/facebook.js',   'text/javascript')
+            ->prependFile($this->basePath() . 'http://connect.facebook.net/en_US/sdk.js')
             ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/owl.carousel.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js3/jquery.selectBoxtemplate.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.fittext.js' , 'text/javascript')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js','text/javascript')
+            ->prependFile($this->basePath() . 'http://malsup.github.com/jquery.cycle.all.js') 
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',   'text/javascript');
+    
+}
+elseif($page == 'marketing')
+{
+     echo $this->headScript()
+     ->prependFile($this->basePath() . '/js/facebookConnect/facebook.js',   'text/javascript')
+     ->prependFile($this->basePath() . 'http://connect.facebook.net/en_US/sdk.js')
+            ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
+            
+            ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/marketingjs/jquery.responsiveTabs.js',   'text/javascript')
+            
+            ->prependFile($this->basePath() . '/js/owl.carousel.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery.selectBox.js', 'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery.fittext.js')
+            ->prependFile($this->basePath() . '/js/rating.js')
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-            ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js')
-            ->prependFile($this->basePath() . '/js/main2.js')
-             ->prependFile($this->basePath() . '/js/jquery.bxslider.js')
-              ->prependFile($this->basePath() . '/js/jquery.customSelect.js')
-              ->prependFile($this->basePath() . '/js/jquery.datetimepicker.js')
-              ->prependFile($this->basePath() . '/js/jscrollpane.min.js')
-              ->prependFile($this->basePath() . '/js/mousewheel.js'); 
+            ->prependFile($this->basePath() . '/js/jquery.prettyPhoto.js')
+            //rating
+            ->prependFile($this->basePath() . '/js/jquery.rateyo.js')
+          //  ->prependFile('http://code.jquery.com/jquery-2.1.1.min.js')
+            //rating
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',   'text/javascript');
+ 
             
+             
+            
+               
 } 
 elseif($page == 'howswork') 
 {
     echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/jquery.nicescroll.js')
             ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
@@ -34,34 +158,109 @@ elseif($page == 'howswork')
 }
 
 elseif($pagefront == 'edit'){
+    
       echo $this->headScript()
-                ->prependFile($this->basePath() . '/js/style.js')
-                 ->prependFile($this->basePath() . '/js/main2.js')
-                   ->prependFile($this->basePath() . '/js/jquery.datetimepicker.js','text/javascript')
-                   ->prependFile('http://code.jquery.com/ui/1.10.4/jquery-ui.js')
-                ->prependFile($this->basePath() . '/js/jquery.bxslider.js')
-              ->prependFile($this->basePath() . '/js/jquery.customSelect.js')
-            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
-              ->prependFile($this->basePath() . '/js/jscrollpane.min.js')
-              ->prependFile($this->basePath() . '/js/mousewheel.js')
-              ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js');
+            ->prependFile($this->basePath() . '/js/style.js')
+           ->prependFile($this->basePath() . '/js/jquery.nicescroll.js')
+            ->prependFile($this->basePath() . '/js/file-upload.js')
+            ->prependFile($this->basePath() . '/js/min.js')
+            ->prependFile($this->basePath() . '/js/jquery.form.js')
+            ->prependFile($this->basePath() . '/js/jquery.fileuploadmulti.min.js')
+            ->prependFile($this->basePath() . 'http://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.2/ckeditor.js')
+            //->prependFile($this->basePath() . '/ckeditor/ckeditor.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.datetimepicker.js','text/javascript')
+            ->prependFile('http://code.jquery.com/ui/1.10.4/jquery-ui.js')
+            ->prependFile($this->basePath() . '/js/jquery.customSelect.js')
+            ->prependFile($this->basePath() . '/js/jscrollpane.min.js')
+            ->prependFile($this->basePath() . '/js/mousewheel.js')
+            //->prependFile('http://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.2/ckeditor.js',   'text/javascript')
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
               
 }
-else
+else if($pagefront == 'dashboard')
 {
-    echo $this->headScript()
-            
+     echo $this->headScript()
+     
+     
+            ->prependFile($this->basePath() . '/js/facebookConnect/jquery.friend.selector-1.2.1.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/facebookConnect/fb.js', 'text/javascript') 
+            ->prependFile($this->basePath() . '/js/facebookConnect/facebook.js',   'text/javascript')
+            ->prependFile($this->basePath() . 'http://connect.facebook.net/en_US/sdk.js')
             ->prependFile($this->basePath() . '/js/template.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery.nice-file-input.min.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
+             ->prependFile($this->basePath() . '/js/jquery.nicescroll.js')
             ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabsD.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/owl.carousel.js',   'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery.selectBox.js', 'text/javascript')
             ->prependFile($this->basePath() . '/js/jquery.fittext.js')
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
             ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js'); 
+}
+else if($pagefront == 'setup')
+{
+      echo $this->headScript()
+    
+    
+            
+           ->prependFile($this->basePath() . '/js/facebookConnect/jquery.friend.selector-1.2.1.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/facebookConnect/fb.js', 'text/javascript')
+            
+            ->prependFile($this->basePath() . '/js/template.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.nice-file-input.min.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
+          
+           ->prependFile($this->basePath() . '/js/jquery.nicescroll.js')
+            ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabsD.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/owl.carousel.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.selectBox.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.fittext.js')
+            
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.prettyPhoto.js')
+            ->prependFile($this->basePath() . '/js/jquery-1.10.1.min.js');  
+}
+
+else
+{
+    echo $this->headScript()
+    
+    
+             
+           //->prependFile($this->basePath() . '/js/facebookConnect/jquery.friend.selector-1.2.1.js',   'text/javascript')
+          //  ->prependFile($this->basePath() . '/js/facebookConnect/fb.js', 'text/javascript')
+             ->prependFile($this->basePath() . '/js/facebookConnect/facebook.js',   'text/javascript')
+            ->prependFile($this->basePath() . 'http://connect.facebook.net/en_US/sdk.js')
+            ->prependFile($this->basePath() . '/js/template.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.nice-file-input.min.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/main.js',   'text/javascript')
+          ->prependFile($this->basePath() . '/js/startpopup.js','text/javascript')
+           ->prependFile($this->basePath() . '/js/jquery.nicescroll.js')
+            ->prependFile($this->basePath() . '/js/onload.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery_004.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabs.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.responsiveTabsD.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/owl.carousel.js',   'text/javascript')
+            ->prependFile($this->basePath() . '/js/ckeditor/ckeditor.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.tagsinput.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js3/jquery.selectBoxtemplate.js', 'text/javascript')
+            ->prependFile($this->basePath() . '/js/jquery.fittext.js')
+            ->prependFile($this->basePath() . '/js3/jquery.form.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.prettyPhoto.js')
+            ->prependFile($this->basePath() . '/js/jquery.cookie.js','text/javascript')
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js',   'text/javascript')
+            ->prependFile($this->basePath() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',   'text/javascript');
+
+    
             
 }
+
 ?>
+

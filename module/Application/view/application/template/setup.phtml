@@ -1,0 +1,514 @@
+  <?php
+ 
+  if($xml == "1")
+  {
+    
+    $feed= simplexml_load_file($_SERVER['DOCUMENT_ROOT'].'/files/'.$folder.'/xml/put.xml');  
+  }
+ else
+ {
+     
+    $feed= simplexml_load_file($_SERVER['DOCUMENT_ROOT'].'/files/'.$folder.'/xml/temp.xml');  
+ }
+
+ ?>
+ <style>
+ 
+ .creat-acc-section {
+  width: auto;
+}
+.new-first-name {
+  margin-right: 12px;
+  width: auto;
+}
+.creat-acc-section .set_page .personal-data-form {  margin: 0 auto;}
+</style>
+<script type="text/javascript">
+$(".open li").slice().click(function(){
+       var anchor =  $(this).find("#opens").text();
+       alert(anchor);
+    });
+
+</script>
+<!----------- added by Poulami ----------->
+<style>
+body {
+ /*color:#fff;*/font-family: 'ubunturegular';
+ background:url(/sfpdeveloper/img/nav-bg.jpg) left top repeat-y;
+}
+#developer-main-container {
+	height:auto;
+	width:100%;
+    position: relative;
+}
+.developer-menu-left-pannel {
+	width:/*218px18%*/ 243px;
+	padding:12px 0;
+	background:#2e3641;
+	position:relative;
+	float:left;
+	height:100vh;
+}
+.logo img {
+	display:block;
+	margin:0 auto
+}
+h5.dev-title {
+	font-family: 'Economica', sans-serif;
+	text-align:center;
+	font-size:21px;
+	margin:22px 0;
+	color: #fff;
+}
+.copyright-menu li {
+	display:block;
+	font-size:12px;
+	font-family: 'ubunturegular';
+	margin-bottom:5px;
+}
+.copyright-menu li:last-child {
+	color:#7c7f83;
+	margin-top:12px
+}
+.copyright-menu ul li a span {
+	display: block;
+	float: left;
+	margin: 3px 6px 0 0;
+}
+.copyright-menu {
+	bottom: 19px;
+	position: absolute;
+    left: 12px;
+}
+.main-menu li {
+	height:auto;
+	overflow:hidden;
+	display:block;
+	font-size:12px;
+}
+.main-menu li > a {
+	height:42px;
+	line-height:42px;
+	border-bottom:1px solid #39404b;
+	display:block;
+	text-transform: uppercase;
+	padding-left: 12px;
+    color: #fff;
+}
+
+.main-menu {
+	margin-top: 48px;
+}
+.main-menu li a:hover {
+	color:#a9c5bc
+}
+.main-menu li a:hover:after {
+	content:">";
+	float:right;
+	margin-right:12px;
+	font-size:15px
+}
+.new-left-pannel {
+	padding:12px 0
+}
+.development-center-wrapper {
+	padding:12px;
+}
+.developer-menu-right-pannel {
+  float: left;
+  width: 80%;
+}
+.site {
+  padding-left: 0;
+}
+.creat-acc-section .personal-data-form {
+  margin: 50px auto;
+  overflow: hidden;
+  width: 67%;
+}
+.home_publisher_tab {
+  margin: 40px auto !important;
+  overflow: hidden;
+  position: static;
+  text-align: center;
+  width: 76%;
+}
+.main-menu > ul, .copyright-menu > ul {
+  padding: 0;
+}
+.copyright-menu a {
+  color: #fff;
+}
+a.logo{ float: none;}
+
+.log-out-person {
+  height: auto;
+  overflow: hidden;
+  padding-left: 8px;
+}
+.log-out-person strong {
+  color: #fff;
+  display: block;
+  font-family: "ubuntubold";
+  font-size: 12px;
+}
+.log-out-person p {
+  color: #7e7e7e;
+  float: left;
+  font-size: 12px;
+}
+.go_to_up {
+  
+    color: #2e3641;
+    display: block;
+    font-family: "ubuntubold";
+    font-size: 12px;
+    height: 21px;
+    left: 49.7%;
+    margin-left: -47px;
+    padding-top: 24px;
+    position: absolute;
+    text-align: center;
+    top: -9px;
+    width: 95px;
+}
+.copyright-menu img {
+  margin-top: -6px;
+}
+.log-out-bt {
+  display: block;
+  float: left;
+  height: auto;
+  overflow: hidden;
+}
+.main-menu li:first-child {
+  border-top:1px solid #39404b;
+}
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+  <div id="developer-main-container" class="clearfix">
+        
+        <?php
+    $protocol = '';
+        if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+?>
+        <div class="developer-menu-left-pannel clearfix new-left-pannel">
+        
+        <div class="development-center-wrapper clearfix">
+        
+        <a href="#" class="logo"><figure><img src="<?php echo $this->basePath('sfpdeveloper/img/dev_logo.png') ?>" alt=""></figure></a>
+        <h5 class="dev-title"> -  Development centre  - </h5>
+        
+        <div class="log-out-container clearfix">
+        <a class="log-out-bt" href="<?php echo $url; ?>/sfpdeveloper/devlogout"><span><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img-2.jpg"/></span></a>
+        <div class="log-out-person">
+          <strong><?php echo $result->cname; ?></strong>
+        <p><?php echo $result->ccity; ?></p>
+        </div>
+        </div>
+        
+        </div>
+        <div class="main-menu2 clearfix">
+        <ul>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action' =>'dashboard','id'=>$id."|".$encryptedId));?>">Dashboard </a> </li>
+        	<!---<li><a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action' =>'index'));?>">My campaigns</a></li>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Template','action' =>'#'));?>">Upload wizard</a></li>
+        	<li><a href="#">My account</a></li>--->
+        	<li><a  target="_blank" href="<?php echo $url; ?>/index/documentation#tab-1">Documentation</a></li>
+        </ul>
+        </div>
+        
+        
+        
+        </div>
+        <div class="copyright-menu clearfix">
+        <ul>
+        	<li><a href="#"><span><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"/></span> Terms & service </a></li>
+        	<li><a href="#"> <span><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"/></span> Disclaimer </a></li>
+        	<li><a href="#"><span><img src="<?php echo $url; ?>/sfpdeveloper/img/ft-img.jpg"/></span> Privacy policy </a></li>
+        	<li>� Copyright 2014 Smart Fanpage</li>
+        </ul>
+        </div>
+        <div class="developer-menu-right-pannel clearfix">
+        <div class="developer-menu-right-pannel-image-holder clearfix">
+      
+
+
+
+<div class="container-fluid"> 
+    <!--===== start banner ===-->
+     <!--===== start banner ===-->
+    <div class="row">
+      <div class="banner wizard">
+      	
+      </div>
+      
+    </div><!--===== end banner ===--> <!--===== end banner ===--> 
+    
+
+<input type="hidden" value="<?php echo $folder; ?>" id="getfolder" />
+<input type="hidden" value="0" id="selectboxs" />
+<!--===================================tab html start=================================-->
+<div class="wizard-cont row col-lg-12">
+<div class="horizontalTab1" >
+  <ul class="resp-tabs-list home_publisher_tab">
+
+ <li class="upload"><a>1) Upload archive file</a></li>
+   <li class="setup r-tabs-state-active"><a>2) Set up pages</a></li>
+   <li class="valid"><a>3) Validation</a></li>
+
+  </ul>
+  <hr>
+
+<div id="tab-2" class="creat-acc-section">
+
+ <h1 class="heading">Step 2 - Set up your pages</h1>
+  <p class="pro_war">We've found the following files in your archive, please indicate how you<br />wish to use them in the step process of your app</p>
+
+
+
+<div class="set_page">
+  
+  
+  <div class="verticalTab">
+  <ul class="resp-tabs-list open">
+  <?php
+
+  $no = count($feed->tabs);
+  
+  ?>
+  <input type="hidden" value="<?php echo $no; ?>" id="hid_no" />
+
+  <?php
+  for($i=0;$i<$no;$i++){
+  ?>
+  <div id="menu<?php echo $i+1; ?>"><li id="tabs<?php echo $i+1; ?>"><a id="tab<?php echo $i+1; ?>"  href="#tabs-<?php echo $i+1; ?>"><?php echo $feed->tabs[$i]->file; ?></a></li>
+</div>    <?php
+    }
+    ?>
+  </ul>
+ <?php
+  for($i=0;$i<$no;$i++){
+  ?>
+  <div id="tabs-<?php echo $i+1; ?>" class="creat-acc-section">
+
+  <div class="personal-data-form"><form>
+  
+   <div class="info select">
+        <label>Filename</label>
+        <p><?php echo $feed->tabs[$i]->file; ?></p></div>
+  
+  
+  <div class="info select">
+        <label>Order</label>
+        <span class="first-name company-type" ><select name="" id="company-profile-option">
+        
+        <option value="<?php echo $feed->tabs[$i]->order; ?>" class="test-class-1"><?php echo $feed->tabs[$i]->order; ?></option>
+        <?php
+        for($k=0;$k<$no;$k++)
+        {
+            if($i!=$k){
+        ?>
+        <option value="<?php echo $feed->tabs[$k]->order; ?>" class="test-class-1"> <?php echo $feed->tabs[$k]->order; ?></option>
+        <?php
+        }
+        }
+        ?>
+   </select></span></div>
+  
+  
+  
+      
+         
+      <!---<div class="info company-profile-info">
+        <label>Description</label>
+        <span class="first-name company-profile"><textarea id="des" name="des" cols="" rows="">For example:
+This page let's the user choose the product 
+that they want to participate for in the 
+contest.</textarea></span></div>-->
+
+
+     
+      <div class="info company-profile-info">
+        <label>Description</label>
+        <span class="first-name company-profile"><textarea id="des<?php echo $i+1; ?>"  cols="" rows=""><?php echo $feed->tabs[$i]->desc; ?></textarea></span></div>
+  
+        
+        <div class="info company-profile-info">
+        <label>&nbsp;</label>
+        <span class="first-name new-first-name"><a style="cursor: pointer;" class="btn_sv">Save</a></span>
+        
+        <a style="cursor: pointer;" class="" href="<?php echo $this->url('application/default',array('controller'=>'template','action'=>'validation','id'=>$folder));?>">Skip</a>
+        
+        </div>
+  
+      
+
+    </form>
+    </div>
+  
+  
+  
+  
+  </div>
+  
+  <?php
+  }
+  ?>
+  
+  
+  
+  </div>
+  
+  
+   
+  
+  </div>
+
+
+  <hr>
+  
+  <!--<a href="<?php //echo $this->url('application/default',array('controller'=>'template','action'=>'prev','id'=>$folder));?>" class="back_page" title="Previous step">Previous step</a>-->
+  <a style="cursor:pointer;"class="back_page" title="Previous step"><input name="submit" type="submit" value="Save &amp; continue" class="save_btn" /></a>
+
+
+    
+  </div>
+  
+
+
+</div>
+
+
+<div style="position:relative;"><hr> <a id="back-to-top" class="go_to_up" href="#"></a></div>
+
+<input type="hidden" value="" id="hids" />
+ </div> 
+
+  
+
+<!--===================================tab html end=================================-->
+
+
+
+
+
+ 
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript">			
+			$(function(){	
+			 
+             $('.opens li').each(function(i)
+                 {
+                    var chk = $(this).html();
+             //alert(chk); // This is your rel value
+            });
+          	
+           
+				$(".nicefile").niceFileInput({
+				  'width'         : '100%', //width of button - minimum 150
+				  'height'		  : '50',  //height of text
+				  'btnText'       : 'Browse', //text of the button     
+				  'btnWidth'	  : '100' ,  // width of button
+				  'margin'        : '0',	// gap between textbox and button - minimum 14 		  
+				});				
+						
+			});		
+		</script>
+        <script type="text/javascript">
+        
+        $(".btn_sv").click(function(){
+        var rews = $("#getfolder").val();
+        var basepath = window.location.protocol+"//" + window.location.host;
+        //  var html = $(this).parent().parent().parent().find(".selectBox").val();
+         // var para = $(this).parent().parent().parent().find("p").text();
+          ////alert(html);
+          //alert(para);
+           //var abc =  $(".personal-data-form").children().find(".company-profile-info").find('.company-profile').find('#des').val();
+           
+           var res = $("#selectboxs").val();
+         
+           if(res == "0")
+           {
+               var text = "";
+               $('textarea').each( function(){
+                var find = $(this).val();
+                var para = $(this).parent().parent().parent().find("p").text();
+               text += find+"//"+para+"||"; 
+               
+            });
+            
+           }
+             
+           
+        
+        $.ajax({ 
+                type:'POST',
+                data:{text:text,res:res},
+                url:basepath+"/template/saveit/"+rews,
+                success:function(data){
+                  
+                  window.location.href=basepath+"/template/setup/"+rews+"/1";
+                           
+                         
+                        }
+                    });
+     });
+      
+      
+      $(".save_btn").click(function(){
+        var rews = $("#getfolder").val();
+        var basepath = window.location.protocol+"//" + window.location.host;
+          //var html = $(this).parent().parent().parent().find(".selectBox").val();
+         // var para = $(this).parent().parent().parent().find("p").text();
+           //var abc =  $(".personal-data-form").children().find(".company-profile-info").find('.company-profile').find('#des').val();
+            
+        // alert(abc);
+          var res = 2;
+               var text = "";
+               $('textarea').each( function(){
+                var find = $(this).val();
+                var para = $(this).parent().parent().parent().find("p").text();
+               text += find+"//"+para+"||"; 
+               
+            });
+            
+           
+        $.ajax({ 
+                type:'POST',
+                data:{text:text,res:res},
+                url:basepath+"/Template/saveit/"+rews,
+                success:function(data){
+                     if(data.trim()=="redirect")
+                     {
+                      window.location.href=basepath+"/template/validation/"+rews;  
+                     }
+                           
+                           
+                         
+                        }
+                    });
+     });
+     
+     $(".btn_skip").click(function (){
+        $(".save_btn").trigger('click');
+     });
+      
+  $("span.first-name").click(function(){
+      var text = $(this).find("a.selectBox").find(".test-class-1").html();
+      $("#hids").val(text);
+  });
+
+</script>

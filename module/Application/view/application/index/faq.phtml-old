@@ -1,0 +1,96 @@
+
+<div  class="site">
+  <div class="container-fluid"> 
+     <!--===== start banner ===-->
+    <div class="row">
+      <div class="banner_faq">
+        <ul class="social_icon2">
+          <li><a href="#">Share this website</a></li>
+          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+        </ul> <!--=== social icon ===-->
+        <div class="cont-title2">
+        
+        <h2><?php echo $banner->bannerHeader; ?></h2>
+        </div>
+      </div>
+      
+    </div><!--===== end banner ===--> 
+<section class="faq-wrapper row">
+        <h3 class="col-lg-12"><?php echo $banner->questionLine ; ?></h3>
+        <div class="search-fanpage-bt col-lg-12">
+        <div class="col-lg-7 col-md-8 col-xs-12 col-sm-7">
+        <!--<input name="Smart-fan-page" type="text" placeholder="Search Smart Fanpage" class="col-lg-8 col-md-9 col-xs-12">
+        <span class="col-lg-1 col-md-1 col-xs-12 col-sm-2"><img src="img/search.png" alt=""></span>-->
+        <div class="input-group cust-search2">
+            <input class="form-control" placeholder="Search Smart Fanpage" name="srch-term" id="srch-term" type="text">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+          </div>
+        </div>
+        <div class="search-right col-lg-5 col-md-4 col-xs-12 col-sm-5">
+        <a class="find-a-pub" href="#">Email us</a>
+        <a class="chat-closed" href="#">Chat closed</a>
+        </div>
+        </div>
+        
+        
+        <div id="horizontalTab" class="col-lg-12">
+        
+        
+        <ul class="faq_tab">
+            <li><a href="#tab-1">About Smart Fanpage</a></li>
+            <li><a href="#tab-2">Publishers</a></li>
+            <li><a href="#tab-3">Pricing</a></li>
+            <li><a href="#tab-4">Technical</a></li>
+            
+        </ul>
+        <div id="tab-1">
+           <div class="accordion-sub">
+     <?php foreach ($contentsfp as $sfp) :?>
+	<h3><?php echo $sfp->question; ?></h3>
+	<p><?php echo $sfp->answer; ?></p>
+	 <?php endforeach; ?>
+</div> 
+           </div>
+        <div id="tab-2">
+            <div class="accordion-sub">
+	<?php foreach ($contentpub as $publishercontent) :?>
+	<h3><?php echo $publishercontent->question; ?></h3>
+	<p><?php echo $publishercontent->answer; ?></p>
+	 <?php endforeach; ?>
+</div>
+        </div>
+        <div id="tab-3">
+            <div class="accordion-sub">
+	       	<?php foreach ($contentprice as $contprice) :?>
+	<h3><?php echo $contprice->question; ?></h3>
+	<p><?php echo $contprice->answer; ?></p>
+	 <?php endforeach; ?>
+</div>
+        </div>
+        <div id="tab-4">
+            <div class="accordion-sub">
+	<?php foreach ($contenttech as $tech) :?>
+	<h3><?php echo $tech->question; ?></h3>
+	<p><?php echo $tech->answer; ?></p>
+	 <?php endforeach; ?>
+</div>
+        </div>
+    </div>
+</section>
+
+
+
+<style type="text/css">
+.banner_faq
+{
+ background:#fff url(<?php echo $banner->bannerPath ; ?>) no-repeat right top;
+    display: block;
+    height: 330px;
+    margin: auto;
+    overflow: hidden;
+    width: 100%;
+
+}
+</style>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<?php
+$protocol = '';
+        if (isset($_SERVER[‘HTTPS’]) &&
+       ($_SERVER[‘HTTPS’] == ‘on’ || $_SERVER[‘HTTPS’] == 1) ||
+        isset($_SERVER[‘HTTP_X_FORWARDED_PROTO’]) &&
+        $_SERVER[‘HTTP_X_FORWARDED_PROTO’] == ‘https’) {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+        
+?>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->basePath('img/favicon.ico') ?>" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory ---->
+		<link href='http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/jquery.nice-file-input.min.css" type="text/css" />
+        <link rel="stylesheet" href="css/main.css">
+        
+        <link rel="stylesheet" href="css/easy-responsive-tabs.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+      
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="developer-main-container" class="clearfix">
+        <div class="developer-menu-left-pannel clearfix">
+        <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'index'));?>" class="logo"><figure><img src="<?php echo $this->basePath('sfpdeveloper/img/dev_logo.png') ?>" alt=""></figure></a>
+        <h5 class="dev-title">-  Development centre  - </h5>
+        
+        
+        </div>
+        <div class="copyright-menu clearfix">
+        <ul>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'termscondition'));?>"><span class="icon-arrow-right"></span> Terms & service </a>
+                </li>
+                <li>
+                    <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'disclaimer'));?>"> <span class="icon-arrow-right"></span> Disclaimer </a>
+                </li>
+                <li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'privacypolicy'));?>"><span class="icon-arrow-right"></span> Privacy policy </a>
+                </li>
+        	<li>© Copyright 2014 Smart Fanpage</li>
+        </ul>
+        </div>
+        <div class="developer-menu-right-pannel clearfix">
+        <div class="developer-menu-right-pannel-image-holder clearfix">
+        <figure><img src="<?php echo $this->basePath('sfpdeveloper/img/developers-2.jpg')?>" alt=""></figure>
+        <div class="social-share clearfix">
+        <ul>
+        	<li>Share this website</li>
+        	<li><a href="#"><span class="icon-social-facebook-circular"></span></a></li>
+        	<li><a href="#"><span class="icon-social-twitter-circular"></span></a></li>
+        	<li><a href="#"><span class="icon-social-linkedin-circular"></span></a></li>
+        </ul></div>
+        </div>
+        
+        <section class="developer-body-section clearfix">
+        <div class="dev-register clearfix">
+        <!--===================================tab html start=================================-->
+        
+		<div id="tabs-container">
+    <ul id="tab-data">
+        <li class="tab-data-active">1) Personal data</li>
+        <li>2) Company profile</li>
+        <li>3) Confirmation</li>
+    </ul>
+    <div class="tab clearfix">
+        <div id="tab-1" class="tab-content">
+        <h2>Fill in your personal data</h2>
+        <ul>
+        	<li class="clearfix element"><label for="">Salutation<span>*</span></label>
+            <span class="mr">
+        <fieldset class="radios">
+        <?php
+            if($result->gender == "male")
+            {
+            ?>
+            <label class="label_radio" for="radio-01"><input name="sample-radio" id="radio-01" value="male" type="radio" checked /> MR.</label>
+            <label class="label_radio" for="radio-02"><input name="sample-radio" id="radio-02" value="female" type="radio" />MS.</label>
+            <?php
+            }
+            else if($result->gender == "female")
+            {
+            ?>
+            <label class="label_radio" for="radio-01"><input name="sample-radio" id="radio-01" value="male" type="radio"  /> MR.</label>
+             <label class="label_radio" for="radio-02"><input name="sample-radio" id="radio-02" value="female" type="radio" checked />MS.</label>
+            <?php    
+            }
+            else
+            {
+            ?>
+             <label class="label_radio" for="radio-01"><input name="sample-radio" id="radio-01" value="male" type="radio" /> MR.</label>
+            <label class="label_radio" for="radio-02"><input name="sample-radio" id="radio-02" value="female" type="radio" />MS.</label>
+            <?php
+            }
+            ?>
+            
+        </fieldset>
+        
+        </span>
+        
+            </li>
+            
+            <li class="clearfix element">
+            <label for="">First name<span>*</span></label>
+            <?php
+            if($result)
+            {
+            ?>
+            <input type="text" name="" id="fname" onkeypress="return onlyAlphabets(event,this);" value="<?php echo $result->fName; ?>"/>
+            <?php
+            }
+            else
+            {
+            ?>
+            <input type="text" name="" id="fname" onkeypress="return onlyAlphabets(event,this);"/>
+            <?php
+            }
+            ?>
+            </li>
+            
+            
+        	<li class="clearfix">
+            <label for="">Last name</label>
+            <?php
+            if($result)
+            {
+            ?>
+            <input type="text" name="" id="lname" onkeypress="return onlyAlphabets(event,this);" value="<?php echo $result->lName;?>"/>
+            <?php
+            }
+            else
+            {
+            ?>
+            <input type="text" name="" id="lname" onkeypress="return onlyAlphabets(event,this);"/>
+            <?php
+            }
+            ?>
+            </li>
+            
+            <li class="clearfix element">
+            <label for="">Email<span>*</span></label>
+             <?php
+            if($result)
+            {
+            ?>
+            <input type="text" name="" id="email" value="<?php echo $result->eId;?>"/>
+            <?php
+            }
+            else
+            {
+            ?>
+            <input type="text" name="" id="email"/>
+            <?php
+            }
+            ?>
+            </li>
+            
+            
+            
+        	<li class="clearfix element">
+            <label for="">Username<span>*</span></label>
+             <?php
+            if($result)
+            {
+            ?>
+            <input type="text" name="" id="uname" readonly="true" value="<?php echo $result->uname;?>"/>
+            <?php
+            }
+            else
+            {
+            ?>
+            <input type="text" name="" id="uname"/>
+            <?php
+            }
+            ?>
+            </li>
+            
+            
+        	<li class="clearfix element">
+            <label for="">Password<span>*</span></label>
+            
+            
+           
+            <input type="password" name="" id="pass"/>
+           
+            </li>
+            
+            
+        	<li class="clearfix element">
+            <label for="">Repeat Password<span>*</span></label>
+            <input type="password" name="" id="passd"/>
+            </li>
+            
+            
+           
+            <li class="clearfix">
+            <label for="">&nbsp;</label>
+            <?php
+            if($result)
+            {
+            ?>
+            <input type="hidden" value="<?php echo $result->id; ?>" id="devid" />
+            <input type="button" name="" value="Save & continue" onclick="saveupdate()"/>
+            <?php
+            }
+            else
+            {
+            ?>
+            <input type="button" name="" value="Save & continue" onclick="save1()"/>
+            <?php
+            }
+            ?>
+            </li>
+            
+            <li class="clearfix message">
+            <span id="validate"></span>
+            <p style="color:red;display:none; text-align: left !important;" id="checkGender">Please put your gender.</p>
+            </li>
+            
+        </ul>
+            
+        </div>
+        <!----------------------------------------------------end of tab1------------------------------------->
+        <div id="tab-2" class="tab-content">
+            <h2>Company profile</h2>
+        <ul>
+        	<li class="clearfix"><label for="">Company name</label>
+            <input type="text" name="">
+            </li>
+        	<li class="clearfix">
+            <label for="">Company type</label>
+             <div class="selectdiv">
+    <select class="selectboxdiv">
+        <option>choose preset...</option>
+        <option>two</option>
+        <option>something</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+    <div class="out">XCZXCzxcxz</div>
+</div>
+            </li>
+        	<li class="clearfix">
+            <label for="">Phone</label>
+            <input type="text" name="">
+            </li>
+        	<li class="clearfix">
+            <label for="">City</label>
+            <input type="text" name="">
+            </li>
+            
+        	<li class="clearfix">
+            <label for="">Country</label>
+           <div class="selectdiv">
+    <select class="selectboxdiv">
+        <option>choose preset...</option>
+        <option>two</option>
+        <option>something</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+    <div class="out">XCZXCzxcxz</div>
+</div>
+            </li>
+        	<li class="clearfix">
+            <label for="">Description</label>
+           <textarea name="" cols="" rows=""></textarea>
+           <div class="validate-ok"><span style="display:none" class="icon-check"></span><span class="icon-cancel"></span></div>
+           <span class="msg">Max. 150 characters <em style="color:#00ad6a; font-style:normal">(perfect)</em></span>
+           <div class="word-counting">+ 23</div>
+            </li>
+        	<li class="clearfix">
+            <label for="">Company avatar</label>
+            <input type="file" class="nicefile" />
+            <div class="validate-ok"><span class="icon-check"></span></div>
+            <span class="msg">Exact 200 x 200 pixels (max. filesize 500 kb)<em style="color:#00ad6a; font-style:normal; display:none">(perfect)</em><em style="color:#F00; font-style:normal">(Too small)</em></span>
+            
+            <div class="after-image-upload"><img src="<?php //echo $this->basePath('sfpdeveloper/img/img-upload.jpg') ?>" alt=""></div>
+            </li>
+            
+            <li class="add-margin clearfix">
+            <label class="long-label" for="">&nbsp;</label>
+            <a href="#" class="previous-step">Previous step</a>
+            <input type="button" name="" value="Save & continue">
+            </li>
+        </ul>
+        
+        </div>
+<!-----------------------------------------------------------end of tab2----------------------------------------------------->
+        <div id="tab-3" class="tab-content">
+            <h2>Studio three sixty five</h2>
+            <strong>Amsterdam</strong>
+            <p class="media-marketing">Social media marketing</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consequat sollicitudin sagittis. Cras non elit nec urna adipiscing ullamcorper.</p>
+            
+            <div class="confirmation-sec">
+    <div class="result-img"><img alt="" src="img/result.png"></div>
+    <div class="confirm-img"><img alt="" src="img/img3.png"></div>
+    </div>
+    		<a class="previous-step" href="#">Previous step</a>
+    		<a href="<?php //echo $this->url('application/default',array('controller'=>'sfpdeveloper','action'=>'dashboard'));?>"><button type="button" value="Save &amp; continue" name="">Save &amp; continue</button></a>
+        </div>
+        
+    </div>
+</div> 
+
+		<!--===================================tab html end=================================-->
+        </div>
+        
+        <div class="back-to-top-cont" style="position:relative;">
+          <hr>
+          <a id="back-to-top" class="go_to_up" href="#">Back to top</a></div>
+          
+        </section>
+        
+        </div>
+        </div>
+
+        
+        
+        
+        <script type="text/javascript">
+
+$(document).ready(function() {
+      $("select").change(function() {
+        var str = "";
+        str = $(this).find(":selected").text();
+        $(this).next(".out").text(str);
+      }
+                        ).trigger('change');
+      setPointer = function(bAllowClickThrough) {
+        if (bAllowClickThrough) {
+          document.getElementById("cimp").style["pointer-events"] = "none";
+        }
+      }
+    }
+);
+      
+function onlyAlphabets(e, t) {
+    try {
+      if (window.event) {
+        var charCode = window.event.keyCode;
+      }
+      else if (e) {
+        var charCode = e.which;
+      }
+      else {
+        return true;
+      }
+      if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode == 0 || charCode == 32)
+        return true;
+      else
+        return false;
+    }
+    catch (err) {
+      alert(err.Description);
+    }
+}
+    
+    
+function save1() 
+{
+    var gender = $('input[type=radio]:checked').val();
+    
+    var fname = $("#fname").val();
+    var lname = $("#lname").val();
+    var eid = $("#email").val();
+    var uname = $("#uname").val();
+    var pwd = $("#pass").val();
+    var rpwd = $("#passd").val();
+    var regexemail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var n = pwd.length;
+    var n = pwd.length;
+    var minNumberofChars = 8;
+    var maxNumberofChars = 20;
+    
+   if(gender != 'male' && gender != 'female')
+    {
+    		$("#checkGender").show();
+            return false;
+    }
+    
+    if (gender == ''|| fname == '' || fname == '' || eid == '' || uname == '' || pwd == '') {
+    //alert("please fill the required fields");
+    $("#validate").text("Please fill the required fields");
+    return false;
+    }
+    
+    if (!eid.match(regexemail)) {
+    //alert("Please put valid E-mail");
+    $("#validate").text("Please put valid Email address");
+    return false;
+    }
+    
+    if (n < minNumberofChars || n > maxNumberofChars) {
+    //alert("The size of your password  must be between 8 to 20");
+    $("#validate").text("The length of your password  must be between 8 to 20");
+    return false;
+    }
+    
+    if (pwd == rpwd) 
+    {
+        var mainPath = window.location.protocol + "//" + window.location.host + "/sfpdeveloper";
+        var registerPath = mainPath + "/register1";
+        
+        $.ajax({
+            type: 'POST',
+            data: {
+                gender: gender,
+                fname: fname,
+                lname: lname,
+                eid: eid,
+                uname: uname,
+                pwd: pwd
+            },
+            url: registerPath,
+            success: function(data) 
+            {
+                if (data != 0) {
+                    
+                    window.location.href = mainPath + "/devreg1/" + data;
+                }
+                else {
+                	
+                   // alert("user name already exist");
+                    $("#validate").text("The user name already exists");
+                }
+            }
+        });
+    }
+    else 
+    {
+       // alert("password is not matched properly");
+        $("#validate").text("Passwords do not matched");
+    }
+}
+      
+      function saveupdate() {
+        var devid = $("#devid").val();
+      
+        var gender = $('input[type=radio]:checked').val();
+        var fname = $("#fname").val();
+        var lname = $("#lname").val();
+        var eid = $("#email").val();
+        var uname = $("#uname").val();
+        var pwd = $("#pass").val();
+        var rpwd = $("#passd").val();
+        var regexemail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      var n = pwd.length;
+    var minNumberofChars = 8;
+    var maxNumberofChars = 20;
+    if (gender == '' || fname == '' || fname == '' || eid == '' || uname == '' || pwd == '') {
+     // alert("please fill the required fields");
+     $("#validate").text("Please fill the required fields");
+      return false;
+    }
+    if (!eid.match(regexemail)) {
+      //alert("Please put valid E-mail");
+      $("#validate").text("Please put valid Email address");
+      return false;
+    }
+    if (n < minNumberofChars || n > maxNumberofChars) {
+      //alert("The size of your password  must be between 8 to 20");
+      $("#validate").text("The length of your password  must be between 8 to 20");
+      return false;
+    }
+    if (pwd == rpwd) {
+      var mainPath = window.location.protocol + "//" + window.location.host + "/sfpdeveloper";
+      $.ajax({
+        type: 'POST',
+        data: {
+          gender: gender,
+          fname: fname,
+          lname: lname,
+          eid: eid,
+          uname: uname,
+          pwd: pwd,
+          devid: devid
+        }
+        ,
+        url: mainPath + "/updateregister1",
+        success: function(data) {
+          if (data == "1") {
+            window.location.href = mainPath + "/devreg1/" + devid+"|"+'<?php echo $developerIdEncrypted;?>';
+          }
+        }
+      }
+            );
+    }
+    else {
+      //("password is not matched properly");
+      $("#validate").text("Passwords do not matched");
+    }
+    }
+</script> 
+    </body>
+</html>

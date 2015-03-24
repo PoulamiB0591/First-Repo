@@ -1,0 +1,13 @@
+/* Styles go here */
+
+.fittext {
+  width: 322px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+input {
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+}

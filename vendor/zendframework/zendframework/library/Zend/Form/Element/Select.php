@@ -119,9 +119,10 @@ class Select extends Element implements InputProviderInterface
      * @throws InvalidArgumentException
      */
     public function setOptions($options)
-    {
+    { 
+        
         parent::setOptions($options);
-
+        
         if (isset($this->options['value_options'])) {
             $this->setValueOptions($this->options['value_options']);
         }

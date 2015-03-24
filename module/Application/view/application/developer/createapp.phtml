@@ -1,0 +1,76 @@
+<!-- added by Poulami -->
+<div class="site">
+
+<div class="container-fluid">
+<div class="row"><p id="fly-it" class="top_heading col-md-12 center">Create App</p>
+<a href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action'=>'dashboard','id'=>$devId));?>">back to Dashboard</a>
+<br />
+
+Email id :
+<input type="text" value="" id="email" />
+<input type="button" onclick="submitapp(<?php echo $devId; ?>)" value="Get App Id" />
+
+</div>
+<div class="appidiv" style="display: none;">
+Your new App ID is : <br />
+<input type="text" value="" id="appid" readonly/>
+
+</div>
+<div class="col-md-8 col-md-offset-2 dev-form clearfix">
+
+
+
+    <div class="dashboard-wrap col-lg-12">
+        <div class="dashboard col-lg-12">
+         <table style="width:100%">
+  <tr>
+    <th>Created App Id</th>
+    <th>Date</th>		
+  </tr>
+  <?php
+$co = count($result);
+
+   for($i=0;$i<$co;$i++)
+   {
+  ?>
+  <tr>
+    <td><?php echo $result[$i]['appid']; ?></td>
+    <td><?php echo $result[$i]['date']; ?></td>		
+  
+  </tr>
+<?php
+}
+?>
+</table>
+          
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+function submitapp(datam)
+{
+   
+   var base_url = window.location.origin;
+  
+   var email = $("#email").val(); 
+   var hids = datam;
+     $.ajax({
+            type:'POST',
+            data:{email:email,hids:hids},
+            url: base_url+'/developer/appidsave',
+            success:function(data){
+                   $(".appidiv").show();
+                   $("#appid").val(data);
+                   
+            }
+            });
+}
+
+
+
+</script>

@@ -1,0 +1,46 @@
+$welcomeNote = '<html>
+		<body>
+		<strong>Bevestiging inschrijving student/programmeur</strong>
+		
+		<p>(Subject/)Onderwerp: Bevestiging aanmelding Hackathon Den Bosch</p>
+		
+		<p>Beste deelnemer, </p>
+		
+		<p>Bedankt voor je aanmelding voor de 1e Hackathon Den Bosch! We nemen je inschrijving in behandeling en zullen je op zo snel mogelijk nader informeren.</p>
+		
+		<p>We doen er alles aan om er een inspirerend en motiverend event van te maken. Ken je iemand met een business of IT achtergrond die ook geïnteresseerd zou kunnen zijn? We zijn nog steeds op zoek naar toffe, creatieve en enthousiaste developers! Blijf ondertussen op de hoogte van de laatste updates via <a href="https://www.facebook.com/hackathonmasters">Facebook</a> of <a href="https://twitter.com/hackathonmaster">Twitter</a>.</p>
+		
+		<p>Heb je een vraag? Aarzel dan niet om contact op te nemen met onze supportdesk: <a href="mailto:support@hackathonmasters.com"> support@hackathonmasters.com</a></p>
+		
+		<p>Met vriendelijke groet,</p>
+		
+		<p>Team Hackathon Masters</p>
+		</body>
+		</html>';
+		
+		
+		require('smtp/class.phpmailer.php');
+		$mail = new PHPMailer(); // create a new object
+		$mail->IsSMTP(); // enable SMTP
+		$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+		$mail->SMTPAuth = true; // authentication enabled
+		$mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for GMail
+		$mail->Host = "smtp.mandrillapp.com";
+		$mail->Port = 587; // or 587
+		$mail->IsHTML(true);
+		$mail->Username = "info@smartfanpage.com";
+		$mail->Password = "fv7M_K1TFO9LgCaEdIVhgw";
+		$mail->SetFrom(" info@hackathonmasters.com");
+		$mail->Subject = "Bevestiging aanmelding Hackathon Den Bosch";
+		$mail->Body = $welcomeNote;
+		$mail->AddAddress($email);
+		
+		if(!$mail->Send())
+		{
+			echo "Mailer Error: " . $mail->ErrorInfo;
+		}
+		else
+		{
+			$valueofname = "success";
+			header('Location:index.php?authdetails='.urlencode($valueofname));
+		}

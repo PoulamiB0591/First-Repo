@@ -1,0 +1,127 @@
+﻿/*.fresheditor-toolbar 
+{
+	font-family:"Georgia", Serif;
+	line-height:1.67em;
+	font-size:1em;
+}
+.toolbar-btn {
+	height: 20px;
+}
+.colorpanel {
+	background-color: #333;
+}
+
+#toolbar .btn-group {
+  background: none repeat scroll 0 0 #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 38px;
+}
+.btn-toolbar  > .btn-group:nth-child(9) {
+    display:none;
+    }
+.btn-toolbar  > .btn-group:nth-child(8) {
+    display:none;
+    }
+ .btn-toolbar  > .btn-group:nth-child(6) {
+    display:none;
+    }*/
+
+
+
+
+
+div.navbar {
+	background:#FFF;
+	margin: 0;
+	padding:22px 2%;
+	position:fixed;
+	left:0;
+	top:0;
+	right:auto;
+	width: 100%;
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+div.navbar > div#toolbar {
+	left:0;
+	top:0;
+	margin: 0;
+	position:relative;
+}
+div.navbar > div#toolbar div.btn-group {
+	margin: 0 15px 0 0;
+	border:1px solid #CCC;
+}
+div.navbar > div#toolbar div.btn-group > a {
+	background-image:url(../img/edit_icon_all1.png);
+	background-color:#FFF;
+	background-position:left top;
+	background-repeat:no-repeat;
+	border-left:1px solid #CCC;
+	width: 37px;
+	height: 32px;
+	display: block;
+	padding: 0;
+	margin: 0;
+	line-height: normal;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	text-indent:-9999px;
+}
+div.navbar > div#toolbar div.btn-group a:first-child {
+	border-left:none;
+}
+div.navbar > div#toolbar div.btn-group a > span, div.navbar > div#toolbar div.btn-group a > div {
+	display: none !important;
+}
+div.navbar > div#toolbar div.btn-group > a:hover {
+	background-color:#ebebeb;
+}
+div.navbar > div#toolbar div.btn-group > a.toolbar_italic {
+	background-position:-40px top;
+}
+div.navbar > div#toolbar div.btn-group > a.toolbar_underline {
+	background-position:-80px top;
+}
+div.navbar > div#toolbar div.btn-group > a.toolbar_fontname {
+	background-position:-120px top;
+	width: 76px;
+}
+div.navbar > div#toolbar div.btn-group > a.toolbar_fontsize {
+	background-position:-196px top;
+	width: 46px;
+}
+div.navbar > div#toolbar div.btn-group > a.toolbar_forecolor {
+	background-position:-240px top;
+	width: 46px;
+}
+div.navbar > div#toolbar div.btn-group > a.toolbar_bgcolor {
+	background-position:-284px top;
+	width: 46px;
+}
+div.navbar > div#toolbar div.btn-group > a.toolbar_link {
+	background-position:-334px -1px;
+}
+
+div.navbar > div#toolbar div.btn-group > a.toolbar_justifyleft {
+	background-position: -361px -1px;
+}
+
+div.navbar > div#toolbar div.btn-group > a.toolbar_justifycenter {
+	background-position: -387px -1px;
+}
+div.navbar > div#toolbar div.btn-group > a.toolbar_justifyright{
+	background-position: -411px -2px;
+}
+div.navbar > div#toolbar div.btn-group > a.toolbar_justifyfull {
+	background-position: -437px -2px;
+}
+

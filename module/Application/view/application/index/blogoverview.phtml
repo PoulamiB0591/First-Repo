@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smartfanpage || How does it works</title>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+
+<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<!-- Bootstrap -->
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+	
+.blog-wrapper-mainn > div {
+	max-height:321px;
+	overflow:hidden;
+}
+
+.read_more_btn {
+  margin-left: 15px;
+}
+
+.blog-overview {
+	background:url(<?php echo $content->imagePath; ?>) no-repeat top center;
+	width:100%;
+	background-size:cover;
+	overflow:hidden;
+	margin:auto;
+	min-height: 420px;
+}
+    </style>
+ <script>
+  function fbs_click()
+    {
+    var base_url = window.location.origin;
+    u=base_url+"/index/blogoverview"
+    t='smartfanpage';
+    var child = window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+    }
+    
+        function twt_click()
+    {
+        var base_url = window.location.origin;
+       u=base_url+"/index/blogoverview"
+     t='smartfanpage';
+    var child = window.open('http://twitter.com/share?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');   
+    }
+    
+    function linkedinButton(){
+    var base_url = window.location.origin;
+   var articleUrl = encodeURIComponent(base_url+'/index/blogoverview');
+       var articleTitle = encodeURIComponent('smartfanpage');
+       var articleSummary = encodeURIComponent('blog');
+       var articleSource = encodeURIComponent('best');
+       var goto = 'http://www.linkedin.com/shareArticle?mini=true'+
+           '&url='+articleUrl+
+           '&title='+articleTitle+
+           '&summary='+articleSummary+
+           '&source='+articleSource;
+       window.open(goto, "LinkedIn", "width=660,height=600,scrollbars=yes;resizable=no");         
+}         
+  </script>
+</head>
+
+<body>
+<!--//========for mobile social icons===========-->
+<div class="mobile-social">
+        <a href="#" class="button"></a>
+        <ul class="social_icon3">
+         
+          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+        </ul>
+        </div>
+<!--//========End for mobile social icons===========-->	
+       
+<!--===== start menu ===-->
+
+<!--===== end menu ===-->
+<!--===== body start ===-->
+<div class="site">
+  <div class="container-fluid"> 
+  <div class="row">
+      <div class="blog-overview">
+        <ul class="social_icon2" >
+          <li><a href="javascript:void(0)">Share this website</a></li>
+             <li><a href="javascript:void(0)" onclick="return fbs_click()"></a> <a style="cursor:pointer" onclick="return twt_click()"></a> <a style="cursor:pointer" onclick="return linkedinButton()"></a></li>
+        </ul>
+        <div class="banner_caption3 col-md-12 res-text" >
+          <h1><?php echo $content->headerLine; ?></h1>
+          
+          
+      </div>
+      
+    </div>
+      
+    <div class="container container-for-standard-desktop"> 
+    <div class="row">
+      
+     <section class="blog-overview-cont row col-lg-12">
+     
+   
+     <div class="col-md-3 col-xs-12 pull-right" >
+          <select id="standard-dropdown" name="standard-dropdown" class="custom-class1 custom-class2 blog-dropdown">
+            <option value="1" class="test-class-1">All blogs</option>
+            <option value="1" class="test-class-1">All blogs</option>
+            <option value="1" class="test-class-1">All blogs</option>
+          </select>
+        </div>
+     <div class="col-md-3 col-xs-12 pull-right" >
+          <ul class="blog_nav">
+          	<li><a href="javascript:void(0)">Populair</a></li>
+          	<li><a href="javascript:void(0)">Latest</a></li>
+          	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action' =>'blogarchive'));?>">Archive</a></li>
+          </ul>
+        </div>
+     <div class="col-lg-12 divide-bar"><hr/></div>
+     
+  <?php $c =0; foreach($res as $result){ ?>     
+<div class="blog-wrapper-mainn col-lg-12" id="Li<?php echo $c ;?>">
+
+<div class="blog-wrapper">
+        
+        	<h5><span><?php $date = $result->date;  $details = date("F j, Y", strtotime($date) ); echo $details."<b> in Social media</b>"; ?></span> <span><?php
+$datetime1 = date('Y-m-d H:i:s');
+
+$date3 = date_create($datetime1);
+//creating a date object
+$value = $result->date." ".$result->timeofinsert;
+
+$date4 = date_create($value);
+
+//calculating the difference between dates
+//the dates must be provided to the function as date objects that's why we were setting them 
+//as date objects and not just as strings
+//date_diff returns an date object wich can be accessed as seen below
+$diff34 = date_diff($date4, $date3);
+$days = $diff34->d;
+//accesing months
+$months = $diff34->m;
+//accesing years
+$years = $diff34->y;
+//accesing hours
+$hours=$diff34->h;
+//accesing minutes
+$minutes=$diff34->i;
+//accesing seconds
+$seconds=$diff34->s;
+
+if($years != "")
+{
+    if($years == '1')    
+    echo $years." "."year"." "."ago";
+    else
+    echo $years." "."years"." "."ago";
+}
+
+else if($months != "")
+{
+    if($months  == '1')    
+    echo $months." "."month"." "."ago";
+    else
+    echo $months." "."months"." "."ago";
+}
+
+else if($days != "")
+{
+    if($days == '1')    
+    echo $days." "."day"." "."ago";
+    else if( $days > 1 && $days < 7)
+    echo $days." "."days"." "."ago";
+    else
+    {
+        $weekval = $days/7;   
+        $value = explode(".",$weekval);
+        $originalvalue = $value[0];
+        if($originalvalue == '1')
+        echo $originalvalue." "."week"." "."ago"; 
+        else
+        echo $originalvalue." "."weeks"." "."ago"; 
+    }
+}
+
+else if($hours != "")
+{
+    if($hours  == '1')    
+    echo $hours." "."hour"." "."ago";
+    else
+    echo $hours." "."hours"." "."ago"; 
+}
+
+else if($minutes != "")
+{
+    if($minutes  == '1')    
+    echo $minutes." "."minute"." "."ago";
+    else
+    echo $minutes." "."minutes"." "."ago"; 
+}
+
+else 
+{
+    if($seconds == '1')    
+    echo $seconds." "."second"." "."ago";
+    else
+    echo $seconds." "."seconds"." "."ago"; 
+}
+//echo '
+//<p>The difference between '.$datetime1 .' and 2009-06-26 10:12:34 
+//<br />is: ' . $days . ' day(s), ' . $months . ' month(s), ' . $years . ' year(s), '.$hours.' hour(s),
+//'.$minutes.' minute(s), '.$seconds.' second(s) </p>
+//';
+ 
+
+
+?></span></h5>
+        	
+            <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action' =>'blogdetails','id' => $result->linkCreator));?>"><?php echo $result->question; ?></a>
+          <!--  <div>  <?php echo substr( $result->answer,0,400); ?></div>-->
+          </em>
+        </div>
+
+<a href="<?php echo $this->url('application/default',array('controller'=>'Index','action' =>'blogdetails','id' => $result->linkCreator));?>" >Read More</a>
+</div>
+
+
+<?php $c++; } ?>
+
+<?php if($c >= 4){?>
+ 
+<button  name="read_more" class="read121" onclick="more_all();">KEEP READING</button> 
+<?php }?>
+        </section>
+    
+  
+    
+   
+     </div>
+       
+       <!-- <div style="position:relative;">
+        <hr/>
+        <a href="" class="go_to_up" id="back-to-top"></a></div>-->
+        </div>
+       
+        </div>
+        
+</div>
+</div>
+</div>
+      
+      
+
+     
+     <!--===== body_container end ===--> 
+   <!--===== main_container end ===--> 
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>--> <script src="js/jquery-1.10.1.min.js"></script> 
+
+<script type="text/javascript">
+
+$(function(){
+    $("a.js_onPageLink").bind("click", function (event) {
+        event.preventDefault ? event.preventDefault() : event.returnValue = false;
+        var target = $(this).attr("href");
+        $("html, body").stop().animate({
+                scrollLeft: $(target).offset().left,
+                scrollTop: $(target).offset().top
+            }, 1200);
+    });
+});
+function more_all(){
+	
+
+ $("div.blog-wrapper-mainn").not(".akactive").slice(0, 6).addClass("akactive");
+
+}
+
+</script>
+<style>
+ 
+div.blog-wrapper-mainn{
+   display: none; 
+}
+  #Li0, #Li1, #Li2, #Li3, #Li4{
+	display: block !important;  
+	}
+    
+    .akactive{
+        
+        display: block !important;  
+    }
+    button.read121 {
+  display: block;
+  height: 45px;
+  margin: 0 auto 12px;
+  width: 170px;
+  background: none repeat scroll 0 0 #a9c5bc;
+    border-radius: 2px;
+    clear: both;
+    color: #ffffff;
+    font-family: "ubuntubold";
+    border: none;
+    font-style: normal;
+}
+
+  </style>
+</body>
+</html>

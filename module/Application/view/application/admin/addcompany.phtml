@@ -1,0 +1,26 @@
+
+    
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">           
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'detailscompany'));?>">Back To Company Type</a>
+        
+            </div>
+            <form method="post" action="insertcompany"  name="upload" >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_wrap sam">
+                <tr>
+                    <th colspan="4">ADD Company Type</th>
+                </tr>
+                <tr>
+                    <td><label>Enter Company Type</label></td>
+                    <td><input type="text" name="cmpname" class ="txtInput txtMedium" /></td>
+                </tr>             
+               
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Add Company Type" name="appsubmit" class ="save_btn"  /></td>
+                    </tr>
+            </table>
+            </form>
+        </div>
+    </div>

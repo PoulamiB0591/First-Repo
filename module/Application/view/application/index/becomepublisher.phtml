@@ -1,150 +1,224 @@
-<div  class="site">
-  <div class="container-fluid"> 
-    <!--===== start banner ===-->
-     <!--===== start banner ===-->
-    <div class="row">
-      <div class="become-publisher">
-        <ul class="social_icon">
-          <li><a href="#">Share this website</a></li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smartfanpage || Home Publisher</title>
+
+<!-- Bootstrap -->
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<?php
+     $protocol = '';
+        if (isset($_SERVER['HTTPS']) &&
+       ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+        isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'HTTPS') {
+         $protocol = 'https://';
+        }
+        else {
+        $protocol = 'http://';
+           }
+       // echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $url = $protocol.$_SERVER["SERVER_NAME"];
+
+?>
+
+
+<style type="text/css">
+        .banner {
+			background:url(<?php echo $content->bannerPath; ?>) no-repeat top center;
+			width:100%;
+			background-size:cover;
+			overflow:hidden;
+			margin:auto;
+			min-height: 420px;
+        }
+
+.selectBox-dropdown .selectBox-label {width:165px!important;display: none;}
+div#loader12 {
+  float: left;
+  margin: 19px 0 0 10px;
+}
+
+.select-div {
+  float: left;
+  display: none;
+}
+</style>
+ <script>
+  function fbs_click()
+    {
+    var base_url = window.location.origin;
+    u=base_url+"/index/becomepublisher";
+    t='smartfanpage';
+    var child = window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+    }
+    
+    function twt_click()
+    {
+        var base_url = window.location.origin;
+       u=base_url+"/index/becomepublisher";
+     t='smartfanpage';
+    var child = window.open('http://twitter.com/share?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');   
+    }
+    
+    function linkedinButton(){
+    var base_url = window.location.origin;
+   var articleUrl = encodeURIComponent(base_url+'/index/becomepublisher');
+       var articleTitle = encodeURIComponent('smartfanpage');
+       var articleSummary = encodeURIComponent('publisher');
+       var articleSource = encodeURIComponent('best');
+       var goto = 'http://www.linkedin.com/shareArticle?mini=true'+
+           '&url='+articleUrl+
+           '&title='+articleTitle+
+           '&summary='+articleSummary+
+           '&source='+articleSource;
+       window.open(goto, "LinkedIn", "width=660,height=600,scrollbars=yes;resizable=no");         
+} 
+  </script> 
+</head>
+
+<body>
+
+<!--//========for mobile social icons===========-->
+<div class="mobile-social">
+        <a href="#" class="button"></a>
+        <ul class="social_icon3" style="visibility:hidden;">
+         
           <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul> <!--=== social icon ===-->
-        <div class="cont-title">
-        <h1>Be  a publisher</h1>
+        </ul>
         </div>
+<!--//========End for mobile social icons===========-->	
+       
+<!--===== start menu ===-->
+
+<!--===== end menu ===--> 
+<!--===== body start ===-->
+<div class="site">
+  <div class="container-fluid"> 
+  <div class="row"> 
+    <!--===== start banner ===-->
+    
+      <div class="banner">
+        <ul class="social_icon">
+          <li><a href="javascript:void(0)">Share this website</a></li>
+          <li><a href="javascript:void(0)" onclick="return fbs_click()"></a> <a style="cursor:pointer" onclick="return twt_click()"></a> <a style="cursor:pointer" onclick="return linkedinButton()"></a></li>
+        </ul>
+        <div class="banner_caption col-md-12 t-store">
+        	<h1><?php echo $content->bannerHeader; ?><br>
+            <?php echo $content->filFormOneHeader; ?> </h1>
+          <h2><?php echo $content->filFormOneDescription; ?></h2>
+          <a href="<?php echo $url?>/sfpdeveloper/index">Become a Developer</a> </div>
+     
       </div>
       
-    </div><!--===== end banner ===--> <!--===== end banner ===--> 
     
-
-
-<!--===================================tab html start=================================-->
-<div id="detail-info-cont" class="row">
-<div id="horizontalTab" >
-  <ul class="resp-tabs-list" id="home_publisher_tab">
-  <li><a href="#tab-1">introduction</a></li>
-  <li><a href="#tab-2">create account</a></li>
-  <li><a href="#tab-3">company profile</a></li>
-  <li><a href="#tab-4">confirmation</a></li>
-  </ul>
-  <hr>
-
-  <!--======================introduction section start=======================--> 
-<div class="introduction-section2" id="tab-1">
-    <ul class="introduction-details2">
-      <li class="col-lg-6 col-sm-6"> <span><img src="<?php echo $this->basePath('img/intro_img_1.png') ?>" alt="" /></span>
-      <div class="content">
-        <h3>Why?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper massa et tellus tempor.</p>
-        </div>
-      </li>
-      <li class="col-lg-6 col-sm-6"> <span><img src="<?php echo $this->basePath('img/intro_img_2.png') ?>" alt="" /></span>
-       <div class="content">
-        <h3>Are you suited for the job?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper massa et tellus tempor.</p>
-        </div>
-      </li>
-      <li class="col-lg-6 col-sm-6"> <span><img src="<?php echo $this->basePath('img/intro_img_3.png') ?>" alt="" /></span>
-       <div class="content">
-        <h3>Get new clients</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper massa et tellus tempor.</p>
-        </div>
-      </li>
-      <li class="col-lg-6 col-sm-6"> <span><img src="<?php echo $this->basePath('img/intro_img_4.png') ?>" alt="" /></span>
-       <div class="content">
-        <h3>Be reviewed</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper massa et tellus tempor.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <!--======================introduction section end=======================--> 
-  
-  <!--======================creat acc. section start=======================-->
- <div class="creat-acc-section" id="tab-2">
-    <h1 class="heading">Fill up your personal data</h1>
-    <p class="data-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet.</p>
-    <div class="personal-data-form"><form class="form-horizontal" role="form">
-      <div class="info">
-        <label>Saluation</label>
-        <span class="mr">
-        <fieldset class="radios">
-            <label class="label_radio" for="radio-01"><input name="sample-radio" id="radio-01" value="1" type="radio" checked /> MR.</label>
-            <label class="label_radio" for="radio-02"><input name="sample-radio" id="radio-02" value="1" type="radio" />MRS.</label>
-            
-        </fieldset></span></div>
-        <div class="info">
-        <label>First name</label>
-        <span class="first-name"><input name="first-name" type="text"></span></div>
-        <div class="info">
-        <label>Last name</label>
-        <span class="first-name"><input name="first-name" type="text"></span></div>
-        <div class="info">
-        <label>Email</label>
-        <span class="first-name"><input name="first-name" type="text"></span></div>
-    </form>
-    </div>
-  
-  </div>
-  <!--======================creat acc. section end=======================--> 
-<!--/*==============================company profile html start==============================*/--> 
- <div class="creat-acc-section company-profile" id="tab-3">
-    <h1 class="heading">Fill up your personal data</h1>
-    <p class="data-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet.</p>
-    <div class="personal-data-form"><form>
-     <div class="info company-profile-info">
-        <label>Company name</label>
-        <span class="first-name"><input name="first-name" type="text"></span></div>
-        
-     <div class="info select">
-        <label>Company type</label>
-        <span class="first-name company-type" ><select name="" id="company-profile-option">
-        <option value="1" class="test-class-1">Choose..</option>
-        <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
-        <option value="1" class="test-class-1">make your choise</option>
-        </select></span></div>
-        
-     <div class="info company-profile-info">
-        <label>Phone</label>
-        <span class="first-name"><input name="first-name" type="text"></span></div>
-        
-        
-     <div class="info company-profile-info">
-        <label>City</label>
-        <span class="first-name"><input name="first-name" type="text"></span></div>
-        
-      <div class="info select">
-        <label>Country</label>
-        <span class="first-name company-type" ><select name="" id="company-profile-option">
-        <option value="1" class="test-class-1">Choose..</option>
-        <option value="1" class="test-class-1">dfgsdfgsdgfd</option>
-        <option value="1" class="test-class-1">make your choise</option>
-        </select></span></div>
-        
-      <div class="info company-profile-info">
-        <label>Description</label>
-        <span class="first-name company-profile"><textarea name="des" cols="" rows=""></textarea><div class="clearfix"></div><p class="word-limitation">Max. 150 characters</p></span><span class="correct-arrow"><img src="<?php echo $this->basePath('img/correct-arrow.png') ?>" alt="" /></span><a class="rate_publisher"><p>+25</p><img src="<?php echo $this->basePath('img/img2.png') ?>" alt="" /></a></div>
-        
-      <div class="info company-profile-info">
-        <label>Company avatar</label>
-        <a class="first-name"><span id="button"><input name="Browse" type="file" value="Browse" class="nicefile"></span><p class="word-limitation">Exact 200 x 200 pixels (max. filesize 500 kb)(perfect)</p></a><span class="correct-arrow correct-arrow2"><img src="<?php echo $this->basePath('img/correct-arrow.png') ?>" alt="" /></span><a class="rate_publisher rate2"><p>+25</p><img src="<?php echo $this->basePath('img/img2.png') ?>" alt="" /></a></div>
-         
-      <div class="info company-profile-info"><img src="<?php echo $this->basePath('img/img3.png') ?>" alt="" /></div>
+   
       
-      <!--<div class="info company-profile-info">
-        <label>Company avatar</label>
-        <a class="first-name"><span id="button"><input name="Browse" type="file" value="Browse" class="nicefile"></span><p class="word-limitation">Exact 200 x 200 pixels (max. filesize 500 kb)<strong>(to small)</strong></p><a class="rate rate2 rate3"><img src="img/img4.png" alt="" /></a></a></div>-->
-    </form>
-    </div>
+      <!--===== start dropdown ===-->
+      
+      <div class="container container-for-standard-desktop">
+      <div class="row">
+      
+        <p class="top_heading col-md-12" id="fly-it"><?php echo $content->filFormTwoHeader; ?></p>
     
-  </div>
-<!--/*==============================company profile html end==============================*/-->
-<!--===============================confirmation start-================================-->
-<div class="creat-acc-section confirmation" id="tab-4">
-    <h1 class="heading">Studio three sixty five<strong>Amsterdam</strong></h1>
-    <p class="media-marketing">Social media marketing</p>
-    <p class="data-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet.</p>
-    <div class="personal-data-form confirmation-sec">
-    <div class="result-img"><img src="<?php echo $this->basePath('img/result.png') ?>" alt="" /></div>
-    <div class="info company-profile-info confirm-img"><img src="<?php echo $this->basePath('img/img3.png') ?>" alt="" /></div>
-    </div>
-  </div>
+        <div class="select-div">
+          
+          <select id="dropdowns" name="standard-dropdown">
+          <option value="0"  >Select Template Category</option>
+            <option value="Hotels, restaurants and bars"  >Hotels, restaurants and bars</option>
+            <option value="Sports sector"  >Sports sector</option>
+            <option value="Events and conferences"  >Events and conferences</option>
+            <option value="Small businesses and retail"  >Small businesses and retail</option>
+            <option value="Reseller"  >Reseller</option>
+          </select>
+        </div>
+        
+       <div id="loader12"  style="display: none;"><img src="<?php echo $url;?>/img/frontend_loading.GIF" /> </div>
+        
+        <div class="col-md-1 col-xs-12 pull-right"><a href="javascript:void(0)" class="refresh_button" id="refreshed1"></a></div>
+        <div class="col-md-3 col-xs-12 pull-right">
+         
+          	<form method="post">
+              <div class="input-group cust-search">
+                <input class="form-control" placeholder="Search" name="srchItem" id="srch-term" type="text">
+                <div class="input-group-btn">
+                  <button id="searchfff" class="btn btn-default" type="submit" name="allSearch" value="search" ><span class="glyphicon glyphicon-search"></span></button>
+                </div>
+              </div>
+        	</form>
+         
+        </div>
+        
+       <!-- <div style="position:relative; clear: both;">
+          <hr/><a href=".sign_up" class="go_to_down js_onPageLink"></a>
+        </div>-->
+    
+        <section class="hm-publisher-wrapper col-lg-12">
+            <hr />
+        <h3><?php echo $content->filFormTwoDescription; ?></h3>
+        
+        <!--<span class="options">
+      
+      <a href="#" id="thumbnails-list" class="sorticon" title="Thumbnail View"><img src="../img/hm-pub-img-icon.png" alt="thumbnails"></a>
+      
+    </span>-->
+    <!-- icons: http://findicons.com/pack/1689/splashy/ -->
+        <div id="content">
+      <ul id="listdisplay" class="clearfix thumbview">
+       <?php foreach ($contentpass as $p) : 
+      // echo $p->disableDeveloper;exit;
+         if(($p->disableDeveloper == 0) && ($p->stepsCompleted == 'Thirdstep'))
+       {
+       
+       ?>
+        <li class="clearfix col-lg-3 col-sm-4">
+          <span class="listimg"><a href="javascript:void(0)" class="clearfix"><img src="<?php $path=$p->cimage; if($path==NULL) echo $url.'/img/default-profile.png';else echo $path; ?>" alt=""/></a></span>
+          <span class="innercontent">
+            
+            <h2 class="contact-name"><?php echo $p->fName." ".$p->lName; ?></h2>
+            <p><?php echo $p->cdesc; ?></p>
+            
+           
+          </span>
+        </li>
+        <?php 
+        }
+        endforeach; ?>
+        </ul>
+        </div>
+        
+        <div class="blank-for-space">&nbsp;</div>
+    </section>
+        </div>
+ 
+       
+        <!--<div style="position:relative;">
+        <hr class="foot-hr" />
+        <a href="" class="go_to_up" id="back-to-top"></a></div>-->
+        </div>
+        </div>
+        
+      <!--===== end dropdown ===--> 
+      
+      
+        
+  
+
+      </div>
+        </div>
+          </div>
+    <!--===== body_container end ===--> 
+   <!--===== main_container end ===--> 
+
+
+
+</body>
+</html>

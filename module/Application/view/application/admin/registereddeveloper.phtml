@@ -1,0 +1,34 @@
+<div class="site">
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'admin','action'=>'logout'));?>">Logout</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'admin','action'=>'devdetails'));?>">Developer</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'admin','action'=>'managecamp'));?>">Manage Campaign</a>
+            <a href="<?php echo $this->url('application/default',array('controller'=>'admin','action'=>'registereddeveloper'));?>">Registered Developers Details</a>
+            </div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_wrap">
+                <tr>
+                    <th>Developer Name</th>
+                    <th>email</th>
+                    <th>gender</th>
+                    <th>phone</th>
+                    <th>city</th>
+                    <th>country</th>
+                  
+                    <!--  <th>View Link</th>-->
+                </tr>
+                <?php foreach ($content as $listing) : ?>
+                <tr>
+                <td><?php echo $listing->fName." ".$listing->lName; ?></td>
+                <td><?php echo $listing->eId; ?></td>
+                <td><?php echo $listing->gender; ?></td>
+                <td><?php echo $listing->cphone; ?></td>
+                <td><?php echo $listing->ccity; ?></td>
+                <td><?php echo $listing->ccountry; ?></td>
+               
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </div>

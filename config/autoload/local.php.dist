@@ -12,9 +12,10 @@
  */
 
 return array(
-	’db’ => array(
-	’username’ => ’phpmyadmin’,
-	’password’ => ’Testing1@’,
+	'db' => array(
+	'username' => 'phpmyadmin',
+	'password' => 'Testing1@',
 	),
+	
 );
 

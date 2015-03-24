@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Onze ondernemers | Ondernemerslift+ </title>
+	<link rel="canonical" href="http://www.ondernemersliftplus.nl/over-ons/best-practices" />
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0, maximum-scale=1.0">
+<link href="/applications/ondernemersliftplus/assets/img/favicon.ico" rel="icon" type="image/x-icon">
+<link href="/applications/ondernemersliftplus/assets/img/ipad-icon.png" rel="apple-touch-icon">
+<link href="/applications/ondernemersliftplus/assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="/applications/ondernemersliftplus/assets/css/print.css" rel="stylesheet" type="text/css" media="print">
+<link href="/applications/ondernemersliftplus/assets/css/responsive.css" rel="stylesheet" type="text/css">
+<link href="/applications/base-library/fonts/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/applications/base-library/jquery/jquery.js"></script><script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script><link href="/applications/base-library/shadowbox/shadowbox.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/applications/base-library/shadowbox/shadowbox.js"></script><script type="text/javascript">
+    Shadowbox.init({
+        language: 'nl',
+        players:  ['img','iframe']
+    });
+    </script><script type="text/javascript" src="/applications/ondernemersliftplus/assets/js/default.js"></script><!--[if IE]> 
+		<link href="/applications/yb-saas/assets/css/ie.css" rel="stylesheet" type="text/css" media="screen" />
+        <script> ie = true; </script>
+    <![endif]--><!--[if LT IE 7]>
+		<link href="/applications/base-library/ie6-fix/ie6.css" rel="stylesheet" type="text/css" media="screen" />
+    <![endif]--><!-- start GA--><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function()
+{(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create','UA-56257977-1','auto');
+ga('require','linkid','linkid.js');
+ga('require','displayfeatures');
+ga('send','pageview');
+
+
+	function recordEvent(category, label, action) {
+		ga('send', 'event', category, action, label);
+	}
+	function recordOutboundLink(link, label, action) {
+		ga('send', 'event', 'External link', action, label);
+	}
+	function recordMailLink(link, label, action) {
+		ga('send', 'event', 'Link to e-mailaddress', action, label);
+	}
+	function recordDownloadlink(link, category, action) {
+		//_gaq.push(['_trackEvent','Download',category,action]);
+		ga('send', 'event', 'Download', category, action);
+	}
+	
+
+</script><!-- end GA-->
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+<a href="#top" id="toTop" title="Terug naar boven"><span class="fa fa-chevron-up"></span>Terug naar boven</a>
+<div id="background"></div>
+<div id="site">
+	<div class="container clearfix">
+    	<div id="header" class="clearfix">
+        	<div class="logo">
+			<a href="/" title="Ondernemerslift+"><img src="/applications/ondernemersliftplus/assets/img/logo1.png" alt=""></a>            </div>
+            
+            <button type="button" id="menu-pulldown-button" class="navbar-toggle">
+                <span class="bars">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </span>
+                MENU
+            </button>
+			            <div id="search">
+            	<a href="#" id="open_search"><img src="/applications/ondernemersliftplus/assets/img/layout/btn_search.png" alt=""></a>
+                <div id="searchBox">
+                <form id="form-search" name="search" action="/zoeken" method="get">
+                <div>
+                                    <input type="text" id="searchkey" name="keyword" class="formField searchBox formDefault" value="Zoeken..."><input name="searchbtn" class="searchbtn" type="image" src="/applications/ondernemersliftplus/assets/img/layout/btn_search.png">
+</div>
+                </form>
+                </div>
+            </div>
+			            
+    		<div id="menu">
+            <ul>
+<li>
+<a href="/ondernemer/" title="Ondernemer" class="mainItem">Ondernemer</a><div class="pulldown"><ul>
+<li><a href="/ondernemer/werkwijze" title="Werkwijze" class="sub">Werkwijze</a></li>
+<li><a href="/ondernemer/producten/" title="Producten" class="sub">Producten</a></li>
+<li><a href="/ondernemer/vraagformulier" title="Stel jouw vraag" class="sub">Stel jouw vraag</a></li>
+<li><a href="/ondernemer/contact" title="Contact" class="sub">Contact</a></li>
+</ul></div>
+</li>
+<li>
+<a href="/onderwijs/" title="Onderwijs" class="mainItem">Onderwijs</a><div class="pulldown"><ul>
+<li><a href="/onderwijs/ondernemerschapspaspoort" title="Ondernemerschapspaspoort" class="sub">Ondernemerschapspaspoort</a></li>
+<li><a href="/onderwijs/innovatieklas" title="Innovatieklas" class="sub">Innovatieklas</a></li>
+<li><a href="/onderwijs/topklas-ondernemen" title="Topklas ondernemen" class="sub">Topklas ondernemen</a></li>
+<li><a href="/onderwijs/innovation-in-a-week" title="Innovation in a Week" class="sub">Innovation in a Week</a></li>
+<li><a href="/onderwijs/overige-activiteiten/" title="Overige activiteiten" class="sub">Overige activiteiten</a></li>
+<li><a href="/onderwijs/contact" title="Contact" class="sub">Contact</a></li>
+</ul></div>
+</li>
+<li>
+<a href="/kennis/" title="Kennis" class="mainItem">Kennis</a><div class="pulldown"><ul>
+<li><a href="/kennis/bedrijf/" title="Bedrijf" class="sub">Bedrijf</a></li>
+<li><a href="/kennis/verwijzingen" title="Food" class="sub">Food</a></li>
+<li><a href="/kennis/beschermen-van-kennis/" title="Beschermen van kennis" class="sub">Beschermen van kennis</a></li>
+</ul></div>
+</li>
+<li>
+<a href="/nieuws/actueel" title="Actueel" class="mainItem">Actueel</a><div class="pulldown"><ul>
+<li><a href="/nieuws/actueel" title="Nieuws" class="sub">Nieuws</a></li>
+<li><a href="/nieuws/agenda/" title="Agenda" class="sub">Agenda</a></li>
+<li><a href="/nieuws/archief" title="Archief" class="sub">Archief</a></li>
+</ul></div>
+</li>
+<li>
+<a href="/over-ons/" title="Over ons" class="active mainItem">Over ons</a><div class="pulldown"><ul>
+<li><a href="/over-ons/stakeholders" title="Onze partners" class="sub">Onze partners</a></li>
+<li><a href="/over-ons/team" title="Team" class="sub">Team</a></li>
+<li><a href="/over-ons/bestuur" title="Bestuur" class="sub">Bestuur</a></li>
+<li><a href="/over-ons/best-practices" title="Onze ondernemers" class="sub">Onze ondernemers</a></li>
+<li><a href="/over-ons/relaties" title="Regio starten" class="sub">Regio starten</a></li>
+<li><a href="/over-ons/kennismaken" title="Kennismaken" class="sub">Kennismaken</a></li>
+</ul></div>
+</li>
+<li>
+<a href="/contact/" title="Contact" class="mainItem">Contact</a><div class="pulldown"><ul><li><a href="/contact/intake-formulier" title="Intake formulier" class="sub">Intake formulier</a></li></ul></div>
+</li>            </ul>
+</div>
+    		<div id="submenu">
+            <a href="/over-ons/stakeholders" title="Onze partners">Onze partners</a><a href="/over-ons/team" title="Team">Team</a><a href="/over-ons/bestuur" title="Bestuur">Bestuur</a><a href="/over-ons/best-practices" title="Onze ondernemers" class="active">Onze ondernemers</a><a href="/over-ons/relaties" title="Regio starten">Regio starten</a><a href="/over-ons/kennismaken" title="Kennismaken">Kennismaken</a>	        </div>
+        </div>
+        
+    	<div id="main" class="clearfix">
+        <div id="content">
+<h1>&bdquo;In mijn hoofd lopen idee&euml;n en cijfers dwars door elkaar heen....</h1>
+<div class="news-article-intro">
+<p><strong><em>Een beetje hulp bij plannen en structureren is meer dan welkom&rdquo;.&nbsp;</em></strong></p>
+
+<p>De tool die Smartfanpage biedt, helpt ondernemers bij social media campagnes. In vaktermen heet het een software ecosysteem en het is een open platform voor 2 partijen: de softwareontwikkelaar en de gebruiker. Ontwikkelaars kunnen hun software op het platform aanbieden, waarna marketingprofessionals het hier kunnen kopen. De ontwikkelaars worden op diverse manieren gefaciliteerd, o.a. met de unieke Software Development Kit. Vergelijken kun je Smartfanpage een beetje met tools als de App Store of Word Press. &bdquo;Smartfanpage is eigenlijk een app store voor social media campagnes&rdquo;, legt Koen uit.</p>
+</div>
+<p><strong>Unique Selling Points</strong></p>
+
+<p>Wat Smartfanpage onderscheidt van andere tools, is het feit dat het een open platform is. Elke ontwikkelaar kan hier software aanbieden, dat is elders niet het geval. Doordat Smartfanpage niet zelf ontwikkelt en meerdere ontwikkelaars inzet, zijn ze minder afhankelijk. Een derde USP is het feit dat je hier betaalt per campagne: het zogenaamde &sbquo;pay as you go-model&rsquo;. Je zit dus niet vast aan abonnementen of prijzen per maand.&nbsp;</p>
+
+<p>Op dit moment zit het systeem van Smartfanpage volop in de ontwikkelfase. In september wordt er getest en in december moet het optimaal werken, zodat er begin 2015 gestart kan worden met het werven van gebruikers en ontwikkelaars.</p>
+
+<p><strong>Structureren en plannen</strong></p>
+
+<p>Dankzij Ondernemerslift + heeft Smartfanpage een gestructureerd plan voor de toekomst. &bdquo;Zelf stunt ik met cijfers en idee&euml;n lopen bij mij niet zelden dwars door elkaar heen, dus hulp bij plannen en structureren was meer dan welkom&rdquo;, aldus Koen. OL+ heeft hem geholpen bij het stap voor stap doorlopen van fases en het schrijven van plannen. Samen hebben ze ook Koens pitch voor de financieringscommissie voorbereid en nu krijgt Smartfanpage - verspreid over 5 jaar - een fijne financi&euml;le bijdrage. &bdquo;Naast Ondernemerslift + heb ik een externe adviseur van Innovation in a Week in de hand genomen. Ik geloof simpelweg in het inzetten van ieders krachten en sterke punten&rdquo;, legt Koen uit.</p>
+
+<p><strong>Krachten bundelen</strong></p>
+
+<p>Koen is actief in meerdere bedrijven zoals Delgence en Looqi, al heeft Smartfanpage echt zijn focus. Hij noemt zichzelf eigenwijs en chaotisch. &bdquo;Een echte ondernemer? Misschien wel inderdaad&rdquo;, lacht hij. Voor de nodige structuur verzamelt hij mensen om zich heen in de vorm van adviseurs, compagnons, medewerkers en Ondernemerslift +, van wie hij naar eigen zeggen enorm veel leert. Koen is actief als ambassadeur van Startersmarktplaats en stimuleert ook op deze manier andere starters te netwerken en aansluiting te zoeken bij andere ondernemers. &bdquo;Wees niet bang om hulp of advies te vragen. Samen kom je verder&rdquo;, aldus Koen.</p>
+
+<p><strong>Grote toekomstplannen</strong></p>
+
+<p>Koen heeft ambitieuze doelen gesteld voor Smartfanpage. In 2015 gaat hij 4000 campagnes verkopen en dit aantal loopt zodanig op dat hij in 2017 3% marktaandeel heeft. Dit alles gaat hij bereiken met behulp van o.a. Ondernemerslift +. &bdquo;Ik houd ze op de hoogte, krijg advies en breid mijn netwerk steeds verder uit met hun connecties&rdquo;, besluit Koen. &bdquo;Ik &eacute;n Ondernemerslift + geloven erin, dus het gaat zeker weten lukken!&rdquo;.</p>
+
+<p><strong>Meer weten?</strong></p>
+
+<p>Wil je meer weten, check&nbsp;<a href="http://www.smartfanpage.com/" onclick="recordOutboundLink(this, 'www.smartfanpage.com', 'http://www.smartfanpage.com/');">www.smartfanpage.com</a>&nbsp;of neem contact op via&nbsp;<a href="mailto:info@smartfanpage.com" onclick="recordMailLink(this, 'info@smartfanpage.com', 'info@smartfanpage.com');">info@smartfanpage.com</a><strong>.</strong></p>
+</div>
+<div id="content-column">
+<div class="image image-placeholder bp-image">
+<img src="/applications/ondernemersliftplus/cache/image/ratio/380/0/-Afbeeldingen-onze_mensen-Smartfanpage.png" alt="" title=""><div class="padding"><span class="title">Smartfanpage</span></div>
+</div>
+<div class="padding">
+<h2>Overige berichten</h2>
+<div class="news-detail-article clearfix">&gt; <a href="/over-ons/best-practices?case=13" title="&ldquo;In &eacute;&eacute;n week van idee tot innovatief product!&rdquo;">&ldquo;In &eacute;&eacute;n week van idee tot innovatief product!&rdquo;</a><br>
+</div>
+<div class="news-detail-article clearfix">&gt; <a href="/over-ons/best-practices?case=7" title="&bdquo;Vertel mensen niet wat er in zit, maar wat het met ze doet&rdquo;.">&bdquo;Vertel mensen niet wat er in zit, maar wat het met ze doet&rdquo;.</a><br>
+</div>
+<div class="news-detail-article clearfix">&gt; <a href="/over-ons/best-practices?case=8" title="&bdquo;Versterken door verbinden; daar draait &rsquo;t allemaal om!&rdquo;">&bdquo;Versterken door verbinden; daar draait &rsquo;t allemaal om!&rdquo;</a><br>
+</div>
+<div class="news-detail-article clearfix">&gt; <a href="/over-ons/best-practices?case=6" title="&bdquo;Als je doet waar je goed in bent, weten mensen je te vinden!&rdquo;">&bdquo;Als je doet waar je goed in bent, weten mensen je te vinden!&rdquo;</a><br>
+</div>
+<div class="news-detail-article clearfix">&gt; <a href="/over-ons/best-practices?case=5" title="&bdquo;Ons product is zo uniek. Een beetje concurrentie zou juist wel fijn zijn.&rdquo;">&bdquo;Ons product is zo uniek. Een beetje concurrentie zou juist wel fijn zijn.&rdquo;</a><br>
+</div>
+<div class="news-detail-article clearfix">&gt; <a href="/over-ons/best-practices?case=1" title="&bdquo;Een groter bewustzijn over landbouw en natuur cre&euml;ren.">&bdquo;Een groter bewustzijn over landbouw en natuur cre&euml;ren."</a><br>
+</div>
+</div>
+</div>        </div>
+    </div>
+</div>
+<div id="footer">
+	<div class="container clearfix">
+    	<div class="column-01">
+        <h3><strong>Contact</strong></h3>
+
+<h3>&nbsp;</h3>
+
+<p><u>Bezoekadres</u><br><span style="color: rgb(67, 67, 67); line-height: 19px; font-size: 15px;">Agri &amp; Food Plaza</span><br><span style="color: rgb(67, 67, 67); line-height: 19px; font-size: 15px;">Onderwijsboulevard 225</span><br><span style="color: rgb(67, 67, 67); line-height: 19px; font-size: 15px;">5223 DE&nbsp; 's-Hertogenbosch</span><br>
+&nbsp;</p>
+
+<p>E:&nbsp;<a href="mailto:info@ondernemersliftplus.nl" style="font-size: 15px; line-height: 19px;" onclick="recordMailLink(this, 'info@ondernemersliftplus.nl', 'info@ondernemersliftplus.nl');">info@ondernemersliftplus.nl</a><br><span style="color: rgb(67, 67, 67); font-size: 15px; line-height: 19px;">T: 085 - 90 20 209</span></p>
+
+<p><span style="font-size: 15px;"><u>Postadres</u><br>
+Postbus 90124</span><br>
+5200 MA 's-Hertogenbosch</p>
+
+<h3>&nbsp;</h3>
+        </div>
+        <div class="column-02">
+        <h3>
+<strong>Nieuwsbrief ontvangen?</strong><br><br>
+Dat kan!</h3>
+
+<p>Schrijf je&nbsp;<a href="/contact/inschrijven-nieuwsbrief"><strong>hier</strong></a>&nbsp;in voor de nieuwsbrief en blijf op de hoogte van de&nbsp;laatste ontwikkelingen bij OndernemersLift+</p>
+
+<p>&nbsp;</p>
+
+<h3>
+<br>
+&nbsp;</h3>
+        </div>
+        <div class="column-03">
+        <h3><strong>Resultaten OndernemersLift+</strong></h3>
+<div class="barometer clearfix">
+<div class="title"><a href="/" title="Aantal trajecten">Aantal trajecten</a></div>
+<div class="meter">
+<a href="/" title="" class="balk" data-value="139"></a><div class="value">139</div>
+</div>
+</div>
+<div class="barometer clearfix">
+<div class="title"><a href="/ondernemer/producten/pre--seed-of-proof-of-concept-leningen" title="Aantal leningen">Aantal leningen</a></div>
+<div class="meter">
+<a href="/ondernemer/producten/pre--seed-of-proof-of-concept-leningen" title="" class="balk" data-value="9"></a><div class="value">9</div>
+</div>
+</div>
+<div class="barometer clearfix">
+<div class="title"><a href="/over-ons/best-practices" title="Toegekende leningen (in &euro;1000 )">Toegekende leningen (in &euro;1000 )</a></div>
+<div class="meter">
+<a href="/over-ons/best-practices" title="" class="balk" data-value="700"></a><div class="value">700</div>
+</div>
+</div>
+<div class="barometer clearfix">
+<div class="title"><a href="/ondernemer/vraagformulier" title="Aantal gestelde vragen">Aantal gestelde vragen</a></div>
+<div class="meter">
+<a href="/ondernemer/vraagformulier" title="" class="balk" data-value="78"></a><div class="value">78</div>
+</div>
+</div>
+<div class="barometer clearfix">
+<div class="title"><a href="/onderwijs/overige-activiteiten/kom-proeven-2014" title="Aanmeldingen Kom Proeven">Aanmeldingen Kom Proeven</a></div>
+<div class="meter">
+<a href="/onderwijs/overige-activiteiten/kom-proeven-2014" title="" class="balk" data-value="421"></a><div class="value">421</div>
+</div>
+</div>        </div>
+    </div>
+</div>
+<div id="footerbar">
+	<div class="container clearfix">
+    	<div class="social">
+        <a href="https://twitter.com/OLplus" title="Twitter" target="_blank" onclick="recordOutboundLink(this, 'Twitter', 'https://twitter.com/OLplus');"><img src="/applications/ondernemersliftplus/assets/img/layout/twitter.png" alt=""></a><a href="https://nl-nl.facebook.com/OndernemersLift" title="Facebook" target="_blank" onclick="recordOutboundLink(this, 'Facebook', 'https://nl-nl.facebook.com/OndernemersLift');"><img src="/applications/ondernemersliftplus/assets/img/layout/facebook.png" alt=""></a><a href="https://www.linkedin.com/company/3483286?trk=tyah&amp;trkInfo=tarId%3A1412848056242%2Ctas%3Aondernemerslift%2Cidx%3A1-1-1" title="LinkedIn" target="_blank" onclick="recordOutboundLink(this, 'LinkedIn', 'https://www.linkedin.com/company/3483286?trk=tyah&trkInfo=tarId%3A1412848056242%2Ctas%3Aondernemerslift%2Cidx%3A1-1-1');"><img src="/applications/ondernemersliftplus/assets/img/layout/linkedin.png" alt=""></a><a href="https://www.youtube.com/channel/UCOks65AiUmIjlGqUK8Wqy6g" title="YouTube" target="_blank" onclick="recordOutboundLink(this, 'YouTube', 'https://www.youtube.com/channel/UCOks65AiUmIjlGqUK8Wqy6g');"><img src="/applications/ondernemersliftplus/assets/img/layout/youtube.png" alt=""></a>		</div>
+        <a href="/disclaimer" title="Disclaimer">Disclaimer</a><a href="/websitemap" title="Sitemap">Sitemap</a>    </div>
+</div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+</html>

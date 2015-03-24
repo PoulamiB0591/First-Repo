@@ -1,0 +1,51 @@
+<div class="site">
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+<?php  
+$form = $this->form;
+$form->setAttribute('action', $this->url('application/default', array('controller'=>'Admin','action' => 'updatevalue','id'=>$id)));
+$form->prepare();
+echo $this->form()->openTag($form);
+?>
+            <div class="table_button">
+       <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'show'));?>">Show Community </a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'showwalloffame'));?>">Edit developers section</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back to page details</a>
+              <!--   <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'showappimage'));?>">Show App Image</a> -->
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'showanimatedimage'));?>">Edit App and Animation</a>
+            </div>
+     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_wrap">
+        <tr>
+            <th colspan="2">Home Page Edit</th>
+        </tr>
+        <tr>
+            <td><label>Banner Header</label></td><td><?php echo $this->formRow($form->get('change_tagline'));?></td>
+        </tr>
+        <tr>
+            <td><label>Sub Headline</label></td><td><?php echo $this->formRow($form->get('text2'));?></td>
+        </tr>
+        <tr>
+            <td><label>campaign Heading</label></td><td><?php echo $this->formRow($form->get('text3'));?></td>
+        </tr>
+        <tr>
+            <td><label>campaign description</label></td><td><?php echo $this->formRow($form->get('text5'));?></td>
+        </tr>
+        <tr>
+            <td><label>App Header</label></td><td><?php echo $this->formRow($form->get('text6'));?></td>
+        </tr>
+        <tr>
+            <td><label>App description</label></td><td><?php echo $this->formRow($form->get('header'));?></td>
+        </tr>
+        <tr>
+            <td><label>Ddeveloper Description</label></td><td><?php echo $this->formRow($form->get('hdescription'));?></td>
+        </tr>
+        <tr>
+            <td><label>Image upload for Frontend:</label></td><td><?php echo $this->formRow($form->get('pname'));?></td>
+        </tr>
+        <tr>
+            <td><label>Previous Image</label><img src="<?php echo $content;?>" height="100" width="100" /></td>
+            <td><?php echo $this->formSubmit($form->get('submit')); echo $this->formRow($form->get('id')); echo $this->form()->closeTag();?></td>
+        </tr>
+  </table>
+</div>
+</div>

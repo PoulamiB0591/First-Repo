@@ -1,0 +1,127 @@
+<img src="http://test.scampaigns.com/img/divider.png" id="imgdragable" style="position: absolute; top: 1171px; display: none;">
+
+
+
+<!--SFPPAGE-->
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+ <link rel="stylesheet" href="/editcss/jquery-ui.css">
+<link rel="stylesheet" href="//test.scampaigns.com/user_template/1954afd9dc8e6d312-Optinapp--mod-template/css/style.css">
+<link rel="stylesheet" href="/editcss/jquery.datetimepicker.css">
+<link rel="stylesheet" href="/editcss/jquery.timepicker.css">
+<!--SFPScript type="text/javascript"  src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></!--SFPScript> 
+<!--SFPScript type="text/javascript" src="/js3/jquery.datetimepicker.js"></!--SFPScript> 
+<!--SFPScript type="text/javascript"  src="/js/jquery.timepicker.js"></!--SFPScript> 
+
+<!--SFPScript>
+$(".jui-checkbox-SFP_ROW p.SFPTWO_TAGEDIT").live( "click", function(){
+    $(this).parent().find('input[type="checkbox"]').trigger('click');
+});
+
+$(".jui-checkbox-SFP_ROW p.SFPTWO_TAGEDIT").live( "click", function(){
+    $(this).parent().find('input[type="radio"]').trigger('click');
+});
+
+function datepick(num)
+{
+  $('body').on('click', '#datepicker'+num, function(event) {
+    
+    $(this).datepicker({
+
+       showOn: 'focus',
+
+        yearRange: "1900:+85",
+
+        changeMonth: true,
+
+        changeYear: true
+    }).focus();
+
+});  
+}
+
+
+function timepick(num)
+{
+    $('body').on('click', '#timepicker'+num, function(event) {
+     $(this).timepicker(
+        {
+       showOn: 'focus',
+	addSliderAccess: true,
+	sliderAccessArgs: { touchonly: false }
+  }).focus();
+}); 
+}   
+</!--SFPScript> 
+<!--<link rel="stylesheet" href="http://localhost/zf_new/public/css/styles.css"/>
+<link rel="stylesheet" href="http://localhost/zf_new/public/css/textarea.css"/>---->
+
+<link rel="stylesheet" type="text/css" media="all" href="//test.scampaigns.com/user_template/1954afd9dc8e6d312-Optinapp--mod-template/css/jui.checkboxes.css">
+
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+   <script src = "http://js.nicedit.com/nicEdit-latest.js"></script>--->
+ 
+
+<!---<script type="text/javascript" src="http://localhost/zf_new/public/js/jquery.form.js"></script>
+<script type="text/javascript" src="http://localhost/zf_new/public/js/style.js"></script>---->
+
+
+
+
+<div class="details-n-winn-wrapper">
+<div class="SFPTWO_IMAGEEDIT tagsimg_1"><img id="images1" src="//test.scampaigns.com/user_template/1954afd9dc8e6d312-Optinapp--mod-template/img/top-img.jpg" alt="" style="width: 100%; margin:0 0 8px 0;"><div class="setting-2" style="display: none;"><a title="Edit" class="edit" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input value="1954afd9dc8e6d312-Optinapp--mod-template" id="hid" type="hidden"><input value="0" id="imgCount" type="hidden"></div></div> 
+<!--<div class="SFPTWO_IMAGEEDIT"><img id="images1" src="//test.scampaigns.com/user_template/1954afd9dc8e6d312-Optinapp--mod-template/img/top-img.jpg" alt="" style="width: 100%;"/></div>         
+ -->       
+<div class="tool-tip SFPTWO_TEXTEDIT tags_1 texttagdelete"><h2 class="textedit SFPTWO_TAGEDIT edit tag_1 tagdelete">Fill in your details and win! </h2><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div>
+<div class="form-container jui-checkboxes-container" id="checkboxesInit2">
+
+
+
+<ul class="designelements clearfix" style="position:absolute;left:0; z-index:9999;">
+ <li id="lilabelme" style="display:none;">
+    	<a class="disabled" style="cursor: pointer;" onclick="chechTypeAndAdd(this.rel)" rel="label" id="label">
+        	<span>Title</span>
+            <img src="/formbuild/title_icon.png" alt="">
+        </a>
+    </li>
+   
+</ul>
+<form name="form_1204150" id="editable" action="" class="SFPTWO_EDITFORM" style="margin-top:25px;" method="post">
+
+ <img src="/img/divider.png" id="imgdrag" style="position: relative; top: 384px; display: none;">
+ <img src="/img/divider.png" id="imgdragable" style="display: none;">
+
+
+
+<ul style="" class="sortable-list ui-sortable">
+
+
+<li id="trigme" style="display: none;">
+  <div>dd</div> 
+  </li>
+	<li style="" class="dottedLi ui-draggable SFPTWO_TEXTEDIT tags_2 texttagdelete element1"><div id="labeledit" class="labeledit emaildrag"><p style="font-size: 19px;" id="pid_" class="opt SFPTWO_TAGEDIT tag_2 tagdelete"><font>EmaiL address</font></p><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div><input name="textBoxEmailelement1" type="email">
+    
+    </li>
+    
+
+	<li style="" class="dottedLi ui-draggable SFPTWO_TEXTEDIT tags_3 texttagdelete element2"><div id="diveditme" class="labeledit addmechk checkboxdrag"><p style="font-size: 19px;" id="pid_form" class="opt SFPTWO_TAGEDIT tag_3 tagdelete"><font>What kind of campaign are you Looking for? </font>
+    </p><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div><div class="checksboxes p_scents chkboxaddnow" id="checksboxes_form657"><div id="chkclone" name="checkBoxelement2"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-rowform657"><span class="checkboxWrapper"><input value="option1" name="checkBoxelement2[]" type="checkbox"> </span> <p class="opt SFPTWO_TAGEDIT tag_4 tagdelete" id="1"><font>option1</font></p> <div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div><div class="jui-checkbox-row"> <span class="checkboxWrapper"><input value="option2" name="checkBoxelement2[]" type="checkbox"></span> <p class="opt SFPTWO_TAGEDIT tag_5 tagdelete" id="2"><font>option2</font></p> <div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div><div class="jui-checkbox-row"><span class="checkboxWrapper"><input value="option3" name="checkBoxelement2[]" type="checkbox"></span><p class="opt SFPTWO_TAGEDIT tag_6 tagdelete" id="3"><font>option3</font></p><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div></div><p id="mepp" class="pchkadd"></p>   <div style="display: none;" class="setedit"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> <div style="display: none;" class="setedit"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> </div> </li>
+    
+ 
+	 <li style="" class="dottedLi ui-draggable SFPTWO_TEXTEDIT tags_4 texttagdelete element3"><div id="diveditme" class="labeledit"><p style="font-size: 19px;" id="pid_formmsg" class="opt SFPTWO_TAGEDIT tag_7 tagdelete"><font>Your message</font></p><div><textarea id="editmetext" name="textareaelement3" class="textareaforform SFPTEXTAREA"></textarea></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div></li>
+	<li style="" class="dottedLi ui-draggable SFPTWO_TEXTEDIT tags_5 texttagdelete element4"><div id="getbtnme" class="submitdrag"><input class="SFPsubmit inputdisabled" name="submit" value="Send" type="submit"></div></li>
+    
+<li style="display: list-item;" class="ui-draggable">
+    	</li><li class="dottedLi SFPTWO_TEXTEDIT tags_11 texttagdelete tags_6"><div id="labeledit" class="labeledit datedrag"><p id="pid_851" class="opt SFPTWO_TAGEDIT  notfound tag_12 tagdelete tag_8"><font class="SFPCOLOR">Label</font></p><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div><input name="" id="datepicker4" onclick="datepick(4)" type="text"></li>
+    <li class="dottedLi draggable SFPTWO_TEXTEDIT tags_6 texttagdelete tags_7"><div id="labeledit" class="labeledit textareadrag"><p id="pid_38" class="opt SFPTWO_TAGEDIT undefined tag_8 tagdelete tag_9"><font class="SFPCOLOR">Label</font></p><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div><textarea class="notfound" style="height:100px;width:304px;" id="txt_287" rows="" cols="" name=""></textarea></li><li class="dottedLi SFPTWO_TEXTEDIT tags_7 texttagdelete tags_8"><div id="labeledit" class="labeledit datedrag"><p id="pid_856" class="opt SFPTWO_TAGEDIT undefined tag_9 tagdelete tag_10"><font class="SFPCOLOR">Label</font></p><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div><input name="" id="datepicker1" onclick="datepick(1)" type="text"></li><li class="dottedLi SFPTWO_TEXTEDIT tags_8 texttagdelete tags_9"><div id="labeledit" class="labeledit datedrag"><p id="pid_281" class="opt SFPTWO_TAGEDIT undefined tag_10 tagdelete tag_11"><font class="SFPCOLOR">Label</font></p><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div><input name="" id="datepicker2" onclick="datepick(2)" type="text"></li><li class="dottedLi SFPTWO_TEXTEDIT tags_9 texttagdelete tags_10"><div id="labeledit" class="labeledit datedrag"><p id="pid_755" class="opt SFPTWO_TAGEDIT undefined tag_11 tagdelete tag_12"><font class="SFPCOLOR">Label</font></p><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div><div class="setting-2" id="text" style="display:none"><a title="delete" class="delete" href="javascript:void(0)"></a></div></div><input name="" id="datepicker3" onclick="datepick(3)" type="text"></li><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT tags_11 texttagdelete"><div id="labeledit" class="labeledit addmechk checkboxdrag"><p id="pid_40" class="opt explicit_edit SFPTWO_TAGEDIT undefined tag_13 tagdelete" contenteditable="true"><font class="SFPCOLOR">Label</font></p></div><div class="checksboxes p_scents chkboxaddnow editmyopt adding" id="checksboxes_523"><div id="chkclone" name="checkBox"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row523"><span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input value="1" name="checkBox[]" id="1" class="SFPTWO_TAGEDIT tag_12 tagdelete" type="checkbox"> </span> <p class="opt explicit_edit SFPTWO_TAGEDIT tag_13 tagdelete" id="1" style="display:inline-block;" contenteditable="true"><font class="SFPCOLOR">option1</font></p> </div><div class="jui-checkbox-row"> <span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input id="2" value="2" name="checkBox[]" class="SFPTWO_TAGEDIT tag_14 tagdelete" type="checkbox"></span> <p class="opt explicit_edit SFPTWO_TAGEDIT tag_15 tagdelete" style="display:inline-block;" id="2" contenteditable="true"><font class="SFPCOLOR">option2</font></p> </div><div class="jui-checkbox-row"><span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input id="3" value="3" name="checkBox[]" class="SFPTWO_TAGEDIT tag_16 tagdelete" type="checkbox"></span><p class="opt explicit_edit SFPTWO_TAGEDIT tag_17 tagdelete" style="display:inline-block;" id="3" contenteditable="true"><font class="SFPCOLOR">option3</font></p></div></div><p id="mepp" class="pchkadd"></p><div style="display: none;" class="setedit"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div></div><div id="ullidrag" class="ullidrag" style="display: none;"><img src="/img/1416497040_cursor_drag_arrow_2.png"></div><div style="display: none;" class="setting-2 prevnext"><a title="delete" class="delete" href="javascript:void(0)"></a><input id="hid" type="hidden"><input value="0" id="imgCount" type="hidden"></div></li><li class="dottedLi SFPTWO_TEXTEDIT tags_18 texttagdelete"><div id="labeledit" class="labeledit multilinedrag"><p id="pid_888" class="opt explicit_edit SFPTWO_TAGEDIT undefined tag_14 tagdelete" contenteditable="true"><font class="SFPCOLOR">Label</font></p></div><div class="checksboxes p_scents multilineme" id="checksboxes_35"><div id="multiclone"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row35"><p style="border: 1px solid #eee; padding: 10px; min-height: 30px; text-decoration: underline;" class="opt explicit_edit notfound" id="1" contenteditable="true"><font class="SFPCOLOR">Text1</font></p> </div><div class="jui-checkbox-row"></div></div><p id="mepp" class="meline"></p></div><div id="ullidrag" class="ullidrag" style="display:none cursor:move;"><img src="/img/1416497040_cursor_drag_arrow_2.png"></div><div class="setting-2 prevnext"><a title="delete" class="delete" href="javascript:void(0)"></a><input id="hid" type="hidden"><input value="0" id="imgCount" type="hidden"></div></li></ul>
+
+</form><input id="sfpoptForm" value="" type="hidden">
+</div>
+</div>
+
+
+
+

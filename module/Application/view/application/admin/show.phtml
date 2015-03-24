@@ -1,0 +1,22 @@
+<div class="site">
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'pagedetails'));?>">back to pagedetails</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'edit','id'=>1));?>">back</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'showwalloffame'));?>">go to wall of fame</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'slideadd'));?>">Insert Community Details</a>
+            </div>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+                <tr>
+                    <th colspan="2">The apps offered by developer community</th>
+                </tr>
+                <?php foreach ($res as $a){ $imgurl=$a->ImagePath; ?>
+                <tr>
+                    <td> <img src="<?php echo $imgurl; ?>" style="width: 100px;height:100px;" /></td>
+                    <td><a class="table_btn" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'slideview','id' => $a->id));?>">Edit</a><a class="table_btn" onclick="if(!confirm('Are you want to delete'))return false;" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'delete','id' => $a->id));?>">Delete</a></td>
+                </tr>
+                <?php } ?>
+            </table>
+        </div>
+

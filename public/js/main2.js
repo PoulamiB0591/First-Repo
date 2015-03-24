@@ -1,15 +1,13 @@
 (function($){
 	$(function(){
-	   var scriptTag = '<script src="http://localhost/zf_new/public/js/style.js" type="text/javascript">';
+
 		
         setTimeout(function callhtml (){
             //alert('test');
 //            alert($(".imgedit").html());
         
         $("#editingFilename").contents().find("head").append(scriptTag);
-		 $(".imgedit").append("<div class='setting-2'><a title='Edit' class='edit' href='#'>edit</a><a title='delete' class='delete' href='#'>edit</a></div>");
-     $(".textedit").parent().append("<div class='setting-2' id='text'><a title='Edit' class='edit' href='#'></a><a title='delete' class='delete' href='#'></a></div>");
-        },10000);
+
         
         
 		var xz=0;
@@ -67,7 +65,7 @@
 				$("body").append("<div class='mask'></div>");
 				return false
 			});
-			$("a.close, div.mask").click(function(){
+			$("a.close, div.mask, .hideme").click(function(){
 				$("div.popup, div.mask").fadeOut(300, function() {
 				$("div.mask").remove()
 			});
@@ -211,3 +209,4 @@
 		
 	});
 })(jQuery)
+    

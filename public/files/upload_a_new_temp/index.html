@@ -1,0 +1,31 @@
+<?php echo "test";?>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Roel - Welcome to our Website!</title>
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    </head>
+    <body>
+            	<div class="row roel-container"><?php if(1){ echo "start of if";?>
+                	<a href="#" title="Roel" class="logo"><img src="img/logo.jpg" alt="" /></a><!-- end of logo -->
+                    <a href="#" title="Nodig je vrienden uit" onclick="call();" class="invite"><img src="img/facebook_icon.png" alt="" /><span>Nodig je<br />vrienden uit</span></a><!-- end of invite -->
+                <?php echo "end of if"; } ?></div><!-- end of container -->
+                
+                <script>
+                function call()
+                {
+                    alert("function called");
+                }
+                
+                </script>
+    </body>
+    </html>

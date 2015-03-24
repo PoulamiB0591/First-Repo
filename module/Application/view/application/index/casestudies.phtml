@@ -1,3 +1,4 @@
+
 <div  class="site">
   <div class="container-fluid"> 
     <!--===== start banner ===-->
@@ -16,55 +17,43 @@
     </div>
     <div class="row">
      <div class="col-lg-12 case-studies">
+      <?php foreach ($contentpass as $p) :?>
+     <div class="case-studies-wrapper clearfix col-lg-6 col-sm-6">
+      <?php
+
+    if($p->VedioPath != ''  )
+  
+    {
+        $vedio =$p->VedioPath ;
+        
+    
+    /*if($vediourl != '' || $imageurl !='')
+    if($vediourl != '' || $imageurl =='')
+    if($vediourl == '' || $imageurl !='')*/
+    if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $vedio, $match)) {
+    $video_id = $match[1];
+    }
+   ?>     
      
-     <div class="case-studies-wrapper clearfix col-lg-6 col-sm-6">
-     <span>
-                <figure>
-                <img alt="" src="<?php echo $this->basePath('img/case-img-1.jpg') ?>">
-                </figure>
-                </span>
-      <span>
-      <h3>Facebook campaign LFS</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper massa et tellus tempor.</p>
-      </span>          
+         
+               
+     <?php
+            }
+        else{
+        ?>
+        <img src="<?php echo $p->imgPath;?>" alt="" style="width: 100%;">
+
+<?php } ?>
+                
+               
+      <div>
+      <h3><?php echo $p->vedioHeader;?></h3>
+      <p><?php echo $p->VedioDescription;?></p>
+      </div>          
                 
      </div>
-     <div class="case-studies-wrapper clearfix col-lg-6 col-sm-6">
-     <span>
-                <figure>
-                <img alt="" src="<?php echo $this->basePath('img/case-img-2.jpg') ?>">
-                </figure>
-                </span>
-      <span>
-      <h3>Redux awareness campaign</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper massa et tellus tempor.</p>
-      </span>          
-                
-     </div>
-     <div class="case-studies-wrapper clearfix col-lg-6 col-sm-6">
-     <span>
-                <figure>
-                <img alt="" src="<?php echo $this->basePath('img/case-img-3.jpg') ?>">
-                </figure>
-                </span>
-      <span>
-      <h3>The Jump launches a mobile contest</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper massa et tellus tempor.</p>
-      </span>          
-                
-     </div>
-     <div class="case-studies-wrapper clearfix col-lg-6 col-sm-6">
-     <span>
-                <figure>
-                <img alt="" src="<?php echo $this->basePath('img/case-img-4.jpg') ?>">
-                </figure>
-                </span>
-      <span>
-      <h3>Mister de Vries Twitter app</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales scelerisque eros, sed porttitor sem pellentesque quis. Ut interdum nunc nibh, sed dapibus lacus egestas sit amet. Nunc ullamcorper convallis arcu, a congue arcu ultricies ac. Etiam vitae est vitae est adipiscing dictum. Sed in magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper massa et tellus tempor.</p>
-      </span>          
-                
-     </div>
+     <?php endforeach; ?>
+     
      </div> 
       
-    </div><!--===== end banner ===--> 
+  

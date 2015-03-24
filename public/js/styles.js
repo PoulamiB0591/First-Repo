@@ -13,6 +13,7 @@ $(document).ready(function() {
     
     
      $(".imgedit a.edit").live("click",function(){
+        
         $('.imgedit').attr('id','');
         $('#upload').remove();
         

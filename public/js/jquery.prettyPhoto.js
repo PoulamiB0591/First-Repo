@@ -905,6 +905,11 @@
 	  var results = regex.exec( url );
 	  return ( results == null ) ? "" : results[1];
 	}
+    
+    	$("ul#mycarousel li a[rel^='prettyPhoto[gallery1]']").prettyPhoto({
+			animation_speed:'normal',
+			theme:'light_square',
+		});
 	
 })(jQuery);
 

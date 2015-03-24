@@ -1,0 +1,257 @@
+/*
+Author: Markeazy.com
+For any support email support@markeazy.com
+Version: 2.4;
+*/
+
+
+body {
+}
+#wrapper-outer {
+color:#666;
+background-color:#feffff;
+background-image:url(../img/background.png);
+background-repeat:no-repeat;
+background-position:50% 0
+}
+.container {
+max-width:1170px
+}
+
+h1,h2,h3,h4,h5,h6 {
+line-height:1.2em
+}
+
+p,span {
+font-size:1.1em;
+line-height:1.4em
+}
+
+#hr1 hr {
+border-color:#d7d7d7;
+margin:0;
+padding:0
+}
+
+#hr2 hr {
+border-color:#d8d8d8;
+margin:0;
+padding:0
+}
+
+.btn {
+border:0
+}
+
+#s01 {
+padding:30px 0 40px;
+position:relative;
+background-repeat:no-repeat;
+background-position:50% -20px
+}
+
+.logo-area {
+height:74px
+}
+
+#logo {
+max-height:74px
+}
+
+.hero-left-content {
+margin-top:65px;
+color:#fff
+}
+
+.hero-left-content h1 {
+text-transform:uppercase;
+color:#fcffff
+}
+
+.hero-left-content h3 {
+color:#906200;
+margin-top:5px;
+color:#906200
+}
+
+.hero-left-content p {
+min-height:75px;
+color:#fefefe
+}
+
+.btn-cta {
+margin:20px 0;
+padding:30px 0;
+font-size:1.5em;
+text-transform:uppercase;
+font-weight:700;
+background-color:#3171a9;
+color:#faffff
+}
+
+.btn-cta:HOVER {
+background-color:#295e8e;
+color:#fcfbfb
+}
+
+.hero-img-right img {
+max-width:450px
+}
+
+.support-row {
+padding-bottom:20px;
+-webkit-border-radius:20px;
+-moz-border-radius:20px;
+border-radius:20px
+}
+
+#support-title {
+color:#7b7b7b
+}
+
+.support-guy {
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px;
+border:1px solid #d9d7d7
+}
+
+.support-text {
+padding-top:15px
+}
+
+.support-text p {
+color:#7c7c7c;
+font-family:Georgia,Times,"Times New Roman",serif;
+font-weight:700;
+font-size:18px;
+line-height:1.4em;
+color:#
+}
+
+#support-name {
+color:#d08c00;
+font-weight:700
+}
+
+#s02 {
+padding:40px;
+background-color:#fdfdfd
+}
+
+#s02-h1 {
+color:#d18c00
+}
+
+.benefit-img {
+width:120px;
+height:120px
+}
+
+#benefit-h1 {
+color:#7e7e7e
+}
+
+#benefit-h2 {
+color:#878787
+}
+
+#benefit-h3 {
+color:#818181
+}
+
+.benefit-area p {
+color:#8c8c8c
+}
+
+#s03 {
+padding:40px;
+background-color:#fcfcfc
+}
+
+#s03 h2 {
+color:#d28c00
+}
+
+#s03 p {
+color:#838383
+}
+
+.s03-btn-cta {
+margin:20px 0;
+padding:20px 10%;
+font-size:1.5em;
+text-transform:uppercase;
+font-weight:700;
+background-color:#3271a9;
+color:#f3fbff
+}
+
+.s03-btn-cta:HOVER {
+background-color:#275e8e;
+color:#fefaff
+}
+
+#s04 {
+background-color:#f4f4f4;
+padding:10px 0 5px
+}
+
+#disclaimer {
+line-height:1em
+}
+
+@media only screen and (max-width : 1200px) {
+.hero-left-content h1 {
+font-size:30px
+}
+}
+
+@media only screen and (max-width : 992px) {
+}
+
+@media only screen and (max-width : 768px) {
+.add-this-widget {
+display:none
+}
+
+.hero-left-content {
+text-align:center;
+margin-bottom:30px
+}
+
+.hero-left-content h1 {
+font-size:30px
+}
+
+.hero-left-content h3 {
+font-size:20px
+}
+
+.hero-left-content .btn-cta {
+width:80%;
+margin:auto
+}
+
+.benefit-area {
+border-bottom:1px solid #d7d7d7;
+padding-bottom:30px;
+margin-bottom:30px
+}
+
+.benefit-area-last {
+border-bottom:0;
+padding-bottom:0;
+margin-bottom:0
+}
+
+.s03-btn-cta {
+padding:20px 10%
+}
+}
+
+@media only screen and (max-width : 480px) {
+.s03-btn-cta {
+padding:20px 10%
+}
+}

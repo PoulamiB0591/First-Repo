@@ -103,6 +103,7 @@
 
         // Focus on control when label is clicked
         select.bind('click.selectBox', function (event) {
+            
             control.focus();
             event.preventDefault();
         });
@@ -671,7 +672,105 @@
 
         // Change callback
         if (select.val() !== selection) {
-            select.val(selection);
+          // var res = $("#hid_no").val();
+           var prev = $("#hids").val();
+           
+           var next = "";
+           if(selection > prev)
+           {
+           
+           var diff = parseInt(selection) - parseInt(prev);
+         
+            var nhtml = $("#tab"+prev).html();
+            for(var j=1;j<=diff;j++)
+            {
+                next = prev;
+                prev++;
+                var cur_html = $("#tab"+prev).html();
+                $("#tab"+next).html(cur_html);
+            }
+            $("#tab"+selection).html(nhtml);
+           }
+           else
+           {
+         
+            var diff = parseInt(prev) - parseInt(selection);
+      
+            var nhtml = $("#tab"+prev).html();
+            for(var k=1;k<=diff;k++)
+            {
+               next = prev;
+               prev--;
+               var cur_html = $("#tab"+prev).html(); 
+               
+               
+               $("#tab"+next).html(cur_html);
+               
+            }
+            $("#tab"+selection).html(nhtml);
+            
+           }
+           
+         /*  for(var j=1;j<=res;j++)
+           {
+             if(j == selection)
+             {
+                var newhtm = $("#menu"+prev).html();
+                if(prev<j){
+                    $("#menu"+j).after(newhtm);
+                }
+                else
+                {
+                  $("#menu"+j).before(newhtm);  
+                  
+                }
+              
+               $("#menu"+prev).html(""); */
+               
+             
+             var arr = '';
+             var htm='';
+             var ahtm ='';
+         
+             
+              var oldhtm = $("#menu"+j).html();
+         
+              var text = "";
+             
+            $('textarea').each( function(){
+                var find = $(this).val();
+                var para = $(this).parent().parent().parent().find("p").text();
+               text += find+"//"+para+"||"; 
+               
+            });
+            
+            
+        
+               $('.open li a').each(function(i)
+                 {
+                    var chk = $(this).text();
+                 
+                     arr += chk+"||";
+                         
+            });
+             var rews = $("#getfolder").val();
+             $("#selectboxs").val("1");
+        
+             $.ajax({ 
+                type:'POST',
+                data:{arr:arr,text:text},
+                url:"http://test.scampaigns.com/Template/selectbox/"+rews,
+                success:function(data){
+                   
+                  
+                    window.location.href="http://test.scampaigns.com/template/setup/"+rews;
+                     
+                     }
+                    });
+            
+             //}
+           //}
+          select.val(selection);
             this.setLabel();
             select.trigger('change');
         }
@@ -980,6 +1079,7 @@
 
         if (settings.change) {
             settings.change.call(select);
+          
         }
     };
 

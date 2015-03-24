@@ -11,6 +11,9 @@ if (php_sapi_name() === 'cli-server' && is_file(__DIR__ . parse_url($_SERVER['RE
 }
 defined('PUBLIC_PATH')
 || define('PUBLIC_PATH', realpath(dirname(__FILE__)));
+defined('FILES_PATH')
+|| define('FILES_PATH',PUBLIC_PATH . '/upload');
+
 // Setup autoloading
 require 'init_autoloader.php';
 

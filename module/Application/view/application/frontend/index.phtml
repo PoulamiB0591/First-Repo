@@ -1,3 +1,171 @@
+<style>
+.site {
+  background: none repeat scroll 0 0 white;
+  box-sizing: border-box;
+  margin-left: 0;
+  padding-left: 0;
+  max-width: 1442px;
+  transition: margin-left 0.2s ease-in-out 0s;
+  width: 80%;
+  margin: 0 auto;
+}
+
+div#loader12 {
+  float: left;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 0;
+}
+</style>
+<script>
+localStorage.removeItem('getwrapperhtml');
+//alert(localStorage.getItem('getwrapperhtml'));
+</script>
+ <?php echo $this->headTitle('SFPv2 '. $this->translate('Smartfanpage | Template Store'))->setSeparator(' - ')->setAutoEscape(false) ?>
+<div class="top_ffdmndhdfjkghdhdfjkghdjkhgjkdfhdfjkghdfjkh clearfix">
+    	<a href="#" class="logo"><img src="<?php echo $this->basePath('editImg/logo.png') ?>" alt="" /></a>
+        <!--<div class="icon">
+        <?php
+        /*
+        if($view == "2")
+        {
+         */   
+        ?>
+        <script type="text/javascript">
+        $( document ).ready(function() {
+         $('.wrapper').removeClass('wrapper1');
+         $('.wrapper').removeClass('wrapper_tab');
+         $('.wrapper').addClass('wrapper_mobile');
+          $('.mobile').addClass('desk-all-opa');
+      $('.desktop').removeClass('desk-all-opa');
+      $('.tabsme').removeClass('desk-all-opa');
+         });
+        </script>
+         <a href="javascript:void(0)" class="mobile"><span class="icon-mobile"></span></a>
+         <a href="javascript:void(0)" class=""><span class="icon-tablet"></span></a>
+         <a href="javascript:void(0)" class=""><span class="icon-screen"></span></a>
+           
+            
+        <?php
+        /*}
+        else if($view == "1"){
+         */   
+        
+        ?>
+        <script type="text/javascript">
+        $( document ).ready(function() {
+        $('.wrapper').addClass('wrapper1');
+    $('.wrapper').removeClass('wrapper_tab');
+     $('.wrapper').removeClass('wrapper_mobile');
+      $('.mobile').removeClass('desk-all-opa');
+      $('.desktop').addClass('desk-all-opa');
+      $('.tabsme').removeClass('desk-all-opa');
+     });
+        
+        </script>
+             <a href="javascript:void(0)" class="mobile"><span class="icon-mobile"></span></a>
+             <a href="javascript:void(0)" class="tabsme"><span class="icon-tablet"></span></a>
+       	     <a href="javascript:void(0)" class="desktop"><span class="icon-screen"></span></a>
+           
+            <?php
+           /* }
+            else
+            {*/
+            ?>
+            <a href="javascript:void(0)" class="mobile"><span class="icon-mobile"></span></a>
+            <a href="javascript:void(0)" class="tabsme"><span class="icon-tablet"></span></a>
+            <a href="javascript:void(0)" class="desktop"><span class="icon-screen"></span></a>
+            
+            
+            <?php    
+            //}
+            ?>
+        </div>--><!-- end of icon -->
+       <!-- <div class="info">
+        	<a href="javascript:void(0)" title="Save" class="save_btn" style="display: block;" >save</a>
+            
+             <div class="checkbox_onoff">
+                <input id="check" name="1" type="checkbox" value="1" />
+                <label for="check">Check-me</label>
+            </div>end of checkbox_onoff 
+            
+              <div class="checkbox_onoff_jhgdugfyhfuyhdg6565656">
+            <input id="check" name="0" type="checkbox" value="0" />
+            <label for="check">Check-me</label>
+            <input type="text" id="autochk" value=""/>
+        </div>
+        	<a href="#" title="Publish Campaign" class="campaign_btn">Publish Campaign <span class="icon-arrow-down"></span><span class="icon-arrow-up"></span></a>
+          <div class="bell"><span class="icon-bell"></span><p>12</p></div>
+            <div class="publish">
+                <div class="heading">
+                    <h2>MAnage your campaign</h2>
+                    <div>
+                        <span class="icon-help"></span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    </div>
+                </div>
+                <form method="post" name="" action="/">
+                  <?php
+                 
+                /*  if($rowset->new_template_name == "")
+                  {*/
+                    
+                  ?>
+                    
+                    <input type="text" name="" value="My Campaign" onblur="if(this.value=='') this.value='My Campaign';" onfocus="if(this.value=='My Campaign') this.value='';" id="photocontest"/>
+                    <?php
+                   /* }
+                    else{*/
+                        ?>
+                          <input type="text" name="" value="<?php //echo $rowset->new_template_name; ?>" onblur="if(this.value=='') this.value='<?php //echo $rowset->new_template_name; ?>';" onfocus="if(this.value=='<?php //echo $rowset->new_template_name; ?>') this.value='';" id="photocontest"/>
+                       <?php
+                    //}
+                    ?>
+                    <label>Campaign saved as: <a href="#" class="down"><span class="icon-arrow-down"></span><span class="icon-arrow-up"></span></a></label>
+                    <div class="date_time">
+                        <input type="text" name="date"  class="datepicker" id="datepicker" />
+                        <input type="text" name="time" id="datetimepicker1" />
+                    </div>
+                    <input type="button" name="submit" value="Save" class="save_hgdfggfdgdfgfdsygfyfdsy" />
+                    <input type="reset" name="reset" value="Cancel" />
+                    <a href="#" title="Preview" class="preview">Preview</a>
+                   <?php /* $folder = $_SERVER['REQUEST_URI'];
+                        $folder = explode('/',$folder);
+                        $value = $folder[3];
+                        
+                        
+                        */?>
+                    <a href="javascript:void(0)" title="Publish" class="publish" >Publish</a>
+                    <input type="hidden" id="ghider" value="<?php //echo $value; ?>" />
+               
+                </form>
+                <input type="hidden" id="hidder" value="" />
+                <input type="hidden" id="hiddens" value="<?php //echo $id; ?>" />
+            </div>
+        </div>-->
+        <div class="user">
+        	<span><img src="https://graph.facebook.com/<?php echo $result[0]['fbId'];?>/picture?type=small" alt="" /></span>
+            <p style="color: white;"><?php echo $result[0]['fbName']." ".$result[0]['fbLastName']; ?></p>
+            <a href="#"><span class="icon-arrow-down"></span><span class="icon-arrow-up"></span></a>
+        </div><!-- end of user -->
+        <div class="user_list">
+        	<ul>
+            	<li><a href="#" title="Account"><span class="icon-user"></span> Account</a></li>
+            	<li><a href="#" title="Settings"><span class="icon-cogs"></span> Settings</a></li>
+                <li><hr /></li>
+            	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action' =>'dashboard'));?>" title="Dashboard"><span class="icon-dashboard"></span> Dashboard</a></li>
+            	<li><a href="#" title="My Campaigns"><span class="icon-pen"></span> My Campaigns</a></li>
+            	<!--<li><a href="#" title="Favourites"><span class="icon-heart"></span> Favourites</a></li>-->
+            	<!--<li><a href="#" title="Reports"><span class="icon-stats"></span> Reports</a></li>-->
+            	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action' =>'index'));?>" title="New Campaign"><span class="icon-institution"></span> New Campaign</a></li>
+            	<!--<li><a href="#" title="Coins"><span class="icon-gift"></span> Coins</a></li>-->
+                <li><hr /></li>
+            	<li><a id="logout" style="cursor: pointer;" class="lgot"  title="Log Out"><span class="icon-logout"></span> Log Out</a></li>
+            </ul>
+        </div><!-- end of user_list -->
+    </div>
+
+
 <div class="site">
 
 <div class="container-fluid">
@@ -8,17 +176,17 @@
 
     <div class="dashboard-wrap col-lg-12">
         <?php foreach ($temp as $template){ ?>
-        <div class="dashboard col-lg-12">
+       
         <?php if($template->approval == 1){ ?>
+         <div class="dashboard col-lg-12">
             <p><?php echo $template->templateName;?></p>
             <div class="dash-img-holder col-lg-4"> 
-                <img src='<?php echo $this->basePath('files/'.$template->templateName."/".$template->scImage);?>' style="height: 100px; width: 200px;"/>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action' =>'templatecopy','id'=>$template->templateName));?>"><img src='<?php echo $this->basePath('files/'.$template->templateName."/".$template->scImage);?>' style="height: 300px; width: 300px;"/></a>
             </div>
-            <a href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action' =>'edit','id'=>$template->templateName));?>">GO To Edit</a>
-        </div>
+           </div>
         <?php }} ?>
     </div>
 </div>
 </div>
-</div>
+
 

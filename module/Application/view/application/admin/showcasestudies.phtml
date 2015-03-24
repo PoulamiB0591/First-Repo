@@ -1,0 +1,41 @@
+<div class="site">
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'casestudies'));?>">Insert Slide</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back to page details</a>
+            </div>
+            <h2 style="text-align: left; margin: 20px 0 0 0; color:#2e3641;">Show Case Studies</h2>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+                <tr>
+                    <th>Vedio</th>
+                    <th>Image</th>
+                    <th>Operation</th>
+                </tr>
+                <?php foreach ($res as $a){ $vediourl=$a->VedioPath; $imageurl = $a->imgPath; if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $vediourl, $match)) { $video_id = $match[1]; } ?>
+                <tr>
+                    <td>
+                        <object width="200" height="180">
+                            <?php if($vediourl !='' ) { ?>
+                            <iframe width="200" height="180" src="https://www.youtube.com/embed/<?php echo $video_id; ?>" frameborder="0" allowfullscreen></iframe>
+                            <param name="allowFullScreen" value="true"></param>
+                            <param name="allowscriptaccess" value="always"></param>
+                            <embed src="<?php echo $originalurl ; ?>" type="application/x-shockwave-flash" width="200" height="180" allowscriptaccess="always" allowfullscreen="true"></embed>
+                        </object>
+                        <?php } ?>
+                    </td>
+                    <td>
+                        <?php if($imageurl !='' ){ ?>
+                        <img src="<?php echo $imageurl;?>" height="100" width="100" />
+                        <?php } ?>
+                    </td>
+                    <td>
+                        <a class="table_btn" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'casestudiesview','id' => $a->vedioId));?>">EDIT</a>
+                        <a class="table_btn" onclick="if(!confirm('Are you want to delete'))return false;" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'deletecasestudies','id' => $a->vedioId));?>">DELETE</a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="site">
+    <div class="row">
+        <div class="table_button">
+            <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'pagedetails'));?>">back to pagedetails</a>
+            <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'aboutusheader'));?>">EDIT THE HEADER PART</a>
+        </div>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+            <tr>
+                <th colspan="2">SHOW ABOUT US IMAGES</th>
+            </tr>
+            <?php foreach ($res as $a){ $imgurl=$a->bannerPath; ?>
+            <tr>
+                <td> <img src="<?php echo $imgurl; ?>" style="width: 100px;height:100px;" /></td>
+                <td> <a class="table_btn" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'aboutusimages','id' => $a->id));?>">Edit</a><a class="table_btn" onclick="if(!confirm('Are you want to delete'))return false;" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'deleteaboutusimages','id' => $a->id));?>">Delete</a></td>
+            </tr>
+            <?php } ?>
+        </table>
+

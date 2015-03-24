@@ -148,7 +148,7 @@
             var panelSelector = $anchor.attr('href');
             var $panel = $(panelSelector);
             var $accordionTab = $('<div></div>').insertBefore($panel);
-            var $accordionAnchor = $('<a></a>').attr('href', panelSelector).html($anchor.html()).appendTo($accordionTab);
+            var $accordionAnchor = $('<a></a>').html($anchor.html()).appendTo($accordionTab);
             var oTab = {
                 _ignoreHashChange: false,
                 id: id,

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+
+<![endif]-->
+<!--[if IE 7]>
+
+<html class="no-js lt-ie9 lt-ie8">
+
+<![endif]-->
+<!--[if IE 8]>
+
+<html class="no-js lt-ie9">
+
+<![endif]-->
+<!--[if gt IE 8]>
+<!-->
+
+<html class="no-js">
+  
+  <!--
+<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+      Wizard
+      </title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->basePath('img/favicon.ico') ?>" />
+      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+      <link href='http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+      
+      
+      <style>
+        .developer-menu-left-pannel{
+            min-height:1440px;
+          }
+      </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+<p class="browsehappy">
+You are using an 
+<strong>
+outdated
+</strong>
+browser. Please 
+<a href="http://browsehappy.com/">
+upgrade your browser
+</a>
+to improve your experience.
+</p>
+<![endif]-->
+      
+      <div id="developer-main-container" class="clearfix">
+        <div class="developer-menu-left-pannel clearfix new-left-pannel">
+          
+          <div class="development-center-wrapper clearfix">
+            
+            <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'index'));?>" class="logo">
+              <figure>
+                <img src="<?php echo $this->basePath('sfpdeveloper/img/dev_logo.png') ?>" alt="">
+          </figure>
+          </a>
+          <h5 class="dev-title">
+            -  Development centre  - 
+          </h5>
+          
+          <div class="log-out-container clearfix">
+            <a class="log-out-bt" href="#">
+              <span class="icon-power-off">
+              </span>
+            </a>
+            <div class="log-out-person">
+              <strong>
+                Studio 365
+              </strong>
+              <p>
+                Amsterdam
+              </p>
+            </div>
+          </div>
+          
+          </div>
+          <div class="main-menu clearfix">
+            <ul>
+              <li>
+                <a href="#">
+                  Dashboard 
+                </a>
+                
+              </li>
+              <!--<li>
+                <a href="#">
+                  My campaigns
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Upload wizard
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  My account
+                </a>
+              </li>-->
+              <li>
+                <a href="#">
+                  Documentation
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          
+          
+          </div>
+          <div class="copyright-menu clearfix">
+            <ul>
+              <li>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'termscondition'));?>">
+                  <span class="icon-arrow-right">
+                  </span>
+                  Terms & service 
+                </a>
+              </li>
+              <li>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'disclaimer'));?>">
+                  
+                  <span class="icon-arrow-right">
+                  </span>
+                  Disclaimer 
+                </a>
+              </li>
+              <li>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'privacypolicy'));?>">
+                  <span class="icon-arrow-right">
+                  </span>
+                  Privacy policy 
+                </a>
+              </li>
+              <li>
+                © Copyright 2015 Smart Fanpage
+              </li>
+            </ul>
+          </div>
+          <div class="developer-menu-right-pannel clearfix">
+            <div class="developer-menu-right-pannel-image-holder clearfix">
+              <figure>
+                <img src="<?php echo $this->basePath('sfpdeveloper/img/wizard.jpg') ?>" alt="">
+          </figure>
+          <!--
+<div class="social-share clearfix">
+<ul>
+<li>
+Share this website
+</li>
+<li>
+<a href="#">
+<span class="icon-social-facebook-circular">
+</span>
+</a>
+</li>
+<li>
+<a href="#">
+<span class="icon-social-twitter-circular">
+</span>
+</a>
+</li>
+<li>
+<a href="#">
+<span class="icon-social-linkedin-circular">
+</span>
+</a>
+</li>
+</ul>
+</div>
+-->
+          </div>
+          
+          <section class="developer-body-section clearfix">
+            <div class="dev-register clearfix dev-wizard">
+              <!--===================================tab html start=================================-->
+              
+              <div id="tabs-container">
+                <ul class="tabs-menu">
+                  <li class="current">
+                    <a href="#tab-1">
+                      1) Upload archive file
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#tab-2">
+                      2) Set up pages
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#tab-3">
+                      3) Validation
+                    </a>
+                  </li>
+                </ul>
+                
+                <hr style="margin-top:45px;">
+                <div class="tab clearfix">
+                  <div id="tab-1" class="tab-content">
+                    <h2>
+                      Step 1 - Upload archive file
+                    </h2>
+                    <ul>
+                      
+                      <li class="clearfix">
+                        <label for="">
+                          Name your campaign
+                        </label>
+                        <input type="text" name="">
+                      </li>
+                      
+                      <li class="clearfix">
+                        <label for="">
+                          Campaign description
+                        </label>
+                        <textarea name="" cols="" rows="">
+                        </textarea>
+                        <!--
+<span class="msg">
+Max. 150 characters 
+</span>
+-->
+          </li>
+          
+          <li class="clearfix">
+            <label for="">
+              Your template archive
+              </label>
+              <input type="file" class="nicefile" />
+              <a class="del-formating" href="#">
+                Click here for delivery and formatting instructions
+              </a>
+          </li>
+          
+          <li class="clearfix">
+            <label for="">
+              Your template archive
+              </label>
+              <div class="suported-platfroms">
+                <a href="#">
+                  <span class="icon-facebook">
+                  </span>
+                </a>
+                <a href="#">
+                  <span class="icon-twitter">
+                  </span>
+                </a>
+                <a href="#">
+                  <span class="icon-linkedin">
+                  </span>
+                </a>
+                <a href="#">
+                  <span class="icon-instagram">
+                  </span>
+                </a>
+                <a href="#">
+                  <span class="icon-pinterest">
+                  </span>
+                </a>
+              </div>
+              
+          </li>
+          
+          <li class="clearfix">
+            <label for="">
+              &nbsp;
+              </label>
+              <input type="submit" name="" value="Save & continue">
+          </li>
+          </ul>
+          
+      </div>
+      <div id="tab-2" class="tab-content">
+        <h2>
+          Step 2 - Set up your pages
+        </h2>
+        <p class="wizard-p">
+          We've found the following files in your archive, please indicate how you wish to use them in the step process of your app
+        </p>
+        
+        <div id="tabs-container-new2">
+          <ul class="tabs-menu-new2">
+            <li class="current">
+              <a href="#tab-1-new2">
+                File 1.html
+              </a>
+            </li>
+            <li>
+              <a href="#tab-2-new2">
+                File 2.php
+              </a>
+            </li>
+            <li>
+              <a href="#tab-3-new2">
+                File 3.php
+              </a>
+            </li>
+            <li>
+              <a href="#tab-4-new2">
+                File 4.php
+              </a>
+            </li>
+            <li>
+              <a href="#tab-5-new2">
+                File 5.php
+              </a>
+            </li>
+            <li>
+              <a href="#tab-6-new2">
+                File 6.php
+              </a>
+            </li>
+          </ul>
+          <div class="tab-new2">
+            <div id="tab-1-new2" class="tab-content-new2">
+              <div id="wizard-tab-content">
+                <ul>
+                  <li class="clearfix">
+                    <label for="">
+                      Filename
+                    </label>
+                    <div class="wizard-file-name">
+                      File 2.php
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <label for="">
+                      Order
+                    </label>
+                    <span class="first-name company-type" >
+                      <select name="" id="company-profile-option">
+                        <option value="1" class="test-class-1">
+                          Choose..
+                        </option>
+                        <option value="1" class="test-class-1">
+                          dfgsdfgsdgfd
+                        </option>
+                        <option value="1" class="test-class-1">
+                          make your choise
+                        </option>
+                      </select>
+                    </span>
+                  </li>
+                  <li class="clearfix">
+                    <label for="">
+                      Pagename
+                    </label>
+                    <input type="text" name="" placeholder="For example: Choose a product type">
+                  </li>
+                  
+                  
+                  
+                  <li class="clearfix">
+                    <label for="">
+                      Description
+                    </label>
+                    <textarea name="" cols="" rows="">
+                      For example:
+                      This page let's the user choose the product 
+                      that they want to participate for in the 
+                      contest.
+                    </textarea>
+                    
+                  </li>
+                  
+                  
+                  
+                </ul>
+              </div>
+              
+              
+            </div>
+            
+            <div id="tab-2-new2" class="tab-content-new2">
+              <div id="wizard-tab-content">
+                <ul>
+                  <li>
+                    <label for="">
+                      Filename
+                    </label>
+                    <div class="wizard-file-name">
+                      File 2.php
+                    </div>
+                  </li>
+                  <li>
+                    <label for="">
+                      Order
+                    </label>
+                    <span class="first-name company-type" >
+                      <select name="" id="company-profile-option">
+                        <option value="1" class="test-class-1">
+                          Choose..
+                        </option>
+                        <option value="1" class="test-class-1">
+                          dfgsdfgsdgfd
+                        </option>
+                        <option value="1" class="test-class-1">
+                          make your choise
+                        </option>
+                      </select>
+                    </span>
+                  </li>
+                  <li>
+                    <label for="">
+                      Pagename
+                    </label>
+                    <input type="text" name="" placeholder="For example: Choose a product type">
+                  </li>
+                  
+                  
+                  
+                  <li>
+                    <label for="">
+                      Description
+                    </label>
+                    <textarea name="" cols="" rows="">
+                      For example:
+                      This page let's the user choose the product 
+                      that they want to participate for in the 
+                      contest.
+                    </textarea>
+                    <span class="msg">
+                      Max. 150 characters 
+                    </span>
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              
+            </div>
+            <div id="tab-3-new2" class="tab-content-new2">
+              <div id="wizard-tab-content">
+                <ul>
+                  <li>
+                    <label for="">
+                      Filename
+                    </label>
+                    <div class="wizard-file-name">
+                      File 2.php
+                    </div>
+                  </li>
+                  <li>
+                    <label for="">
+                      Order
+                    </label>
+                    <span class="first-name company-type" >
+                      <select name="" id="company-profile-option">
+                        <option value="1" class="test-class-1">
+                          Choose..
+                        </option>
+                        <option value="1" class="test-class-1">
+                          dfgsdfgsdgfd
+                        </option>
+                        <option value="1" class="test-class-1">
+                          make your choise
+                        </option>
+                      </select>
+                    </span>
+                  </li>
+                  <li>
+                    <label for="">
+                      Pagename
+                    </label>
+                    <input type="text" name="" placeholder="For example: Choose a product type">
+                  </li>
+                  
+                  
+                  
+                  <li>
+                    <label for="">
+                      Description
+                    </label>
+                    <textarea name="" cols="" rows="">
+                      For example:
+                      This page let's the user choose the product 
+                      that they want to participate for in the 
+                      contest.
+                    </textarea>
+                    <span class="msg">
+                      Max. 150 characters 
+                    </span>
+                  </li>
+                  
+                  
+                  <!--
+<li class="add-margin">
+
+<a href="#" class="previous-step">
+Previous step
+</a>
+<input type="submit" name="" value="Save & continue">
+</li>
+-->
+                </ul>
+              </div>
+            </div>
+            <div id="tab-4-new2" class="tab-content-new2">
+              <div id="wizard-tab-content">
+                <ul>
+                  <li>
+                    <label for="">
+                      Filename
+                    </label>
+                    <div class="wizard-file-name">
+                      File 2.php
+                    </div>
+                  </li>
+                  <li>
+                    <label for="">
+                      Order
+                    </label>
+                    <span class="first-name company-type" >
+                      <select name="" id="company-profile-option">
+                        <option value="1" class="test-class-1">
+                          Choose..
+                        </option>
+                        <option value="1" class="test-class-1">
+                          dfgsdfgsdgfd
+                        </option>
+                        <option value="1" class="test-class-1">
+                          make your choise
+                        </option>
+                      </select>
+                    </span>
+                  </li>
+                  <li>
+                    <label for="">
+                      Pagename
+                    </label>
+                    <input type="text" name="" placeholder="For example: Choose a product type">
+                  </li>
+                  
+                  
+                  
+                  <li>
+                    <label for="">
+                      Description
+                    </label>
+                    <textarea name="" cols="" rows="">
+                      For example:
+                      This page let's the user choose the product 
+                      that they want to participate for in the 
+                      contest.
+                    </textarea>
+                    <span class="msg">
+                      Max. 150 characters 
+                    </span>
+                  </li>
+                  
+                  
+                  <!--
+<li class="add-margin">
+
+<a href="#" class="previous-step">
+Previous step
+</a>
+<input type="submit" name="" value="Save & continue">
+</li>
+-->
+                </ul>
+              </div>
+            </div>
+            
+            <div id="tab-5-new2" class="tab-content-new2">
+              <div id="wizard-tab-content">
+                <ul>
+                  <li>
+                    <label for="">
+                      Filename
+                    </label>
+                    <div class="wizard-file-name">
+                      File 2.php
+                    </div>
+                  </li>
+                  <li>
+                    <label for="">
+                      Order
+                    </label>
+                    <span class="first-name company-type" >
+                      <select name="" id="company-profile-option">
+                        <option value="1" class="test-class-1">
+                          Choose..
+                        </option>
+                        <option value="1" class="test-class-1">
+                          dfgsdfgsdgfd
+                        </option>
+                        <option value="1" class="test-class-1">
+                          make your choise
+                        </option>
+                      </select>
+                    </span>
+                  </li>
+                  <li>
+                    <label for="">
+                      Pagename
+                    </label>
+                    <input type="text" name="" placeholder="For example: Choose a product type">
+                  </li>
+                  
+                  
+                  
+                  <li>
+                    <label for="">
+                      Description
+                    </label>
+                    <textarea name="" cols="" rows="">
+                      For example:
+                      This page let's the user choose the product 
+                      that they want to participate for in the 
+                      contest.
+                    </textarea>
+                    <span class="msg">
+                      Max. 150 characters 
+                    </span>
+                  </li>
+                  
+                  
+                  <!--
+<li class="add-margin">
+
+<a href="#" class="previous-step">
+Previous step
+</a>
+<input type="submit" name="" value="Save & continue">
+</li>
+-->
+                </ul>
+              </div>
+            </div>
+            
+            <div id="tab-6-new2" class="tab-content-new2">
+              <div id="wizard-tab-content">
+                <ul>
+                  <li>
+                    <label for="">
+                      Filename
+                    </label>
+                    <div class="wizard-file-name">
+                      File 2.php
+                    </div>
+                  </li>
+                  <li>
+                    <label for="">
+                      Order
+                    </label>
+                    <span class="first-name company-type" >
+                      <select name="" id="company-profile-option">
+                        <option value="1" class="test-class-1">
+                          Choose..
+                        </option>
+                        <option value="1" class="test-class-1">
+                          dfgsdfgsdgfd
+                        </option>
+                        <option value="1" class="test-class-1">
+                          make your choise
+                        </option>
+                      </select>
+                    </span>
+                  </li>
+                  <li>
+                    <label for="">
+                      Pagename
+                    </label>
+                    <input type="text" name="" placeholder="For example: Choose a product type">
+                  </li>
+                  
+                  
+                  
+                  <li>
+                    <label for="">
+                      Description
+                    </label>
+                    <textarea name="" cols="" rows="">
+                      For example:
+                      This page let's the user choose the product 
+                      that they want to participate for in the 
+                      contest.
+                    </textarea>
+                    <span class="msg">
+                      Max. 150 characters 
+                    </span>
+                  </li>
+                  
+                  
+                  <!--
+<li class="add-margin">
+<a href="#" class="previous-step">
+Previous step
+</a>
+<input type="submit" name="" value="Save & continue">
+</li>
+-->
+                </ul>
+              </div>
+            </div>
+          </div>
+          </div>
+          
+          <div class="extra-new-save-n-continue">
+            
+            <a href="#" class="previous-step">
+              Previous step
+            </a>
+            <input type="submit" name="" value="Save & continue">
+          </div>
+          
+      </div>
+      <div id="tab-3" class="tab-content">
+        <h2>
+          Step 3 - Validating your pages
+        </h2>
+        <p>
+          In order to continue you have to fix 
+          <a class="red" href="">
+            2 problems.
+          </a>
+        </p>
+        <p>
+          Even though they are not required whenever possible please fix the 
+          <a class="red" href="">
+            3 warnings.
+          </a>
+        </p>
+        
+        <div class="warning-table">
+          <table width="100%" border="1" cellspacing="0" cellpadding="0">
+            <tr>
+              <td style="color:#2e3641" >
+                Problems (2)
+              </td>
+              <td colspan="2">
+                &nbsp;
+              </td>
+              
+            </tr>
+            <tr>
+              <td>
+                file2.php
+              </td>
+              <td>
+                PHP error found in line 8
+              </td>
+              <td style="color:#2e3641">
+                Expand details 
+                <span class="icon-arrow-down">
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                file1.php
+              </td>
+              <td>
+                YouTube tag not closed
+              </td>
+              <td style="color:#2e3641">
+                Expand details 
+                <span class="icon-arrow-down">
+                </span>
+              </td>
+            </tr>
+          </table>
+          
+        </div>
+        
+        <div class="warning-table">
+          <table width="100%" border="1" cellspacing="0" cellpadding="0">
+            <tr>
+              <td >
+                Problems (2)
+              </td>
+              <td colspan="2">
+                &nbsp;
+              </td>
+              
+            </tr>
+            <tr>
+              <td>
+                file2.php
+              </td>
+              <td>
+                PHP error found in line 8
+              </td>
+              <td style="color:#2e3641">
+                Expand details 
+                <span class="icon-arrow-down">
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                file1.php
+              </td>
+              <td>
+                YouTube tag not closed
+              </td>
+              <td style="color:#2e3641">
+                Expand details 
+                <span class="icon-arrow-down">
+                </span>
+              </td>
+            </tr>
+          </table>
+          
+        </div>
+        
+        <a class="previous-step" href="#">
+          Previous step
+        </a>
+        <button type="submit" value="Save &amp; continue" name="">
+          Save &amp; continue
+        </button>
+      </div>
+      
+          </div>
+          </div>
+          
+          
+          <!--===================================tab html end=================================-->
+          </div>
+          
+          <div class="back-to-top-cont" style="position:relative;">
+            <hr>
+            <a id="back-to-top" class="go_to_up" href="#">
+              Back to top
+            </a>
+          </div>
+          
+          </section>
+          
+          </div>
+      </div>
+      
+      
+  </body>
+</html>

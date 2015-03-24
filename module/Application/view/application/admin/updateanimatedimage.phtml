@@ -1,0 +1,48 @@
+<div class="site">    
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">           
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back to page details</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'showanimatedimage'));?>">Back</a>
+            </div>
+            <form method="post" action="editanimatedimage"  enctype="multipart/form-data" name="upload" id="image_upload12" >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_wrap sam">
+                <tr>
+                    <th colspan="4">Upload Animated Image</th>
+                </tr>
+              
+                <tr>
+                    <td>
+                      <label>Upload Your Image</label>  
+                    </td>
+                    <td><input type="file" name="picture" class ="txtInput txtMedium" /></td>
+                    </tr>
+                     <tr>
+                    <td>
+                        <label>Previous Image:</label> 
+                    </td>
+                    <td><img src="<?php echo $piclink;?>" height="100" width="100"/></td>
+                   </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="Upload App Image" name="appsubmit" class ="save_btn" id="images12" /></td>
+                    </tr>
+            </table>
+            </form>
+        </div>
+    </div>
+<script>
+  $("#images12").live("click",function() {
+    
+        var base_url = window.location.origin;
+        $("#image_upload12").ajaxSubmit({
+            data : {picture:'picture'},
+            success: function(result) {
+             console.log(result);
+             window.location.href=base_url+"/Admin/showanimatedimage";
+                
+            },
+        });
+    });
+
+</script>

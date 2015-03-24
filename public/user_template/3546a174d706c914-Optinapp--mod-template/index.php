@@ -1,0 +1,70 @@
+<img src="https://test.scampaigns.com/img/divider.png" id="imgdragable" style="display: none;">
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="stylesheet" href="//test.scampaigns.com/user_template/3546a174d706c914-Optinapp--mod-template/css/style.css">
+<!--<link rel="stylesheet" href="http://localhost/zf_new/public/css/styles.css"/>
+<link rel="stylesheet" href="http://localhost/zf_new/public/css/textarea.css"/>---->
+
+<link rel="stylesheet" type="text/css" media="all" href="//test.scampaigns.com/user_template/3546a174d706c914-Optinapp--mod-template/css/jui.checkboxes.css">
+
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+   <script src = "http://js.nicedit.com/nicEdit-latest.js"></script>--->
+ 
+
+<!---<script type="text/javascript" src="http://localhost/zf_new/public/js/jquery.form.js"></script>
+<script type="text/javascript" src="http://localhost/zf_new/public/js/style.js"></script>---->
+
+
+
+(complete.php)
+<div class="details-n-winn-wrapper">
+<div class="SFPTWO_IMAGEEDIT"><img id="images1" src="//test.scampaigns.com/user_template/3546a174d706c914-Optinapp--mod-template/img/top-img.jpg" alt=""><div class="setting-2" style="display: none;"><a title="Edit" class="edit" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" value="3546a174d706c914-Optinapp--mod-template" id="hid"><input type="hidden" value="0" id="imgCount"></div></div> 
+<div class="SFPTWO_IMAGEEDIT"><img id="images1" src="//test.scampaigns.com/user_template/3546a174d706c914-Optinapp--mod-template/img/top-img.jpg" alt=""><div class="setting-2" style="display: none;"><a title="Edit" class="edit" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" value="3546a174d706c914-Optinapp--mod-template" id="hid"><input type="hidden" value="0" id="imgCount"></div></div>         
+        
+<div class="tool-tip SFPTWO_TEXTEDIT"><h2 class="textedit SFPTWO_TAGEDIT edit explicit_edit" contenteditable="false">Fill in your details and win! </h2><div class="setting-2" id="text" style="display: none;"><a title="Edit" class="edit" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a></div></div>
+<div class="form-container jui-checkboxes-container" id="checkboxesInit2">
+
+
+<ul class="designelements clearfix" style="position:absolute;left:20%;">
+ <li id="lilabelme" style="display:none;">
+    	<a style="cursor: pointer;" onclick="chechTypeAndAdd(this.rel)" rel="label" id="label" class="disabled">
+        	<span>Title</span>
+            <img src="https://test.scampaigns.com/formbuild/title_icon.png" alt="">
+        </a>
+    </li>
+   
+</ul>
+<form id="editable" action="complete.php" class="SFPTWO_EDITFORM" style="margin-top:25px;">
+
+ <img src="https://test.scampaigns.com/img/divider.png" id="imgdrag" style="display: none;">
+
+
+<ul class="sortable-list ui-droppable">
+
+	<li class="dottedLi ui-draggable" id="editable"><h1>EmaiL address</h1>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>test</p>
+<p>test</p><div id="labeledit" class="labeledit emaildrag"><input type="hidden" name="editH2194" value="&lt;h1&gt;EmaiL address&lt;/h1&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;test&lt;/p&gt;
+&lt;p&gt;test&lt;/p&gt;"></div><input name="" type="text">
+    <div class="setting-2 prevnext"><a title="Edit" class="edit" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid"><input type="hidden" value="0" id="imgCount"><a class="prev" href="#">Previous</a>&nbsp;<a class="next" href="#">After</a></div>
+    <div class="setting-2 prevnext"><a title="Edit" class="edit classdel" href="javascript:void(0)" id="saveformid" style="background-image: url(http://test.scampaigns.com/images/edit_icon2.png); background-position: initial initial; background-repeat: initial initial;"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid"><input type="hidden" value="0" id="imgCount"><a class="prev" href="#">Previous</a>&nbsp;<a class="next" href="#">After</a></div></li>
+    
+
+	<li><div id="diveditme" class="labeledit"><p style="font-size: 19px;" id="pid_formmsg" class="opt">Your message</p><div><textarea id="editmetext" name="" style="margin-top: 0px; margin-bottom: 20px; height: 114px;"></textarea></div></div><div class="setting-2 prevnext"><a title="Edit" class="edit" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid"><input type="hidden" value="0" id="imgCount"><a class="prev" href="#">Previous</a>&nbsp;<a class="next" href="#">After</a></div><div class="setting-2 prevnext"><a title="Edit" class="edit" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid"><input type="hidden" value="0" id="imgCount"><a class="prev" href="#">Previous</a>&nbsp;<a class="next" href="#">After</a></div></li><li class="dottedLi ui-draggable"><div id="diveditme" class="labeledit addmechk checkboxdrag"><p style="font-size: 19px;" id="pid_form" class="opt">What kind of campaign are you Looking for? 
+    </p></div><div class="checksboxes p_scents chkboxaddnow" id="checksboxes_form657"><div id="chkclone"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-rowform657"><span class="checkboxWrapper"><input type="checkbox" value="1" name="name"> </span> <p class="opt" id="1">option1</p> </div><div class="jui-checkbox-row"> <span class="checkboxWrapper"><input type="checkbox" value="2" name="name"></span> <p class="opt" id="2">option2</p> </div><div class="jui-checkbox-row"><span class="checkboxWrapper"><input type="checkbox" value="3" name="name"></span><p class="opt" id="3">option3</p></div></div><p id="mepp" class="pchkadd"></p></div> <div class="setting-2 prevnext"><a title="Edit" class="edit" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid"><input type="hidden" value="0" id="imgCount"><a class="prev" href="#">Previous</a>&nbsp;<a class="next" href="#">After</a></div><div class="setting-2 prevnext"><a title="Edit" class="edit" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid"><input type="hidden" value="0" id="imgCount"><a class="prev" href="#">Previous</a>&nbsp;<a class="next" href="#">After</a></div></li>
+    
+
+	 
+	<li id="editable" class="randtxt_247" style="display: none;"><input name="" type="submit" value="Send" class="inputdisabled"><div class="setting-2 prevnext"><a title="Edit" class="edit" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid"><input type="hidden" value="0" id="imgCount"><a class="prev" href="#">Previous</a>&nbsp;<a class="next" href="#">After</a></div><div class="setting-2 prevnext"><a title="Edit" class="edit classdel" href="javascript:void(0)" id="saveformid" style="background-image: url(http://test.scampaigns.com/images/edit_icon2.png); background-position: initial initial; background-repeat: initial initial;"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid"><input type="hidden" value="0" id="imgCount"><a class="prev" href="#">Previous</a>&nbsp;<a class="next" href="#">After</a></div></li>
+
+</ul>
+<div class="setting-2" style="display:none"><a title="setup" class="setup" href="javascript:void(0)"></a><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" value="3546a174d706c914-Optinapp--mod-template" id="hid"></div></form>[(complete.php)]
+</div>
+</div>

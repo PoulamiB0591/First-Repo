@@ -1,0 +1,32 @@
+<div class="site">
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <?php $form=$this->form; $form->setAttribute('action', $this->url('application/default', array('controller'=>'admin','action' => 'updatefaqtechnical','id'=>$id))); $form->prepare(); ?>
+            <?php echo $this->form()->openTag($form);?>
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'faqpages'));?>">Back to FAQ catagory</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'showfaqtechnical','id'=>4));?>">Back</a>
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+                    <tr>
+                        <th colspan="2">ABOUT SMART FANPAGE PRICING</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Question</label>
+                        </td>
+                        <td><?php echo $this->formElement($form->get('question'));?></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Answer</label>
+                        </td>
+                        <td><?php echo $this->formElement($form->get('answer'));?></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><?php echo $this->formElement($form->get('submit'));?></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+<?php echo $this->form()->closeTag() ?>

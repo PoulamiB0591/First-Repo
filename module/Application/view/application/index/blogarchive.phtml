@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smartfanpage || How does it works</title>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<!-- Bootstrap -->
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<!--//========for mobile social icons===========-->
+<div class="mobile-social">
+        <a href="#" class="button"></a>
+        <ul class="social_icon3">
+         
+          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+        </ul>
+        </div>
+<!--//========End for mobile social icons===========-->	
+       
+<!--===== start menu ===-->
+<!--===== end menu ===-->
+<!--===== body start ===-->
+<div  class="site">
+  <div class="container-fluid"> 
+    <!--===== start banner ===-->
+    <div class="row">
+      <div class="banner blog-overview" style="background:url(<?php echo $content->imagePath; ?>) no-repeat top center;">
+        <ul class="social_icon2">
+          <li><a href="javascript:void(0)">Share this website</a></li>
+          <li><a href="javascript:void(0)"></a> <a href="javascript:void(0)"></a> <a href="javascript:void(0)"></a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="banner_caption3 col-md-8 res-text" >
+          <h1><?php echo $content->headerLine; ?></h1>
+          
+          
+      </div>
+      
+    </div>
+      
+    </div><!--===== end banner ===--> 
+    <div class="container-fluid" > 
+      
+     <section class="blog-overview-cont row col-lg-12">
+     
+     <div class="row">
+     <div class="col-md-3 col-xs-12 pull-right" >
+          <select id="standard-dropdown" name="standard-dropdown" class="custom-class1 custom-class2">
+            <option value="1" class="test-class-1">All blogs</option>
+            <option value="1" class="test-class-1">All blogs</option>
+            <option value="1" class="test-class-1">All blogs</option>
+          </select>
+        </div>
+     <div class="col-md-3 col-xs-12 pull-right" >
+          <ul class="blog_nav">
+          	<li><a href="javascript:void(0)">Populair</a></li>
+          	<li><a href="javascript:void(0)">Latest</a></li>
+          	<li><a href="javascript:void(0)" class="active">Archive</a></li>
+          </ul>
+        </div>
+     
+     
+     </div>
+       
+       
+         
+          <div class="blog-archive col-lg-12">
+        
+        	
+            <h3>Archive 2014</h3>
+            <ul>
+            	<li><a href="javascript:void(0)">May 2014</a></li>
+            	<li><a href="javascript:void(0)">April 2014</a></li>
+            	<li><a href="javascript:void(0)" class="active">March 2014</a></li>
+            	<li><a href="javascript:void(0)">February 2014</a></li>
+            	<li><a href="javascript:void(0)">January 2014</a></li>
+            </ul>
+            
+        </div>
+        
+         <hr>
+         
+         <div class="blog-archive col-lg-12">
+        
+        	
+            <h3>Archive 2013</h3>
+            <ul>
+            	<li><a href="javascript:void(0)">December 2013</a></li>
+            	<li><a href="javascript:void(0)">November 2013</a></li>
+            	<li><a href="javascript:void(0)">October 2013</a></li>
+            	<li><a href="javascript:void(0)">September 2013</a></li>
+            	<li><a href="javascript:void(0)">August 2013</a></li>
+            	<li><a href="javascript:void(0)">July 2013</a></li>
+            	<li><a href="javascript:void(0)">June 2013</a></li>
+            	<li><a href="javascript:void(0)">May 2013</a></li>
+            	<li><a href="javascript:void(0)">April 2013</a></li>
+            	<li><a href="javascript:void(0)">March 2013</a></li>
+            	<li><a href="javascript:void(0)">February 2013</a></li>
+            	<li><a href="javascript:void(0)">January 2013</a></li>
+                
+            </ul>
+            <div style="position:relative;">
+          <hr>
+          <a id="back-to-top" class="go_to_up" href="javascript:void(0)"></a></div>
+        </div>
+        
+        
+      
+        
+        </section>
+    
+   
+    
+   
+   
+      
+      
+
+     
+      </div>
+      
+    </div><!--===== body_container end ===--> 
+  </div> <!--===== main_container end ===--> 
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>--> <script src="js/jquery-1.10.1.min.js"></script> 
+
+<script type="text/javascript">
+$(function(){
+    $("a.js_onPageLink").bind("click", function (event) {
+        event.preventDefault ? event.preventDefault() : event.returnValue = false;
+        var target = $(this).attr("href");
+        $("html, body").stop().animate({
+                scrollLeft: $(target).offset().left,
+                scrollTop: $(target).offset().top
+            }, 1200);
+    });
+});
+</script>
+</body>
+</html>

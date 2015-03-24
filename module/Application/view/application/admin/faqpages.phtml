@@ -1,0 +1,22 @@
+<div class="site">
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back to page details</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'faqbanner'));?>">Back</a>
+            </div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_wrap">
+                <tr>
+                    <th>Page Name</th>
+                    <th>Edit</th>
+                </tr>
+
+                <?php foreach ($list as $listing) : ?>
+                <tr>
+                    <td><?php echo $this->escapeHtml($listing->page_list);?></td>
+                    <td><a href="<?php echo $this->url('application/default',array('controller'=>$listing->controller,'action'=>$listing->actionedit,'id'=>$listing->id));?>">Click</a></td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </div>

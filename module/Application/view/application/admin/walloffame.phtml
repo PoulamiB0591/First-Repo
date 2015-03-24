@@ -1,0 +1,35 @@
+<div class="site">
+    <?php $form=$this->form; $form->prepare(); ?>
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <?php echo $this->form()->openTag($form);?>
+            <div class="table_button">
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back to page details</a>
+                <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'showwalloffame'));?>">Back</a>
+            </div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_wrap sam">
+                <tr>
+                    <th colspan="3">Wall of Fame Image Upload</th>
+                </tr>
+                <tr>
+                    <td><?php echo $this->formLabel($form->get('picture')); ?></td>
+                    <td><?php echo $this->formElement($form->get('picture')); ?></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Picture Name</label>
+                    </td>
+                    <td><?php echo $this->formElement($form->get('pname')); ?></td>
+                </tr>
+                 <tr>
+                    <td>
+                        <label>Picture description</label>
+                    </td>
+                    <td><?php echo $this->formElement($form->get('description')); ?></td>
+                <tr>
+                    <td><?php echo $this->formElement($form->get('submit'));?></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <?php echo $this->form()->closeTag() ?>

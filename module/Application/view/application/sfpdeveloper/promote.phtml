@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<?php
+$protocol = '';
+if (isset($_SERVER['HTTPS']) &&
+		($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+		isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+		$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+	$protocol = 'https://';
+}
+else {
+	$protocol = 'http://';
+}
+// echo $_SERVER['SERVER_PROTOCOL'].$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$url = $protocol.$_SERVER["SERVER_NAME"];
+?>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="shortcut icon" type="image/x-icon"
+	href="<?php echo $this->basePath('img/favicon.ico') ?>" />
+<link
+	href='http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic'
+	rel='stylesheet' type='text/css' />
+<style>
+a#savetemp {
+	color: #000;
+}
+
+table,td,th {
+	border: 1px solid black;
+	text-align: center;
+}
+
+table {
+	width: 100%;
+}
+
+th {
+	height: 50px;
+}
+
+.main-menu {
+	margin-top: 0;
+}
+</style>
+
+</head>
+<body>
+	<!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+	<!--------------------------------------------------------------------Not Required------------------------------------>
+	<div class="md-modal md-effect-1" id="modal-1">
+		<div class="md-content">
+			<h3>Campain goals Dialog</h3>
+			<div>
+				<form
+					action="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action' =>'promote','id'=>$devId,'pId'=>$tempId,'devId'=>'1'));?>"
+					method="post">
+					<?php
+					if($results->aboutCmp != "")
+					{
+						?>
+					<textarea class="ckeditor" cols="80" id="editor1" name="editor1"
+						rows="10">
+						<?php echo $results->aboutCmp; ?> </textarea>
+					<?php
+					}
+					else
+					{
+						?>
+					<textarea class="ckeditor" cols="80" id="editor1" name="editor1"
+						rows="10"> </textarea>
+					<?php
+					}
+					?>
+					<p class="close-or-save">
+						<input type="submit" value="Submit" class="cam-save"> <input
+							type="button" value="Cancel" class="md-close">
+					</p>
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="md-modal md-effect-1" id="modal-2">
+		<div class="md-content">
+			<h3>Modal Dialog</h3>
+			<div>
+				<form
+					action="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action' =>'promote','id'=>$devId,'pId'=>$tempId,'devId'=>'2'));?>"
+					method="post">
+					<?php
+					if($results->campGoal != "")
+					{
+						?>
+					<textarea class="ckeditor" cols="80" id="editor1" name="editor2"
+						rows="10">
+						<?php echo $results->campGoal ; ?> </textarea>
+					<?php
+					}
+					else
+					{
+						?>
+					<textarea class="ckeditor" cols="80" id="editor1" name="editor2"
+						rows="10"></textarea>
+					<?php
+					}
+					?>
+
+
+					<p class="close-or-save">
+						<input type="submit" value="Submit" class="cam-save" /> <input
+							type="button" value="Cancel" class="md-close">
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="md-modal md-effect-1" id="modal-3">
+		<div class="md-content">
+			<h3>Image Dialog</h3>
+			<div class="cam-pop-content">
+				<form action="sfpdeveloper/promote" method="post">
+					<input type="text" name="" placeholder="Name" />
+					<textarea placeholder="Descriptions" class="ckeditor" cols="80"
+						id="editor1" name="editor1" rows="10"></textarea>
+
+					<p class="close-or-save">
+						<input type="button" value="Submit" class="cam-save"> <input
+							type="button" value="Cancel" class="md-close">
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="md-modal md-effect-1" id="modal-4">
+		<div class="md-content">
+			<h3>Facebook coverphoto</h3>
+			<div>
+				<div class="cam-pop-content">
+					<form
+						action="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action' =>'promote','id'=>$devId,'pId'=>$tempId,'devId'=>'3'));?>"
+						method="post">
+						<img src="" id="image_fb" style="display: none;" />
+
+						<!--<input type="file" class="nicefile2" name="images2" placeholder="Browse" id="nicefile"/>-->
+
+						<?php
+						if($results->fbcoverDesc!= "")
+						{
+							?>
+						<textarea placeholder="Descriptions" class="ckeditor" cols="80"
+							id="editor1" name="desc" rows="10">
+							<?php echo $results->fbcoverDesc; ?> </textarea>
+						<?php
+						}
+						else
+						{
+							?>
+						<textarea placeholder="Descriptions" class="ckeditor" cols="80"
+							id="editor1" name="desc" rows="10"></textarea>
+						<?php
+						}
+						?>
+						<p class="close-or-save">
+							<input type="submit" value="Submit" class="cam-save"> <input
+								type="button" value="Cancel" class="md-close">
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--------------------------------------------------------------------Not Required------------------------------------>
+	<div id="developer-main-container" class="clearfix">
+		<div class="developer-menu-left-pannel">
+			<div class="development-center-wrapper clearfix">
+				<a
+					href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'index'));?>"
+					class="logo"><figure>
+						<img
+							src="<?php echo $this->basePath('sfpdeveloper/img/dev_logo.png') ?>"
+							alt="">
+					</figure> </a>
+				<h5 class="dev-title">- Development centre -</h5>
+				<div class="log-out-container clearfix">
+					<a class="log-out-bt"
+						href="<?php echo $url; ?>/sfpdeveloper/devlogout"><span
+						class="icon-power-off"></span> </a>
+					<div class="log-out-person">
+						<strong><?php echo $result->fName." ".$result->lName; ?> </strong>
+						<p>
+							<?php echo $result->ccity; ?>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="main-menu clearfix">
+				<ul>
+					<li><a
+						href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action' =>'dashboard','id'=>$devId."|".$encryptedDeveloperId));?>">Dashboard
+					</a>
+					</li>
+					<!---<li><a href="javascript:void(0)">My campaigns</a></li>
+        	<li><a href="javascript:void(0)">Upload wizard</a></li>
+        	<li><a href="javascript:void(0)">My account</a></li>--->
+					<li><a target="_blank"
+						href="<?php echo $url; ?>/index/documentation">Documentation</a></li>
+					<!---<li><a href="<?php echo $this->url('application/default',array('controller'=>'index','action' =>'blogdetails','id'=>$result->id));?>">Blog</a></li>--->
+
+					<!--<li><a href="<?php //echo $this->url('application/default',array('controller'=>'developer','action' =>'createapp'));?>">Create App</a></li>--->
+
+				</ul>
+			</div>
+		</div>
+		<div class="copyright-menu clearfix">
+			<ul>
+				<li><a
+					href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'termscondition'));?>"><span
+						class="icon-arrow-right"></span> Terms & service </a>
+				</li>
+				<li><a
+					href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'disclaimer'));?>">
+						<span class="icon-arrow-right"></span> Disclaimer
+				</a>
+				</li>
+				<li><a
+					href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'privacypolicy'));?>"><span
+						class="icon-arrow-right"></span> Privacy policy </a>
+				</li>
+				<li>&copy; Copyright 2015 Smart Fanpage</li>
+			</ul>
+		</div>
+		<div class="developer-menu-right-pannel clearfix">
+			<div class="developer-menu-right-pannel-image-holder clearfix">
+				<figure></figure>
+
+			</div>
+
+			<section class="developer-body-section clearfix">
+				<div class="devs-login-content campaign-new-wrap marketing-content">
+					<div class="campaign-new-rollouts clearfix">
+						<!---------------------------------------------/* About this campaign */---------------------------->
+						<div class="campaign-col-1">
+							<ul>
+								<li><h3>1.About this campaign</h3> <img
+									src="<?php echo $url; ?>/sfpdeveloper/ajax-loader.gif"
+									id="loader12" style="display: none;" />
+								</li>
+
+								<li><?php
+								if($promote != "")
+								{
+									?> <textarea class="jqte-test" cols="80" id="editor12"
+										name="editor1" rows="10">
+										<?php echo $promote->aboutCmp; ?>  </textarea> <?php
+								}
+								else
+								{
+									?> <textarea class="jqte-test" cols="80" id="editor12"
+										name="editor1" rows="10"> </textarea> <?php
+								}
+								?>
+								</li>
+							</ul>
+							<p class="close-or-save">
+								<input type="button" value="Edit" class="cam-save"
+									onclick="about_campaign()" />
+
+							</p>
+
+						</div>
+						<!---------------------------------------------/* Campain goals */---------------------------->
+
+						<!--   <div class="campaign-col-1">
+      <ul><li><h3>2.Campain goals</h3></li>
+        <img src="<?php echo $url; ?>/sfpdeveloper/ajax-loader.gif" id="loader123" style="display: none;"/>
+      <li>
+      <?php
+      if($promote != "")
+      {
+      ?>
+      <textarea class="jqte-test" cols="80" id="editor123" name="editor1" rows="10"><?php echo $promote->campGoal; ?></textarea>
+      <?php
+      }
+      else
+      {
+      ?>
+      <textarea class="jqte-test" cols="80" id="editor123" name="editor1" rows="10"> </textarea>
+      <?php
+      }
+      ?>
+      
+      </li></ul>
+      	<p class="close-or-save">
+		<input type="button" value="Edit" class="cam-save" onclick="campaign_goal()"/>
+          
+		</p>
+      </div>-->
+
+
+						<!-- Banner Image -->
+						<div class="campaign-col-1">
+							<ul>
+								<li><h3>3.Banner Image</h3></li>
+								<li>
+									<form method='post' enctype='multipart/form-data'
+										id='bannerimageform'
+										action='<?php echo $url; ?>/sfpdeveloper/banner/<?php echo $devId ?>/<?php echo $tempId ?>'>
+
+										<input type="file" class="nicefile2" name="bannerimage"
+											placeholder="Browse" id="bannerimage" />
+										<li><?php if($promote->bannerimage == NULL	|| $promote->bannerimage == '' || $promote->bannerimage == 'NULL'){  ?>
+											<img src="" id="screenshotbnr"
+											style="height: 200px; width: 300px;" /></li>
+										<?php }else{?>
+
+										<img src="<?php echo $promote->bannerimage; ?>"
+											style="height: 200px; width: 300px;" id="screenshotbnr" />
+										<?php }?>
+										<img src="<?php echo $url; ?>/sfpdeveloper/ajax-loader.gif"
+											id="loader_screenbnr" style="display: none;" />
+										<p></p>
+										<li><h3>4.Banner Text</h3></li>
+										<textarea placeholder="Banner Text" class="jqte-test"
+											cols="80" id="bannertext" name="bannertext" rows="10"
+											id="bannertext">
+											<?php echo $promote->bannertext; ?> </textarea>
+									</form>
+								</li>
+								<li>
+									<p class="close-or-save">
+										<?php if($promote->bannerimage == NULL	|| $promote->bannerimage == '' || $promote->bannerimage == 'NULL' || $promote->bannertext == NULL	|| $promote->bannertext == '' || $promote->bannertext == 'NULL'){  ?>
+										<input type="button" value="Save" id="savebanner"
+											class="cam-save" />
+										<?php }else{ ?>
+										<input type="button" value="Save" id="savebanner"
+											class="cam-save" />
+										<?php }?>
+									</p>
+								</li>
+							</ul>
+						</div>
+						<!---------------------------------------------/* screenshots */---------------------------->
+						<div class="campaign-col-1">
+
+							<ul>
+								<li><h3>5.screenshots</h3></li>
+
+								<li><img src="" id="screenshot"
+									style="height: 200px; width: 300px; display: none;" /></li>
+								<button class="delete-cam" style="display: none;">Delete</button>
+
+
+
+								<li>
+									<form method='post' enctype='multipart/form-data'
+										id='image_upload12'
+										action='<?php echo $url; ?>/sfpdeveloper/screenshot/<?php echo $devId ?>/<?php echo $tempId ?>'>
+
+										<input type="file" class="nicefile2" name="images21"
+											placeholder="Browse" id="nicefile2" /> <img
+											src="<?php echo $url; ?>/sfpdeveloper/ajax-loader.gif"
+											id="loader_screen" style="display: none;" />
+									</form>
+								</li>
+								<li><input type="text" name="" placeholder="Name" id="header" />
+								</li>
+								<li><textarea placeholder="Descriptions" class="jqte-test"
+										cols="80" id="editor1234" name="editor1" rows="10"></textarea>
+
+
+
+
+
+								</li>
+								<img src="<?php echo $url; ?>/sfpdeveloper/ajax-loader.gif"
+									id="loader1234" style="display: none;" />
+								<p class="close-or-save">
+									<input type="button" value="Save" id="screen_save"
+										class="cam-save" onclick="screenshots()" />
+
+								</p>
+								<p>
+								
+								
+								<li>
+									<div id="steps">
+										<table>
+											<tr>
+												<th>Steps</th>
+												<th>Screenshot image</th>
+												<th>Screenshot header</th>
+												<th>Screenshot description</th>
+												<th>Action</th>
+											</tr>
+											<?php
+											$con = count($screen);
+											$i=1;
+											if($screen != "")
+											{
+												foreach($screen as $scrn){
+													$res = $scrn->screenshot_desc;
+													if(strlen($res) < 20)
+													{
+														$res = $res;
+													}
+													else
+													{
+														$res = substr($res,0,55);
+														$res = $res."...";
+
+													}
+													?>
+											<tr id="<?php echo $scrn->id; ?>">
+												<td>step-<?php echo $i; ?>
+												</td>
+												<td><img src="<?php echo $scrn->screenshot_image; ?>"
+													style="height: 75px; width: 100px;" /></td>
+												<td><span><?php echo $scrn->screenshot_header; ?> </span></td>
+												<td><span><?php echo $res; ?> </span></td>
+												<td><a href='javascript:void(0)'
+													onclick='editscreen(<?php echo $scrn->id; ?>)'>Edit</a>&nbsp;<a
+													href='javascript:void(0)'
+													onclick='delscreen(<?php echo $scrn->id; ?>)'>Delete</a></td>
+											</tr>
+											<?php
+											$i++;
+												}
+											}
+											?>
+										</table>
+									</div>
+								</li>
+								</p>
+								<!---	<p class="close-or-save">
+		<input type="button" value="Add New" class="cam-save">
+          
+		</p> --->
+							</ul>
+						</div>
+						<!---------------------------------------------/* Facebook coverphoto */---------------------------->
+
+						<div class="campaign-col-1">
+							<?php $res = $url."/index/marketing/".$tempId."|".$encryptedTemplateId."/".$devId."|".$encryptedDeveloperId; ?>
+							<div id="promote_hide" style="display: none;">
+								<a id="savetemp" href="<?php echo $res; ?>" target="_blank"><u>Check
+										your marketing page</u> </a>
+							</div>
+							<a href="javascript:void(0)" onclick="savePromote()"><button
+									class="md-trigger edit">Save</button> </a>
+						</div>
+					</div>
+				</div>
+				<!--<form method='post' enctype='multipart/form-data' id='image_upload2' action='http://test.scampaigns.com/sfpdeveloper/fbcoverimage/<?php echo $devId ?>'>
+            <input type='hidden' value='1' name='logo' /> 
+            <input type="file" class="nicefile" id="nicefile" name="images2"/>
+            </form>--->
+
+
+			</section>
+			<div class="back-to-top-cont" style="position: relative;">
+				<hr />
+				<a id="back-to-top" class="go_to_up" href="#">Back to top</a>
+			</div>
+		</div>
+		<input type="hidden" value="<?php echo $devId;?>" id="devId" /> <input
+			type="hidden" value="" id="new" /> <input type="hidden"
+			value="<?php echo $tempId;?>" id="tempId" />
+	</div>
+
+	<div class="md-overlay"></div>
+	<!-- the overlay element -->
+
+	<script type="text/javascript"
+		src="<?php echo $url; ?>/sfpdeveloper/js/classie.js"></script>
+	<script type="text/javascript"
+		src="<?php echo $url; ?>/sfpdeveloper/js/modalEffects.js"></script>
+
+
+	<script type="text/javascript">
+            
+       
+            
+            $(function() {
+                var getbannerText =  $("#bannertext").text();
+              
+                $("#bannerimageform .jqte_editor").html(getbannerText);
+                $(".jqte_editor").on('keyup', function () {
+                     $("#editor1234").text($(this).text());
+                    });      
+
+                $("#bannerimageform .jqte_editor").on('keyup', function () {
+                    
+                    $("#bannertext").text($(this).html());
+                });        
+            });
+        
+  $("#nicefile").live("change",function(){
+      $("#loader").show(); 
+    
+    $("#image_upload2").ajaxSubmit({
+        
+	success: function(response) {
+	   
+      $("#fbcover").attr('src',response);
+      
+	$("#loader").hide();
+  //  if(response.trim() == "1")
+//    {
+//        alert("please upload image within 500kb");
+//        return false;
+//    }
+//    else if(response.trim() == "2")
+//    {
+//       alert("please upload image within 200x200 pixels");
+//       return false; 
+//    }
+//    else
+//    {
+//       var r = response.split("||");
+//       if(r[0].trim() == "1")
+//       {
+//        $("#devimage").attr("src","");
+//        $("#devimage").attr("src",r[1]);
+//       }
+//  }	
+	}
+	});
+    });
+    
+    
+      $("#nicefile2").live("change",function(){
+      $("#loader_screen").show(); 
+
+
+
+      
+    $("#image_upload12").ajaxSubmit({
+        
+	success: function(response) {
+	   $("#screenshot").css('display','block');   
+      $("#screenshot").attr('src',response);
+      
+	$("#loader_screen").hide();
+  //  if(response.trim() == "1")
+//    {
+//        alert("please upload image within 500kb");
+//        return false;
+//    }
+//    else if(response.trim() == "2")
+//    {
+//       alert("please upload image within 200x200 pixels");
+//       return false; 
+//    }
+//    else
+//    {
+//       var r = response.split("||");
+//       if(r[0].trim() == "1")
+//       {
+//        $("#devimage").attr("src","");
+//        $("#devimage").attr("src",r[1]);
+//       }
+//  }	
+	}
+	});
+    });
+
+      
+      $("#savebanner").live("click",function(){
+    	
+          $("#loader_screenbnr").show(); 
+      $("#bannerimageform").ajaxSubmit({ 
+    	  data : {bannerimage:'bannerimage'},
+    		success: function(response) {
+    			 var imgVal = $('#bannerimage').val(); 
+    			
+    		 
+    			 //alert("df");      
+       		if(response == "0")
+        	{
+       		 alert("Image size must be 1231*330 or higher");
+       		$("#loader_screenbnr").hide();
+        	}
+           		
+       		else if(response == '')
+        		{
+         		//alert("df");
+        			$("#loader_screenbnr").hide();
+     		}
+       		 else{
+           		// alert(response);
+           		 
+    	      $("#screenshotbnr").css("display","block");
+    	     $("#screenshotbnr").attr('src',response);
+    		$("#loader_screenbnr").hide();
+    		$("#bannertext").val("");
+    		$("#bannerimage").val("");
+    		$('#bannerimageform').trigger('reset');  
+       		 }
+       		
+    	}
+    		
+    		});
+      });
+      
+    function about_campaign()
+    {
+        $("#loader12").show();
+        var base_url = window.location.origin;
+        var devid = $("#devId").val();
+        var tempid = $("#tempId").val();
+        var editor1 = $("#editor12").val();
+     
+              $.ajax({
+            type:'POST',
+            data:{devid:devid,tempid:tempid,editor1:editor1},
+            url:base_url+"/sfpdeveloper/aboutcampaign",
+            success:function(data){
+                alert(data);
+     $("#loader12").hide();
+            }
+        });
+    }
+    
+    function campaign_goal()
+    {
+        $("#loader123").show();
+        var base_url = window.location.origin;
+        var devid = $("#devId").val();
+        var tempid = $("#tempId").val();
+        var editor2 = $("#editor123").val();
+      
+              $.ajax({
+            type:'POST',
+            data:{devid:devid,tempid:tempid,editor2:editor2},
+            url:base_url+"/sfpdeveloper/campaigngoal",
+            success:function(data){
+                alert(data);
+     $("#loader123").hide();
+            }
+        }); 
+    }
+    
+    function screenshots()
+    {
+        var base_url = window.location.origin;
+        var screen = $("#screenshot").attr('src');
+        var editor2 = $("#editor1234").val();
+        var header = $("#header").val();
+         var tempid = $("#tempId").val();
+       if($("#screen_save").val() == "Edit")
+       {
+        var id = $("#new").val();
+       
+           $.ajax({
+            type:'POST',
+            data:{tempid:tempid,editor2:editor2,header:header,screen:screen},
+            url:base_url+"/sfpdeveloper/screenshotsave/"+id,
+            success:function(data){
+               
+                var ress = data.split("||");
+                alert(ress[0]);
+                
+                $("#screen_save").val("Save");
+                $("#editor1234").text("");
+                $(".jqte_editor").text("");
+                $("#header").val("");
+                $("#nicefile2").val("");
+                $("#screenshot").attr('src','http://placehold.it/140x100');
+                $("#loader1234").hide();
+                $("#steps").html(ress[1]);
+                    }
+        }); 
+        return false;
+       }
+        var image = $("#nicefile2").val();
+        
+        if(image == "")
+        {
+            alert("Please upload image");
+            return false;
+        }
+        if(header == "")
+        {
+            alert("Please add header");
+            return false;
+        }
+     $("#loader1234").show();
+        
+        var devid = $("#devId").val();
+        var tempid = $("#tempId").val();
+     
+      
+              $.ajax({
+            type:'POST',
+            data:{devid:devid,tempid:tempid,editor2:editor2,header:header,screen:screen},
+            url:base_url+"/sfpdeveloper/screenshotsave",
+            success:function(data){
+                
+                var res = data.split("||");
+                alert(res[0]);
+                $("#steps").html("");
+                $("#steps").html(res[1]);
+                 $(".jqte_editor").val("");
+        $("#header").val("");
+         $("#nicefile2").val("");
+         $("#screenshot").attr('src','http://placehold.it/140x100');
+     $("#loader1234").hide();
+            }
+        });    
+    }
+    
+    function editscreen(id)
+    {
+        var base_url = window.location.origin;
+           $.ajax({
+            type:'POST',
+            data:{screenid:id},
+            url:base_url+"/sfpdeveloper/editscreenshot",
+            success:function(data){
+                //alert(data);return false;
+               var res = data.split("||");
+               $("#screenshot").attr("src",res[0]);
+               $(".jqte_editor").text(res[1]);
+               $("#header").val(res[2]);
+               $("#screen_save").val("Edit");
+               $("#new").val(id);
+               
+            }
+        });
+    }
+    
+    function editfbcover()
+    {
+        $("#loading").show();
+       var base_url = window.location.origin;
+       var desc = $("#editors").val();
+        var devid = $("#devId").val();
+        var tempid = $("#tempId").val();
+     
+           $.ajax({
+            type:'POST',
+            data:{desc:desc,devid:devid,tempid:tempid},
+            url:base_url+"/sfpdeveloper/editfbcover",
+            success:function(data){
+                alert(data);
+          $("#loading").hide();
+          
+            }
+        });  
+    }
+    
+    function delscreen(sid)
+    {
+        var base_url = window.location.origin;
+        $("#loading").show();
+      $.ajax({
+            type:'POST',
+            data:{sid:sid},
+            url:base_url+"/sfpdeveloper/screendelete",
+            success:function(data){
+                alert(data);
+                $("li#"+sid).remove();
+          $("#loading").hide();
+          window.location.reload();
+            }
+        });   
+    }
+    
+    function savePromote()
+    {
+    	  $("#savebanner").trigger('click');
+       $("#promote_hide").show();
+        
+    }
+    
+        
+        </script>
+</body>
+</html>

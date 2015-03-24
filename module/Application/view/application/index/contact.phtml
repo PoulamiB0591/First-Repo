@@ -1,73 +1,338 @@
+<?php 
+
+$form = $this->form;
+$form->prepare();
+?>
+ <script>
+  function fbs_click()
+    {
+    var base_url = window.location.origin;
+    u=base_url+"/index/contact"
+    t='smartfanpage';
+    var child = window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+    }
+    
+    function twt_click()
+    {
+     var base_url = window.location.origin;   
+    u=base_url+"/index/contact"
+    t='smartfanpage';
+    var child = window.open('http://twitter.com/share?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');   
+    }
+    
+    function linkedinButton(){
+     var base_url = window.location.origin;
+     var articleUrl = encodeURIComponent(base_url+'/index/contact');
+     var articleTitle = encodeURIComponent('smartfanpage');
+     var articleSummary = encodeURIComponent('contact');
+     var articleSource = encodeURIComponent('best');
+     var goto = 'http://www.linkedin.com/shareArticle?mini=true'+
+           '&url='+articleUrl+
+           '&title='+articleTitle+
+           '&summary='+articleSummary+
+           '&source='+articleSource;
+       window.open(goto, "LinkedIn", "width=660,height=600,scrollbars=yes;resizable=no");         
+}         
+  </script>
+<?php echo $this->form()->openTag($form); ?>
+
 <div  class="site">
   <div class="container-fluid"> 
-     <!--===== start banner ===-->
-    <div class="row">
+  <div class="row">
+   
       <div class="banner_contact">
-        <ul class="social_icon">
+        <ul class="social_icon" >
           <li><a href="#">Share this website</a></li>
-          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul> <!--=== social icon ===-->
+             <li><a href="javascript:void(0)" onclick="return fbs_click()"></a> <a style="cursor:pointer" onclick="return twt_click()"></a> <a style="cursor:pointer" onclick="return linkedinButton()"></a></li>
+        </ul> 
         <div class="cont-title">
-        <h1>contact</h1>
+        <h1><?php echo $contentheader->headerLine; ?></h1>
         </div>
-      </div>
       
-    </div><!--===== end banner ===--> 
+      
+    </div>
+    
+    
+    <div class="container container-for-standard-desktop">
+    <div class="row">
     
 <section class="contact col-lg-12 row">
         <div class="con-left-conetnt col-lg-8">
         <h3>Submit your question</h3>
         <div class="contact-form">
-       <form name="login" method="post">
-                    <ul>
-                        <li class="clearfix">
-                            <label> Subject</label>
-                            <input type="text" value="" name=" Subject" placeholder="Input text">
-                        </li>
-                        
-                        <li class="clearfix">
-                            <label> Message</label>
-                            <textarea name="Message" cols="" rows="" placeholder="Input text"></textarea>
-                            
-                        </li>
-                        
-                        <li class="clearfix">
-                            <label>NAME</label>
-                            <input type="text" value="" name=" NAME" placeholder="Input text">
-                        </li>
-                        
-                        <li class="clearfix">
-                            <label>Phone</label>
-                            <input type="text" value="" name="Phone" placeholder="Input text">
-                        </li>
-                        
-                        <li class="clearfix">
-                            <label>Email</label>
-                            <input type="text" value="" name=" Phone" placeholder="Input text">
-                        </li>
-                        
-                        <li class="clearfix">
-                            <label></label>
-                            <input type="submit" value="submit" name=" submit" placeholder="Input text">
-                        </li>
-                        
-                    </ul>
-                </form>
+        
+        
+        
+        
+        <form name="login" method="post">
+        <ul>
+            <li>
+                <?php echo $this->formLabel($form->get('subject')); ?>
+                <?php echo $this->formElement($form->get('subject'));?>
+            </li>
+            <li>
+                <?php echo $this->formLabel($form->get('message')); ?>
+                <?php echo $this->formElement($form->get('message'));?>
+            </li>
+            <li>
+                <label>Name</label>
+                <?php echo $this->formElement($form->get('name'));?>                
+            </li>
+            <li>
+                <?php echo $this->formLabel($form->get('phone')); ?>
+                <?php echo $this->formElement($form->get('phone'));?>                
+            </li>
+            <li>
+                <?php echo $this->formLabel($form->get('email')); ?>
+                <?php echo $this->formElement($form->get('email'));?>
+            </li>
+            <li>
+                <label>&nbsp;</label>
+                <?php echo $this->formElement($form->get('submit'));?>
+              
+            </li>
+        </ul>
+        </form>
+        
+        
+ <div>
+ <?php echo $this->form()->closeTag() ?>
+<?php
+if ($this->flashMessenger()->hasMessages()) {
+   echo '<div direction="left" class="alert alert-info" id="contentDiv">';
+   
+    $messages = $this->flashMessenger()->getMessages();
+    foreach($messages as $message) {
+        echo $message;
+    }
+
+    echo '</div>';
+}
+
+
+?> 
+</div>
 
        </div>
         </div>
         
         <div class="con-right-conetnt col-lg-3">
         <h4>Contact info</h4>
-        <p>Smartfanpage</p>
-        <p>Liessentstraat 9a
-5405 AH Uden</p>
-<span>info@smartfanpage.com</span>
-<span><figure><img src="<?php echo $this->basePath('img/cont-img.png') ?>" alt=""></figure></span>
-<a href="#" class="find-a-pub">Find a publisher</a>
-<a href="#" class="chat-closed">Chat closed</a>
+        <input type="hidden" value="" id="hid" />
+        <p><?php echo $contentadr->name; ?></p>
+        <p><?php echo $contentadr->adrs; ?></p>
+<span><?php echo $contentadr->email ; ?></span>
+<span><img src="<?php echo $contentadr->imagePath ; ?>" alt="" /></span>
+<a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'becomepublisher'));?>" class="find-a-pub">Find a publisher</a>
+<!--<a href="javascript:void(0)" class="chat-closed">Chat closed</a>-->
         </div>
         </section>
-        <div class="row_margin col-lg-12">
-        <hr>
-      </div>        
+        </div>
+        
+        
+        
+        <div style="position:relative;">
+        
+        <hr/>
+        <a href="#" class="go_to_up" id="back-to-top"></a></div>
+        
+        
+        
+        
+        
+        
+        </div>
+        </div>
+        </div>
+        </div>
+     
+      
+      
+<style type="text/css">
+.banner_contact
+{
+	background: url(<?php echo $contentheader->imagePath ; ?>) no-repeat top center;
+	width:100%;
+	background-size:cover;
+	overflow:hidden;
+	margin:auto;
+	min-height: 420px;
+       
+
+
+}
+
+ .alert-info {
+    width: 220px;
+    padding: 10px;
+    border: 5px solid gray;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    background-color: ghostwhite;
+    color: red;    
+     
+}
+</style>
+
+<script language="Javascript" type="text/javascript">
+
+function onlyAlphabets(e, t) 
+{
+try 
+    {
+        if (window.event) 
+        {
+            var charCode = window.event.keyCode;
+        }
+        else if (e)
+        {
+            var charCode = e.which;
+        }
+        else 
+        { 
+            return true; 
+        }
+        //alert(charCode);
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode ==8 || charCode ==32 || charCode ==0 )
+        return true;
+        else
+        return false;
+    }
+
+catch (err) 
+    {
+        alert(err.Description);
+    }
+
+}
+
+  
+
+function phoneFunction(evt) 
+{
+    
+         
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            //alert(charCode);return false;
+            if ((charCode >= 48 && charCode <= 57 ) || (charCode >= 96 && charCode <= 105 ) || charCode ==8 || charCode ==9)
+            {
+            return true;
+            }
+            
+            else{
+            return false;
+            }
+           
+}
+
+
+function emailFunction() 
+{
+var phone=document.forms["appForm2"]["phone"].value;
+if(document.getElementById("hid").value == "")
+{
+if (phone == "")
+    {
+        var cmt = confirm('Do you want to proceed without entering phone number?');
+    if (cmt == true) {
+        document.getElementById("phone").value = "";
+        document.getElementById("hid").value = "1";
+        
+    }
+    else 
+    {
+    
+    alert("Please put your phone number");
+    document.getElementById('phone').focus();
+    document.getElementById('email').value='';
+    }
+    
+    
+    
+    }
+    }
+
+//if (phone==null || phone=="")
+//        {    
+//        alert("You haven't inserted you phone number ");
+//        localStorage.setItem('alerted','yes');
+//        
+//        return false;
+//        }
+//     else
+//        {
+//            var phone2 = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+//            if (phone.match(phone2)) 
+//            {
+//            return true;
+//            } 
+//            else 
+//            {
+//             alert("Please put your phone number");
+//             document.getElementById('phone').focus();
+//             document.getElementById('email').value='';
+//            }
+//
+//        }   
+
+}
+function submitFunction()
+{
+    
+    var email=document.forms["appForm2"]["email"].value;
+    var name=document.forms["appForm2"]["name"].value;
+    var subject=document.forms["appForm2"]["subject"].value;
+    var message=document.forms["appForm2"]["message"].value;
+    
+    if (subject==null || subject=="")
+        {    
+        alert("Please put your subject");
+        document.getElementById('subject').focus();
+        
+        return false;
+        }
+        
+    if (message==null || message=="")
+        {    
+        alert("Please put your message");
+        document.getElementById('message').focus();
+        
+        return false;
+        }
+        
+    if (name==null || name=="")
+        {    
+        alert("Please put your name");
+        document.getElementById('name').focus();
+        
+        return false;
+        }
+   
+    if (email==null || email=="")
+        {    
+        alert("Please put your E-mail");
+        document.getElementById('email').focus();
+        
+        return false;
+        }
+     else
+        {
+            var regexemail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (email.match(regexemail)) 
+            {
+            return true;
+            } 
+            else 
+            {
+             alert("Please put valid E-mail");
+             document.getElementById('email').focus();
+             return false;
+            }
+
+        }   
+      
+
+}
+</script>
+

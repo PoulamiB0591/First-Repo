@@ -1,0 +1,117 @@
+<?php 
+
+if($pageB4 == 'Admin') 
+{
+    echo $this->headLink()
+        ->prependStylesheet($this->basePath() . '/css/TextboxList.css')
+        ->prependStylesheet($this->basePath() . '/css/responsive.css')
+        ->prependStylesheet($this->basePath() . '/css/owl.theme.css')
+        ->prependStylesheet($this->basePath() . '/css/nav_menu.css')
+        ->prependStylesheet($this->basePath() . '/css/jquery.tagsinput.css')
+        ->prependStylesheet($this->basePath() . 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css')
+        ->prependStylesheet($this->basePath() . '/css/admin.css')
+        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css');
+}        
+else if($pageB4 == 'index')
+{
+	
+    
+    if($page == 'becomepublisher')
+    { 
+        echo $this->headLink()
+            
+            ->prependStylesheet($this->basePath() . '/css/responsive.css')
+            ->prependStylesheet($this->basePath() . '/css/owl.theme.css','all')
+            ->prependStylesheet($this->basePath() . '/css/nav_menu.css')
+            ->prependStylesheet($this->basePath() . '/css/style.css')
+            ->prependStylesheet($this->basePath() . '/css/prettyPhoto.css')
+            ->prependStylesheet($this->basePath() . '/sfpdeveloper/main.css')
+            ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css');
+    }
+    
+    else if($page == 'marketing')
+    {
+    	echo $this->headLink()
+    	->prependStylesheet($this->basePath() . '/css/responsive.css','all')
+    	->prependStylesheet($this->basePath() . '/css/owl.theme.css','all')
+    	->prependStylesheet($this->basePath() . '/css/nav_menu.css','all')
+    	->prependStylesheet($this->basePath() . '/css/style.css','all')
+    	->prependStylesheet($this->basePath() . '/css/prettyPhoto.css')
+    	->prependStylesheet($this->basePath() . '/sfpdeveloper/css/main.css')
+    	//rating
+    	->prependStylesheet($this->basePath() . '/css/jquery.rateyo.min.css')
+    	->prependStylesheet('http://www.jqueryscript.net/css/jquerysctipttop.css')
+    	//rating
+    	->prependStylesheet($this->basePath() . '/css/bootstrap.min.css','all');
+    	
+    
+    }
+    else 
+    { 
+        echo $this->headLink()
+            ->prependStylesheet($this->basePath() . '/css/responsive.css','all')
+            ->prependStylesheet($this->basePath() . '/css/owl.theme.css','all')
+            ->prependStylesheet($this->basePath() . '/css/nav_menu.css','all')
+            ->prependStylesheet($this->basePath() . '/css/style.css','all')
+            ->prependStylesheet($this->basePath() . '/css/prettyPhoto.css')
+            ->prependStylesheet($this->basePath() . '/css/main.css')
+            ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css','all');
+        
+    } 
+}  
+else if($pageB4 == 'Frontend')
+{
+	if($page == 'index1')
+	{
+		echo $this->headLink()
+	
+		->prependStylesheet($this->basePath() . '/css/responsive.css')
+		->prependStylesheet($this->basePath() . '/css/owl.theme.css','all')
+		->prependStylesheet($this->basePath() . '/css/nav_menu.css')
+		->prependStylesheet($this->basePath() . '/css/style.css')
+		->prependStylesheet($this->basePath() . '/css/prettyPhoto.css')
+		
+		->prependStylesheet($this->basePath() . '/css/bootstrap.min.css');
+	}
+	else if($page == 'dashboard')
+	{
+		echo $this->headLink()
+	
+		->prependStylesheet($this->basePath() . '/css/responsive.css')
+		->prependStylesheet($this->basePath() . '/css/owl.theme.css','all')
+		->prependStylesheet($this->basePath() . '/css/nav_menu.css')
+		->prependStylesheet($this->basePath() . '/css/style.css')
+		->prependStylesheet($this->basePath() . '/css/prettyPhoto.css')
+	
+		->prependStylesheet($this->basePath() . '/css/bootstrap.min.css');
+	}
+	
+	else if($page == 'report')
+	{
+		echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . ''))
+		->prependStylesheet($this->basePath() . '/css/jquery.friend.selector-1.2.1.css')
+		->prependStylesheet($this->basePath() . '/css/responsive.css')
+		->prependStylesheet($this->basePath() . '/css/owl.theme.css')
+		->prependStylesheet($this->basePath() . '/css/nav_menu.css')
+		->prependStylesheet($this->basePath() . '/css/style.css')
+		->prependStylesheet($this->basePath() . '/css/prettyPhoto.css')
+		 
+		->prependStylesheet($this->basePath() . '/css/bootstrap.min.css');
+	}
+	
+} 
+else 
+{ 
+    echo $this->headLink()
+        ->prependStylesheet($this->basePath() . '/css/jquery.friend.selector-1.2.1.css')
+        ->prependStylesheet($this->basePath() . '/css/responsive.css')
+        ->prependStylesheet($this->basePath() . '/css/owl.theme.css')
+        ->prependStylesheet($this->basePath() . '/css/nav_menu.css')
+        ->prependStylesheet($this->basePath() . '/css/style.css')
+        ->prependStylesheet($this->basePath() . '/css/prettyPhoto.css')
+       ->prependStylesheet($this->basePath() . '/sfpdeveloper/css/main.css')
+        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css');
+        
+    
+} 
+?>

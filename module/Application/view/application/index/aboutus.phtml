@@ -1,115 +1,370 @@
+
+<style>
+div.team_details {
+	position:relative;
+	overflow: hidden;
+	margin: 0 0 30px 0;
+}
+div.team_details span {
+	border:3px solid #483E3D;
+	display: block;
+}
+div.team_details > div {
+	background: url(../img/abt-img-bg.png) repeat left top;
+    overflow: hidden;
+	height: 100%;
+    width: 100%;
+	position:absolute;
+	left: 0;
+	bottom: -100%;
+	text-align: center;
+	color: #FFF;
+}
+div.team_details > div strong {
+  display: block;
+  font-family: "ubuntubold";
+  font-size: 14px;
+  font-weight: normal;
+  margin: 30px 0 0;
+  text-transform: uppercase;
+}
+div.team_details > div p {
+    font-size: 12px;
+	margin: 10px 20px;
+}
+
+.one-line-description {
+  background: none repeat scroll 0 0 #333;
+  color: #fff;
+  display: block;
+  font-size: 13px;
+  height: auto;
+  line-height: 16px;
+  overflow: hidden;
+  padding: 5px;
+}
+.team_details .abt-social {
+  float: none;
+  margin: 31px 0 0;
+}
+.team_details .social_icon3 {
+  clear: none;
+  float: none;
+  text-align: center;
+}
+.team_details .social_icon3 > li {
+  display: inline-block;
+  float: none;
+}
+</style>
 <div class="site">
   <div class="container-fluid"> 
     <!--===== start banner ===-->
-  <div class="row">  
-  <div class="banner case-studies-bg">
-        <ul class="social_icon2">
-          <li><a href="#">Share this website</a></li>
-          <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
+  
+         <!--- added by dibyendu for banner starts
+         <div class="row">
+    <div class="store_banner team-banner">
+        <ul class="social_icon">
+          <li><a href="javascript:void(0)">Share this website</a></li>
+          <li><a onclick="return fbs_click()" style="cursor:pointer"></a> <a onclick="return twt_click()" style="cursor:pointer"></a> <a onclick="return linkedinButton()" style="cursor:pointer"></a></li>
         </ul>
-        <div class="clearfix"></div>
-        <div class="banner_caption4 col-md-8" >
-          <h1>Meet our team</h1>
+        <div class="banner_caption col-md-12 t-store">
+          <h1> Bringing together worldwide developers and users who are
+looking for killer apps to boost their business!</h1>
           
-           </div>
-      </div>
+                              
+                </div>
+      
+    </div>
+    </div>--->
+    
+    <!--- added by dibyendu  for banner ends--->
+        
+        
+
+    
+  <div class="container store-wrapper container-for-standard-desktop">
+        <div class="row">
+        
+        
+ <!---  <div class="banner_caption4 col-md-12">
+          
+          <h2><?php echo $banner->description ; ?></h2>
+           </div>--->
+           
+      <div class="team-content">
+      <!---<h2>Meet our team</h2>-->
+      <h2><?php echo $banner->header ; ?></h2>
+       <p><?php echo $banner->description ; ?></p>
+      </div>     
+    <div class="team_wrapper">
+    
+    
+    	<div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/koen.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Koen van de Wetering</strong> <br />CEO</h2>
+    
+     
+     
+     
+     <!--<strong>Koen van de Wetering</strong> <br />CEO-->
+     
+     
+                <div>
+                    <strong>Koen van de Wetering, CEO</strong>
+                    <p>Koen is the founder and CEO of Smartfanpage. He's an entrepreneur since the age of 15 already and is able to manage best of both worlds: technical skills and business knowledge. He can't work without his "to do list's". Koen likes to spend his rare spare time with his friends.</p>
+                    
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com/kwetering?fref=ts" id="fb_seven"></a>
+      <a href="nl.linkedin.com/in/koenvandewetering"></a>
+      <!--  <a href="#"></a>-->
+       
+       
+      <style type="text/css">#twet_seven{
+        display:none;
+        }</style>
+      
+       
+      <style type="text/css">#instagram_seven{
+        display:none;
+        }</style>
+     </li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+    	<div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/souvik-da.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Souvik Bose</strong> <br />CTO</h2>
+                <div>
+                    <strong>Souvik Bose, CTO</strong>
+                    <p>Souvikis a real `techno wizard`. He has over 7 years of IT experience and he knows no less than 8 programming languages. He has experience in Big Data analytics with Hadoop, Hive, Flume and Hbase. His current crush is Data Science and R language. In his spare time he loves to play guitar, listen to good music and drinking beer</p>
+                    
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com/souvik2008?fref=ts" id="fb_seven"></a>
+      
+  
+      <a href="https://www.linkedin.com/profile/view?id=68123645&authType=NAME_SEARCH&authToken=T399&locale=en_US&srchid=4048188731426683567252&srchindex=1&srchtotal=1&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A4048188731426683567252%2CVSRPtargetId%3A68123645%2CVSRPcmpt%3Aprimary%2CVSRPnm%3A"></a>
+      <a href="https://twitter.com/souvik2008"></a>
+      </li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+    	<div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/mark.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Marc van der Wielen</strong> <br />CMO</h2>
+                <div>
+                    <strong>Marc van der Wielen, CMO</strong>
+                    <p>Marc is the creative brain of the team and responsible for all marketing activities. He is an experienced entrepreneur and strategist and founder of several companies. Marc's passions (or addictions) are reading and sharing fun facts and the latest new all day, every day, COFFEE and Netflix! </p>
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com/marc.vanderwielen.9?fref=ts" id="fb_seven"></a>
+      <a href="nl.linkedin.com/pub/marc-van-der-wielen/5/295/174"></a>
+     <!--   <a href="#"></a>-->
+</li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+    	<div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/ronny.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Ronny Kar</strong> <br />COO</h2>
+                
+                <div>
+                    <strong>Ronny Kar, COO</strong>
+                    <p>Ronny is responsible for the operations at Delgence and brings a lot of creative ideas and analytical insights to the team. Apart from being occupied with technology, Ronny loves photography and is passionate about football.</p>
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com/ronykar?pnref=eh" id="fb_seven"></a>
+      <a href="#"></a>
+      <a href="https://twitter.com/r_on_yKAR"></a>
+</li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+    	<div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/koushik.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Koushik Roy</strong> <br />Lead developer </h2>
+                <div>
+                    <strong>Koushik Roy, Lead developer </strong>
+                    <p>Koushik is the team leader and senior application developer. He has experience with custom-PHP, Zend Framework 2.0 and Javascript. Koushik enjoys working with Facebook page tab application and is crazy about cycling.</p>
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com" id="fb_seven"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+</li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+    	<div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/baishakhi.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Baishakhi Karmakar</strong> <br />Sr. developer</h2>
+                <div>
+                    <strong>Baishakhi Karmakar, Sr. developer </strong>
+                    <p>Baishakhi is one of our senior developers and we�re proud to the fact that she�s part of our team since the beginning of her career.She is responsible for the development and knowledge transfer to her co-workers. Baishakhi's passion is music!</p>
+                    
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com" id="fb_seven"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+</li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+    	<div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/tanu.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Tanumay Pal </strong><br />Front-end developer </h2>
+                <div>
+                    <strong>Tanumay Pal, Front-end developer </strong>
+                    <p>Tanumay is our front-end developer and works closely together with the designs of Henrik. He is specialised in Valid HTML & CSS Coding. Although Tanumay is a bit shy, he likes to dance (especially on 80's disco classics).</p>
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com" id="fb_seven"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+</li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+    	<div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/pou.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Poulami Banerjee</strong><br /> Sr. developer</h2>
+                <div>
+                    <strong>Poulami Banerjee, Sr. developer</strong>
+                    <p>Poulami is one of our senior developers. She loves to work on challenging projects and understanding different platforms of coding. She is, just as Tanumay, a passionate dancer.</p>
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com" id="fb_seven"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+</li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/ari.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Arijit Roy</strong> <br />Automation tester </h2>
+                <div>
+                    <strong>Arijit Roy, Automation tester </strong>
+                    <p>Arijit is automation tester andhas a wide experience as Software Tester and Quality. He�s passionate about traveling and loves testing Web based Applications (even in his spare time).</p>
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com" id="fb_seven"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+</li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/dib.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Dibyendu Konar</strong> <br />Jr. Developer</h2>
+                <div>
+                    <strong>Dibyendu Konar, Jr. Developer</strong>
+                    <p>Dibyendu has just started his career! We�re helping him to learn the meaning of responsibility and accountability. He strives to be a better performer and a great coder.Dibyenduhas a passion for watching romantic movies.</p>
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com" id="fb_seven"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+</li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/loes.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Loes Verstegen</strong><br /> Marketing manager</h2>
+                <div>
+                    <strong>Loes Verstegen, Marketing manager </strong>
+                    <p>Loes is marketing manager and continuously working on the content of Smartfanpage. She is well-organised and a fun colleague to work with. Loes�s real passion is yoga and she can�t wait to become a real yoga teacher. </p>
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com" id="fb_seven"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+</li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3">
+        	<div class="team_details">
+                <span><img class="img-responsive" src="http://test.scampaigns.com/img/henrik.jpg" alt=""></span>
+                <h2 class="one-line-description"><strong>Henrik van Duijnhoven</strong> <br />User interaction designer</h2>
+                <div>
+                    <strong>Henrik van Duijnhoven - User interaction designer</strong>
+                    <p>Henrik is our graphic and user interaction designer. He is responsible for the awesome design of Smartfanpage and works with (lots of!) accuracy and precision. Henrik is crazy about cooking and music. </p>
+                    <div class="abt-social">
+     <ul class="social_icon3">
+      <li>      <a href="https://www.facebook.com" id="fb_seven"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+</li>
+        </ul>
+     </div>
+                </div>
+            </div>
+        </div>
     
     </div>
-    <div class="row no-pad">
-     <div class="col-lg-12 no-pad">
-     
-     <div class="col-lg-8 no-pad">
-     
-     
-     <div class="col-lg-12"><figure><img alt="" src="<?php echo $this->basePath('img/abt-img-1.jpg') ?>"><div class="abt-img-wrap col-lg-12">
-     <div class="abt-title"><h3>Koen van de Wetering</h3>
-     <p>Founder</p>
-     </div>
-     <div class="abt-social">
-     <ul class="social_icon3">
-      <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul>
-     </div>
-     </div></figure></div>
-     <div class="col-lg-6 col-sm-6"><figure><img alt="" src="<?php echo $this->basePath('img/abt-img-2.jpg') ?>"><div class="abt-img-wrap col-lg-12">
-     <div class="abt-title"><h3>Eva Machielse</h3>
-     <p>Sales and marketing</p>
-     </div>
-     <div class="abt-social">
-     <ul class="social_icon3">
-      <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul>
-     </div>
-     </div></figure></div>
-      <div class="col-lg-6 col-sm-6"> <figure><img alt="" src="<?php echo $this->basePath('img/abt-img-3.jpg') ?>"><div class="abt-img-wrap col-lg-12">
-     <div class="abt-title"><h3>Floris Donkers</h3>
-     <p>Projectmanagement</p>
-     </div>
-     <div class="abt-social">
-     <ul class="social_icon3">
-      <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul>
-     </div>
-     </div></figure></div>
-      <div class="col-lg-6 col-sm-6"> <figure><img alt="" src="<?php echo $this->basePath('img/abt-img-4.jpg') ?>"><div class="abt-img-wrap col-lg-12">
-     <div class=" abt-title"><h3>Joris de groot</h3>
-     <p>Development</p>
-     </div>
-     <div class="abt-social">
-     <ul class="social_icon3">
-      <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul>
-     </div>
-     </div></figure></div>
-      <div class="col-lg-6 col-sm-6"><figure><img alt="" src="<?php echo $this->basePath('img/abt-img-5.jpg') ?>"><div class="abt-img-wrap col-lg-12">
-     <div class="abt-title"><h3>Anne van dijk</h3>
-     <p>Office</p>
-     </div>
-     <div class="abt-social">
-     <ul class="social_icon3">
-      <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul>
-     </div>
-     </div></figure></div>
-     
-     
-     </div>
-     
-     <div class="col-lg-4 no-pad">
-      <div class="col-lg-12 col-sm-6"><figure><img alt="" src="<?php echo $this->basePath('img/abt-img-6.jpg') ?>"><div class="abt-img-wrap col-lg-12">
-     <div class="abt-title"><h3>Marc van der Wielen</h3>
-     <p>Marketing</p>
-     </div>
-     <div class="abt-social">
-     <ul class="social_icon3">
-      <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul>
-     </div>
-     </div></figure></div>
-     <div class="col-lg-12 col-sm-6"><figure><img alt="" src="<?php echo $this->basePath('img/abt-img-7.jpg') ?>"><div class="abt-img-wrap col-lg-12">
-     <div class="abt-title"><h3>Eva Machielse</h3>
-     <p>Sales and marketing</p>
-     </div>
-     <div class="abt-social">
-     <ul class="social_icon3">
-      <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul>
-     </div>
-     </div></figure></div>
-      <div class="col-lg-12 col-sm-6"><figure><img alt="" src="<?php echo $this->basePath('img/abt-img-8.jpg') ?>"><div class="abt-img-wrap col-lg-12">
-     <div class="abt-title"><h3>Eva Machielse</h3>
-     <p>Sales and marketing</p>
-     </div>
-     <div class="abt-social">
-     <ul class="social_icon3">
-      <li><a href="#"></a> <a href="#"></a> <a href="#"></a></li>
-        </ul>
-     </div>
-     </div></figure></div>
-     
-     </div> 
-     
-    
+           
       
-    </div><!--===== end banner ===--> 
-    <div class="clearfix"></div>
+           </div>
+      
+        
+        
+        
+        <div style="position:relative;">
+        <hr class="foot-hr"/>
+        <a href="#" class="go_to_up" id="back-to-top"></a></div>
+        
+       <!----- added by dibyendu for banner image -->
+       <style>
+       .store_banner {
+            background: url("//test.scampaigns.com/upload/1424437073store_banner.jpg") no-repeat scroll center top / cover rgba(0, 0, 0, 0);
+            margin: auto;
+            min-height: 420px;
+            overflow: hidden;
+            width: 100%;
+                    }
+   </style>
+    
