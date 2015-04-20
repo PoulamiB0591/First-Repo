@@ -90,6 +90,8 @@ use Application\Model\privacypolicy;
 use Application\Model\privacypolicyTable;
 use Application\Model\disclaimer;
 use Application\Model\disclaimerTable;
+use Application\Model\transactionDetails;
+use Application\Model\transactionDetailsTable;
 use Application\Model\termsservice;
 use Application\Model\termsserviceTable;
 use Application\Model\publisher;
@@ -126,6 +128,19 @@ use Application\Model\pagesheaderTable;
 use Application\Model\pagesheader;
 use Application\Model\imagesAboutUsTable;
 use Application\Model\imagesAboutUs;
+use Application\Model\privacypolicydeveloperTable;
+use Application\Model\privacypolicydeveloper;
+use Application\Model\developerpagesheaderTable;
+use Application\Model\developerpagesheader;
+use Application\Model\developertermsserviceTable;
+use Application\Model\developertermsservice;
+use Application\Model\developerdisclaimerTable;
+use Application\Model\developerdisclaimer;
+use Application\Model\shippingDetails;
+use Application\Model\shippingDetailsTable;
+use Application\Model\orderId;
+use Application\Model\orderIdTable;
+
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
@@ -134,10 +149,26 @@ class Module
     public function onBootstrap(MvcEvent $e)
     {
         $eventManager        = $e->getApplication()->getEventManager();
+        $eventManager->attach('dispatch', array($this, 'loadConfiguration' ), MvcEvent::EVENT_DISPATCH_ERROR, function($e) {
+             $result = $e->getResult();
+             $result->setTerminal(TRUE); },100);
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
     }
-
+    public function loadConfiguration(MvcEvent $e)
+    {
+    	$sm  = $e->getApplication()->getServiceManager();
+    	 
+    	$controller = $e->getRouteMatch()->getParam('controller');
+    	if (0 !== strpos($controller, __NAMESPACE__, 0)) {
+    		//if not this module
+    		return;
+    	}
+    	 
+    	//if this module
+    	$exceptionstrategy = $sm->get('ViewManager')->getExceptionStrategy();
+    	$exceptionstrategy->setExceptionTemplate('error/index');
+    }
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
@@ -826,7 +857,17 @@ class Module
              $resultSetPrototype->setArrayObjectPrototype(new pagesheader());
              return new TableGateway('pagesheader', $dbAdapter, null, $resultSetPrototype);
              },
-             
+             'Application\Model\developerpagesheaderTable' => function($sm) {
+             $tableGateway = $sm->get('developerpagesheaderTableGateway');
+             $table = new developerpagesheaderTable($tableGateway);
+             return $table;
+             },
+             'developerpagesheaderTableGateway' => function ($sm) {
+             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+             $resultSetPrototype = new ResultSet();
+             $resultSetPrototype->setArrayObjectPrototype(new developerpagesheader());
+             return new TableGateway('developerpagesheader', $dbAdapter, null, $resultSetPrototype);
+             },
              'Application\Model\imagesAboutUsTable' => function($sm) {
              $tableGateway = $sm->get('imagesAboutUsTableGateway');
              $table = new imagesAboutUsTable($tableGateway);
@@ -837,6 +878,79 @@ class Module
              $resultSetPrototype = new ResultSet();
              $resultSetPrototype->setArrayObjectPrototype(new imagesAboutUs());
              return new TableGateway('imagesAboutUs', $dbAdapter, null, $resultSetPrototype);
+             },
+             'Application\Model\developertermsserviceTable' => function($sm) {
+             $tableGateway = $sm->get('developertermsserviceTableGateway');
+             $table = new developertermsserviceTable($tableGateway);
+             return $table;
+             },
+             'developertermsserviceTableGateway' => function ($sm) {
+             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+             $resultSetPrototype = new ResultSet();
+             $resultSetPrototype->setArrayObjectPrototype(new developertermsservice());
+             return new TableGateway('developertermsservice', $dbAdapter, null, $resultSetPrototype);
+             },
+             'Application\Model\developerdisclaimerTable' => function($sm) {
+             $tableGateway = $sm->get('developerdisclaimerTableGateway');
+             $table = new developerdisclaimerTable($tableGateway);
+             return $table;
+             },
+             'developerdisclaimerTableGateway' => function ($sm) {
+             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+             $resultSetPrototype = new ResultSet();
+             $resultSetPrototype->setArrayObjectPrototype(new developerdisclaimer());
+             return new TableGateway('developerdisclaimer', $dbAdapter, null, $resultSetPrototype);
+             },
+             'Application\Model\privacypolicydeveloperTable' => function($sm) {
+             $tableGateway = $sm->get('privacypolicydeveloperTableGateway');
+             $table = new privacypolicydeveloperTable($tableGateway);
+             return $table;
+             },
+             'privacypolicydeveloperTableGateway' => function ($sm) {
+             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+             $resultSetPrototype = new ResultSet();
+             $resultSetPrototype->setArrayObjectPrototype(new privacypolicydeveloper());
+             return new TableGateway('privacypolicydeveloper', $dbAdapter, null, $resultSetPrototype);
+             },
+             
+             /******** for shippingDetails table ***********/
+           
+             'Application\Model\shippingDetailsTable' => function($sm) {
+             $tableGateway = $sm->get('shippingDetailsTableGateway');
+             $table = new shippingDetailsTable($tableGateway);
+             return $table;
+             },
+             'shippingDetailsTableGateway' => function ($sm) {
+             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+             $resultSetPrototype = new ResultSet();
+             $resultSetPrototype->setArrayObjectPrototype(new shippingDetails());
+             return new TableGateway('shippingDetails', $dbAdapter, null, $resultSetPrototype);
+             },
+             
+             /******** generate  order id ********/
+             'Application\Model\orderIdTable' => function($sm) {
+             $tableGateway = $sm->get('orderIdTableGateway');
+             $table = new orderIdTable($tableGateway);
+             return $table;
+             },
+             'orderIdTableGateway' => function ($sm) {
+             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+             $resultSetPrototype = new ResultSet();
+             $resultSetPrototype->setArrayObjectPrototype(new orderId());
+             return new TableGateway('orderId', $dbAdapter, null, $resultSetPrototype);
+             },
+             
+             /******** save  transaction details ********/
+             'Application\Model\transactionDetailsTable' => function($sm) {
+             $tableGateway = $sm->get('transactionDetailsTableGateway');
+             $table = new transactionDetailsTable($tableGateway);
+             return $table;
+             },
+             'transactionDetailsTableGateway' => function ($sm) {
+             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+             $resultSetPrototype = new ResultSet();
+             $resultSetPrototype->setArrayObjectPrototype(new transactionDetails());
+             return new TableGateway('transactionDetails', $dbAdapter, null, $resultSetPrototype);
              },
          ),
          

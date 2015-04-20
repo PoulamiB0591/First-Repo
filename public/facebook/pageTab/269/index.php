@@ -47,7 +47,7 @@ function gen_random_string($length=16)
 $sessionid = $getuniq.$nexuniq.$nextone;
 
 
-$form =  "<?php include_once('/var/www/staging/public/sfpForm.php');?>";
+$form =  "<?php include_once('/var/www/staging/public/sfpFormFb.php');?>";
 $userfolder = $_SERVER['DOCUMENT_ROOT']."/facebook/".$values2."/".$values;
 $tempfile = $_SERVER['DOCUMENT_ROOT']."/facebook/temporary/temp-".$values.".php";
 
@@ -296,3 +296,4 @@ chmod($pathfolder1, 0777);
 } 
 
 ?>
+

@@ -41,7 +41,7 @@ function logInWithYourFaceBookAccount()
   },{scope: 'email,manage_pages'});
 }
 
-$("#logout").live("click",function(event){ 
+$("#logout").click(function(event){ 
    
  fbLogout();
    event.preventDefault(); 
@@ -93,13 +93,33 @@ function fbLogout(){
    
 	 FB.login(function(response) {
 	    FB.api('/me', function(responseLogin) {
-	       
-           if(responseLogin.verified == true)
+	       if(response.status == 'connected')
            {
                 var fname = responseLogin.first_name;
                 var lname = responseLogin.last_name;
                 var email = responseLogin.email;
                 var fid = responseLogin.id;
+                   
+                if(typeof email == "undefined")
+                {
+                	email = "";
+                }
+
+                if(typeof fid == "undefined")
+                {
+                	alert("Je facebook account is niet geverifieerd");
+                	return false;
+                }
+
+                if(typeof fName == 'undefined')
+                {
+                	fName = '';
+                }
+
+                if(typeof lName == 'undefined')
+                {
+                	lName = '';
+                }
                 
                 
                 $.ajax({

@@ -16,7 +16,20 @@ class formreportTable
        
     public function saveformdata($data) 
     {
-        return $this->tableGWay->insert($data);   
+    	$formId          = $data['form_uniqid'];
+    	$formElementName = $data['form_element_name'];
+    	$result = $this->tableGWay->select(array('form_uniqid'=>$formId,'form_element_name'=>$formElementName,'count'=>'0'));
+    	
+    	if($result->count() > 0)
+    	{
+    		$this->tableGWay->delete(array('form_uniqid'=>$formId,'form_element_name'=>$formElementName,'count'=>'0'));
+    		return $this->tableGWay->insert($data);
+    	}
+    	else
+    	{
+    		return $this->tableGWay->insert($data);
+    	}
+    	 
     }
     
     
@@ -28,8 +41,9 @@ class formreportTable
         
         foreach($result as $rset){
             $arr[]=array(
-             "count" => $rset->count,
+             "count"              => $rset->count,
              "form_element_values"=>$rset->form_element_values,
+             "counter"            =>$rset->counter
             );
         }
         

@@ -105,6 +105,7 @@ return array(
             'Application\Controller\sfpdeveloper' => 'Application\Controller\sfpdeveloperController',
             'Application\Controller\Error' => 'Application\Controller\ErrorController', //added by dibyendu
             'Application\Controller\App' => 'Application\Controller\AppController', //edited by arnab
+            'Application\Controller\Shipping' => 'Application\Controller\ShippingController', //added by Poulami
             
         ),
     ),

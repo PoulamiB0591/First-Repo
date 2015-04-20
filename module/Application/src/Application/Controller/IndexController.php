@@ -49,6 +49,14 @@ use Application\Model\aboutUsImagesTable;
 use Application\Model\accessCode;
 use Application\Model\accessCodeTable;
 use Application\Model\pagesheader;
+use Application\Model\privacypolicydeveloper;
+use Application\Model\privacypolicydeveloperTable;
+use Application\Model\developerdisclaimer;
+use Application\Model\developerdisclaimerTable;
+use Application\Model\developerpagesheader;
+use Application\Model\developerpagesheaderTable;
+use Application\Model\developertermsservice;
+use Application\Model\developertermsserviceTable;
 use Application\Model\pagesheaderTable;
 use Application\Form\contactForm;
 use Zend\View\Model\ViewModel;
@@ -72,6 +80,10 @@ protected $templateTable,$blogdetailssTable,$termsserviceTable,$disclaimerTable,
 protected $fbuserTable,$promoteTable,$screenshotsTable,$rating,$aboutUsHeaderTable,$aboutUsImagesTable,$animatedImageTable;
 protected $faqContainerTable,$pagesheaderTable; 
 protected $accessCodeTable,$requestemailTable; 
+protected $developerpagesheaderTable;
+protected $developerdisclaimerTable;
+protected $privacypolicydeveloperTable;
+protected $developertermsserviceTable;
 
 public function indexAction()
 {
@@ -199,7 +211,7 @@ exit;
 public function storeAction()
 {
 	/*$config = $this->getServiceLocator()->get('Config');
-print_r ($config['pathName']['path']);*/
+print_r ($config['pathName']['path']);exit;*/
 	$this->layout('layout/indexlayout.phtml');
 if($this->getRequest()->getPost('templateCat'))
 {
@@ -837,7 +849,7 @@ $this->layout('layout/indexlayout.phtml');
 $user_session = new Container('loginId');
 $sid = $user_session->offsetGet('loginId');
 $fetchid = 1;
-$result = $this->getpagesheaderTable()->fetchAll($fetchid);
+$result = $this->getdeveloperpagesheaderTable()->fetchAll($fetchid);
 $contentone =$this->getpublisherTable()->selectUser1($sid);
 if($sid != "")
     {
@@ -867,9 +879,187 @@ if($sid != "")
 $contentone=$this->gettermsserviceTable()->fetchAll();
 return new ViewModel(array('contentpass'=>$contentone,'sid'=>$sid,'results'=>$result));
 }
-    
+/**************************FOR DEVELOPER TERMS AND CONDITIONS**********/
+public function termsconditiondeveloperAction()
+{
+	$this->layout('layout/layout5.phtml');
+	$user_session = new Container('devId');
+	$sid = $user_session->offsetGet('devId');
+	
+	if($sid != '' || $sid != NULL){
+	$resultdeveloper = $this->getDeveloperTable()->getDeveloperWithId($sid);
+	$developerIdEncrypted =  $this->encrypt_decrypt('encrypt', $sid);
+	$developerParameter =str_replace("/","encoded",$developerIdEncrypted);
+	}
+	
+	//print_r($resultdeveloper);exit;
+	/*$user_session = new Container('loginId');
+	$sid = $user_session->offsetGet('loginId');*/
+	$fetchid = 1;
+	$result = $this->getdeveloperpagesheaderTable()->fetchAll($fetchid);
+	/*$contentone =$this->getpublisherTable()->selectUser1($sid);
+	if($sid != "")
+	{
+		$user_session = new Container('sfpName');
+		$sids = $user_session->offsetGet('sfpName');
+		if($contentone[0]['fbName']!=""){
+			$this->layout()->setVariables(array(
+					'uname' => $contentone[0]['fbName'],
+					'sfpuname' => $contentone[0]['fname'],
+					'city' => $contentone[0]['hometown'],
+					'fbuser'=>$contentone[0]['fbuser'],
+					'sfpuser'=>$contentone[0]['sfpuser'],
+					'sfpnm'=>$sids
+			));
+		}
+		else{
+			$this->layout()->setVariables(array(
+					'uname' => $contentone[0]['fname'],
+					'sfpuname' => $contentone[0]['fname'],
+					'city' => $contentone[0]['hometown'],
+					'fbuser'=>$contentone[0]['fbuser'],
+					'sfpuser'=>$contentone[0]['sfpuser'],
+					'sfpnm'=>$sids
+			));
+		}
+	}*/
+	$contentone=$this->getdevelopertermsserviceTable()->fetchAll();
+	
+	return new ViewModel(array('contentpass'=>$contentone,'sid'=>$sid,'results'=>$result,'resultdeveloper'=>$resultdeveloper,'encryptedSid'=>$developerParameter,));
+	
+	
+	}   
+/***************************FOR DISCLAIMER OF DEVELOPER***************************************************************/
+public function disclaimerdeveloperAction()
+{
+$this->layout('layout/layout5.phtml'); 
+/*$user_session = new Container('loginId');
+$sid = $user_session->offsetGet('loginId');*/
+$fetchid = 2;
+$result = $this->getdeveloperpagesheaderTable()->fetchAll($fetchid);
+$user_session = new Container('devId');
+$sid = $user_session->offsetGet('devId');
+
+if($sid != '' || $sid != NULL){
+	$resultdeveloper = $this->getDeveloperTable()->getDeveloperWithId($sid);
+	$developerIdEncrypted =  $this->encrypt_decrypt('encrypt', $sid);
+	$developerParameter =str_replace("/","encoded",$developerIdEncrypted);
+}
+/*$contentone =$this->getpublisherTable()->selectUser1($sid);
+if($sid != "")
+    {
+        $user_session = new Container('sfpName');
+        $sids = $user_session->offsetGet('sfpName');
+        if($contentone[0]['fbName']!=""){
+        $this->layout()->setVariables(array(
+        'uname' => $contentone[0]['fbName'],
+        'sfpuname' => $contentone[0]['fname'],
+        'city' => $contentone[0]['hometown'],
+        'fbuser'=>$contentone[0]['fbuser'],
+        'sfpuser'=>$contentone[0]['sfpuser'],
+        'sfpnm'=>$sids
+        ));
+		}
+		else{
+			$this->layout()->setVariables(array(
+        'uname' => $contentone[0]['fname'],
+        'sfpuname' => $contentone[0]['fname'],
+        'city' => $contentone[0]['hometown'],
+        'fbuser'=>$contentone[0]['fbuser'],
+        'sfpuser'=>$contentone[0]['sfpuser'],
+        'sfpnm'=>$sids
+        ));
+		}
+    }*/
+$contentone=$this->getdeveloperdisclaimerTable()->fetchAll();
+return new ViewModel(array('contentpass'=>$contentone,'results'=>$result,'sid'=>$sid,'resultdeveloper'=>$resultdeveloper,'encryptedSid'=>$developerParameter,));
+/*$this->layout('layout/indexlayout.phtml');
+$user_session = new Container('loginId');
+$sid = $user_session->offsetGet('loginId');
+$fetchid = 2;
+$result = $this->getpagesheaderTable()->fetchAll($fetchid);
+$contentone =$this->getpublisherTable()->selectUser1($sid);
+if($sid != "")
+{
+	$user_session = new Container('sfpName');
+	$sids = $user_session->offsetGet('sfpName');
+	if($contentone[0]['fbName']!=""){
+		$this->layout()->setVariables(array(
+				'uname' => $contentone[0]['fbName'],
+				'sfpuname' => $contentone[0]['fname'],
+				'city' => $contentone[0]['hometown'],
+				'fbuser'=>$contentone[0]['fbuser'],
+				'sfpuser'=>$contentone[0]['sfpuser'],
+				'sfpnm'=>$sids
+		));
+	}
+	else{
+		$this->layout()->setVariables(array(
+				'uname' => $contentone[0]['fname'],
+				'sfpuname' => $contentone[0]['fname'],
+				'city' => $contentone[0]['hometown'],
+				'fbuser'=>$contentone[0]['fbuser'],
+				'sfpuser'=>$contentone[0]['sfpuser'],
+				'sfpnm'=>$sids
+		));
+	}
+}
+$contentone=$this->getdisclaimerTable()->fetchAll();
+return new ViewModel(array('contentpass'=>$contentone,'results'=>$result,'sid'=>$sid));*/
+	}
+/************************PRIVACY POLICY BY DEVELOPER**************************/
+
+	public function privacypolicydeveloperAction()
+	{
+		$this->layout('layout/layout5.phtml');
+		/*$user_session = new Container('loginId');
+		$sid = $user_session->offsetGet('loginId');*/
+		$fetchid= 3;
+		$result = $this->getdeveloperpagesheaderTable()->fetchAll($fetchid);
+		$user_session = new Container('devId');
+		$sid = $user_session->offsetGet('devId');
+		
+		if($sid != '' || $sid != NULL){
+			$resultdeveloper = $this->getDeveloperTable()->getDeveloperWithId($sid);
+			$developerIdEncrypted =  $this->encrypt_decrypt('encrypt', $sid);
+			$developerParameter =str_replace("/","encoded",$developerIdEncrypted);
+		}
+		/*$contentone =$this->getpublisherTable()->selectUser1($sid);
+		if($sid != "")
+		{
+			$user_session = new Container('sfpName');
+			$sids = $user_session->offsetGet('sfpName');
+			if($contentone[0]['fbName']!=""){
+				$this->layout()->setVariables(array(
+						'uname' => $contentone[0]['fbName'],
+						'sfpuname' => $contentone[0]['fname'],
+						'city' => $contentone[0]['hometown'],
+						'fbuser'=>$contentone[0]['fbuser'],
+						'sfpuser'=>$contentone[0]['sfpuser'],
+						'sfpnm'=>$sids
+				));
+			}
+			else{
+				$this->layout()->setVariables(array(
+						'uname' => $contentone[0]['fname'],
+						'sfpuname' => $contentone[0]['fname'],
+						'city' => $contentone[0]['hometown'],
+						'fbuser'=>$contentone[0]['fbuser'],
+						'sfpuser'=>$contentone[0]['sfpuser'],
+						'sfpnm'=>$sids
+				));
+			}
+		}*/
+		$contentone=$this-> getprivacypolicydeveloperTable()->fetchAll();
+		 
+	
+		return new ViewModel(array('contentpass'=>$contentone,'sid'=>$sid,'results'=>$result,'resultdeveloper'=>$resultdeveloper,'encryptedSid'=>$developerParameter,));
+		 
+	}
+
 public function disclaimerAction()
 {
+	
 $this->layout('layout/indexlayout.phtml');
 $user_session = new Container('loginId');
 $sid = $user_session->offsetGet('loginId');
@@ -1355,7 +1545,6 @@ if($sid != "")
        
 public function becomepublisherAction()
 {
-	
 if($this->getRequest()->getPost('allSearch'))
 {
         
@@ -3240,6 +3429,47 @@ public function getrequestemailTable()
 	}
 	return $this->requestemailTable;
 }
+
+
+/**************** for developer terms and service pages*******************************/
+public function getdeveloperdisclaimerTable()
+{
+	if (!$this->developerdisclaimerTable)
+	{
+		$sm = $this->getServiceLocator();
+		$this->developerdisclaimerTable = $sm->get('Application\Model\developerdisclaimerTable');
+	}
+	return $this->developerdisclaimerTable;
+}
+public function getdevelopertermsserviceTable()
+{
+	if (!$this->developertermsserviceTable)
+	{
+		$sm = $this->getServiceLocator();
+		$this->developertermsserviceTable = $sm->get('Application\Model\developertermsserviceTable');
+	}
+	return $this->developertermsserviceTable;
+}
+public function getdeveloperpagesheaderTable()
+{
+	if (!$this->developerpagesheaderTable)
+	{
+		$sm = $this->getServiceLocator();
+		$this->developerpagesheaderTable = $sm->get('Application\Model\developerpagesheaderTable');
+	}
+	return $this->developerpagesheaderTable;
+}
+public function getprivacypolicydeveloperTable()
+{
+	if (!$this->privacypolicydeveloperTable)
+	{
+		$sm = $this->getServiceLocator();
+		$this->privacypolicydeveloperTable = $sm->get('Application\Model\privacypolicydeveloperTable');
+	}
+	return $this->privacypolicydeveloperTable;
+}
+
+/**************** for developer *******************************/
 
 
 public function getanimatedImageTable()

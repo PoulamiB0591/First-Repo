@@ -36,7 +36,7 @@ if($pagefront == 'edit2'){
     
 echo $this->headScript()
                 //assets.pinterest.com/js/pinit.js
-               
+               ->prependFile($this->basePath() . '/js3/timer.js')
                 ->prependFile($this->basePath() . '//assets.pinterest.com/js/pinit.js')
                 ->prependFile($this->basePath() . '/js3/main.js')
                 ->prependFile($this->basePath() . '/js3/checkNradio.js')
@@ -95,12 +95,18 @@ echo $this->headScript()
 else if($pagefront == 'editnew'){
     
       echo $this->headScript()
-                
+      
+                //->prependFile($this->basePath() . '/js3/friends/timercolor.js')  
+                //->prependFile($this->basePath() . '/js3/friends/layout.js?ver=1.0.2')
+                //->prependFile($this->basePath() . '/js3/friends/eye.js')
+                //->prependFile($this->basePath() . '/js3/friends/colorpicker.js')
+                //->prependFile($this->basePath() . '/js3/friends/color.js') 
+                ->prependFile($this->basePath() . '/js3/friends/timercolor.js')  
                 ->prependFile($this->basePath() . '/js3/timer.js')
                 ->prependFile($this->basePath() . '/js3/work.js')
                 ->prependFile($this->basePath() . '/js3/main.js')
-               ->prependFile($this->basePath() . '/js3/jquery.datetimepicker.js','text/javascript')
-                 ->prependFile($this->basePath() . '/js/jquery.timepicker.js')
+                ->prependFile($this->basePath() . '/js/jquery.timepicker.js')
+               	->prependFile($this->basePath() . '/js3/jquery.datetimepicker.js','text/javascript')
                 ->prependFile($this->basePath() . '/js3/checkNradio.js')
                 ->prependFile($this->basePath() . '/js3/jquery.cookie.js')
                 ->prependFile($this->basePath() . '/js3/jquery.nicescroll.js')
@@ -141,7 +147,13 @@ else if($pagefront == 'editnew'){
                  ->prependFile($this->basePath() . '/js3/jquery.kinetic.js')  
                   //background  
                   ->prependFile($this->basePath() . '/js3/http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js')  
-                  ->prependFile($this->basePath() . '/js3/background.js')   
+                  ->prependFile($this->basePath() . '/js3/background.js')
+                
+                ->prependFile($this->basePath() . '/js3/friends/layout.js?ver=1.0.2')
+                ->prependFile($this->basePath() . '/js3/friends/eye.js')
+                ->prependFile($this->basePath() . '/js3/friends/colorpicker.js')
+                ->prependFile($this->basePath() . '/js3/friends/color.js') 
+                     
                   
                   //                      
                 ->prependFile('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
@@ -365,10 +377,9 @@ else if($pagefront == 'edittest2')
                                      'type' => 'image/vnd.microsoft.icon', 
                                      'href' => $this->basePath() . ''))
                     
-                   
+                    ->prependStylesheet($this->basePath() . '/css/friends/colorpicker.css')
                     ->prependStylesheet($this->basePath() . '/editcss/normalize.css')
                     ->prependStylesheet($this->basePath() . '/editcss/main.css')
-                    ->prependStylesheet($this->basePath() . '/editcss/jquery.datetimepicker.css')
                     ->prependStylesheet($this->basePath() . '/editcss/jquery-ui.css')
                     ->prependStylesheet($this->basePath() . '/editcss/jscrollpane.css')
                     ->prependStylesheet($this->basePath() . '/editcss/style-sort.css')
@@ -377,6 +388,7 @@ else if($pagefront == 'edittest2')
                     ->prependStylesheet($this->basePath() . '/editcss/popup_style.css')
                     ->prependStylesheet($this->basePath() . '/editcss/styles.css')
                     ->prependStylesheet($this->basePath() . '/editcss/jquery.timepicker.css')
+                    ->prependStylesheet($this->basePath() . '/editcss/jquery.datetimepicker.css')
                     ->prependStylesheet($this->basePath() . '/editcss/bootstrap-theme.min.css')
                     ->prependStylesheet($this->basePath() . '/editcss/default.min.css')
                     ->prependStylesheet($this->basePath() . '/editcss/prettyPhoto.css')

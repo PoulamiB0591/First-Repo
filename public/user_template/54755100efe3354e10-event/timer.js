@@ -1,1 +1,0 @@
-$(function() {var currrentDate = "24 March 2015 09:00:00";$("#countdown").countdown({date: currrentDate,format: "on"});});$(function() {var currrentDate = "24 March 2015 09:00:00";$("#countdown").countdown({date: currrentDate,format: "on"});});$(function() {var currrentDate = "24 March 2015 01:30:00";$("#countdown").countdown({date: currrentDate,format: "on"});});

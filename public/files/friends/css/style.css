@@ -1,0 +1,245 @@
+
+@charset "utf-8";
+/* CSS Document */
+body, html {
+  font-family: "Roboto",sans-serif;
+  position: relative;
+}
+
+#editor-tabs-container {
+  border-bottom: 1px solid #9ba4ae;
+}
+ul{ margin:0; padding:0}
+input{ text-indent:5px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(50, 50, 50, 0.69);
+-moz-box-shadow:    inset 0px 1px 1px 0px rgba(50, 50, 50, 0.69);
+box-shadow:         inset 0px 1px 1px 0px rgba(50, 50, 50, 0.69);}
+
+
+
+/*-------------------------------------------------------------------------------------COUNDOWN------------------------------------------------------------------------------------*/
+
+div#clock {
+color: white;
+margin: 20px auto;
+width: 600px;
+overflow: hidden;
+text-align: center;
+}
+div#clock p {
+  background: none repeat scroll 0 0 #b1b1b1;
+  display: inline-block;
+  height: auto;
+  margin: 0 9px;
+  width: 88px;
+  text-transform: uppercase;
+}
+div#clock p span {
+  background: none repeat scroll 0 0 #e2e2e2;
+  display: block;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 5px 0 0;
+}
+div#clock div.space {
+color: #ccc;
+display: block;
+line-height: 1.7em;
+font-size: 50px;
+float: left;
+height: 88px;
+width: 30px;
+}
+.layout-shower-col{ background:#fff;width:100%; max-width: 785px; margin:0 auto; /*border:1px solid #b6b6b7*/}
+div#wrapimgdiv{ width: 100% !important;}
+.friends-sample-templates-wrapper {
+  background: none repeat scroll 0 0 #fff;
+}
+.action-coundwon-col h2 {
+  color: #5d687c;
+  font-size: 25px;
+  text-align: center;  
+}
+.sample-image-loader > h2 {
+  color: #fff;
+  margin-left: 9%;
+}
+
+/*.sample-image-loader{ background:#b1b1b1; padding:20px;}*/
+
+.image-with-text-wrap img {
+  width: 100%;
+}
+.image-with-text-editable {
+  color: #fff;
+  left: 29px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+  z-index: 9;
+}
+.sample-image-loader {
+  position: relative;
+}
+
+.image-with-text-editable h2{ font-size: 25px;}
+.add-image {
+  margin-top: 49px;
+}
+.add-image img {
+  display: block;
+  margin: 0 auto;
+}
+.add-image > p {
+  color: #5d687c;
+  font-weight: 600;
+  margin-top: 12px;
+  text-align: center;
+}
+.sample-form ul li{ list-style:none; float:left; width:40%; margin-bottom:20px}
+.sample-form ul li:nth-child(2n){ float:right}
+.sample-form input[type="text"] {
+  border: 1px solid #82868d;
+  height: 36px;
+  width: 100%;
+}
+.sample-form label {
+  font-size: 18px;
+  font-weight: 400;
+}
+.sample-form {
+  margin-top: 45px;
+}
+
+.agreement .span_check {
+  margin-right: 12px;
+}
+.send-bt {
+  background: none repeat scroll 0 0 #1cb7d3;
+  border-radius: 3px;
+  color: #fff;
+  float: right;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 100%;
+}
+#countdown {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.first-count {
+  display: inline-block;margin: 0 9px;
+}
+.days, .hours, .minutes, .seconds {
+  background:#e2e2e2;
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 6px 22px;
+}
+.timeRefDays, .timeRefHours, .timeRefMinutes, .timeRefSeconds  {
+  background:#b1b1b1; font-size: 16px;color: #fff;
+  text-transform: uppercase;
+}
+
+.VerzendenButton {
+  float: right;
+  max-width: 46%;
+  min-width: 33%;
+  width: auto;
+}
+.agreement{ float: left;}
+
+h2, h3{ font-weight: normal;}
+div.mainText {
+  margin-top: 9% !important;
+}
+div.secondText {
+  font-size: 12px;
+  position: absolute;
+  margin-top: 25% !important;
+}
+.secondText h3 {
+  font-size: 15px;
+  line-height: 24px;
+}
+div#dragfirst {
+  padding: 0 50px;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width:767px){
+.form-builder-col-1 li {
+  float: none;
+  width: 99%;
+}    
+.form-builder-col-1 ul li:nth-child(2n) {
+  float: none;
+}
+.first-count {
+  margin: 9px;
+}
+}
+@media (max-width:360px){
+/* .VerzendenButton {
+  float: none;
+  margin: 17px 0 0;
+  width: 100%;
+} */
+.VerzendenButton {
+  float: right;
+  width: auto;
+  min-width:33%;
+  max-width:46%;
+} 
+.agreement {
+  float: none;
+}
+
+div#dragfirst {
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  bottom: auto;
+  font-size: 12px;
+  height: 96px;
+  left: 50px;
+  position: absolute;
+  right: auto;
+  top: 46px;
+  width: 571px;
+  z-index: 0;
+}
+
+
+.timeRefDays, .timeRefHours, .timeRefMinutes, .timeRefSeconds {
+  background: none repeat scroll 0 0 #b1b1b1;
+  color: #fff;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.days, .hours, .minutes, .seconds {
+  background: none repeat scroll 0 0 #e2e2e2;
+  color: #fff;
+  font-size: 31px;
+  font-weight: bold;
+  padding: 6px 12px;
+}
+.action-coundwon-col h2 {
+  font-size: 20px;
+}
+
+div#dragfirst {
+  left: 13px !important;
+  width: 78% !important;
+}
+.first-count {
+  margin: 3px !important;
+}
+#nowdrag > h2 {
+  font-size: 11px;
+}
+}
+
+

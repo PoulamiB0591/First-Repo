@@ -113,9 +113,9 @@
         </div>
         <div class="copyright-menu clearfix">
         <ul>
-        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'termscondition'));?>"><span class="icon-arrow-right"></span> Terms & service </a></li>
-        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'disclaimer'));?>"> <span class="icon-arrow-right"></span> Disclaimer </a></li>
-        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'privacypolicy'));?>"><span class="icon-arrow-right"></span> Privacy policy </a></li>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'termsconditiondeveloper'));?>"><span class="icon-arrow-right"></span> Terms & service </a></li>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'disclaimerdeveloper'));?>"> <span class="icon-arrow-right"></span> Disclaimer </a></li>
+        	<li><a href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'privacypolicydeveloper'));?>"><span class="icon-arrow-right"></span> Privacy policy </a></li>
         	<li>© Copyright 2015 Smart Fanpage</li>
         </ul>
         </div>
@@ -126,6 +126,7 @@
         <div class="dashboard-wrapper">
         <div class="dasboard-title clearfix">
         <h2>Dashboard</h2>
+         <a href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action'=>'devinfoup','id'=>$sid."|".$encryptedSid));?>" class="dashboard-create-new-campaign">EDIT PROFILE</a>
         <a href="<?php echo $this->url('application/default',array('controller'=>'template','action'=>'index'));?>" class="dashboard-create-new-campaign">Create new template</a>
         <div class="clearfix"></div>
         <hr>
@@ -200,7 +201,9 @@
     	<p class="close-or-save">
 		  <a id="promote" class="cam-save" style="float: right!important;" href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action'=>'promote','id'=>$sid."|".$encryptedSid , 'devId'=>$template['tempid']."|".$template['encryptedTempid']));?>">Promote</a>
 		</p>
-		
+		<p class="close-or-save">
+		  <a id="promotebutton" class="cam-save" style="float: right!important;" href="<?php echo $this->url('application/default',array('controller'=>'sfpdeveloper','action'=>'edittemplatedetails','id'=>$sid."|".$encryptedSid , 'devId'=>$template['tempid']."|".$template['encryptedTempid']));?>">edit details</a>
+		</p>
         <input type="hidden" value="<?php echo $template['tempid']; ?>" id="temp"/>
         <input type="hidden" value="<?php echo $template['encryptedTempid']; ?>" id="encryptedTempid"/>
     </td>

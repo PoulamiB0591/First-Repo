@@ -9,7 +9,7 @@ function appendall(newurl)
 
 $(document).ready(function() {
     var uri = document.URL;
-    var res = uri.split("edit/");
+    var res = uri.split("edit/"); 
     var res2 = res[1].split("/");
     var newurl = res2[0];
     setTimeout('appendall("'+newurl+'")', 1000);

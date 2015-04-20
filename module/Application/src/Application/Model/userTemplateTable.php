@@ -66,10 +66,9 @@ class userTemplateTable
     
     public function selectUsertemplate($sid)
     {
-        $resultSet = $this->tableGWay->select(array('user_id' => $sid));  
+    	$resultSet = $this->tableGWay->select(array('user_id' => $sid));  
         //$this->tableGWay->order('new_template_name sort');
-         
-          return $resultSet->current(); 
+        return $resultSet->current(); 
     }
     
      public function selectUserNew($uid,$temp)
@@ -153,6 +152,7 @@ class userTemplateTable
     
     public function updateUserCheck($data,$uid,$temp)
     {
+    	//echo $uid." &&& ".$temp;
         $resultSet = $this->tableGWay->update($data,array('id' => $uid,'template_link' => $temp));  
         return $resultSet;  
     }

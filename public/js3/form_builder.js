@@ -534,7 +534,7 @@
                     if($("li").hasClass("ui-draggable")){
            
                         
-                  var setme = '<div id="ullidrag" class="ullidrag" style="display:none; cursor:move;"><img src="/img/1416497040_cursor_drag_arrow_2.png"/></div><div class="setting-2 prevnext"><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid" /><input type="hidden" value="0" id="imgCount" /><a title="Spacing" class="spacing" href="javascript:void(0)">spacing</a></div>';
+                  var setme = '<div id="ullidrag" class="ullidrag" style="display:none; cursor:move;"><img src="/img/1416497040_cursor_drag_arrow_2.png"/></div><div class="setting-2 prevnext"><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid" /><input type="hidden" value="0" id="imgCount" /><a title="Spacing" class="spacing" href="javascript:void(0)">spacing</a></div><div class="SFP_settings" style="display:none"><a title="Setting" class="setSFPic" href="javascript:void(0)"></a></div>';
                        
                         var html = [];
                         
@@ -584,7 +584,7 @@
             // alert('f');
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk; 
-            html.push('<li class="dottedLi SFPTWO_TEXTEDIT getunrelabel"><div id="diveditme" class="labeledit">'+el+'</div>'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT getunrelabel"><div id="diveditme" class="labeledit">'+el+'</div>'+setme+'</li>');
               $('#imgdragable').hide();
               
             $(this).find('#label').replaceWith(html.join(''));
@@ -637,7 +637,7 @@
              var del = $("#undoredochkdel").val();
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk; 
-               html.push('<li style="min-height:85px;" class="dottedLi SFPTWO_TEXTEDIT clickgetunresingleline"><div id="labeledit" class="labeledit singledrag">'+el+'</div>'+setme+'</li>');
+               html.push('<div class="textme" style="display:inline;"></div><li style="min-height:85px;" class="dottedLi SFPTWO_TEXTEDIT clickgetunresingleline"><div id="labeledit" class="labeledit singledrag">'+el+'</div>'+setme+'</li>');
                
             $('#imgdragable').hide();
               
@@ -677,7 +677,7 @@
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk; 
             
-            html.push('<li style="min-height:85px;" class="dottedLi SFPTWO_TEXTEDIT getunresingle"><div id="labeledit" class="labeledit singledrag">'+el+'</div>'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li style="min-height:85px;" class="dottedLi SFPTWO_TEXTEDIT getunresingle"><div id="labeledit" class="labeledit singledrag">'+el+'</div>'+setme+'</li>');
             $('#imgdragable').hide(); 
             $(this).find('#singleline').replaceWith(html.join(''));
             ($(this).data(). sortable.currentItem.find('#labeledit').trigger('click')) ;
@@ -727,7 +727,7 @@
             
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk; 
-            html.push('<li class="dottedLi SFPTWO_TEXTEDIT getunremulti"><div id="labeledit" class="labeledit multilinedrag">'+el+'</div><div class="checksboxes p_scents multilineme" id="checksboxes_'+random+'"><div id="multiclone"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><p style="border: 1px solid #eee; padding: 10px; min-height: 30px; text-decoration: underline;" class="opt explicit_edit '+SFPMULTILINEFORM+'" id="1" contenteditable="true"><font   class="SFPCOLOR">Text1</font></p> </div><div class="jui-checkbox-row"></div></div><p id="mepp" class="meline"></p></div>'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT getunremulti"><div id="labeledit" class="labeledit multilinedrag">'+el+'</div><div class="checksboxes p_scents multilineme" id="checksboxes_'+random+'"><div id="multiclone"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><p style="border: 1px solid #eee; padding: 10px; min-height: 30px; text-decoration: underline;" class="opt explicit_edit '+SFPMULTILINEFORM+'" id="1" contenteditable="true"><font   class="SFPCOLOR">Text1</font></p> </div><div class="jui-checkbox-row"></div></div><p id="mepp" class="meline"></p></div>'+setme+'</li>');
                 $('#imgdragable').hide(); 
             $(this).find('#multiline').replaceWith(html.join(''));
                ($(this).data(). sortable.currentItem.find('.multilineme').trigger('click')) ;
@@ -781,7 +781,7 @@
               var del = $("#undoredochkdel").val();
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk; 
-            html.push('<li class="dottedLi SFPTWO_TEXTEDIT getunretext"><div id="labeledit" class="labeledit textdrag">'+el+'</div><input type="text" name="" id="txtbox_'+random+'" class="SFPTEXT '+SFPTEXTFORM+'"/>'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT getunretext"><div id="labeledit" class="labeledit textdrag">'+el+'</div><input type="text" name="" id="txtbox_'+random+'" class="SFPTEXT '+SFPTEXTFORM+'"/>'+setme+'</li>');
             $("#undoredochkdel").val(jk);
              $('#imgdragable').hide(); 
             $(this).find('#textbox').replaceWith(html.join(''));
@@ -833,7 +833,7 @@
               var del = $("#undoredochkdel").val();
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk; 
-            html.push('<li class="dottedLi SFPTWO_TEXTEDIT getunretextarea"><div id="labeledit" class="labeledit textareadrag">'+el+'</div><textarea class="SFPAREA '+SFPTEXTAREAFORM+'" style="height:100px;width:304px;" id="txtarea_'+random+'" rows="" cols="" name=""></textarea>'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT getunretextarea"><div id="labeledit" class="labeledit textareadrag">'+el+'</div><textarea class="SFPAREA '+SFPTEXTAREAFORM+'" style="height:100px;width:304px;" id="txtarea_'+random+'" rows="" cols="" name=""></textarea>'+setme+'</li>');
             $("#undoredochkdel").val(jk);
              $('#imgdragable').hide(); 
             $(this).find('#textarea').replaceWith(html.join(''));
@@ -875,7 +875,7 @@
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk;  
                $("#undoredochkdel").val(jk);
-            html.push('<li class="dottedLi SFPTWO_TEXTEDIT getunrelab"><div id="labeledit" class="labeledit addmechk checkboxdrag">'+el+'</div><div class="checksboxes p_scents chkboxaddnow" id="checksboxes_'+random+'"><div id="chkclone" name="checkBox"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input class="SFPTWO_TAGEDIT getunre" type="checkbox" id="1" value="option1" name="checkBox[]" > </span> <p class="opt explicit_edit SFPTWO_TAGEDIT getunre" id="1"  style="display:inline-block;" contenteditable="true"><font   class="SFPCOLOR">option1</font></p> </div><div class="jui-checkbox-row"> <span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input id="2" type="checkbox" value="option2" name="checkBox[]" class="SFPTWO_TAGEDIT getunre"></span> <p class="opt explicit_edit SFPTWO_TAGEDIT getunre"  style="display:inline-block;" id="2" contenteditable="true"><font   class="SFPCOLOR">option2</font></p> </div><div class="jui-checkbox-row"><span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input type="checkbox" id="3" value="option3" name="checkBox[]" class="SFPTWO_TAGEDIT getunre"></span><p class="opt explicit_edit SFPTWO_TAGEDIT getunre"  style="display:inline-block;" id="3" contenteditable="true"><font   class="SFPCOLOR">option3</font></p></div></div><p id="mepp" class="pchkadd"></p><div class="setedit"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div> </div>'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT getunrelab"><div id="labeledit" class="labeledit addmechk checkboxdrag">'+el+'</div><div class="checksboxes p_scents chkboxaddnow" id="checksboxes_'+random+'"><div id="chkclone" name="checkBox"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input class="SFPTWO_TAGEDIT getunre" type="checkbox" id="1" value="option1" name="checkBox[]" > </span> <p class="opt explicit_edit SFPTWO_TAGEDIT getunre" id="1"  style="display:inline-block;" contenteditable="true"><font   class="SFPCOLOR">option1</font></p> </div><div class="jui-checkbox-row"> <span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input id="2" type="checkbox" value="option2" name="checkBox[]" class="SFPTWO_TAGEDIT getunre"></span> <p class="opt explicit_edit SFPTWO_TAGEDIT getunre"  style="display:inline-block;" id="2" contenteditable="true"><font   class="SFPCOLOR">option2</font></p> </div><div class="jui-checkbox-row"><span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input type="checkbox" id="3" value="option3" name="checkBox[]" class="SFPTWO_TAGEDIT getunre"></span><p class="opt explicit_edit SFPTWO_TAGEDIT getunre"  style="display:inline-block;" id="3" contenteditable="true"><font   class="SFPCOLOR">option3</font></p></div></div><p id="mepp" class="pchkadd"></p><div class="setedit"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div> </div>'+setme+'</li>');
             $('#imgdragable').hide(); 
             $(this).find('#checkbox').replaceWith(html.join(''));
                ($(this).data(). sortable.currentItem.find('.chkboxaddnow').find('.setedit').trigger('click')) ;
@@ -928,7 +928,7 @@
                var jk = parseInt(del) + parseInt(2);
                var tag = "tags_"+jk;  
                $("#undoredochkdel").val(jk);
-            html.push('<li class="dottedLi SFPTWO_TEXTEDIT getunreradio"><div id="labeledit" class="labeledit radioboxdrag">'+el+'</div><div class="checksboxes p_scents selectboxaddnow" id="checksboxes_'+random+'"><div id="radioclone" name="radioName"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><span class="checkboxWrapper"><input type="radio" id="1" value="option1" name="name" class="SFPTWO_TAGEDIT getunreopt" > </span> <p class="opt explicit_edit SFPTWO_TAGEDIT getunreopt" id="1"  style="display:inline-block;" contenteditable="true"><font   class="SFPCOLOR">option1</font></p> </div><div class="jui-checkbox-row"> <span class="checkboxWrapper"><input id="2" type="radio" value="option2" name="name" class=" SFPTWO_TAGEDIT getunreopt" ></span> <p class="opt explicit_edit SFPTWO_TAGEDIT getunreopt" id="2"  style="display:inline-block;" contenteditable="true"><font   class="SFPCOLOR">option2</font></p> </div></div><p id="mepp" class="pselectadd"></p><div class="seteditopt"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div> </div>'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT getunreradio"><div id="labeledit" class="labeledit radioboxdrag">'+el+'</div><div class="checksboxes p_scents selectboxaddnow" id="checksboxes_'+random+'"><div id="radioclone" name="radioName"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><span class="checkboxWrapper"><input type="radio" id="1" value="option1" name="name" class="SFPTWO_TAGEDIT getunreopt" > </span> <p class="opt explicit_edit SFPTWO_TAGEDIT getunreopt" id="1"  style="display:inline-block;" contenteditable="true"><font   class="SFPCOLOR">option1</font></p> </div><div class="jui-checkbox-row"> <span class="checkboxWrapper"><input id="2" type="radio" value="option2" name="name" class=" SFPTWO_TAGEDIT getunreopt" ></span> <p class="opt explicit_edit SFPTWO_TAGEDIT getunreopt" id="2"  style="display:inline-block;" contenteditable="true"><font   class="SFPCOLOR">option2</font></p> </div></div><p id="mepp" class="pselectadd"></p><div class="seteditopt"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div> </div>'+setme+'</li>');
             $('#imgdragable').hide(); 
             $(this).find('#radio').replaceWith(html.join('')); 
             ($(this).data(). sortable.currentItem.find('.selectboxaddnow').find('.seteditopt').trigger('click')) ;
@@ -989,7 +989,7 @@
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk;  
                $("#undoredochkdel").val(jk); 
-            html.push('<li class="dottedLi SFPTWO_TEXTEDIT '+tag+'" rel="capchas"><div id="labeledit" class="labeledit captchadrag">'+el+'</div><div id="divcaptcha"><br/><p id="1">How much is:</p> <input type="text" class="qes"/><br/><p id="2">Answer:</p><input type="text" class="ans"/></div><br/><input type="button" class="btncaptcha" value="Go!"/>'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT '+tag+'" rel="capchas"><div id="labeledit" class="labeledit captchadrag">'+el+'</div><div id="divcaptcha"><br/><p id="1">How much is:</p> <input type="text" class="qes"/><br/><p id="2">Answer:</p><input type="text" class="ans"/></div><br/><input type="button" class="btncaptcha" value="Go!"/>'+setme+'</li>');
             $('#imgdragable').hide(); 
             $(this).find('#captcha').replaceWith(html.join(''));
             ($(this).data(). sortable.currentItem.find('.divcaptcha').trigger('click')) ;
@@ -1014,7 +1014,7 @@
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk;  
                $("#undoredochkdel").val(jk); 
-            html.push('<li class="dottedLi SFPTWO_TEXTEDIT getunretime"><div id="labeledit" class="labeledit timedrag">'+el+'</div><input type="text" name="timepicker" id="timepicker'+time+'" onclick="timepick('+time+')">'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT getunretime"><div id="labeledit" class="labeledit timedrag">'+el+'</div><input type="text" name="timepicker" id="timepicker'+time+'" onclick="timepick('+time+')">'+setme+'</li>');
             $('#imgdragable').hide(); 
             $(this).find('#time').replaceWith(html.join(''));
              ($(this).data(). sortable.currentItem.find('#labeledit').trigger('click')) ;
@@ -1065,7 +1065,7 @@
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk;  
                $("#undoredochkdel").val(jk);
-            html.push('<li style="min-height:109px" class="dottedLi SFPTWO_TEXTEDIT getunredrop">'+el+'<div  class="dropdowndrag"><select class="select '+SFPDROPDOWNFORM+'" id="hours'+random+'" style="font-family: times new roman;font-size: 15px; height: 30px;margin-bottom: 10px;width: 120px;">'+'<option value="0">Select</option>'+'<option id="1" value="option1">option1</option>'+'<option id="2" value="option2">option2</option>'+'</select><div class="seteditdrop" onclick="selectboxclick(this)"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div> </div>'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li style="min-height:109px" class="dottedLi SFPTWO_TEXTEDIT getunredrop">'+el+'<div  class="dropdowndrag"><select class="select '+SFPDROPDOWNFORM+'" id="hours'+random+'" style="font-family: times new roman;font-size: 15px; height: 30px;margin-bottom: 10px;width: 120px;">'+'<option value="0">Select</option>'+'<option id="1" value="option1">option1</option>'+'<option id="2" value="option2">option2</option>'+'</select><div class="seteditdrop" onclick="selectboxclick(this)"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div> </div>'+setme+'</li>');
             $('#imgdragable').hide(); 
              $(this).find('#single').replaceWith(html.join(''));
               ($(this).data(). sortable.currentItem.find('.dropdowndrag').find('.seteditdrop').trigger('click')) ;
@@ -1103,7 +1103,7 @@
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk;  
                $("#undoredochkdel").val(jk);
-            html.push('<li class="dottedLi SFPTWO_TEXTEDIT getunredate"><div id="labeledit" class="labeledit datedrag">'+el+'</div><input type="text" name="" id="datepicker'+count+'" onclick="datepick('+count+')">'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT getunredate"><div id="labeledit" class="labeledit datedrag">'+el+'</div><input type="text" name="" id="datepicker'+count+'" onclick="datepick('+count+')">'+setme+'</li>');
              $('#imgdragable').hide(); 
             $(this).find('#date').replaceWith(html.join(''));
             ($(this).data(). sortable.currentItem.find('#labeledit').trigger('click')) ;
@@ -1153,7 +1153,7 @@
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk;  
                $("#undoredochkdel").val(jk);
-            html.push('<li class="dottedLi SFPTWO_TEXTEDIT getunreemail"><div id="labeledit" class="labeledit emaildrag">'+el+'</div><input required type="email" name="" id="email_'+random+'" class="SFPEMAIL '+SFPEMAILFORM+'">'+setme+'</li>');
+            html.push('<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT getunreemail"><div id="labeledit" class="labeledit emaildrag">'+el+'</div><input required type="email" name="" id="email_'+random+'" class="SFPEMAIL '+SFPEMAILFORM+'">'+setme+'</li>');
              
              $('#imgdragable').hide(); 
             $(this).find('#email').replaceWith(html.join(''));
@@ -1206,7 +1206,7 @@
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk;  
                $("#undoredochkdel").val(jk);
-            html.push('<br/><br/><li class="dottedLi SFPTWO_TEXTEDIT getunresubmit"><div id="getbtnme" class="submitdrag"><input class="inputdisabled '+SFPSUBMITFORM+'" type="submit" name="submit" value="Submit"></div>'+setme+'</li>');
+            html.push('<br/><br/><div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT getunresubmit"><div id="getbtnme" class="submitdrag"><input class="inputdisabled '+SFPSUBMITFORM+'" type="submit" name="submit" value="Submit"></div>'+setme+'</li>');
              $('#imgdragable').hide(); 
             $(this).find('#submit').replaceWith(html.join(''));
              ($(this).data(). sortable.currentItem.find('#getbtnme').trigger('click')) ;
@@ -1671,9 +1671,9 @@ function chechTypeAndAdd(value)
                         });
                         
             
-                var set = '<div id="ullidrag" class="ullidrag" style="display:none cursor:move;"><img src="/img/1416497040_cursor_drag_arrow_2.png"/></div><div class="setting-2 prevnext"><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid" /><input type="hidden" value="0" id="imgCount" /><a title="Spacing" class="spacing" href="javascript:void(0)">spacing</a></div>';
+                var set = '<div id="ullidrag" class="ullidrag" style="display:none cursor:move;"><img src="/img/1416497040_cursor_drag_arrow_2.png"/></div><div class="setting-2 prevnext"><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid" /><input type="hidden" value="0" id="imgCount" /><a title="Spacing" class="spacing" href="javascript:void(0)">spacing</a></div><div class="SFP_settings" style="display:none"><a title="Setting" class="setSFPic" href="javascript:void(0)"></a></div>';
                 
-                var setme = '<div id="ullidrag" class="ullidrag" style="display:none cursor:move;"><img src="/img/1416497040_cursor_drag_arrow_2.png"/></div><div class="setting-2 prevnext"><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid" /><input type="hidden" value="0" id="imgCount" /><a title="Spacing" class="spacing" href="javascript:void(0)">spacing</a></div>';
+                var setme = '<div id="ullidrag" class="ullidrag" style="display:none cursor:move;"><img src="/img/1416497040_cursor_drag_arrow_2.png"/></div><div class="setting-2 prevnext"><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid" /><input type="hidden" value="0" id="imgCount" /><a title="Spacing" class="spacing" href="javascript:void(0)">spacing</a></div><div class="SFP_settings" style="display:none"><a title="Setting" class="setSFPic" href="javascript:void(0)"></a></div>';
                 
                 AddContainer = "";
                    var minNumbesr = 0000; // The minimum number you want
@@ -1723,7 +1723,7 @@ function chechTypeAndAdd(value)
                   // var tag = "tag_"+jk; 
                   
              
-                    AddContainer = '<li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunrelabel '+SFPLEBELFORM+'"><div id="labeledit"  class="labeledit">'+el+'</div>'+setme+'</li>';
+                    AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunrelabel '+SFPLEBELFORM+'"><div id="labeledit"  class="labeledit">'+el+'</div>'+setme+'</li>';
                      //$("#undoredochkdel").val(jk);
                 
                     setTimeout(function(){     
@@ -1783,7 +1783,7 @@ function chechTypeAndAdd(value)
                      var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                    AddContainer = '<li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunreemail"><div id="labeledit"  class="labeledit emaildrag">'+el+'</div><input required type="email" name="" id="email_'+random+'"  class="SFPEMAIL '+SFPEMAILFORM+'">'+setme+'</li>';
+                    AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunreemail"><div id="labeledit"  class="labeledit emaildrag">'+el+'</div><input required type="email" name="" id="email_'+random+'"  class="SFPEMAIL '+SFPEMAILFORM+'">'+setme+'</li>';
                     setTimeout(function(){     
                    ($('ul.sortable-list').children('li').last().find('#labeledit').trigger('click'));
                   var effect = 'slide';
@@ -1840,7 +1840,7 @@ function chechTypeAndAdd(value)
                      var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                        AddContainer = '<li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunretextbox"><div id="labeledit" class="labeledit textdrag">'+el+'</div><input type="text" name="" id="txtbox_'+random+'" class="SFPTEXT '+SFPTEXTFORM+'"/>'+setme+'</li>';
+                        AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunretextbox"><div id="labeledit" class="labeledit textdrag">'+el+'</div><input type="text" name="" id="txtbox_'+random+'" class="SFPTEXT '+SFPTEXTFORM+'"/>'+setme+'</li>';
                         
                         
                     setTimeout(function(){     
@@ -1886,7 +1886,7 @@ function chechTypeAndAdd(value)
                      var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                        AddContainer = '<li class="dottedLi ui-draggable SFPTWO_TEXTEDIT '+tag+'">'+el+'<input type="password" name="" id="pass_'+random+'">'+setme+'</li>';
+                        AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT '+tag+'">'+el+'<input type="password" name="" id="pass_'+random+'">'+setme+'</li>';
                  setTimeout(function(){     
                    ($('ul.sortable-list').children('li').last().find('#labeledit').trigger('click'));
                   var effect = 'slide';
@@ -1916,7 +1916,7 @@ function chechTypeAndAdd(value)
                      var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                        AddContainer = '<li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunrechk"><div id="labeledit" class="labeledit addmechk checkboxdrag">'+el+'</div><div class="checksboxes p_scents chkboxaddnow" id="checksboxes_'+random+'"><div id="chkclone" name="checkBox"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input type="checkbox" value="1" name="checkBox[]" id="1" class=" SFPTWO_TAGEDIT clickgetunreoptchk"> </span> <p class="opt explicit_edit SFPTWO_TAGEDIT clickgetunreoptchk" id="1" contenteditable="true"  style="display:inline-block;"><font   class="SFPCOLOR">option1</font></p> </div><div class="jui-checkbox-row"> <span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input id="2" type="checkbox" value="2" name="checkBox[]" class="SFPTWO_TAGEDIT clickgetunreoptchk"></span> <p class="opt explicit_edit SFPTWO_TAGEDIT clickgetunreoptchk"  style="display:inline-block;" id="2" contenteditable="true"><font   class="SFPCOLOR">option2</font></p> </div><div class="jui-checkbox-row"><span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input id="3" type="checkbox" value="3" name="checkBox[]" class="SFPTWO_TAGEDIT clickgetunreoptchk"></span><p class="opt explicit_edit SFPTWO_TAGEDIT clickgetunreoptchk"  style="display:inline-block;" id="3" contenteditable="true"><font   class="SFPCOLOR">option3</font></p></div></div><p id="mepp" class="pchkadd"></p><div class="setedit"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div></div>'+setme+'</li>';
+                        AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunrechk"><div id="labeledit" class="labeledit addmechk checkboxdrag">'+el+'</div><div class="checksboxes p_scents chkboxaddnow" id="checksboxes_'+random+'"><div id="chkclone" name="checkBox"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input type="checkbox" value="1" name="checkBox[]" id="1" class=" SFPTWO_TAGEDIT clickgetunreoptchk"> </span> <p class="opt explicit_edit SFPTWO_TAGEDIT clickgetunreoptchk" id="1" contenteditable="true"  style="display:inline-block;"><font   class="SFPCOLOR">option1</font></p> </div><div class="jui-checkbox-row"> <span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input id="2" type="checkbox" value="2" name="checkBox[]" class="SFPTWO_TAGEDIT clickgetunreoptchk"></span> <p class="opt explicit_edit SFPTWO_TAGEDIT clickgetunreoptchk"  style="display:inline-block;" id="2" contenteditable="true"><font   class="SFPCOLOR">option2</font></p> </div><div class="jui-checkbox-row"><span class="checkboxWrapper" style="float: left;margin-right: 5px;"><input id="3" type="checkbox" value="3" name="checkBox[]" class="SFPTWO_TAGEDIT clickgetunreoptchk"></span><p class="opt explicit_edit SFPTWO_TAGEDIT clickgetunreoptchk"  style="display:inline-block;" id="3" contenteditable="true"><font   class="SFPCOLOR">option3</font></p></div></div><p id="mepp" class="pchkadd"></p><div class="setedit"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div></div>'+setme+'</li>';
               setTimeout(function(){     
                    ($('ul.sortable-list').children('li').last().find('.chkboxaddnow').find('.setedit').trigger('click'));
                   var effect = 'slide';
@@ -1979,7 +1979,7 @@ function chechTypeAndAdd(value)
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
                    
                    
-                        AddContainer = '<li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunreradio"><div id="labeledit" class="labeledit radioboxdrag">'+el+'</div><div class="checksboxes p_scents selectboxaddnow" id="checksboxes_'+random+'"><div id="radioclone" name="radioName"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><span class="checkboxWrapper"><input id="1" type="radio" value="option1" name="name" class=" SFPTWO_TAGEDIT clickgetunreopt"> </span> <p class="opt explicit_edit SFPTWO_TAGEDIT clickgetunreopt"  style="display:inline-block;" id="1" contenteditable="true"><font   class="SFPCOLOR">option1</font></p> </div><div class="jui-checkbox-row"> <span class="checkboxWrapper"><input type="radio" value="option2" id="2" name="name" class="SFPTWO_TAGEDIT clickgetunreopt" ></span> <p class="opt explicit_edit SFPTWO_TAGEDIT clickgetunreopt" id="2" contenteditable="true"  style="display:inline-block;"><font   class="SFPCOLOR">option2</font></p> </div></div><p id="mepp" class="pselectadd"></p><div class="seteditopt"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div></div>'+setme+'</li>';
+                        AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunreradio"><div id="labeledit" class="labeledit radioboxdrag">'+el+'</div><div class="checksboxes p_scents selectboxaddnow" id="checksboxes_'+random+'"><div id="radioclone" name="radioName"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><span class="checkboxWrapper"><input id="1" type="radio" value="option1" name="name" class=" SFPTWO_TAGEDIT clickgetunreopt"> </span> <p class="opt explicit_edit SFPTWO_TAGEDIT clickgetunreopt"  style="display:inline-block;" id="1" contenteditable="true"><font   class="SFPCOLOR">option1</font></p> </div><div class="jui-checkbox-row"> <span class="checkboxWrapper"><input type="radio" value="option2" id="2" name="name" class="SFPTWO_TAGEDIT clickgetunreopt" ></span> <p class="opt explicit_edit SFPTWO_TAGEDIT clickgetunreopt" id="2" contenteditable="true"  style="display:inline-block;"><font   class="SFPCOLOR">option2</font></p> </div></div><p id="mepp" class="pselectadd"></p><div class="seteditopt"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div></div>'+setme+'</li>';
               setTimeout(function(){     
                    ($('ul.sortable-list').children('li').last().find('.selectboxaddnow').find('.seteditopt').trigger('click'));
                   var effect = 'slide';
@@ -2052,7 +2052,7 @@ function chechTypeAndAdd(value)
                      var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                        AddContainer = '<li class="dottedLi draggable SFPTWO_TEXTEDIT clickgetunretextarea"><div id="labeledit" class="labeledit textareadrag">'+el+'</div><textarea class="'+SFPTEXTAREAFORM+'" style="height:100px;width:304px;" id="txt_'+random+'" rows="" cols="" name=""></textarea>'+setme+'</li>';
+                        AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi draggable SFPTWO_TEXTEDIT clickgetunretextarea"><div id="labeledit" class="labeledit textareadrag">'+el+'</div><textarea class="'+SFPTEXTAREAFORM+'" style="height:100px;width:304px;" id="txt_'+random+'" rows="" cols="" name=""></textarea>'+setme+'</li>';
                            var effect = 'slide';
             
                 // Set the options for the effect type chosen
@@ -2100,7 +2100,7 @@ function chechTypeAndAdd(value)
                     var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                        AddContainer = '<li class="dottedLi ui-draggable SFPTWO_TEXTEDIT" rel="capchas"><div id="labeledit" class="labeledit paradrag">'+el+'</div><div id="divcaptcha"><br/><p id="1">How much is:</p> <input type="text" class="qes"/><br/><p id="2">Answer:</p><input type="text" class="ans"/></div><br/><input type="button" class="btncaptcha" value="Go!"/>'+setme+'</li>';
+                        AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT" rel="capchas"><div id="labeledit" class="labeledit paradrag">'+el+'</div><div id="divcaptcha"><br/><p id="1">How much is:</p> <input type="text" class="qes"/><br/><p id="2">Answer:</p><input type="text" class="ans"/></div><br/><input type="button" class="btncaptcha" value="Go!"/>'+setme+'</li>';
                         $('#captcha').attr('rel','');
                     }
                     capcha += 1;
@@ -2148,7 +2148,7 @@ function chechTypeAndAdd(value)
                     var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                        AddContainer = '<li style="min-height:109px" class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunredrop">'+el+'<div class="dropdowndrag"><select  class="select '+SFPDROPDOWNFORM+'" id="hours'+random+'" style="font-family: times new roman;font-size: 15px; height: 30px;margin-bottom: 10px;width: 120px;">'+'<option value="0">Select</option>'+'<option id="1" value="option1">option1</option>'+'<option id="2" value="option2">option2</option>'+'</select><div class="seteditdrop" onclick="selectboxclick(this)"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div> </div>'+setme+'</li>';
+                        AddContainer = '<div class="textme" style="display:inline;"></div><li style="min-height:109px" class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunredrop">'+el+'<div class="dropdowndrag"><select  class="select '+SFPDROPDOWNFORM+'" id="hours'+random+'" style="font-family: times new roman;font-size: 15px; height: 30px;margin-bottom: 10px;width: 120px;">'+'<option value="0">Select</option>'+'<option id="1" value="option1">option1</option>'+'<option id="2" value="option2">option2</option>'+'</select><div class="seteditdrop" onclick="selectboxclick(this)"><a title="edit" class="editnow" href="javascript:void(0)">cc</a></div> </div>'+setme+'</li>';
                 setTimeout(function(){    
               ($('ul.sortable-list').children('li').last().find('.dropdowndrag').find('.seteditdrop').trigger('click'));
                   var effect = 'slide';
@@ -2190,7 +2190,7 @@ function chechTypeAndAdd(value)
                     var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                        AddContainer = '<li class="dottedLi ui-draggable SFPTWO_TEXTEDIT '+tag+'">'+el+'<dl class="dropdown"> <dt><a style="cursor:pointer;"><span class="hida">Select</span> <p class="multiSel"></p>  </a></dt> <dd> <div class="mutliSelect"><ul><li><input type="checkbox" value="Apple" />Apple</li><li><input type="checkbox" value="Blackberry" />Blackberry</li> </ul></div></dd></dl>'+setme+'</li>';
+                        AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT '+tag+'">'+el+'<dl class="dropdown"> <dt><a style="cursor:pointer;"><span class="hida">Select</span> <p class="multiSel"></p>  </a></dt> <dd> <div class="mutliSelect"><ul><li><input type="checkbox" value="Apple" />Apple</li><li><input type="checkbox" value="Blackberry" />Blackberry</li> </ul></div></dd></dl>'+setme+'</li>';
                            var effect = 'slide';
             
                 // Set the options for the effect type chosen
@@ -2213,7 +2213,7 @@ function chechTypeAndAdd(value)
                       var del = $("#undoredochkdel").val();
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk;    
-                    AddContainer = '<li class="dottedLi SFPTWO_TEXTEDIT clickgetunredate"><div id="labeledit" class="labeledit datedrag">'+el+'</div><input type="text" name="" id="datepicker'+count+'" onclick="datepick('+count+')">'+setme+'</li>';
+                    AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT clickgetunredate"><div id="labeledit" class="labeledit datedrag">'+el+'</div><input type="text" name="" id="datepicker'+count+'" onclick="datepick('+count+')">'+setme+'</li>';
                       //$( "#datepicker" ).datepicker();
                     count += 1; 
                         setTimeout(function(){    
@@ -2256,7 +2256,7 @@ function chechTypeAndAdd(value)
                     var del = $("#undoredochkdel").val();
                var jk = parseInt(del) + parseInt(1);
                var tag = "tags_"+jk; 
-                    AddContainer = '<li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunretime"><div id="labeledit" class="labeledit timedrag">'+el+'</div><input type="text" name="timepicker" id="timepicker'+time+'" onclick="timepick('+time+')">'+setme+'</li>';
+                    AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunretime"><div id="labeledit" class="labeledit timedrag">'+el+'</div><input type="text" name="timepicker" id="timepicker'+time+'" onclick="timepick('+time+')">'+setme+'</li>';
                       //$( "#datepicker" ).datepicker();
                     time += 1;
                       setTimeout(function(){    
@@ -2303,7 +2303,7 @@ function chechTypeAndAdd(value)
                             var minNumber = 0000; // The minimum number you want
                             var maxNumber = 1000; // The maximum number you want
                            var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                            AddContainer = '<li style="min-height:85px;" class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunresingleline"><div id="labeledit" class="labeledit singledrag">'+el+'</div>'+setme+'</li>';
+                            AddContainer = '<div class="textme" style="display:inline;"></div><li style="min-height:85px;" class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunresingleline"><div id="labeledit" class="labeledit singledrag">'+el+'</div>'+setme+'</li>';
                                setTimeout(function(){    
                               ($('ul.sortable-list').children('li').last().find('#labeledit').trigger('click'));
                           var effect = 'slide';
@@ -2358,7 +2358,7 @@ function chechTypeAndAdd(value)
                     var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                    AddContainer = '<li class="dottedLi SFPTWO_TEXTEDIT clickgetunremultiline"><div id="labeledit" class="labeledit multilinedrag">'+el+'</div><div class="checksboxes p_scents multilineme" id="checksboxes_'+random+'"><div id="multiclone"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><p style="border: 1px solid #eee; padding: 10px; min-height: 30px; text-decoration: underline;" class="opt explicit_edit '+SFPMULTILINEFORM+'" id="1" contenteditable="true"><font   class="SFPCOLOR">Text1</font></p> </div><div class="jui-checkbox-row"></div></div><p id="mepp" class="meline"></p></div>'+setme+'</li>';
+                    AddContainer = '<div class="textme" style="display:inline;"></div><li class="dottedLi SFPTWO_TEXTEDIT clickgetunremultiline"><div id="labeledit" class="labeledit multilinedrag">'+el+'</div><div class="checksboxes p_scents multilineme" id="checksboxes_'+random+'"><div id="multiclone"><div for="p_scnts" class="jui-checkbox-row" id="jui-checkbox-row'+random+'"><p style="border: 1px solid #eee; padding: 10px; min-height: 30px; text-decoration: underline;" class="opt explicit_edit '+SFPMULTILINEFORM+'" id="1" contenteditable="true"><font   class="SFPCOLOR">Text1</font></p> </div><div class="jui-checkbox-row"></div></div><p id="mepp" class="meline"></p></div>'+setme+'</li>';
                       setTimeout(function(){    
                       ($('ul.sortable-list').children('li').last().find('.multilineme').trigger('click'));
                   var effect = 'slide';
@@ -2402,7 +2402,7 @@ function chechTypeAndAdd(value)
                     var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                    AddContainer = '<li style="min-height:85px;" class="dottedLi ui-draggable SFPTWO_TEXTEDIT     clickgetunresingleline"><div id="labeledit" class="labeledit singledrag">'+el+'</div>'+setme+'</li>';
+                    AddContainer = '<div class="textme" style="display:inline;"></div><li style="min-height:85px;" class="dottedLi ui-draggable SFPTWO_TEXTEDIT     clickgetunresingleline"><div id="labeledit" class="labeledit singledrag">'+el+'</div>'+setme+'</li>';
                        setTimeout(function(){    
                       ($('ul.sortable-list').children('li').last().find('#labeledit').trigger('click'));
                   var effect = 'slide';
@@ -2459,7 +2459,7 @@ function chechTypeAndAdd(value)
                      var minNumber = 0000; // The minimum number you want
                     var maxNumber = 1000; // The maximum number you want
                    var random = Math.floor(Math.random() * (maxNumber + 1) + minNumber);  
-                    AddContainer = '<br/><br/><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunresubmit"><div id="getbtnme" class="submitdrag"><input class="inputdisabled SFPsubmit '+SFPSUBMITFORM+'" type="submit" name="submit" value="Submit"></div>'+setme+'</li>';
+                    AddContainer = '<br/><br/><div class="textme" style="display:inline;"></div><li class="dottedLi ui-draggable SFPTWO_TEXTEDIT clickgetunresubmit"><div id="getbtnme" class="submitdrag"><input class="inputdisabled SFPsubmit '+SFPSUBMITFORM+'" type="submit" name="submit" value="Submit"></div>'+setme+'</li>';
                        setTimeout(function(){    
                       ($('ul.sortable-list').children('li').last().find('#getbtnme').trigger('click'));
                   var effect = 'slide';

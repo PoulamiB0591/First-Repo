@@ -421,6 +421,47 @@ div.info a.campaign_arrow span.icon-arrow-down {
 div.info a.campaign_btn:hover {
 	background:#009d60;
 }
+
+
+/***************** css for view button *****************/
+div.info a.campaign_view {
+	margin: 3px 15px 0 0;
+	background:#00ad6a;
+	display: block;
+	height: 52px;
+	float: left;
+    font-family: 'ubuntubold';
+	text-transform: uppercase;
+	font-size: 16px;
+	line-height: 52px;
+	padding: 0 20px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+    width:226px;
+    text-align: center;
+}
+div.info a.campaign_view span {
+    display: inline-block;
+    float: right;
+    line-height: 50px;
+	margin: 0 0 0 8px;
+}
+div.info a.campaign_view span.icon-arrow-up {
+    display: none;
+}
+div.info a.campaign_arrow span.icon-arrow-up {
+	display: block;
+}
+div.info a.campaign_arrow span.icon-arrow-down {
+	display: none;
+}
+div.info a.campaign_view:hover {
+	background:#009d60;
+}
+
+
+
 div.bell {
 	float: left;
 	margin: 17px 0 0 0;
@@ -897,13 +938,36 @@ div.left_panel > ul > li {
 div.left_panel > ul > li:first-child {
   border-bottom: medium none;
 }
-div.left_panel > ul > li a.open-4-new{
-background: url("http://test.scampaigns.com/editImg/form_icon.png") no-repeat scroll center center rgba(0, 0, 0, 0) !important;}
-
+div.left_panel > ul > li a.open-4-new:hover{
+background:#2e3641 url(../editImg/form_icon_hover.png) no-repeat center center;
+}
 a.open-4-new + .arrow_box {
   width: 106px;
 }
 
+div.left_panel > ul > li a.open-4-new{
+background: url(../editImg/form_icon.png) no-repeat center center;
+}
+div.left_panel > ul > li a.open-4-new:hover{
+background:#2e3641 url(../editImg/form_icon_hover.png) no-repeat center center;
+}
+
+div.left_panel > ul > li a.background_bt{
+background: url(../editImg/background_change.png) no-repeat center center;
+}
+div.left_panel > ul > li a.background_bt:hover{
+background:#2e3641 url(../editImg/background_change_hover.png) no-repeat center center;
+}
+div.left_panel > ul > li a.openwatermark{
+background: url(../editImg/watermark_icon.png) no-repeat center center;
+}
+div.left_panel > ul > li a.openwatermark:hover{
+background:#2e3641 url(../editImg/watermark_icon_hover.png) no-repeat center center;
+}
+
+li.liwtrsfp img, li.liwtrsfpfb img {
+	border:1px solid #CCC;
+}
 
 /*END OF NEW ADDED BY TANU 8th JAN*/
 
@@ -973,13 +1037,7 @@ div.left_panel > ul > li:hover .arrow_box  {
 div.left_panel > ul > li > a.open3,div.left_panel > ul > li > a#save {
 	background:url(../img/campaigns_setting_icon.png) no-repeat center center;
 }
-div.left_panel > ul > li > a.open4 {
-	background:url(../img/campaigns_setting_icon.png) no-repeat center center;
-}
 div.left_panel > ul > li > a.open3:hover {
-	background:#2e3641 url(../img/campaigns_setting_icon_hover.png) no-repeat center center;
-}
-div.left_panel > ul > li > a.open4:hover {
 	background:#2e3641 url(../img/campaigns_setting_icon_hover.png) no-repeat center center;
 }
 .arrow_box {
@@ -1084,7 +1142,7 @@ ul.details li {
 ul.details li label {
 	display: block;
     font-family: 'ubuntumedium';
-	margin: 0 0 10px 0;
+	margin: 0 auto;
 }
 ul.details li input[type="text"], ul.details li select, ul.details li textarea {
 	background:#FFF;
@@ -1303,12 +1361,13 @@ span.drop img {
 	display: block;
 	margin: 0 auto;
 }
-ul.details li label.file-upload {
+label.file-upload {
     font-family: 'ubuntubold';
 	background:#7e7e7e;
 	height:32px;
 	line-height:32px;
 	width:140px;
+	position:relative;	
 	padding:0;
 	color:#FFF;
 	text-align: center;
@@ -1320,7 +1379,7 @@ ul.details li label.file-upload {
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-ul.details li label.file-upload:hover {
+label.file-upload:hover {
 	background:#7a7a7a;
 }
 label.file-upload input {
@@ -1329,6 +1388,13 @@ label.file-upload input {
 	opacity:0;
 	position:absolute;
 	top:0;
+	width:100%;
+	height:100%;
+}
+label.file-upload span {
+	display:block;
+	color: #fff;
+	line-height: 34px;
 }
 span.file-upload-status {
 	background:#F8F8F8;
@@ -1548,13 +1614,19 @@ span.customSelect, span.styled {
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-
-
-
+div.slide_watermark ul li {
+	overflow:hidden;
+	margin: 0 0 10px 0;
+}
+div.slide_watermark ul li > label {
+  display: block;
+  float: left;
+  margin: 0 10px 0 0;
+}
 
 div.slide_popup, div.slide_popup_indexus{ border-top:1px solid #e3e0db;}
 
-div.slide_popup, div.slide_popup1, div.slide_popup2, div.slide_popup_indexus , div.slide_popupurl , div.slide_fblike , div.slide_fbshare, div.slide_tweet_share, div.slide_tweet_bird, div.slide_google_share, div.slide_linkedin, div.slide_linkedin_share , div.slide_fbSimple_Share, div.slide_timer {
+div.slide_popup, div.slide_popup1, div.slide_popup2, div.slide_popup_indexus , div.slide_popupurl , div.slide_fblike ,div.slide_watermark ,div.slide_video , div.slide_fbshare, div.slide_tweet_share, div.slide_tweet_bird, div.slide_google_share, div.slide_linkedin, div.slide_linkedin_share , div.slide_fbSimple_Share, div.slide_timer {
 	background:#FFF;
 	border-right:none;
 	border:1px solid #e3e0db;
@@ -1568,13 +1640,13 @@ div.slide_popup, div.slide_popup1, div.slide_popup2, div.slide_popup_indexus , d
 	color: #2e3641;
     margin: 81px 0 0 0;
 }
-div.slide_popup2, div.slide_popup1,div.slide_popupurl , div.slide_fblike , div.slide_fbshare, div.slide_tweet_share, div.slide_tweet_bird, div.slide_google_share , div.slide_linkedin, div.slide_linkedin_share , div.slide_fbSimple_Share, div.slide_timer {width:368px;} 
+div.slide_popup2, div.slide_popup1,div.slide_popupurl , div.slide_fblike , div.slide_watermark ,div.slide_video , div.slide_fbshare, div.slide_tweet_share, div.slide_tweet_bird, div.slide_google_share , div.slide_linkedin, div.slide_linkedin_share , div.slide_fbSimple_Share, div.slide_timer {width:368px;} 
 
 div.slide_popup_indexus > a.indexus_btn {
 	right: 20px;
 	top: 20px;
 }
-div.slide_popup > a.close_btn, div.slide_popup1 > a.close_btn, div.slide_popup2 > a.close_btn,  div.slide_popup_indexus > a.indexus_btn ,div.slide_popupurl > a.close_url , div.slide_fblike > a.close_like, div.slide_fbshare > a.close_share, div.slide_tweet_share > a.close_share, div.slide_tweet_bird > a.close_share, div.slide_google_share > a.close_share , div.slide_linkedin > a.close_linkedin, div.slide_linkedin_share > a.close_linkedin_share , div.slide_fbSimple_Share > a.close_fbSimple_Share, div.slide_timer > a.close_share_timer {
+div.slide_popup > a.close_btn, div.slide_popup1 > a.close_btn, div.slide_popup2 > a.close_btn,  div.slide_popup_indexus > a.indexus_btn ,div.slide_popupurl > a.close_url , div.slide_fblike > a.close_like,  div.slide_video > a.close_video , div.slide_fbshare > a.close_share, div.slide_tweet_share > a.close_share, div.slide_tweet_bird > a.close_share, div.slide_google_share > a.close_share , div.slide_linkedin > a.close_linkedin, div.slide_linkedin_share > a.close_linkedin_share , div.slide_fbSimple_Share > a.close_fbSimple_Share, div.slide_timer > a.close_share_timer, div.slide_watermark > a.close_watermark {
 	font-size: 26px;
 	height: 26px;
 	width: 26px;
@@ -1586,15 +1658,15 @@ div.slide_popup > a.close_btn, div.slide_popup1 > a.close_btn, div.slide_popup2 
 	color: #000;
 	opacity:0.6;
 }
-div.slide_popup > a.close_btn:hover, div.slide_popup1 > a.close_btn:hover, div.slide_popup2 > a.close_btn:hover,  div.slide_popup_indexus > a.indexus_btn ,div.slide_popupurl > a.close_url , div.slide_fblike > a.close_like, div.slide_fbshare > a.close_share, div.slide_tweet_share > a.close_share, div.slide_tweet_bird > a.close_share, div.slide_google_share > a.close_share , div.slide_linkedin > a.close_linkedin, div.slide_linkedin_share > a.close_linkedin_share , div.slide_fbSimple_Share > a.close_fbSimple_Share, div.slide_timer > a.close_share_timer  {
+div.slide_popup > a.close_btn:hover, div.slide_popup1 > a.close_btn:hover, div.slide_popup2 > a.close_btn:hover,  div.slide_popup_indexus > a.indexus_btn:hover ,div.slide_popupurl > a.close_url:hover , div.slide_fblike > a.close_like:hover ,div.slide_watermark > a.close_watermark:hover ,div.slide_video > a.close_video:hover , div.slide_fbshare > a.close_share:hover, div.slide_tweet_share > a.close_share:hover, div.slide_tweet_bird > a.close_share:hover, div.slide_google_share > a.close_share:hover , div.slide_linkedin > a.close_linkedin:hover, div.slide_linkedin_share > a.close_linkedin_share:hover , div.slide_fbSimple_Share > a.close_fbSimple_Share:hover, div.slide_timer > a.close_share_timer:hover  {
 	
 	text-decoration: none;
 }
 div.slide_popup > a.close_btn{ top: 8px;}
-div.slide_popup > a.close_btn:hover, div.slide_popup1 > a.close_btn:hover, div.slide_popup2 > a.close_btn:hover, div.slide_popup_indexus > a.indexus_btn:hover ,div.slide_popupurl > a.close_url:hover , div.slide_fblike > a.close_like:hover, div.slide_fbshare > a.close_share:hover, div.slide_tweet_share > a.close_share:hover, div.slide_tweet_bird > a.close_share:hover, div.slide_google_share > a.close_share:hover , div.slide_linkedin > a.close_linkedin:hover , div.slide_linkedin_share > a.close_linkedin_share:hover, div.slide_timer > a.close_share_timer:hover {
+div.slide_popup > a.close_btn:hover, div.slide_popup1 > a.close_btn:hover, div.slide_popup2 > a.close_btn:hover, div.slide_popup_indexus > a.indexus_btn:hover ,div.slide_popupurl > a.close_url:hover , div.slide_fblike > a.close_like:hover ,div.slide_watermark > a.close_watermark:hover , div.slide_video > a.close_video:hover , div.slide_fbshare > a.close_share:hover, div.slide_tweet_share > a.close_share:hover, div.slide_tweet_bird > a.close_share:hover, div.slide_google_share > a.close_share:hover , div.slide_linkedin > a.close_linkedin:hover , div.slide_linkedin_share > a.close_linkedin_share:hover, div.slide_timer > a.close_share_timer:hover {
 	opacity:0.4;
 }
-div.slide_popup h2, div.slide_popup1 h2,  div.slide_popup2 h2, div.slide_popup_indexus h2 , div.slide_popupurl h2 , div.slide_fblike h2 , div.slide_fbshare h2, div.slide_tweet_share h2, div.slide_tweet_bird h2, div.slide_google_share h2 , div.slide_linkedin h2 , div.slide_linkedin_share h2 , div.slide_fbSimple_Share h2, div.slide_timer h2 {
+div.slide_popup h2, div.slide_popup1 h2,  div.slide_popup2 h2, div.slide_popup_indexus h2 , div.slide_popupurl h2 , div.slide_fblike h2 ,div.slide_watermark h2 , div.slide_video  h2 , div.slide_fbshare h2, div.slide_tweet_share h2, div.slide_tweet_bird h2, div.slide_google_share h2 , div.slide_linkedin h2 , div.slide_linkedin_share h2 , div.slide_fbSimple_Share h2, div.slide_timer h2 {
 	height: 80px;
 	line-height: 80px;
 	font-size:16px;
@@ -1607,7 +1679,7 @@ div.slide_popup h2, div.slide_popup1 h2,  div.slide_popup2 h2, div.slide_popup_i
 div.slide_popup h2, div.slide_popup_indexus h2 {height: 50px;line-height: 50px;}
 
 
-div.slide_popup ul.tabs3, div.slide_popup1 ul.tabs5, div.slide_popup2 ul.tabs5 ,div.slide_popupurl ul.tabs5url , div.slide_fblike ul.tabsfblike , div.slide_fbshare ul.tabsfbshare, div.slide_tweet_share ul.tabstweetshare, div.slide_tweet_bird ul.tabstweetbird, div.slide_google_share ul.tabsgoogleshare , div.slide_linkedin ul.tabslinkedin, div.slide_linkedin_share ul.tabslinkedinshare , div.slide_fbSimple_Share ul.tabsfbSimple_Share, div.slide_timer ul.tabstimer {
+div.slide_popup ul.tabs3, div.slide_popup1 ul.tabs5, div.slide_popup2 ul.tabs5 ,div.slide_popupurl ul.tabs5url , div.slide_fblike ul.tabsfblike ,div.slide_watermark ul.tabswatermark , div.slide_video ul.tabsvideo ,  div.slide_fbshare ul.tabsfbshare, div.slide_tweet_share ul.tabstweetshare, div.slide_tweet_bird ul.tabstweetbird, div.slide_google_share ul.tabsgoogleshare , div.slide_linkedin ul.tabslinkedin, div.slide_linkedin_share ul.tabslinkedinshare , div.slide_fbSimple_Share ul.tabsfbSimple_Share, div.slide_timer ul.tabstimer {
 	padding: 0 ;
 	overflow: hidden;
 	margin: 0;
@@ -1673,7 +1745,7 @@ div.main_wraphsdvhdhdvdv a.remove{display: block;
 .ques-wrap-col ol li span:first-child {
   width: 70%;
 }
-div.slide_popup ul.tabs3 li a, div.slide_popup1 ul.tabs5 li a, div.slide_popup2 ul.tabs5 li a , div.slide_popupurl ul.tabs5url li a ,div.slide_fblike ul.tabsfblike li a , div.slide_fbshare ul.tabsfbshare li a, div.slide_tweet_share ul.tabstweetshare li a, div.slide_tweet_bird ul.tabstweetbird a, div.slide_google_share ul.tabsgoogleshare a, div.slide_linkedin ul.tabslinkedin li a, div.slide_linkedin_share ul.tabslinkedinshare li a , div.slide_fbSimple_Share ul.tabsfbSimple_Share li a, div.slide_timer ul.tabstimer li a{
+div.slide_popup ul.tabs3 li a, div.slide_popup1 ul.tabs5 li a, div.slide_popup2 ul.tabs5 li a , div.slide_popupurl ul.tabs5url li a ,div.slide_fblike ul.tabsfblike li a , div.slide_watermark ul.tabswatermark li a , div.slide_video ul.tabsvideo li a ,div.slide_fbshare ul.tabsfbshare li a, div.slide_tweet_share ul.tabstweetshare li a, div.slide_tweet_bird ul.tabstweetbird a, div.slide_google_share ul.tabsgoogleshare a, div.slide_linkedin ul.tabslinkedin li a, div.slide_linkedin_share ul.tabslinkedinshare li a , div.slide_fbSimple_Share ul.tabsfbSimple_Share li a, div.slide_timer ul.tabstimer li a{
 	display: block;
 	background: #e3e0db;
 	height: 32px;
@@ -1967,6 +2039,19 @@ div.pop_btn a:hover {
   height: auto;
   list-style: none;
 }
+.slide_watermark{ border: 1px solid #e3e0db;}
+.slide_watermark li {
+  clear: both;
+  height: auto;
+  list-style: none;
+}
+.slide_video{ border: 1px solid #e3e0db;}
+.slide_video li {
+  clear: both;
+  height: auto;
+  list-style: none;
+}
+
 .slide_fbshare{ border: 1px solid #e3e0db;}
 .slide_fb_share li {
   clear: both;
@@ -2022,7 +2107,7 @@ div.pop_btn a:hover {
   list-style: none;
 }
 
-.slide_popup2 input[type="text"] {
+.slide_popup2 input[type="text"], .slide_popup2 select {
   border: 1px solid #ccc;
   height: 36px;
   text-indent: 5px;
@@ -2031,13 +2116,22 @@ div.pop_btn a:hover {
 .slide_popup2 label { color:#15ace7 ;width: 114px;margin-bottom: 12px;}
  div.slide_popup2 ul.tabs5{ width: 100%;}
 
-.slide_popupurl input[type="text"] {
+.slide_popupurl input[type="text"], .slide_popupurl select {
   border: 1px solid #ccc;
   height: 36px;
-  text-indent: 5px;
+  line-height: 36px;
   width: 100%;
+  padding: 5px;
+  float: left;
+  font-size: 14px;
 }
-
+.slide_popupurl select {
+	margin: 0 10px 0 0;
+	width: 100px;
+}
+.slide_popupurl select + input[type="text"] {
+	width: 216px;
+}
 .slide_linkedin_share input[type="text"] {
   border: 1px solid #ccc;
   height: 36px;
@@ -2054,6 +2148,19 @@ div.pop_btn a:hover {
 
 
 .slide_fblike input[type="text"] {
+  border: 1px solid #ccc;
+  height: 36px;
+  text-indent: 5px;
+  width: 100%;
+}
+.slide_watermark input[type="text"] {
+  border: 1px solid #ccc;
+  height: 36px;
+  text-indent: 5px;
+  width: 100%;
+}
+
+.slide_video input[type="text"] {
   border: 1px solid #ccc;
   height: 36px;
   text-indent: 5px;
@@ -2107,9 +2214,14 @@ div.pop_btn a:hover {
  div.slide_popupurl ul.tabs5url{ width: 100%;}
  
  .slide_fblike label { color:#15ace7 ; display: block; margin:0 0 5px 0; font-size: 14px;}
- div.slide_fblike ul.tabsfblike{ width: 100%;}
+ div.slide_fblike ul.ulsfpvideo{ width: 100%;}
 
+ .slide_watermark label { color:#15ace7 ; display: block; margin: 10px auto 0 auto; font-size: 14px;}
+ div.slide_watermark ul.ulsfpvideo{ width: 100%;}
 
+ .slide_video label { color:#15ace7 ; display: block; margin:0 0 5px 0; font-size: 14px;}
+ div.slide_video ul.ulsfpvideo{ width: 100%;}
+ 
 .slide_fbshare label { color:#15ace7 ; display: block; margin:0 0 5px 0; font-size: 14px;}
  div.slide_fb_share ul.tabsfbshare, div.slide_timer ul.tabstimer{ width: 100%;}
  
@@ -2169,6 +2281,41 @@ input.doneurl {
 }
 
 input.btnlike {
+  background: none repeat scroll 0 0 #00ad6a;
+  border: medium none;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-family: "ubuntubold";
+  font-size: 12px;
+  height: 33px;
+  line-height: 33px;
+  margin: 0 auto 18px;
+  padding: 0 20px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 112px;
+  clear: both;
+}
+input.btnwatermark {
+  background: none repeat scroll 0 0 #00ad6a;
+  border: medium none;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-family: "ubuntubold";
+  font-size: 12px;
+  height: 33px;
+  line-height: 33px;
+  margin: 0 auto 18px;
+  padding: 0 20px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 112px;
+  clear: both;
+}
+
+input.btnsfpvdo {
   background: none repeat scroll 0 0 #00ad6a;
   border: medium none;
   border-radius: 3px;
@@ -2496,4 +2643,23 @@ ul.ulsfpunique input[type="button"]:hover {
 }
 ul.author-social-icon-list li div.setting-2 {
 	right: -60px;
+}
+
+.ultimer {
+    padding: 20px !important;
+}
+.ultimer label {
+  display: block;
+  float: left;
+  height: 36px;
+  line-height: 36px;
+  width: 60px;
+}
+.ultimer li {
+margin:0 0 10px 0;
+}
+
+.slide_timer {
+  height: 368px;
+  overflow: auto !important;
 }

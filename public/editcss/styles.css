@@ -1,4 +1,4 @@
-.SFPTWO_IMAGEEDIT{ overflow: hidden; margin-bottom: 10px; }
+.SFPTWO_IMAGEEDIT{ margin-bottom: 10px; }
 
 .kinetic-moving-up {
                 border-top-color: green !important;
@@ -30,62 +30,106 @@
 
 
 .setting-2{
-  background: url("/images/setting_bg.png") repeat scroll left top;
-  display: block;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 3px;
-  z-index: 9;
-  background-color:white;
-}
-
-.setting-2 a.edit {
- background: url("/images/edit_icon2.png") no-repeat scroll left top;
-  display: block;
-  float: left;
-  height: 16px;
-  overflow: hidden;
-  text-indent: -9999px;
-  width: 16px;
-  clear: none;
-  cursor:pointer;
-  margin: 0 5px 0 0;
-  background-size:16px 16px ;
-}
-
-
-.setting-2 a.imgcaption {
-	background: url("/img/text_icon.png") no-repeat scroll left top;
+	background: url("/images/setting_bg.png") repeat scroll left top;
 	display: block;
-	float: left;
-	height: 16px;
-	overflow: hidden;
-	text-indent: -9999px;
-	width: 16px;
-	clear: none;
-	cursor:pointer;
-	margin: 0 0 0 5px;
-	background-size:16px 16px ;
+	padding: 5px;
+	background-color:white;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
+.setting-2 a {
+	background-image:none;
+	background-position:left top;
+	background-repeat:no-repeat;
+	margin: 0 0 5px 0;
+	height: 16px;
+	background-size:16px 16px ;
+	display: block;
+	cursor:pointer;
+	padding: 0 0 0 20px;
+	font-size: 12px;
+	color: #FFF;
+	text-decoration: none;
+}
+.setting-2 a:hover {
+	text-decoration: underline;
+	color: #FFF;
+}
+.setting-2 a:last-child {
+	margin: 0;
+}
+.setting-2 > span {
+	background:#000;
+	color: #fff;
+	display: block;
+	font-size: 11px;
+	padding: 5px;
+	margin: 0 0 5px;
+	text-align: center;
+	font-weight: bold;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.setting-2 a.edit {
+	background-image:url("/images/edit_icon2.png");
+}
+.setting-2 a.spacing, .setting-2 a.spacing-1 {
+	background-image:url("../img/spacing_icon.png");
+}
+.setting-2 a.imgcaption {
+	background-image:url("/img/text_icon.png");
+}
+.setting-2 a.delete {
+	background-image:url("/images/delete_icon2.png");
+}
+
+.setting-2 a.delete-1 {
+	background-image:url("/images/delete_icon2.png");
+}
+
+.setting-2 a.timer {
+	background-image:url("/images/edit_icon2.png");
+}
+.setting-2 a.urlset {
+	background-image:url("../img/settings_icon.png");
+}
+.setting-2 a.vidseting {
+	background-image:url("../img/video_icon.png");
+}
+.setting-2 a.background_sinbt-1 {
+	background-image:url("../editImg/background_change_hover.png");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .setting-2 a.savebutton {
- background: url("http://live.scampaigns.com/images/save_btn.png") no-repeat scroll left top;
-  display: block;
-  float: left;
-  height: 28px;
-  overflow: hidden;
-  text-indent: -9999px;
-  width: 32px;
-  clear: none;
+	background: url("http://live.scampaigns.com/images/save_btn.png") no-repeat scroll left top;
+	display: block;
+	float: left;
+	height: 28px;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 32px;
+	clear: none;
 }
-
-
-
-
-
 .setting-2 a.setup {
  background: url("http://live.scampaigns.com/images/configuration_icon.png") no-repeat scroll left top;
   display: block;
@@ -97,68 +141,18 @@
   clear: none;
 }
 
-.setting-2 a.delete {
-  background: url("http://live.scampaigns.com/images/delete_icon2.png") no-repeat scroll left top;
-  display: block;
-  float: left;
-  height: 16px;
-  overflow: hidden;
-  text-indent: -9999px;
-  width: 16px;
-  clear: none;
-  cursor:pointer;
-  background-size:16px 16px ;
-}
-
-.setting-2 a.timer {
- background: url("/images/edit_icon2.png") no-repeat scroll left top;
-  display: block;
-  float: left;
-  height: 16px;
-  overflow: hidden;
-  text-indent: -9999px;
-  width: 16px;
-  clear: none;
-  cursor:pointer;
-  margin: 0 5px 0 0;
-  background-size:16px 16px ;
-}
 
 
 
-.setting-2 a.spacing {
-  background: url("../img/spacing_icon.png") no-repeat scroll left top;
-  display: block;
-  float: left;
-  height: 16px;
-  overflow: hidden;
-  text-indent: -9999px;
-  width: 16px;
-  clear: none;
-  cursor:pointer;
-  background-size:16px 16px ;
-  margin: 0 0 0 5px;
-}
-
-.setting-2 a.urlset {
-  background: url("../img/settings_icon.png") no-repeat scroll left top;
-  display: block;
-  float: left;
-  height: 16px;
-  overflow: hidden;
-  text-indent: -9999px;
-  width: 16px;
-  clear: none;
-  cursor:pointer;
-  background-size:16px 16px ;
-  margin: 0 0 0 5px;
-}
 
 
 
-.setting-2 a.edit:hover, .setting-2 a.delete:hover {
-  opacity: 0.8;
-}
+
+
+
+
+
+
 
 .what_is_this > p {
   float: left;
@@ -289,23 +283,26 @@ div.overlay img {
     height: 100px;
     margin: -50px 0 0 -50px;
 }
-div#dragfirst {
-	padding: 0 0 0 50px;
-
-}
 div#nowdrag {
   background: url("/img/setting_bgtext2.png") repeat left top;
   padding:0 5px;
   color:#fff;
+  float: left;
 }
 div#dragfirst:hover {
-  background: url("/img/setting_bgtext2.png") repeat left top;
+	border:none;
 }
-div#dragfirst:hover div#nowdrag  {
-  background: none;
+div#dragfirst:hover > div:first-child {
+  display:block;
 }
-div#dragfirst:hover a.imgedivdrg, div#dragfirst:hover a.closethisdrag {
-	display: block;
+div#dragfirst > div:first-child {
+	background: url("/img/setting_bgtext2.png") repeat left top;
+	overflow: hidden;
+	padding:2px;
+	/*margin:0 auto;*/
+	display:none;
+	width:47px;
+	float: left;
 }
 a.imgedivdrg, a.closethisdrag {
     background: url(/img/drag_icontext2.png) no-repeat left top;
@@ -313,20 +310,18 @@ a.imgedivdrg, a.closethisdrag {
     height: 16px;
     width: 16px;
     overflow: hidden;
-    text-indent: -9999px;
-	position: absolute;
-	left: 25px;
-	top: 2px;
-	display: none;
 	background-size:100%;
 	cursor:pointer;
+	float:left;
 }
 a.closethisdrag {
-    background: url(/img/close_icontext2.png) no-repeat left top;
-	left: 0;
-	background-size:100%;
+    background-image: url(/img/close_icontext2.png);
+    margin-left:5px
 }
-
+div.nowdrag p {
+	margin:0;
+	padding:5px;
+}
 span.btn_set {
 	background: url("/images/setting_bg.png") repeat scroll left top;
 	display: block;

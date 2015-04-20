@@ -1,0 +1,31 @@
+<div class="site">
+<div class="row">
+<div class="col-lg-8 col-md-offset-2">
+    <div class="table_button">
+        <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'disclaimerdeveloper'));?>">Insert Disclaimer</a>
+        <a href="<?php echo $this->url('application/default',array('controller'=>'Admin','action'=>'pagedetails'));?>">Back to page details</a>
+    </div>
+    <h2 style="text-align: left; margin: 20px 0 0 0; color:#2e3641;">Disclaimer</h2>
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+        <tr>
+            <th>Header</th>
+            <th width="70%">Description</th>
+            <th></th>
+        </tr>
+        <?php foreach ($res as $a){?>
+        <tr>
+            <td>
+                <?php echo $a->subheader;?>
+            </td>
+            <td width="70%">
+                <?php echo $a->description;?>
+            </td>
+            <td>
+                <a class="table_btn" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'showdisclaimerviewdeveloper','id' => $a->id));?>">EDIT</a>
+                <a class="table_btn" onclick="if(!confirm('Are you want to delete'))return false;" href="<?php echo $this->url('application/default',array('controller'=>'Admin','action' =>'deletedisclaimerdeveloper','id' => $a->id));?>">DELETE</a>
+            </td>
+        </tr>
+        <?php } ?>
+    </table>
+</div>
+</div>

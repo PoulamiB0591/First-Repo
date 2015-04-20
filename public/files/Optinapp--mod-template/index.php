@@ -84,7 +84,8 @@ function timepick(num)
 
 <div class="details-n-winn-wrapper SFPTWO_BACKGROUND">
 <div class="SFPTWO_IMAGEEDIT"><img id="images1" src="SFPURLLINK/img/top-img.jpg" alt="" style="width: 100%; margin:0 0 8px 0;"/>
-<div id="dragfirst" class="SFPTWO_TEXTEDIT getdragit dragSFPfirst" style="position:absolute;z-index:999;"><div id="nowdrag" class="explicit_edit nowdrag SFPTWO_TAGEDIT" contenteditable="true"<p>Publish your photocontest template on Facebook and web.<br />Have fun!</p></div><div><a class="imgedivdrg"></a><a class="closethisdrag deleteme"></a></div></div>
+<!-- <div id="dragfirst" class="SFPTWO_TEXTEDIT getdragit dragSFPfirst" style="position:absolute;z-index:999;"><div><a class="imgedivdrg"></a><a class="closethisdrag deleteme"></a></div><div id="nowdrag" class="explicit_edit nowdrag SFPTWO_TAGEDIT" contenteditable="true"><p>Publish your photocontest template on Facebook and web.<br />Have fun!</p></div></div>
+ -->
 </div> 
 
 
@@ -97,7 +98,10 @@ function timepick(num)
 </div>
 </div>
 
-
+<watermark>
+<default name ="SfpDefault" value=''/>
+<publish name ="SfpPublish" value =''/>
+</watermark>
 
 
 </body>

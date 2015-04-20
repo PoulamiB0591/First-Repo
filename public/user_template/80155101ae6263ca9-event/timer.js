@@ -1,1 +1,0 @@
-$(function() {var currrentDate = "25 March 2015 23:00:00";$("#countdown").countdown({date: currrentDate,format: "on"});});

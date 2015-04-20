@@ -45,7 +45,9 @@ table,td,th {
 table {
 	width: 100%;
 }
-
+.fileWrapper{
+ width: 551px !important; 
+}
 th {
 	height: 50px;
 }
@@ -237,16 +239,16 @@ th {
 		<div class="copyright-menu clearfix">
 			<ul>
 				<li><a
-					href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'termscondition'));?>"><span
+					href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'termsconditiondeveloper'));?>"><span
 						class="icon-arrow-right"></span> Terms & service </a>
 				</li>
 				<li><a
-					href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'disclaimer'));?>">
+					href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'disclaimerdeveloper'));?>">
 						<span class="icon-arrow-right"></span> Disclaimer
 				</a>
 				</li>
 				<li><a
-					href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'privacypolicy'));?>"><span
+					href="<?php echo $this->url('application/default',array('controller'=>'Index','action'=>'privacypolicydeveloper'));?>"><span
 						class="icon-arrow-right"></span> Privacy policy </a>
 				</li>
 				<li>&copy; Copyright 2015 Smart Fanpage</li>
@@ -318,7 +320,34 @@ th {
           
 		</p>
       </div>-->
+                       <!-- THUMBNAIL IMAGE BY DIBYENDU -->
+                       <div class="campaign-col-1">
+                       <ul>
+								<li><h3>3.Thumbnail Image</h3></li>
+								<li>
+								<form method='post' enctype='multipart/form-data'
+										id='thumbnailform'
+										action='<?php echo $url; ?>/sfpdeveloper/thumbnail/<?php echo $devId ?>/<?php echo $tempId ?>'>
+										<input type="file" class="nicefile2" name="thumbnailimage" placeholder="Browse" id="thumbnailimage" />
+										<input type="hidden" value="<?php echo $mainFolderPath;?>" id="mainFolderPath"/>
+										<li><?php if($thumbNailImage == NULL	|| $thumbNailImage == ''){  ?>
+											<img src="" id="thumbNailEdit"
+											style="height: 200px; width: 300px;" /></li>
+											<?php }else{?>
 
+										<img src="<?php echo $thumbNailImage; ?>"
+											style="height: 200px; width: 300px;" id="thumbNailEdit" />
+										<?php }?>
+										<img src="<?php echo $url; ?>/sfpdeveloper/ajax-loader.gif"
+											id="thumbnail_loader" style="display: none;" />
+								</form>	
+								<p class="close-or-save">
+								<input type="button" value="Save" id="saveThumbNail"
+											class="cam-save" />
+								</p>
+								</li>	
+						</ul>		
+                       </div>
 
 						<!-- Banner Image -->
 						<div class="campaign-col-1">
@@ -586,7 +615,54 @@ th {
 	}
 	});
     });
+//////////////////save thumbnail image////////////////////
+$("#saveThumbNail").live("click",function(){
+    	
+      $("#thumbnail_loader").show(); 
+      var imageFolderPath = $('#mainFolderPath').val();
 
+      $("#thumbnailform").ajaxSubmit({ 
+    	  data : {thumbnailimage:'thumbnailimage',imageFolderPath: imageFolderPath},
+    		success: function(data) {
+    			 $("#thumbnail_loader").hide(); 
+        		alert(data);
+    			// var imgVal = $('#thumbnailimage').val(); 
+    			
+    		    // alert(data);
+    		   /*  $("#thumbnailimage").attr('src',data);
+    		    
+    		     $("#thumbnailimage").val("");
+    	    		$('#thumbnailform').trigger('reset');  */
+    			 //alert("df");      
+       		/*if(response == "0")
+        	{
+       		 alert("Image size must be 1231*330 or higher");
+       		$("#loader_screenbnr").hide();
+        	}
+           		
+       		else if(response == '')
+        		{
+         		//alert("df");
+        			$("#loader_screenbnr").hide();
+     		}
+       		 else{
+           		// alert(response);
+           		 
+    	      $("#screenshotbnr").css("display","block");
+    	     $("#screenshotbnr").attr('src',response);
+    		$("#loader_screenbnr").hide();
+    		$("#bannertext").val("");
+    		$("#bannerimage").val("");
+    		$('#bannerimageform').trigger('reset');  
+       		 }*/
+           		// alert(imgVal);
+       		
+    	}
+    		
+    		});
+	//alert("test");
+      });
+///////////////////////////////////////////////////////////////
       
       $("#savebanner").live("click",function(){
     	

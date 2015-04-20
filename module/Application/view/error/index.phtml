@@ -1,62 +1,89 @@
-<h1><?php echo $this->translate('An error occurred') ?></h1>
-<h2><?php echo $this->message ?></h2>
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ERROR PAGE</title>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+<style>
+body{ margin:0; padding:0; background:#f5f5f5}
+.error-page-wrapper{ background:#f5f5f5;}
+.error-logo-col {
+  background: none repeat scroll 0 0 #2E3641;
+  height: 20px;
+  padding: 12px 0;
+}
+a.error-logo img {
+  display: block;
+  margin: 0 auto;
+  width: 104px;
+}
+a.error-logo {
+  display: block;
+  margin: 0 auto;
+}
+.error-page-wrapper h1 {
+  font-size: 77px;
+  margin:0 0 22px;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  color:#565a5c
+}
+.error-face > img {
+  display: block;
+  margin: 0 auto;
+  width: 130px;
+}
+.error-face {
+  padding-top: 32px;
+}
+.error-page-wrapper strong{font-family: 'Ubuntu', sans-serif; font-size:20px; text-align:center; color:#B05858; display:block }
+.error-page-wrapper p {
+  color: #717577;
+  font-family: "Ubuntu",sans-serif;
+  font-size: 16px;
+  margin-top: 3px;
+  text-align: center;
+}
+.error-page-wrapper span{font-family: 'Ubuntu', sans-serif; font-size:15px; text-align:center; display:block}
+.error-page-wrapper span a {
+  background: none repeat scroll 0 0 #00ad6a;
+  border-radius: 5px;
+  box-shadow: 0 5px 0 0 #057f4e;
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  margin: 12px auto;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 176px;
+}
+.error-page-wrapper span a:hover{ background:#0F8E59;}
+.error-page-wrapper span a img {
+  margin-bottom: -2px;
+  margin-right: 11px;
+  width: 19px;
+}
 
-<?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
+</style>
+</head>
 
-<?php if(isset($this->exception) && $this->exception instanceof Exception): ?>
-<hr/>
-<h2><?php echo $this->translate('Additional information') ?>:</h2>
-<h3><?php echo get_class($this->exception); ?></h3>
-<dl>
-    <dt><?php echo $this->translate('File') ?>:</dt>
-    <dd>
-        <pre class="prettyprint linenums"><?php echo $this->exception->getFile() ?>:<?php echo $this->exception->getLine() ?></pre>
-    </dd>
-    <dt><?php echo $this->translate('Message') ?>:</dt>
-    <dd>
-        <pre class="prettyprint linenums"><?php echo $this->escapeHtml($this->exception->getMessage()) ?></pre>
-    </dd>
-    <dt><?php echo $this->translate('Stack trace') ?>:</dt>
-    <dd>
-        <pre class="prettyprint linenums"><?php echo $this->escapeHtml($this->exception->getTraceAsString()) ?></pre>
-    </dd>
-</dl>
-<?php
-    $e = $this->exception->getPrevious();
-    if ($e) :
-?>
-<hr/>
-<h2><?php echo $this->translate('Previous exceptions') ?>:</h2>
-<ul class="unstyled">
-    <?php while($e) : ?>
-    <li>
-        <h3><?php echo get_class($e); ?></h3>
-        <dl>
-            <dt><?php echo $this->translate('File') ?>:</dt>
-            <dd>
-                <pre class="prettyprint linenums"><?php echo $e->getFile() ?>:<?php echo $e->getLine() ?></pre>
-            </dd>
-            <dt><?php echo $this->translate('Message') ?>:</dt>
-            <dd>
-                <pre class="prettyprint linenums"><?php echo $this->escapeHtml($e->getMessage()) ?></pre>
-            </dd>
-            <dt><?php echo $this->translate('Stack trace') ?>:</dt>
-            <dd>
-                <pre class="prettyprint linenums"><?php echo $this->escapeHtml($e->getTraceAsString()) ?></pre>
-            </dd>
-        </dl>
-    </li>
-    <?php
-        $e = $e->getPrevious();
-        endwhile;
-    ?>
-</ul>
-<?php endif; ?>
+<body>
 
-<?php else: ?>
+<div class="error-page-wrapper">
+<div class="error-logo-col">
+<!--<a href="#" class="error-logo"><img src="img/big_logo.png" alt=""></a>-->
+</div>
 
-<h3><?php echo $this->translate('No Exception available') ?></h3>
 
-<?php endif ?>
+<div class="error-face"><img src="/errorimg/error-face.png" alt=""></div>
+<h1>OOPS!</h1>
 
-<?php endif ?>
+<strong>We're sorry, the page you were looking for does not exist.</strong>
+<p>(You may have mistyped the address or the page may have moved)</p>
+<span>Please visit our <a href="<?php echo $this->url('home') ?>"> <img src="/errorimg/icon-home-icon.png" alt="">Homepage </a></span>
+</div>
+
+</body>
+</html>

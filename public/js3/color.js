@@ -1,6 +1,6 @@
 $(document).ready( function() {
 
-$('.minicolors-input').attr('disabled','true');
+$('.minicolors-input').attr('disabled','true'); 
 //$('.minicolors').css('display','none');
             $('.demo').each( function() {
             	
@@ -42,36 +42,11 @@ $('.minicolors-input').attr('disabled','true');
                 });
 
             });
-            $('body').on('click',".toolbar_text", function(event)
-           
-            		{
-            	       $(this).toggleClass("open");
-                        if($(this).hasClass('open'))
-                       {
-                      
-            	        $('.form-group').show();
-            	        $('.form-group').next().remove();
-            	        $('.minicolors').css('display','block');
-            			$('.minicolors').trigger('click');
-            			$('.minicolors-panel').show();
-            			
-            		  	
-                        }
-                        
-                        else
-                        {
-                            $('.form-group').next().remove();
-                	        $('.form-group').hide();
-                	        $('.minicolors').css('display','none');
-                			$('.minicolors-panel').hide();
-                			
-                		  	
-                         }
-                        
-            		});
+         
             
             $('body').on('click',".btn-group", function(event)
             {
+           
             	if($(this).find('.form-group').css('display')=='block')
                 {  
             		//alert("pr");
@@ -89,7 +64,61 @@ $('.minicolors-input').attr('disabled','true');
                         
             });
             
+            
+            $('body').on('click',"a.toolbar-btn", function(event)
+                    {
+            	
+                   
+                    	if($(this).hasClass('toolbar_text'))
+                        {  
+                    		 $(this).toggleClass("open");
+                             if($(this).hasClass('open'))
+                            {
+                           
+                 	        $('.form-group').show();
+                 	        $('.form-group').next().remove();
+                 	        $('.minicolors').css('display','block');
+                 			$('.minicolors').trigger('click');
+                 			$('.minicolors-panel').show();
+                 			
+                 		  	
+                             }
+                             
+                             else
+                             {
+                                 $('.form-group').next().remove();
+                     	        $('.form-group').hide();
+                     	        $('.minicolors').css('display','none');
+                     			$('.minicolors-panel').hide();
+                     			
+                     		  	
+                              }
+                        }
+                    	else
+                    	{
+                    		//alert("not_pr");
+                    		$('.toolbar_text').removeClass('open');
+                    		$('.form-group').next().remove();
+                    		 $('.form-group').hide();
+                  	        $('.minicolors').css('display','none');
+                  			$('.minicolors-panel').hide();
+                    	}
+                                
+                    });
+            
+            $('body').click(function() {
+            	$('.toolbar_text').removeClass('open');
+            	$('.form-group').next().remove();
+            	$('.form-group').hide();
+                $('.minicolors').css('display','none');
+            	$('.minicolors-panel').hide();
+            	});
+            
         });
+
+
+
+
 
 
 

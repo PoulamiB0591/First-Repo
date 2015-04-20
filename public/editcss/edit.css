@@ -36,6 +36,11 @@ div.jui-checkbox-row {
 li.dottedLi:hover div.setedit  {
   display: block;
 }
+
+.SFPTWO_EDITFORM ul li:hover div.setedit {
+    display: block !important;
+}
+
 div.setedit {
   background: url("/images/setting_bg.png") repeat scroll left top;
   border-radius: 3px;
@@ -51,6 +56,10 @@ div.setedit {
 
 li.dottedLi:hover div.seteditopt  {
   display: block;
+}
+
+.SFPTWO_EDITFORM ul li:hover div.seteditopt {
+    display: block !important;
 }
 div.seteditopt {
   background: url("/images/setting_bg.png") repeat scroll left top;
@@ -68,6 +77,12 @@ div.seteditopt {
 li.dottedLi:hover div.seteditdrop  {
   display: block;
 }
+
+
+.SFPTWO_EDITFORM ul li:hover div.seteditdrop {
+    display: block !important;
+}
+
 div.seteditdrop {
   background: url("/images/setting_bg.png") repeat scroll left top;
   border-radius: 3px;
@@ -682,12 +697,36 @@ div.left_nav_jhuddgdgdfgdsafghugfxhughug456656437{
 /*.form-container ul > li:hover {
     border:1px solid #ccc;
 }*/
-.form-container ul li:hover div.setting-2 {
+/*.form-container ul li:hover div.setting-2 {
     display: block;
+} */
+div.SFP_settings {
+	background: url("../images/setting_bg.png") repeat left top;
+	position: absolute;
+	right: 0;
+	top: 0;
+    height: 20px;
+    width: 20px;
+}
+div.SFP_settings a {
+	background-color:inherit;
+}
+div.SFP_settings a:hover {
+	background-color: inherit;
+}
+a.setSFPic {
+	background: url("../img/edit-set-icon.png") no-repeat center center;
+	display: block;
+    height: 20px;
+    overflow: hidden;
+    width: 20px;
 }
 ul.colorpanel {
     width: 198px !important;
     height: auto !important;
+}
+ul.ulsfpvideo {
+	padding: 20px;
 }
 #lidet {
   left: 0;
@@ -698,10 +737,18 @@ ul.colorpanel {
 .form-container ul li div.setting-2, .form-container ul li div.ullidrag {
     display: none !important;
 }
-.form-container ul li:hover div.setting-2, .form-container ul li:hover div.ullidrag {
+/*.form-container ul li:hover div.setting-2, .form-container ul li:hover div.ullidrag {
+    display: block !important;
+}
+*/
+
+.form-container ul li:hover div.ullidrag {
     display: block !important;
 }
 
+.SFPTWO_EDITFORM ul li:hover div.ullidrag {
+    display: block !important;
+}
 .wrapper .SFPTWO_EDITFORM {
     margin-top: 0/*100px*/ !important;
 }
@@ -1068,14 +1115,11 @@ div.save_sec {
     border: 1px solid #CCC;
 }
 .SFPTWO_TEXTEDIT {
-    z-index: 10;
 	position:relative;
 	overflow: hidden;
 }
 
-.wrapper .SFPTWO_TEXTEDIT:hover{
-    border: none solid #CCC;
-}
+
 
 
 .wholepage {
@@ -1170,12 +1214,11 @@ div#tab_3_new, div#tab_4_new, div#tab_5_new, div#tab_6_new, div#tab_7_new {
 }
 div.ullidrag {
   background: url("/images/setting_bg.png") repeat scroll left top;
-  border-radius: 3px;
   display: block;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  right: 53px;
+  right: 30px;
   top: 0 ;
   z-index: 9;
 }
@@ -1183,7 +1226,7 @@ div.ullidrag {
   background: url("/images/setting_bg.png") repeat scroll left top;
 }
 #ullidrag > img {
-  height: 22px;
+  height: 20px;
   width: 20px;
 }
 div.popupusbackground {
@@ -1283,7 +1326,29 @@ div#tabupload {
 
 
 
-
+div#defaultdivs {
+	padding: 20px;
+}
+div#defaultdivs ul {
+	text-align: center;
+}
+div#defaultdivs ul li {
+	display: inline-block;
+	margin: 5px;
+    width: 35%;
+   /* float: left;*/
+}
+div#defaultdivs ul li strong {
+	display: inline-block;
+	border:1px solid #e3e0db;
+    margin: 12px 0 0;
+}
+div#defaultdivs ul li strong a {
+	display: inline-block;
+}
+div#defaultdivs ul li:hover strong a {
+  background: none;
+}
 
 
 

@@ -45,11 +45,12 @@ class TemplateController extends AbstractActionController {
         return parent::onDispatch($e);
     }
     
-    public function indexAction() //edited by Aritra
+    public function indexAction() //edited by Aritra // id encrypted by dibyendu 
     {
-       $user_session = new Container('devId');
+        $user_session = new Container('devId');
         $id = $user_session->devId; 
-        $encryptedId = $encryptedPass =$this->encrypt_decrypt('encrypt', $id);
+        $developerPassedId= $encryptedPass =$this->encrypt_decrypt('encrypt', $id);
+       	$encryptedId  =str_replace("/","encoded",$developerPassedId);
         $this->layout('layout/layouttemplate.phtml');  
         $result = $this->getDeveloperTable()->getDeveloperWithId($id); 
         $temp = $this->gettemplateCatagoryTable()->fetchAll();
@@ -491,9 +492,10 @@ class TemplateController extends AbstractActionController {
     {
         $user_session = new Container('devId');
         $id = $user_session->devId; 
-        $encryptedId = $encryptedPass =$this->encrypt_decrypt('encrypt', $id);
+        $encryptedPass =$this->encrypt_decrypt('encrypt', $id);
+        $encryptedId = str_replace("/","encoded",$encryptedPass);
         $this->layout('layout/layouttemplate.phtml');     
-       $result = $this->getDeveloperTable()->getDeveloperWithId($id); 
+        $result = $this->getDeveloperTable()->getDeveloperWithId($id); 
         $folder = $this->getEvent()->getRouteMatch()->getParam('id');
         $xml = $this->getEvent()->getRouteMatch()->getParam('pId');
       
@@ -597,7 +599,8 @@ class TemplateController extends AbstractActionController {
     {
         $user_session = new Container('devId');
         $id = $user_session->devId;
-        $encryptedId = $encryptedPass =$this->encrypt_decrypt('encrypt', $id);
+        $encryptedPass =$this->encrypt_decrypt('encrypt', $id);
+        $encryptedId = str_replace("/","encoded",$encryptedPass);
         $this->layout('layout/layouttemplate.phtml'); 
         $devdetails = $this->getDeveloperTable()->getDeveloperWithId($id);
         $result = "";
@@ -829,7 +832,8 @@ class TemplateController extends AbstractActionController {
          $abc="";
          $abc= $newPath;
          $parts = Explode('/', $abc);
-         $array = array_diff($parts, array('var','www','staging','public','files'));
+         $testPath = $this->getServiceLocator()->get('Config');
+         $array = array_diff($parts, $testPath['pathName']['path']);
             $str_arr = implode("/",$array);  
              $currentUrl = $_SERVER["SERVER_NAME"];
              
@@ -846,8 +850,8 @@ class TemplateController extends AbstractActionController {
       if( $extension == 'php' || $extension == 'html' || $extension == 'htm'  ){
          $abc="";
          $abc= $path;
-         $parts = Explode('/', $abc);
-         $array = array_diff($parts, array('var','www','staging','public','files'));
+         $parts = Explode('/', $abc);$testPath = $this->getServiceLocator()->get('Config');
+                   $array = array_diff($parts, $testPath['pathName']['path']);
           $str_arr = implode("/",$array); 
             $currentUrl = $_SERVER["SERVER_NAME"]; 
        $hold .= $str_arr."/".$item."|-|";

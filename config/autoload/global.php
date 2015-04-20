@@ -23,8 +23,13 @@ return array(
  ),
 		'pathName' => array(
 				'path' => array('var','www','staging','public'),
-				
 		), //added by dibyendu
+		'payment' => array(
+				'merchantId' => "2537894220",
+				'merchantKey' => "00db268e1251e1f8150d9c6d79a90a17629b947d",
+				'shopId' => "0",
+				'apiKey' => 'SFP_Encryption_Key_Is_Here'
+		),
  'service_manager' => array(
      'factories' => array(
          'Zend\Db\Adapter\Adapter'

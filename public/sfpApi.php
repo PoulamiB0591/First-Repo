@@ -69,6 +69,9 @@ class SmartfanPage extends BaseClass {
    
     function insert_table($data)
     {
+    	$SFPurl = $_SERVER['REQUEST_URI'];
+    	$urlExp = explode("/",$SFPurl);
+    	$appNo = $urlExp[3];
        $tables = $data['table'];
        $value=$data['field'];
        
@@ -100,7 +103,7 @@ class SmartfanPage extends BaseClass {
              
            }
            $val = substr($val,1);
-          $insert .= ",(".$val.")";
+          $insert .= ",(".$val.',"'.$appNo.'"'.")";
           
           $val ="";
        }
@@ -121,8 +124,9 @@ class SmartfanPage extends BaseClass {
         $val .= ",'".$values['value']."'";
        }
        $val = substr($val,1); */
-       $rets = "Insert into `".$tables.$id."` (".$fld.") values ".$insert."";
-       
+       //$rets = "Insert into `".$tables.$id."` (".$fld.") values ".$insert."";
+         $rets = "Insert into `".$tables.$id."` (".$fld.",`urllnk`)  values ".$insert."";
+         //echo $rets;
         mysql_query($rets);
        
       $affectrows =  mysql_affected_rows();
@@ -170,12 +174,72 @@ class SmartfanPage extends BaseClass {
          { 
             $arr_res[] = $returns;
          }
-         
+       
+         //print_r($rets1);
+         //echo "<br/>";
          return $arr_res;
        
         
     }
     
+    
+    function select_all($data)
+    {
+        /* fetch array*/
+        $res="";
+        $tables = $data['table'];
+        $name=$data['field'];
+        $SFPurl = $_SERVER['REQUEST_URI'];
+        $urlExp = explode("/",$SFPurl);
+        $appNo = $urlExp[3];
+        $result = "";
+        $id = $data['appId'];
+
+        $vid = "";
+
+         $rets1 = "select ".$name." from ".$tables.$id." "."where urllnk="."'".$appNo."'";
+         echo $rets1;
+         $results = mysql_query($rets1);
+       
+          /*$arr_res = array();
+         while($returns = mysql_fetch_assoc($results))
+         { echo "<pre/>";
+             print_r($returns);
+         }*/
+       
+        
+         
+        
+         return $results;
+       
+        
+    }
+    function count_all($data)
+    {
+    	/* fetch array*/
+    	$res="";
+    	$tables = $data['table'];
+    	$name=$data['field'];
+    	$SFPurl = $_SERVER['REQUEST_URI'];
+    	$urlExp = explode("/",$SFPurl);
+    	$appNo = $urlExp[3];
+    	$result = "";
+    	$id = $data['appId'];
+    
+    	$vid = "";
+    
+    	$rets1 = "select ".$name." from ".$tables.$id." "."where urllnk="."'".$appNo."'";
+    	 
+    	$results = mysql_query($rets1);
+    	 
+    	$return_num_rows = mysql_num_rows($results);
+      
+         
+         return $return_num_rows;
+    	
+    	 
+    
+    }
     
     function select_num_rows($data)
     {

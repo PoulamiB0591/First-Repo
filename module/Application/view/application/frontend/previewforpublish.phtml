@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SFPv2 Smartfanpage | PREVIEW</title>
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->basePath('img/favicon.ico') ?>" />
+
+<link href="/editcss/preview.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+(function($){
+	$(function(){
+		$("li").click(function(){
+			$("div#device_section > div").attr('class',$(this).children('a').attr('class'));
+		});		
+	});
+})(jQuery)
+
+function getval(sel) {
+       var getValue = (sel.value);
+       $('.getcurrentpage').attr('src',getValue);
+    }
+
+$( document ).ready(function() {
+	 var pages = $('.pages').val();
+	$('.getcurrentpage').attr('src',pages);
+	$('.getcurrentpage').contents().find("a").css('pointer-events' ,'none');
+	$('.getcurrentpage').contents().find("body").find("a").css('cursor', 'default');
+	
+	});
+
+$(function() {
+    $("#my-iframe").bind("load",function(){
+        var a = $(this).contents().find("body").html();
+        $(this).contents().find("body").find("a").css('cursor', 'default');
+        $(this).contents().find("body").find("a").css('pointer-events' ,'none');
+        $(this).contents().find("body").find("input[type='submit']").css('cursor', 'default');
+        $(this).contents().find("body").find("input[type='submit']").css('pointer-events' ,'none');
+        $(this).contents().find("body").find("input[type='button']").css('cursor', 'default');
+        $(this).contents().find("body").find("input[type='button']").css('pointer-events' ,'none');
+        $(this).contents().find("body").find("input[type='file']").css('cursor', 'default');
+        $(this).contents().find("body").find("input[type='file']").css('pointer-events' ,'none');
+       
+        
+    });
+});
+</script>
+</head>
+ <?php 
+          $folderprv = $_SERVER['REQUEST_URI'];
+          $folderprv = explode('/',$folderprv);
+           $valueprv = $folderprv[3];
+   ?>
+<body>
+	<div class="main_wrapper">
+        <div class="device_top">
+            <ul>
+                <li><a class="desktop"><img src="/img/desktop_icon.png" alt="" /></a></li>
+                <li><a class="padport"><img src="/img/padport_icon.png" alt="" /></a></li>
+                <li><a class="padland"><img src="/img/padland_icon.png" alt="" /></a></li>
+                <li><a class="phoneport"><img src="/img/phoneport_icon.png" alt="" /></a></li>
+                <li><a class="phoneland"><img src="/img/phoneland_icon.png" alt="" /></a></li>
+            </ul>
+            <a class="goto-next" href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action' =>'publish','id'=>$valueprv)); ?>">Go to next</a>
+        </div>
+        <div id="device_section">
+            <div class="desktop">
+                <iframe class="getcurrentpage" id="my-iframe"src="/user_template/<?php echo $valueprv; ?>/index.php" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

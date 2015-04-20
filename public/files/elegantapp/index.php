@@ -97,9 +97,11 @@ FB.init({
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 SFPTWO_IMAGEEDIT">
+                                        <div class="col-sm-6">
+                                        <div class="SFPTWO_IMAGEEDIT">
                                             <img src="SFPURLLINK/img/hero-app.png" ID="hero-img" class="img-responsive center-block wow fadeIn" data-wow-delay=".3s" />
                                         </div>
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -122,6 +124,8 @@ FB.init({
                                             <div class="video-container wow fadeIn" data-wow-delay=".7s">
                                                 <div ID="top-vid-area" class="vid-wrapper text-center SFPTWO_IMAGEEDIT">
                                                     <img src="SFPURLLINK/img/vid_placeholder.jpg" class="img-responsive center-block" />
+                                                    <div class="sfpDynamicVideo">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

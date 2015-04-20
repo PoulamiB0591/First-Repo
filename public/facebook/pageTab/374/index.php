@@ -123,6 +123,8 @@ $t2 = str_replace("<!--SFPhide","",$t2);
 $t2 = str_replace("SFPhide-->","",$t2);
 $t2 = str_replace("SFP_BOOT","col",$t2);
 $t2 = str_replace("SFP_ROW","row",$t2);
+$read = "include_once('/var/www/staging/public/sfpApi.php');";
+$t2 = str_replace("/*PHP DBCONNECT PHP*/",$read,$t2);
 file_put_contents($tempfile,$t2);
 if(!(is_dir($userfolder."/upload"))){
      mkdir($userfolder."/upload",0777,true);
@@ -152,6 +154,8 @@ chmod($userfolder."/upload", 0777);
         str_replace("SFP_Redirect/","//".$_SERVER['SERVER_NAME']."/",$contents);
         str_replace("SFP_TimelinePost/","http://".$_SERVER['SERVER_NAME']."/",$contents);
         str_replace("SFP_Link/","/facebook/".$values2."/".$values."/",$contents);
+        $read = "include_once('/var/www/staging/public/sfpApi.php');";
+        str_replace("/*PHP DBCONNECT PHP*/",$read,$contents);
         $file_contents = str_replace("SFP_index",$getindex,$contents);
         
         file_put_contents($search,$file_contents); 
@@ -227,6 +231,8 @@ foreach (glob($userfolder."/*.php") as $search) {
  $str = str_replace("SFPhide-->","",$str);
   $str = str_replace("SFP_BOOT","col",$str);
   $str = str_replace("SFP_ROW","row",$str);
+  $read = "include_once('/var/www/staging/public/sfpApi.php');";
+  $str = str_replace("/*PHP DBCONNECT PHP*/",$read,$str);
  if (strpos($str, "SFPTWO_EDITFORM"))
   {
     $str = str_replace("<!--SFPPAGE-->",$form,$str);
@@ -267,6 +273,9 @@ chmod($pathfolder1, 0777);
    $file_contents = str_replace('SFPfacebookECRET',$sql['facebookecret'],$contents);
    $file_content = str_replace('SFPFBSCOPE',$var,$file_contents);
     $file_content=str_replace("SFPTIMELINETEXT",$sql['timelinetext'],$file_content);
+    $read = "include_once('/var/www/staging/public/sfpApi.php');";
+    $file_content = str_replace("/*PHP DBCONNECT PHP*/",$read,$file_content);
+    
     file_put_contents($searches,$file_content); 
   }  
 } 
@@ -288,6 +297,9 @@ chmod($pathfolder1, 0777);
    $file_contents = str_replace('SFPfacebookECRET',$sql['facebookecret'],$contents);
    $file_content = str_replace('SFPFBSCOPE',$var,$file_contents);
     $file_content=str_replace("SFPTIMELINETEXT",$sql['timelinetext'],$file_content);
+    $read = "include_once('/var/www/staging/public/sfpApi.php');";
+    $file_content = str_replace("/*PHP DBCONNECT PHP*/",$read,$contents);
+     
    
    
    
@@ -296,3 +308,4 @@ chmod($pathfolder1, 0777);
 } 
 
 ?>
+

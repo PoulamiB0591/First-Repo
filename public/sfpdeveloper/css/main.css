@@ -714,17 +714,18 @@ fieldset.radios{
 	float:left
 }
 .dashboard-create-new-campaign {
-	background:#00ad6a;
-	font-size:16px;
-	font-family: "ubuntubold";
-	width:221px;
-	height:53px;
-	display:block;
-	float:right;
-	text-align:center;
-	line-height:53px;
-	border-radius:3px;
-	text-transform: uppercase;
+	background: none repeat scroll 0 0 #00ad6a;
+    border-radius: 3px;
+    display: block;
+    float: right;
+    font-family: "ubuntubold";
+    font-size: 16px;
+    height: 53px;
+    line-height: 53px;
+    margin: 0 5px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 221px;
 }
 .dashboard-wrapper {
 	padding: 20px;

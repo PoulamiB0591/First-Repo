@@ -1,0 +1,27 @@
+<div class="site">
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <?php $form=$this->form; $form->setAttribute('action', $this->url('application/default', array('controller'=>'Admin','action' => 'termservicedeveloper','id'=>$id))); $form->prepare(); echo $this->form()->openTag($form); ?>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table_wrap">
+                <tr>
+                    <th colspan="2">Terms And Service</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Subheader:</label>
+                    </td>
+                    <td><?php echo $this->formRow($form->get('subheader'));?></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Description</label>
+                    </td>
+                    <td><?php echo $this->formRow($form->get('description'));?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $this->formSubmit($form->get('conditionsubmit'));?></td>
+                </tr>
+            </table>
+            <?php echo $this->form()->closeTag(); ?>
+        </div>
+    </div>

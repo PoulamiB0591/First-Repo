@@ -1,1 +1,0 @@
-<img src="https://test.scampaigns.com/img/divider.png" id="imgdragable" style="display: none;">

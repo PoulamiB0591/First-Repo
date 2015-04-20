@@ -12,8 +12,7 @@
             <!--SFPScript type="text/javascript" src="SFPURLLINK/js/functions.js"></SFPScript-->
             <!--SFPScript type="text/javascript" src="SFPURLLINK/js/classie.js"></SFPScript-->
             <!--SFPScript type="text/javascript" src="SFPURLLINK/js/custom.js"></SFPScript-->
-            <!--SFPScript src="SFPURLLINK/jquery.countdown.js" type="text/javascript" charset="utf-8"></SFPScript-->
-            <!--SFPScript type="text/javascript" src="SFPURLLINK/timer.js"></SFPScript-->
+            <!--SFPScript type="text/javascript" src="SFPURLLINK/js/timer.js"></SFPScript-->
             
             <link rel="stylesheet" href="SFPURLLINK/css/bootstrap.min.css">
             <link rel="stylesheet" href="SFPURLLINK/css/style.css">
@@ -51,7 +50,7 @@
                 </div>
                 </div><!-- END OF SECTION -->
             </header>
-            <div ID="hero-section"><!-- START OF SECTION -->
+            <div ID="hero-section" class='SFPTWO_BACKGROUND'><!-- START OF SECTION -->
             <div data-lead-id="overlay" class="overlay"></div>
             <div class="container">
                 <div class="row">
@@ -59,66 +58,32 @@
                         <div data-lead-id="hero-info-conatiner" class="hero-info-container">
                            <div class="SFPTWO_TEXTEDIT"> <h1 data-lead-id="hero-header" class="textedit SFPTWO_TAGEDIT edit explicit_edit">SOME AWESOME EVENT</h1></div>
                             <div class="SFPTWO_TEXTEDIT"><h2 data-lead-id="hero-sub-header" class="textedit SFPTWO_TAGEDIT edit explicit_edit">WHERE YOU COME TO LEARN OR SEE AWESOME THINGS</h2></div>
-                            <div data-lead-id="counter" class="counter SFPTWO_TIMER" style="display:inline-block">
-                                <ul class="list-inline" style="display: inline-block;">
-                                    <li class="">
-                                        <div class="counter-box">
-                                            <div class="number">
-                                            <div class="">
-                                                <span class="days">0</span>
-                                                </div>
-                                            </div>
-                                             <div class="">
-                                            <div class="duration">
-                                                Days 
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="">
-                                        <div class="counter-box">
-                                            <div class="number">
-                                            <div class="">
-                                                <span class="hours duration">0</span>
-                                                </div>
-                                            </div>
-                                             <div class="">
-                                            <div class="duration duration">
-                                                Hours
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="">
-                                        <div class="counter-box">
-                                            <div class="number">
-                                            <div class="">
-                                                <span class="duration">0</span>
-                                                </div>
-                                               </div>
-                                            <div class="">
-                                            <div class="duration">
-                                                Minutes
-                                            </div>
-                                            </div>
-                                         </div>
-                                    </li>
-                                    <li class="">
-                                        <div class="counter-box">
-                                            <div class="number">
-                                             <div class="">
-                                                <span class="seconds">0</span>
-                                                </div>
-                                            </div>
-                                            <div class="">
-                                            <div class="duration">
-                                                Seconds
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            <div data-lead-id="counter" id="countdown" class="counter  SFPTWO_TEXTEDIT SFPTWO_TIMER" style="display:inline-block">
+                                
+                     <div class="first-count">          
+                	<p class="days">00</p>
+                	<p class="timeRefDays">Days</p>
+                    </div> 
+                    
+                    <div class="first-count"> 
+                	<p class="hours">00</p>
+                	<p class="timeRefHours">Hours </p>
+                    </div>
+                    
+                    <div class="first-count">
+                	<p class="minutes">00</p>
+                	<p class="timeRefMinutes">Minutes</p>
+                    
+                    </div>
+                    
+                    <div class="first-count">
+                	<p class="seconds">00</p>
+                	<p class="timeRefSeconds">Seconds</p>
+                    
+                    </div>
+                                </div> 
+                            
+                            
                             <div>
                               <div class="SFPTWO_TEXTEDIT">  <a href="#" data-lead-id="btn-hero" class="sfpDynamic btn btn-primary btn-hero textedit SFPTWO_TAGEDIT edit explicit_edit">REGISTER</a></div>
                             </div>
@@ -228,6 +193,8 @@
                                 <div ID="top-vid-area" class="vid-wrapper text-center">
                                  <div class="logo-area text-center SFPTWO_IMAGEEDIT">
                                     <img src="SFPURLLINK/img/vid_placeholder.jpg" class="dummy img-responsive center-block dummy" />
+                                    <div class="sfpDynamicVideo">
+                                   </div>
                                     </div>
                                 </div>
                             </div>
@@ -263,9 +230,9 @@
                                 </li>
                                 <li data-lead-id="time-slot1-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot1-img" class="img-responsive" />
-                                        </div>
+                                      
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot1-time textedit SFPTWO_TAGEDIT edit explicit_edit" class="time-slot-time">8:00am - 9:00am</p>
                                         </div>
@@ -275,9 +242,9 @@
                                 </li>
                                 <li data-lead-id="time-slot2-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                    
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot2-img" class="img-responsive" />
-                                        </div>
+                                       
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot2-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p>
                                         </div>
@@ -291,9 +258,9 @@
                                 </li>
                                 <li data-lead-id="time-slot3-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot3-img" class="img-responsive" />
-                                        </div>
+                                       
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot3-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p>
                                         </div>
@@ -307,9 +274,9 @@
                                 </li>
                                 <li data-lead-id="time-slot4-box" >
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot4-img" class="img-responsive textedit SFPTWO_TAGEDIT edit explicit_edit" />
-                                        </div>
+                                        
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot4-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p>
                                         </div>
@@ -332,9 +299,9 @@
                                 </li>
                                 <li data-lead-id="time-slot5-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                    
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot5-img" class="img-responsive" />
-                                        </div>
+                                       
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot5-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p>
                                        </div>
@@ -346,9 +313,9 @@
                                 </li>
                                 <li data-lead-id="time-slot6-box">
                                     <div class="schedule-box">
-                                         <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                        
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot6-img" class="img-responsive" />
-                                        </div>
+                                       
                                          <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot6-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                           <div class="SFPTWO_TEXTEDIT"><h4 data-lead-id="time-slot6-header" class="time-slot-header textedit SFPTWO_TAGEDIT edit explicit_edit">Speaker 6</h4></div>
@@ -357,9 +324,9 @@
                                 </li>
                                 <li data-lead-id="time-slot7-box">
                                     <div class="schedule-box">
-                                         <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                         
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot7-img" class="img-responsive" />
-                                        </div>
+                                        
                                          <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot7-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p>
                                         </div>
@@ -373,9 +340,9 @@
                                 </li>
                                 <li data-lead-id="time-slot8-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot8-img" class="img-responsive" />
-                                        </div>
+                                        
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot8-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -395,9 +362,9 @@
                                 </li>
                                 <li data-lead-id="time-slot9-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot9-img" class="img-responsive" />
-                                        </div>
+                                        
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot9-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -408,9 +375,9 @@
                                 </li>
                                 <li data-lead-id="time-slot10-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot10-img" class="img-responsive" />
-                                        </div>
+                                        
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot10-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -421,9 +388,9 @@
                                 </li>
                                 <li data-lead-id="time-slot11-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot11-img" class="img-responsive" />
-                                        </div>
+                                       
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot11-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -434,9 +401,9 @@
                                 </li>
                                 <li data-lead-id="time-slot12-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot12-img" class="img-responsive" />
-                                        </div>
+                                        
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot12-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -456,9 +423,9 @@
                                 </li>
                                 <li data-lead-id="time-slot13-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                    
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot13-img" class="img-responsive" />
-                                        </div>
+                                        
                                           <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot13-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                           <div class="SFPTWO_TEXTEDIT">
@@ -469,9 +436,9 @@
                                 </li>
                                 <li data-lead-id="time-slot14-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot14-img" class="img-responsive" />
-                                        </div>
+                                      
                                           <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot14-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                           <div class="SFPTWO_TEXTEDIT">
@@ -482,9 +449,9 @@
                                 </li>
                                 <li data-lead-id="time-slot15-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                    
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot15-img" class="img-responsive" />
-                                        </div>
+                                       
                                           <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot15-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                           <div class="SFPTWO_TEXTEDIT">
@@ -495,9 +462,9 @@
                                 </li>
                                 <li data-lead-id="time-slot16-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                    
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot16-img" class="img-responsive" />
-                                        </div>
+                                        
                                          <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot16-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                          <div class="SFPTWO_TEXTEDIT">
@@ -517,9 +484,9 @@
                                 </li>
                                 <li data-lead-id="time-slot17-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot17-img" class="img-responsive" />
-                                        </div>
+                                      
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot17-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -530,9 +497,9 @@
                                 </li>
                                 <li data-lead-id="time-slot18-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                    
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot18-img" class="img-responsive" />
-                                        </div>
+                                       
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot18-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -543,9 +510,9 @@
                                 </li>
                                 <li data-lead-id="time-slot19-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot19-img" class="img-responsive" />
-                                        </div>
+                                       
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot19-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -556,9 +523,9 @@
                                 </li>
                                 <li data-lead-id="time-slot20-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                   
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot20-img" class="img-responsive" />
-                                        </div>
+                                      
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot20-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -578,9 +545,9 @@
                                 </li>
                                 <li data-lead-id="time-slot21-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                   
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot21-img" class="img-responsive" />
-                                        </div>
+                                       
                                         
                                         <p data-lead-id="time-slot21-time" class="time-slot-time">8:00am - 9:00am</p>
                                         <h4 data-lead-id="time-slot21-header" class="time-slot-header">Speaker 21</h4>
@@ -602,9 +569,9 @@
                                 </li>
                                 <li data-lead-id="time-slot23-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                    
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot23-img" class="img-responsive" />
-                                        </div>
+                                       
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot23-time" class="time-slot-time">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -615,9 +582,9 @@
                                 </li>
                                 <li data-lead-id="time-slot24-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot24-img" class="img-responsive" />
-                                        </div>
+                                       
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot24-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -637,9 +604,9 @@
                                 </li>
                                 <li data-lead-id="time-slot25-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot25-img" class="img-responsive" />
-                                        </div>
+                                        
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot25-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -650,9 +617,9 @@
                                 </li>
                                 <li data-lead-id="time-slot26-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                    
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot26-img" class="img-responsive" />
-                                        </div>
+                                        
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot26-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -663,9 +630,9 @@
                                 </li>
                                 <li data-lead-id="time-slot27-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                     
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot27-img" class="img-responsive" />
-                                        </div>
+                                       
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot27-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">
@@ -676,9 +643,9 @@
                                 </li>
                                 <li data-lead-id="time-slot28-box">
                                     <div class="schedule-box">
-                                     <div class="logo-area text-center SFPTWO_IMAGEEDIT">
+                                    
                                         <img src="SFPURLLINK/img/clock_icon.png" data-lead-id="time-slot28-img" class="img-responsive" />
-                                        </div>
+                                        
                                         <div class="SFPTWO_TEXTEDIT">
                                         <p data-lead-id="time-slot28-time" class="time-slot-time textedit SFPTWO_TAGEDIT edit explicit_edit">8:00am - 9:00am</p></div>
                                         <div class="SFPTWO_TEXTEDIT">

@@ -5474,7 +5474,6 @@ div.signup input[type="text"] {
 	padding:0 10px;
 	width: 33%;
 	height: 50px;
-	line-height: 50px;
 	margin: 0 10px 0 0;
 	font-family: "ubunturegular";
 	font-size: 14px;
@@ -5772,7 +5771,7 @@ nav#menu {
   margin-top: 22px;
 }
 /*-----------------------------------------NEW DEVELOPER SECTION--------------------------------------*/
-.new-dev-section{ background:#2e3641; width:205px;font-family: 'Ubuntu', sans-serif; font-size:14px;margin: 32px 0;}
+.new-dev-section{ background:#2e3641; font-family: 'Ubuntu', sans-serif; font-size:14px;margin: 32px 0; width:100%;}
 .dev-title-bar{ height:37px; line-height:37px; background:#232a34;  position:relative; color:#fff;text-indent: 66px;text-transform: uppercase;}
 .dev-title-bar:after {
   background: url(../img/dev-img-1.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);

@@ -1,0 +1,561 @@
+
+body {
+	background:#FFF;
+	margin: 0;
+	padding: 0;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+a {
+	color: #000;
+    outline: none;
+    text-decoration: none;
+}
+a:hover {
+	color: #000;
+    outline: none;
+    text-decoration: none;
+}
+a:focus {
+    outline: none;
+}
+div.popup_new {
+  background: none repeat scroll 0 0 #fff;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+a.close_btn {
+	background:url(../popupImg/close_btn.png) no-repeat left top;
+	width:26px;
+	height:26px;
+	display:block;
+	overflow:hidden;
+	text-indent:-9999px;
+	position:absolute;
+	right:10px;
+	top:8px;
+}
+div.mask {
+	background:#2e3641;
+	width:100%;
+	height:100%;
+	position:fixed;
+	left:0;
+	top:0;
+	z-index: 999;
+}
+div.popup_new h2 {
+	background:#e8e6e2;
+	height: 42px;
+	line-height: 42px;
+	margin: 0;
+	text-align: center;
+	color: #2e3641;
+	font-size: 16px;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+div.popup_new h2 + p {
+	height: 60px;
+	line-height: 60px;
+	margin: 0 26px;
+	text-align: right;
+	color: #92b1a7;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+div.popup_new h2 + a {
+  color: #92b1a7;
+  display: block;
+  font-size: 12px;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 auto;
+  text-align: right;
+  text-transform: uppercase;
+  width: 90%;
+}
+.nav-pills {
+	width: 1020px;
+	list-style: none;
+	padding: 0;
+	margin: 25px auto;
+	text-transform: uppercase;
+	font-size: 13px;
+	overflow: hidden;
+}
+div.tab_content ul.payment-wrap {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0 27px;
+}
+.nav-pills.nav-wizard > li {
+	position: relative;
+	overflow: visible;
+	border-right: 15px solid #fff;
+	border-left: 15px solid #fff;
+	float: left;
+	width: 222px;
+	text-indent: 10px;
+}
+.nav-pills.nav-wizard > li:first-child {
+	border-left: 0;
+}
+.nav-pills.nav-wizard > li:last-child {
+	border-right: 0;
+}
+.nav-pills.nav-wizard > li a {
+	border-radius: 0;
+	background-color: #eee;
+	height: 54px;
+	line-height: 54px;
+	display: block;
+	text-decoration: none;
+	color: #2e3641;
+}
+.nav-pills.nav-wizard > li .nav-arrow {
+	position: absolute;
+	top: 0px;
+	right: -19px;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 26px 0 30px 20px;
+	border-color: transparent transparent transparent #eee;
+	z-index: 150;
+}
+.nav-pills.nav-wizard > li .nav-wedge {
+	position: absolute;
+	top: 0px;
+	left: -19px;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 26px 0 30px 20px;
+	border-color: #eee #eee #eee transparent;
+	z-index: 150;
+}
+.nav-pills.nav-wizard > li:hover .nav-arrow {
+	border-color: transparent transparent transparent #aaa;
+}
+.nav-pills.nav-wizard > li:hover .nav-wedge {
+	border-color: #aaa #aaa #aaa transparent;
+}
+.nav-pills.nav-wizard > li:hover a {
+	background-color: #aaa;
+	color: #fff;
+}
+.nav-pills.nav-wizard > li.active .nav-arrow {
+	border-color: transparent transparent transparent #a9c5bc;
+}
+.nav-pills.nav-wizard > li.active .nav-wedge {
+	border-color: #a9c5bc #a9c5bc #a9c5bc transparent;
+}
+.nav-pills.nav-wizard > li.active a {
+	background-color: #a9c5bc;
+	color: #fff;
+}
+div.tab_content {
+	clear: both;
+	width: 90%/*1020px*/;
+	margin:0 auto;
+}
+div.tab_content > div {
+	border:1px solid #eaebec;
+	padding: 30px 0 0 0;
+	margin: 0 0 20px 0;
+	overflow: hidden;
+}
+div.tab_content ul {
+	margin: 0 0 30px 30px;
+	padding: 0;
+	list-style: none;
+}
+div.tab_content ul li {
+	margin: 0 0 20px 0;
+}
+.payment-wrap > li:last-child {
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  color: #b16873;
+}
+.payment-main-container .side_opti input[type="text"] {
+  border: 1px solid #ebeced;
+  height: 45px;
+  line-height: 45px;
+  text-indent: 5px;
+  width: 441px;
+  font-family: 'Ubuntu', sans-serif;
+  font-style:italic;
+  color:#a0a0a0;
+}
+.payment-main-container .side_opti > p {
+  padding-left: 32px;
+}
+.payment-wrap > li{ float:left}
+.payment-option > input[type="radio"] {
+  display: block;
+  margin: 13px auto;
+  cursor: pointer;
+}
+.insert-col > input {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  width: 337px;
+  border:1px solid #ebeced
+}
+.insert-col button[type="submit"] {
+  background:#aac5bc;
+  border: medium none;
+  color: #fff;
+  height: 45px;
+  text-transform: uppercase;
+  width: 100px;
+}
+.insert-col {
+  padding-left: 31px;
+}
+div.tab_content h3 {
+	margin: 0;
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #2e3641;
+	font-weight: normal;
+}
+div.tab_content strong {
+	margin: 0;
+	font-size: 14px;
+	color: #2e3641;
+	font-weight: normal;
+}
+div.tab_content a {
+	margin: 0;
+	font-size: 14px;
+	color: #a9c5bc;
+	font-weight: normal;
+	text-decoration: none;
+	display: block;
+}
+div.tab_content a:hover {
+	color: #a9c5bc;
+	text-decoration: underline;
+	display: block;
+}
+div.tab_content hr {
+	margin:20px 0;
+	height: 1px;
+	border:none;
+	background:#eaebec;
+	clear:both;
+}
+ul.blog_icon_all {
+	overflow: hidden;
+}
+div.tab_content ul.blog_icon_all li {
+	margin: 0;
+	float: left;
+}
+ul.blog_icon_all li a {
+	background-image:url(../popupImg/facebook_icon_btn.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	display: block;
+	width: 60px;
+	height: 60px;
+	text-indent: -9999px;
+	margin: 0 10px 0 0;
+}
+ul.blog_icon_all li a.facebook:hover {
+	background-position:left bottom;
+}
+ul.blog_icon_all li a.instagram {
+	background-image:url(../popupImg/instagram_icon_btn.png);
+}
+ul.blog_icon_all li a.instagram:hover {
+	background-position:left bottom;
+}
+ul.blog_icon_all li a.twitter {
+	background-image:url(../popupImg/twitter_icon_btn.png);
+}
+ul.blog_icon_all li a.twitter:hover {
+	background-position:left bottom;
+}
+ul.blog_icon_all li a.linkedin {
+	background-image:url(../popupImg/linkedin_icon_btn.png);
+}
+ul.blog_icon_all li a.linkedin:hover {
+	background-position:left bottom;
+}
+ul.blog_icon_all li a.pinterest {
+	background-image:url(../popupImg/pinterest_icon_btn.png);
+}
+ul.blog_icon_all li a.pinterest:hover {
+	background-position:left bottom;
+}
+div.tab {
+	padding: 0 0 20px 0;
+	overflow: hidden;
+}
+div.tab_content a.step_back {
+	font-size: 12px;
+	color: #92b1a7;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+div.tab_content a.step_back:hover {
+	color: #2e3641;
+	text-decoration:none;
+}
+div.tab_content a.close_bottom {
+	background:#aac5bc;
+	width: 140px;
+	height: 32px;
+	line-height: 36px;
+	font-size: 12px;
+	color: #FFF;
+	text-transform: uppercase;
+	text-decoration: none;
+	float: right;
+	display: block;
+	text-align: center;
+}
+div.tab_content a.close_bottom:hover {
+	background:#aac5bc;
+	color: #FFF;
+	text-decoration:none;
+}
+span.publish {
+	display: block;
+	margin: 60px auto;
+	width: 250px;
+}
+div.side_opti div.checkboxes, div.side_opti div.radio  {
+	padding: 0;
+	margin: 0 0 0 30px;
+	border:none;
+	overflow: hidden;
+}
+
+div.side_opti div.radio {
+	margin : 30px 0 0 30px;
+}
+
+div.side_opti h4 {
+	margin: 20px 0 20px 30px;
+	font-size: 14px;
+	font-weight: normal;
+}
+.span_check {
+	padding: 0 0 0 46px;
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	background: url(/popupImg/check-off.png) no-repeat left top;
+	font-size: 14px;
+	cursor:pointer;
+}
+.span_radio {
+	background: url(/popupImg/radio-off.png) no-repeat left top;
+	font-size: 14px;
+	padding: 0 0 0 30px;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	margin: 0 10px 10px 0;
+	display: inline-block;
+	float: left;
+	cursor:pointer;
+}
+#payment-media label {
+  clear: none;
+  float: none;
+}
+.payment-option {
+  float: left;
+  height: auto;
+}
+.payment-option > img {
+  display: block;
+}
+.span_check.c_on {
+	background: url(/popupImg/check-on.png) no-repeat;
+}
+.span_radio.r_on {
+	background: url(/popupImg/radio-on.png) no-repeat;
+}
+.span_check input, .span_radio input {
+	position: absolute;
+	left: -9999px;
+}
+div.side_opti {
+  border-right: 1px solid #ebeced;
+  float: left;
+  overflow: hidden;
+  padding: 30px 0 20px;
+  width: 49%;
+}
+div.side_opti:last-child {
+	width: 50%;
+	margin:0 0 0 -1px;
+  border-left: 1px solid #ebeced;
+  border-right:none;
+}
+div.tab_content div.side_opti a.close_bottom {
+  float: left;
+  margin: 20px 0 0 30px;
+}
+div.tab_content div.side_opti select {
+	width: 320px;
+	padding: 10px;
+	border:1px solid #ebeced;
+	margin: 0 0 30px 30px;
+	font-size: 14px;
+	color: #a0a0a0;
+	font-family: 'ubuntubold';
+	font-style: italic;
+}
+select#payment-selecbox {
+  height: 45px;
+  line-height: 45px;
+  margin: 0;
+  width: 441px;
+}
+.price {
+  clear: both;
+  height: 142px;
+  margin: 100px auto 0;
+  overflow: hidden;
+  position: relative;
+  width: 138px;
+}
+.price p {
+  left: 0;
+  line-height: 142px;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+#visaDiv, #idealDiv, #mastercardDiv, #paypalDiv {
+  border-top: 1px solid #ccc;
+  padding: 0;
+}
+#idealDiv > p, #visaDiv > p, #mastercardDiv > p, #paypalDiv > p {
+  background: none repeat scroll 0 0 #a9c5bc;
+  color: #fff;
+  font-weight: bold;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 0;
+  padding-left: 29px;
+}
+#visaDiv ul, #mastercardDiv ul, #paypalDiv ul {
+  margin: 0;
+  padding: 0 30px 30px;
+}
+#visaDiv ul li, #mastercardDiv ul li, #paypalDiv ul li{ list-style: none; }
+#visaDiv label, #mastercardDiv label, #paypalDiv label {
+  float: left;
+  height: 45px;
+  line-height: 45px;
+  width: 163px;
+}
+#visaDiv h2, #mastercardDiv h2, #paypalDiv h2 {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  float: left;
+  font-weight: bold;
+}
+#visaDiv input, #mastercardDiv input, #paypalDiv input {
+  float: left;
+  width: 61%;
+}
+#visaDiv ul li:nth-child(5) input, #mastercardDiv ul li:nth-child(5) input, #paypalDiv ul li:nth-child(5) input{
+  float: left;
+  width: 35%;
+}
+#visaDiv ul li select, #mastercardDiv ul li select, #paypalDiv ul li select {
+  float: left;
+  margin: 0 26px 0 0;
+  width: 95px;
+}
+#make-a-payment {
+  background: none repeat scroll 0 0 #5daa88;
+  color: #fff;
+  display: inline-block;
+  height: 40px;
+  line-height: 35px;
+  margin-left: 163px;
+  padding: 0 12px;
+  text-transform: uppercase;
+  
+}
+#idealDiv > select {
+  margin: 0;
+}
+#paypalDiv ul li textarea {
+  border: 1px solid #ebeced;
+  height: 94px;
+  width: 61%;
+}
+#paypalDiv ul li select#country {
+  margin: 0;
+  width: 61%;
+}
+
+
+.go-to-nxt-wrap {
+  height: 60px;
+  line-height: 60px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.go-to-nxt-wrap .go-to-next-step{
+  color: #92b1a7;
+  display: block;
+  font-size: 12px;
+  float:right;
+  text-decoration:underline;
+  
+  text-align: right;
+  text-transform: uppercase;
+  
+}

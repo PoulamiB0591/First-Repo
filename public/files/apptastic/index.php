@@ -1,5 +1,5 @@
 <!--SFPPAGE-->
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -212,6 +212,8 @@
                         <div class="col-sm-7">
                             <div ID="embed-video" class="video-area SFPTWO_IMAGEEDIT">
                                 <img src="SFPURLLINK/img/video_sample.jpg" style="margin-top: -25px" class="dummy img-responsive center-block dummy" />
+                           <div class="sfpDynamicVideo">
+                           </div>
                             </div>
                         </div>
                         <div class="col-sm-5">
@@ -256,12 +258,12 @@
                     <div class="row">
                         <div class="col-md-12">
                         <div class="SFPTWO_TEXTEDIT">
-                         <h1 ID="s06-h1" class="section-header text-center" class="textedit SFPTWO_TAGEDIT edit explicit_edit">Screenshots</h1>
+                         <h1 id="s06-h1"  class="section-header text-center textedit SFPTWO_TAGEDIT edit explicit_edit">Screenshots</h1>
                         
                         </div>
                            
                             <div class="SFPTWO_TEXTEDIT">
-                                 <h4 ID="s06-h4" class="sub-header text-center" class="textedit SFPTWO_TAGEDIT edit explicit_edit">Lorem ipsum dolor sit amet, ed do eiusmod tempor incididunt ut labore et dolore magna.</h4>
+                                 <h4 id="s06-h4" class="sub-header text-center textedit SFPTWO_TAGEDIT edit explicit_edit">Lorem ipsum dolor sit amet, ed do eiusmod tempor incididunt ut labore et dolore magna.</h4>
                             
                             </div>
                        
@@ -318,7 +320,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="price-box">
-                                    <div class="header class="SFPTWO_TEXTEDIT"">
+                                    <div class="header">
                                     <div class="SFPTWO_TEXTEDIT">
                                     <span ID="price-header1" class="textedit SFPTWO_TAGEDIT edit explicit_edit">SILVER</span>
                                     </div>

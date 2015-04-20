@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>SFPv2 Smartfanpage | PREVIEW</title>
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->basePath('img/favicon.ico') ?>" />
+
 <link href="/editcss/preview.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
@@ -22,7 +24,26 @@ function getval(sel) {
 $( document ).ready(function() {
 	 var pages = $('.pages').val();
 	$('.getcurrentpage').attr('src',pages);
+	$('.getcurrentpage').contents().find("a").css('pointer-events' ,'none');
+	$('.getcurrentpage').contents().find("body").find("a").css('cursor', 'default');
+	
 	});
+
+$(function() {
+    $("#my-iframe").bind("load",function(){
+        var a = $(this).contents().find("body").html();
+        $(this).contents().find("body").find("a").css('cursor', 'default');
+        $(this).contents().find("body").find("a").css('pointer-events' ,'none');
+        $(this).contents().find("body").find("input[type='submit']").css('cursor', 'default');
+        $(this).contents().find("body").find("input[type='submit']").css('pointer-events' ,'none');
+        $(this).contents().find("body").find("input[type='button']").css('cursor', 'default');
+        $(this).contents().find("body").find("input[type='button']").css('pointer-events' ,'none');
+        $(this).contents().find("body").find("input[type='file']").css('cursor', 'default');
+        $(this).contents().find("body").find("input[type='file']").css('pointer-events' ,'none');
+       
+        
+    });
+});
 </script>
 </head>
  <?php 
@@ -49,7 +70,7 @@ $( document ).ready(function() {
         </div>
         <div id="device_section">
             <div class="desktop">
-                <iframe class="getcurrentpage" src="/user_template/<?php echo $valueprv; ?>/index.php" frameborder="0"></iframe>
+                <iframe class="getcurrentpage" id="my-iframe"src="/user_template/<?php echo $valueprv; ?>/index.php" frameborder="0"></iframe>
             </div>
         </div>
     </div>

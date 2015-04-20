@@ -1,0 +1,205 @@
+<?php 
+$protocol = '';
+if (isset($_SERVER['HTTPS']) &&
+		($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+		isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+		$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'HTTPS') {
+	$protocol = 'https://';
+}
+else {
+	$protocol = 'http://';
+}
+ 
+$dynamicPath = $protocol.$_SERVER["SERVER_NAME"];
+$folderName = getcwd();
+$exactFolder = explode("/",$folderName);
+$pdfDestination = $exactFolder[7];
+//echo getcwd();exit;
+?>
+<style type="text/css">
+.form-builder-wrapper li{ list-style:none;}
+.form-builder-wrapper{
+  padding: 25px 0;
+}
+.form-builder-col-1 label{ margin-bottom:12px;}
+.form-builder-col-1 label, .input-form-builder-container label {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.form-builder-col-1 input[type="text"], .input-form-builder-container input[type="text"]{
+  width: 100%;
+  height:35px;
+  line-height:35px;
+  border:1px solid #ccc;
+  text-indent:5px;
+}
+.form-builder-col-1 li {
+  float: left;
+  list-style: outside none none;
+  margin-bottom: 20px;
+  width: 45%;
+}
+.form-builder-col-1 ul li:nth-child(2n){ float:right}
+.input-form-builder-container{ width:45%; float:left;}
+.input-form-builder-container li{  list-style: outside none none;
+  margin-bottom: 20px;}
+  
+ .form-buider-paragraph {
+  float: right;
+  width: 46%;
+}
+.form-buider-paragraph-left{ float:left}
+.form-builder-right-pannel-content-wrap {
+  border-top: 1px solid #9ba4ae;
+}
+.input-form-builder-container-right{ float:right}
+
+
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+.agreement .span_check {
+  float: left;
+  margin-right: 12px;
+}
+#agreement-text {
+  float: left;
+}
+.send-bt {
+  background: none repeat scroll 0 0 #1cb7d3;
+  border-radius: 3px;
+  color: #fff;
+  float: right;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 100%;
+  border:none;
+}
+p{ margin: 0;}
+.VerzendenButton {
+  float: right;
+  width: 33%;
+}
+
+@media (max-width:767px){
+.form-builder-col-1 li {
+  float: none;
+  width: 99%;
+}    
+.form-builder-col-1 ul li:nth-child(2n) {
+  float: none;
+}
+.first-count {
+  margin: 9px !important;
+}
+}
+@media (max-width:480px){
+.VerzendenButton {
+  float: none;
+  margin: 17px 0 0;
+  width: 100%;
+}
+.agreement {
+  float: none;
+}
+
+div#dragfirst {
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  bottom: auto;
+  font-size: 12px;
+  height: 96px;
+  left: 50px;
+  position: absolute;
+  right: auto;
+  top: 46px;
+  width: 571px;
+  z-index: 0;
+}
+@media (max-width:320px){
+
+div#dragfirst {
+  left: 28px;}
+
+}
+#agreement-text {
+  float: left;
+  width: 88%;
+}
+} 
+</style>
+<form class="clearfix"  method="POST">
+<!--<div class="form-builder-col-3 formedit clearfix">-->
+
+    <div class="form-builder-col-3 formedit input-form-builder-container clearfix">
+        <ul class="form-li-label-and-input-calculation">
+        <li>
+            <label id="voornaamLabel" for="email">Voornaam</label>
+            <input type="text" name="Voornaam" id="VoornaamLang" />
+        </li>
+        <li>
+            <label id="nameLabel" for="email">Achternaam</label>
+            <input type="text" name="Achternaam" id="AchternaamLang"/>
+        </li>
+        <li>
+            <label id="emailangLabel" for="email">E-mailadres</label>
+            <input type="text" name="E-mailadres" id="emailLang" />
+        </li>
+        <li>
+            <label id="addressLabel" for="email">Woonplaats</label>
+            <input type="text" name="Woonplaats" id="WoonplaatsLang"/>
+        </li>
+        <li>
+            <label id="phoneLangLabel" for="email">Telefoonnummer</label>
+            <input type="text" name="Telefoonnummer" id="TelefoonnummerLang" />
+        </li>
+        
+    </ul>
+    </div>
+    <div class="form-buider-paragraph form-buider-paragraph-right SFPTWO_TEXTEDIT texttagdelete">
+        <p contenteditable="true" class="textedit SFPTWO_TAGEDIT edit explicit_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, aperiam, earum quos amet similique libero quia eius dolorum qui rem delectus possimus voluptate laboriosam! Ipsa minus sequi sapiente nesciunt optio.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, aperiam, earum quos amet similique libero quia eius dolorum qui rem delectus possimus voluptate laboriosam! Ipsa minus sequi sapiente nesciunt optio.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, aperiam, earum quos amet similique libero quia eius dolorum qui rem delectus possimus voluptate laboriosam! Ipsa minus sequi sapiente nesciunt optio.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, aperiam, earum quos amet similique libero quia eius dolorum qui rem delectus possimus voluptate laboriosam! Ipsa minus sequi sapiente nesciunt optio.
+        </p>
+    </div>
+<!--</div>-->
+<div class="clearfix"></div>
+<div class="agreement-n-send-button-wrapper SFPTWO_TEXTEDIT button-check">
+<div class="agreement clearfix"><span class="span_check" >
+<input type="checkbox" value="3" name="check" /></span><p id="agreement-text">Ik ga akkoord met de <a id="" style="color: inherit;" href="<?php echo $dynamicPath;?>/userTemplate/<?php echo $pdfDestination;?>/upload/Algemene voorwaarden.pdf">algemene voorwaarden</a></p></div>
+<div class="VerzendenButton clearfix">
+
+<button class="send-bt" name="emailDetails" id="SendButton">Verzenden</button></div>
+</div>
+</form>

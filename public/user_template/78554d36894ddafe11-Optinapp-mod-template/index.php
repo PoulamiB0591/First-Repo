@@ -1,1 +1,0 @@
-<img src="/img/divider.png" id="imgdragable" style="display: none;">

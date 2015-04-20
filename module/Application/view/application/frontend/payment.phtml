@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SFPv2 Smartfanpage | PAYMENT</title>
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->basePath('img/favicon.ico') ?>" />
+
+<link rel="stylesheet" href="/editcss/publish.css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
+<style>
+div.tab_content {
+	clear: both;
+	width: 1020px;
+	margin:0 auto;
+}
+</style>
+<style>
+.none{ display: none;}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="/js3/payment.js"></script>
+
+</head>
+
+<!-- code to get folder name  -->
+<?php 
+	$folderprv = $_SERVER['REQUEST_URI'];
+	$folderprv = explode('/',$folderprv);
+	$valueprv = $folderprv[3];
+?>
+<body>
+	<div class="popup_new">
+		<h2>publish</h2>
+		<div class="go-to-nxt-wrap"><a
+			href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action' =>'previewforpublish','id'=>$valueprv)); ?>"
+			target="_blank" class="go-to-next-step">Preview</a></div>
+		
+		<div class="tab">
+			<ul class="nav nav-pills nav-wizard">
+				<!--<li><a href="index.html">step 1) - preview</a><div class="nav-arrow"></div></li>-->
+				<li><div class="nav-wedge"></div> <a>Step 1) -
+						Platforms</a>
+					<div class="nav-arrow"></div></li>
+				<li class="active"><div class="nav-wedge"></div> <a>step 2) - Payment</a>
+					<div class="nav-arrow"></div></li>
+				<!--<li><div class="nav-wedge"></div><a href="publish.html">step 4) - publish</a><div class="nav-arrow"></div></li>-->
+			</ul>
+
+			<div id="tab3" class="tab_content">
+				<div class="payment-main-container">
+					<ul class="payment-wrap">
+						<li><h3>Make your payment for this campaign</h3></li>
+						<li><span>&euro;<span id="tempPrice"><?php echo $tempPrice;?></span>,-</span>
+						</li>
+					</ul>
+					<hr / style="margin-bottom: 0;">
+
+					<div class="side_opti" id="payment-media">
+
+						<h4>Choose your preferred payment provider</h4>
+						<div class="radio">
+							<span id="idealRadio" class="payment-option span_radio r_on"> <img
+								src="/popupImg/ideal.png" alt=""> <input id="ideal" value="1"
+								type="radio" name="RadioGroup1" checked="checked" />
+							</span><!-- <span id="visaRadio" class="payment-option span_radio"> <img
+								src="/popupImg/visa.png" alt=""> <input id="visa" value="1"
+								type="radio" name="RadioGroup1" />
+							</span> <span id="mcRadio" class="payment-option span_radio"> <img
+								src="/popupImg/mastercard.png" alt=""> <input id="mastercard"
+								value="1" type="radio" name="RadioGroup1" />
+							</span> -->
+
+							<!--<span class="payment-option span_radio"> 
+       							<img src="popupImgs/paypal.png" alt="">
+					         	<input id="paypal" value="1" type="radio" name="RadioGroup1" />
+					        </span>-->
+						</div>
+
+						<div id="idealDiv">
+							<p>Pay with Your VISA</p>
+
+							<ul>
+								<li class="clearfix"><label>You are paying :</label><select
+									name="connected" id="bankList">
+										<option value="Default input">Select Bank</option>
+										<option value="00||00">Test Bank</option>
+										<?php
+											/* foreach ($bankList->directory->issuer as $allissuerBank)
+											{
+												$encryptedKey = SHA1($allissuerBank->issuerid.$apikey); */
+												?>
+											<!-- <option value="<?php //echo $allissuerBank->issuerid.'||'.$encryptedKey; ?>">
+												<?php //echo $allissuerBank->issuername ?>
+											</option>  -->
+				
+											<?php 
+											//}
+											
+											?>
+								</select></li>
+							</ul>
+							
+							
+					
+							
+						</div>
+
+						<div id="visaDiv" class="none">
+							<p>Pay with Your VISA</p>
+							<ul>
+								<li class="clearfix"><label>You are paying :</label>
+									<h2>smartfanpage.com</h2></li>
+								<li class="clearfix"><label>Amount :</label>
+									<h2>$52</h2></li>
+								<li class="clearfix"><label>Cardholder's Name :</label><input
+									type="text" /></li>
+								<li class="clearfix"><label>Credit Card Number :</label><input
+									type="text" /></li>
+								<li class="clearfix"><label>CCV Code :</label><input type="text" />
+								</li>
+								<li class="clearfix"><label>Expiry date :</label><select><option>Aug</option>
+										<option>2016</option>
+								</select><select><option>2015</option>
+										<option>2016</option>
+								</select></li>
+								<!-- <a id="make-a-payment">Make a Payment</a>-->
+							</ul>
+						</div>
+
+
+						<div id="mastercardDiv" class="none">
+							<p>Pay with Your MASTERCARD</p>
+							<ul>
+								<li class="clearfix"><label>You are paying :</label>
+									<h2>smartfanpage.com</h2></li>
+								<li class="clearfix"><label>Amount :</label>
+									<h2>$72</h2></li>
+								<li class="clearfix"><label>Cardholder's Name :</label><input
+									type="text" /></li>
+								<li class="clearfix"><label>Credit Card Number :</label><input
+									type="text" /></li>
+								<li class="clearfix"><label>CCV Code :</label><input type="text" />
+								</li>
+								<li class="clearfix"><label>Expiry date :</label><select><option>Aug</option>
+										<option>2016</option>
+								</select><select><option>2015</option>
+										<option>2016</option>
+								</select></li>
+								<!-- <a id="make-a-payment">Make a Payment</a>-->
+							</ul>
+						</div>
+
+
+						<!-- <div id="paypalDiv" class="none">
+							<p>Pay with Your PAYPAL</p>
+							<ul>
+								<li class="clearfix"><label>Country :</label><select
+									id="country"><option>Netherlands</option>
+										<option>India</option>
+								</select></li>
+
+								<li class="clearfix"><label>Cardholder's Name :</label><input
+									type="text" /></li>
+								<li class="clearfix"><label>Credit Card Number :</label><input
+									type="text" /></li>
+								<li class="clearfix"><label>CCV Code :</label><input type="text" />
+								</li>
+								<li class="clearfix"><label>Expiry date :</label><select><option>Aug</option>
+										<option>2016</option>
+								</select><select><option>2015</option>
+										<option>2016</option>
+								</select></li>
+								<li class="clearfix"><label>First Name :</label><input
+									type="text" /></li>
+								<li class="clearfix"><label>Last Name :</label><input
+									type="text" /></li>
+								<li class="clearfix"><label>Billing Address Line 1 :</label> <textarea></textarea>
+								</li>
+								<li class="clearfix"><label>Billing Address Line 2 :</label> <textarea></textarea>
+								</li>
+								<li class="clearfix"><label>Zip Code :</label><input type="text" />
+								</li>
+								<li class="clearfix"><label>City :</label><input type="text" />
+								</li>
+								<li class="clearfix"><label>State :</label><input type="text" />
+								</li>
+								<li class="clearfix"><label>Phone :</label><input type="text" />
+								</li>
+								<li class="clearfix"><label>E-mail :</label><input type="text" />
+								</li>
+
+								<a id="make-a-payment">Make a Payment</a>
+							</ul>
+
+						</div> -->
+					</div>
+
+
+					<div class="side_opti">
+						<p>Fill in your personal data:</p>
+						<ul>
+							<li><input type="text" id="cName" name="company-name"
+								placeholder="Company name"></li>
+							<li><input type="text" id="fName" name="company-name"
+								placeholder="First name"></li>
+							<li><input type="text" id="lName" name="company-name"
+								placeholder="last name"></li>
+							<li><input type="text" id="email" name="company-name" placeholder="Email"></li>
+							<li><input type="text" id="phone" name="company-name" placeholder="Phone" onkeypress="return onlyNos(event,this);"></li>
+							<li><input type="text" id="addr" name="company-name" placeholder="Address">
+							</li>
+							<li><input type="text" id="zCode" name="company-name" placeholder="Zip code" onkeypress="return onlyNos(event,this);">
+							</li>
+							<!-- <li><select name="payment-selectbox" id="payment-selecbox" placeholder="country">
+						    	<option value="Default input">Default input</option>
+						    	<option value="Default input">Default input</option>
+						    	<option value="Default input">Default input</option>
+						    	<option value="Default input">Default input</option>
+						    </select></li>
+						        <li><select name="connected" id="payment-selecbox">
+						    	<option value="Default input">Default input</option>
+						    	<option value="Default input">Default input</option>
+						    	<option value="Default input">Default input</option>
+						    	<option value="Default input">Default input</option>
+						    </select></li> -->
+						</ul>
+					</div>
+
+				</div>
+				<a onclick="goBack();" style="cursor:pointer;" class="step_back" title="Step back">Step back</a> <a style="cursor:pointer;" onclick="saveShippingDetails();" class="close_bottom" title="Save &amp; Continue">save
+					&amp; continue</a>
+			</div>
+			<!-- end of tab4/tab_content -->
+		</div>
+	</div>
+	<!-- end of popup_new -->
+</body>
+</html>

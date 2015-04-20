@@ -1,10 +1,10 @@
 $(document).ready(function() {
 jQuery.fn.pickify = function() {
 	return this.each(function() {
-		$picker = $(this);
+		$picker = $(this);    
 		$icon = $picker.children('.icon');
 		$input = $picker.children('input.change');
-		$board = $picker.children('.board');
+		$board = $picker.children('.board'); 
 		$choice = $board.children();
 		$rainbow = $picker.children('.rainbow');
     
@@ -18,7 +18,7 @@ jQuery.fn.pickify = function() {
 		// making things happen
 		$rainbow.slider({
       value: colors[0],
-      min: 0,
+      min: 0, 
       max: 360,
 			slide: function(event, ui) {changeHue(ui.value)},
 			stop: function() {changeColour($picker.data('hsv'), true)}
@@ -40,7 +40,17 @@ jQuery.fn.pickify = function() {
 		
 		// drag var actions
 		function changeHue(hue) {
-		    $('.wrapper .SFPTWO_BACKGROUND').css("background-image","none");
+		   if($('.inback').val() == 'SFPTWO_BACKGROUND')
+	    	{
+		     $('.wrapper .SFPTWO_BACKGROUND').css("background-image","none");
+	    	}
+	        else if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+	         {
+	        	$('.wrapper .SFPTWO_BACKGROUNDSingle').css("background-image","none");
+	        }
+	        else{
+	        	var a= 0;
+	        }
 			$board.css('background-color', 'hsl('+hue+',100%,50%)');
 			var hsv = $picker.data('hsv');
 			hsv.h = hue;
@@ -60,7 +70,19 @@ jQuery.fn.pickify = function() {
 			var rgb = hsv2rgb(hsv);
 			if (!hex) {var hex = rgb2hex(rgb)}
 			$picker.data('hsv', hsv).data('hex', hex).data('rgb', rgb);
+			if($('.inback').val() == 'SFPTWO_BACKGROUND')
+	    	{
               $('.wrapper .SFPTWO_BACKGROUND').css("background-image","none");
+              $('.wrapper .SFPTWO_BACKGROUND').css('background-color', '#'+hex);
+	    	}
+            else if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+            {
+            	$('.wrapper .SFPTWO_BACKGROUNDSingle').css("background-image","none");
+            	 $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-color', '#'+hex);
+           	}  
+            else{
+	        	var a= 0;
+	        }
 			$icon.css('background-color', '#'+hex);
 			$input.val('#'+hex);
 			if (restyle) {
@@ -69,8 +91,19 @@ jQuery.fn.pickify = function() {
 		}
 		function changeStyle(rgb) {
 			var rgb = 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')';
+			if($('.inback').val() == 'SFPTWO_BACKGROUND')
+	    	{
               $('.wrapper .SFPTWO_BACKGROUND').css("background-image","none");
-			$('.wrapper .SFPTWO_BACKGROUND').css('background-color', rgb);
+			  $('.wrapper .SFPTWO_BACKGROUND').css('background-color', rgb);
+	    	}
+			 else if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+	          {
+			     $('.wrapper .SFPTWO_BACKGROUNDSingle').css("background-image","none");
+				  $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-color', rgb);
+	          }  
+			 else{
+		        	var a= 0;
+		        }
 		}
 		
 		// input change
@@ -91,14 +124,38 @@ jQuery.fn.pickify = function() {
 		}
 		function inputColour(hex) {
 			var hsv = hex2hsv(hex);
+			 if($('.inback').val() == 'SFPTWO_BACKGROUND')
+	       {
               $('.wrapper .SFPTWO_BACKGROUND').css("background-image","none");
+              $('.wrapper .SFPTWO_BACKGROUND').css('background-color',  '#'+hex);
+	       }
+		 else if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+		   {
+			 $('.wrapper .SFPTWO_BACKGROUNDSingle').css("background-image","none");
+			 $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-color',  '#'+hex);
+		    } 
+		 else{
+	        	var a= 0;
+	        }
 			$icon.css('background-color', '#'+hex);
 			$choice.css({
 				left: hsv.s*1.8,
 				top: 180-hsv.v*1.8
 			});
 			$rainbow.children().css('left', hsv.h/3.6+'%');
+			 if($('.inback').val() == 'SFPTWO_BACKGROUND')
+		       {
+	            
               $('.wrapper .SFPTWO_BACKGROUND').css("background-image","none");
+              
+		       }
+			 else if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+			   {
+				 $('.wrapper .SFPTWO_BACKGROUNDSingle').css("background-image","none");
+			    } 
+			 else{
+		        	var a= 0;
+		        }
 			$board.css('background-color', 'hsl('+hue+',100%,50%)');
 			changeColour(hsv, true, hex);
 		}

@@ -16,6 +16,7 @@ use Zend\Mail\Transport\Smtp as SmtpTransport;
 use Zend\Mail\Transport\SmtpOptions;
 use Application\Form\DForm;
 use Application\Form\forgetpasswordForm;
+use Application\Form\developerInfoUpdateForm;
 use Application\Form\UploadForm;
 use Zend\Session\Container;
 use Zend\Http\PhpEnvironment\Request;
@@ -275,10 +276,39 @@ public function devlogoutAction()
         $user_session->getManager()->destroy(); 
         $this->redirect()->toRoute('application/default',array('controller'=>'sfpdeveloper','action'=>'devlogin')); 
 }//path tested by dibyendu 
+/////////////*********EDITING DETAILS OF THE TEMPLATES BY DIBYENDU 16-04-2015*********/////////
+public function edittemplatedetailsAction()
+{
+	$devid = $this->getEvent()->getRouteMatch()->getParam('id');
+	$tempid = $this->getEvent()->getRouteMatch()->getParam('pId');
+	$devid = urldecode($devid);
+	$tempid = urldecode($tempid);
+	echo $devid.'<br/>'.$tempid.'<br/>';
+	
+	//*****exploded developer from url*****//
+	$explodedDeveloperDetails = explode("|",$devid);
+	$developerId= $explodedDeveloperDetails[0];
+	$developerIdEncrypted = $explodedDeveloperDetails[1];
+	$encryptedDeveloperId =  $this->encrypt_decrypt('encrypt', $developerId);
+	$originalDeveloperEncryptedId = str_replace("encoded","/",$developerIdEncrypted);
+	$originalDeveloperEncryptedId = str_replace(" ","+",$originalDeveloperEncryptedId);
+	
+	//*****exploded template from url*****//
+	$explodedTemplateDetails = explode("|",$tempid);
+	$templateId= $explodedTemplateDetails[0];
+	$templateIdEncrypted = $explodedTemplateDetails[1];
+	$encryptedTemplateId =  $this->encrypt_decrypt('encrypt', $templateId);
+	$originalTemplateEncryptedId = str_replace("encoded","/",$templateIdEncrypted);
+	$originalTemplateEncryptedId = str_replace(" ","+",$originalTemplateEncryptedId);
+	
+	echo $encryptedDeveloperId.'<br/>'.$originalDeveloperEncryptedId.'<br/>';
+	echo $encryptedTemplateId.'<br/>'.$originalTemplateEncryptedId.'<br/>';
+	exit;
+	
+}
+/////////////////////////////////////////////////////////////////////////////////////
 public function promoteAction()
 {
-	    
-	
 	$devid = $this->getEvent()->getRouteMatch()->getParam('id');
 	$tempid = $this->getEvent()->getRouteMatch()->getParam('pId');
 	
@@ -326,7 +356,11 @@ public function promoteAction()
    
     $regs = $this->getpromoteTable()->selectpromote($devId,$tempId);
     $regscreen = $this->getscreenshotsTable()->selectAllscreen($tempId);
-   
+    $templateDetails = $this->getTemplateTable()->fetchAll($tempId);//fetched for thumgnailImage by dibyendu
+   	$thumbNailImage ="/files/".$templateDetails->templateName."/".$templateDetails->scImage;//fetched for thumgnailImage by dibyendu
+   	$mainFolderPath = "/files/".$templateDetails->templateName;
+ 	/*echo $mainFolderPath;
+   	exit;*/
     $result = $this->getDeveloperTable()->getDeveloperWithId($devId);
      return new ViewModel(array(
                     'devId' => $devId,
@@ -335,7 +369,9 @@ public function promoteAction()
                     'tempId' => $tempId,
                     'promote' => $regs,
                     'screen'=>$regscreen,
-                    'result'=>$result
+                    'result'=>$result,
+     				'mainFolderPath'=>$mainFolderPath,
+     				'thumbNailImage'=>$thumbNailImage,
                     
                 ));
 	}
@@ -374,7 +410,7 @@ public function aboutcampaignAction()
                 echo "edited successfully";
               }
               else
-              {
+              { 
                 echo "Insert value";
               }
               exit;
@@ -756,7 +792,59 @@ public function screenshotAction()
       echo $htmlpath;
   exit;   
 }//path tested by dibyendu
-
+///////////////////////EDITING FOR THUMBNAIL/////////////////
+public function thumbnailAction()
+{
+	
+	$devid = $this->getEvent()->getRouteMatch()->getParam('id');
+	$tempid = $this->getEvent()->getRouteMatch()->getParam('pId');
+	$image_extensions_allowed = array('jpg', 'jpeg', 'png', 'gif','bmp');
+	$protocol = '';
+	if (isset($_SERVER['HTTPS']) &&
+			($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+			isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+			$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')
+ 	{
+		$protocol = 'https://';
+	}
+	else
+	{
+		$protocol = 'http://';
+	}
+	$url = $protocol.$_SERVER["SERVER_NAME"];
+	$fileName = $_FILES['thumbnailimage']['name'];
+	$ext = pathinfo($fileName, PATHINFO_EXTENSION);
+	if($ext == 'jpeg' || $ext == 'jpg' || $ext == 'gif' || $ext == "bmp" || $ext == "png")
+	{
+	$folderPathToUpload = $_POST['imageFolderPath'];
+	$uploadObj = new \Zend\File\Transfer\Adapter\Http();
+	$newName=time()."_".rand()."_";
+	$picNewName = $newName . trim($fileName);
+	$newPath = "/var/www/staging/public".$folderPathToUpload.'/'.$picNewName;
+	$newPath = str_replace("'","",$newPath);
+	$filter = new \Zend\Filter\File\Rename($newPath);
+	$filter->filter($_FILES['thumbnailimage']);
+	$data = array(
+			'devId' => $devid,
+			'tempId' => $tempid,
+			'scImage' => $picNewName,		
+				);
+	$res = $this->getTemplateTable()->updateThumbImage($data,$tempid);
+	//echo $res;
+	/*$view = new ViewModel();
+	$view->setTerminal(true);
+	return $view;*/
+	echo trim($picNewName);
+	}
+	else
+	{
+		
+		echo "valid image is needed";
+	}
+	exit;
+	
+}
+////////////////////////////////////////////
 
 //added by baishakhi - banner image
 public function bannerAction()
@@ -841,12 +929,107 @@ public function bannerAction()
     
 	exit;
 }//path tested by dibyendu
+///////////////////////PROFILE EDITING CODE FOR DEVELOPERS BY DIBYENDU KONAR ON 15-04-2015/////////////
+/***********************************FOR PERSONAL INFORMATION**********************/
+public function devinfoupAction()
+{
+	$this->layout('layout/layout5.phtml');
+	$user_session = new Container('devId');
+	$sid = $user_session->offsetGet('devId');
+	if($sid != "" || $sid != NULL)
+	{
+		$result = $this->getDeveloperTable()->fetchdetails($sid);
+		$developerIdEncrypted =  $this->encrypt_decrypt('encrypt', $sid); 
+		$developerParametertopass =str_replace("/","encoded",$developerIdEncrypted);
+		return new ViewModel(array(
+				'id'=>$id,
+				'developerParameter'=>$developerIdEncrypted,
+				'result'=>$result,
+				'developerParametertopass'=>$developerParametertopass,
+		));
+	}
+	else
+	{
+		$this->redirect()->toRoute('application/default',array('controller'=>'Error','action'=>'index'));
+	}
+		
+}
 
+public function updatedeveloperinformationAction()
+{
+	$developer = $_POST['secret'];
+  	$fname = $_POST['fname'];
+  	$lname = $_POST['lname'];
+  	$originalDeveloperEncryptedId = str_replace("encoded","/",$developer);
+  	$id = $this->encrypt_decrypt('decrypt', $originalDeveloperEncryptedId);
+  	$data = array(
+  			'id'=>$id,
+  			'fname' => $fname,
+  			'lname' => $lname,
+  	);
+	$result =  $this->getDeveloperTable()->updateReg1($data,$id);
+	echo $result;
+	exit;
+}
+/**************************************************************************/
+/**************************FOR COMPANY PROFILE*****************************/
+public function updatecompanyinfoAction()
+{
+	$this->layout('layout/layout5.phtml');
+	$companyType=$this->getcompanyDetailsTable()->fetchAll();
+	$user_session = new Container('devId');
+	$sid = $user_session->offsetGet('devId');
+	if($sid != NULL || $sid != '')
+	{
+		$result = $this->getDeveloperTable()->fetchdetails($sid);
+		$developerIdEncrypted =  $this->encrypt_decrypt('encrypt', $sid); 
+		$developerParametertopass =str_replace("/","encoded",$developerIdEncrypted);
+		return new ViewModel(array(
+				'id'=>$sid,
+				'developerParameter'=>$developerIdEncrypted,
+				'result'=>$result,
+				'stepsCompleted'=>'Thirdstep',
+				'companyType'=>$companyType,
+				'developerParametertopass'=>$developerParametertopass,
+		));
+	}
+	else
+	{
+		$this->redirect()->toRoute('application/default',array('controller'=>'Error','action'=>'index'));
+	}	
+}
 
-
-
-
-
+public function updatecompanyinformationAction()
+{ 
+	$id = $_POST['secret'];
+	$name = $_POST['name'];
+	$type=$_POST['type'];
+	$phone=$_POST['phone'];
+	$city=$_POST['city'];
+	$country=$_POST['country'];
+	$desc=$_POST['desc'];
+	$img = $_POST['imgs'];
+	$stepsCompleted = 'Thirdstep';
+	$originalDeveloperEncryptedId = str_replace("encoded","/",$id);
+	$id = $this->encrypt_decrypt('decrypt', $originalDeveloperEncryptedId);
+	$data = array(
+			'id' => $id,
+			'cname' => $name,
+			'ctype' => $type,
+			'cphone' => $phone,
+			'ccity' => $city,
+			'ccountry' => $country,
+			'cdesc' => $desc,
+			'cimage' => $img,
+			'stepsCompleted'=>$stepsCompleted
+	);
+	$red = $this->getDeveloperTable()->updateReg1($data,$id);
+	$encryptedNewId =  $this->encrypt_decrypt('encrypt', $id);
+	echo $red;
+	exit;	
+}
+/**************************************************************************/
+///////////////////////////////////////////////////////////////////////////////////////////////
 public function screenshotsaveAction()
 {
   $screen = $_POST['screen'];
@@ -990,8 +1173,11 @@ public function editscreenshotAction()
 }//path tested by dibyendu
 public function imageuplodAction()
 {
-  $id = $this->getEvent()->getRouteMatch()->getParam('id'); 
+  $developerIdEncrypted = $this->getEvent()->getRouteMatch()->getParam('id'); 
+  $originalDeveloperEncryptedId = str_replace("encoded","/",$developerIdEncrypted);
+  $id = $this->encrypt_decrypt('decrypt', $originalDeveloperEncryptedId);
   $fileName = $_FILES['images2']['name'];
+  
    if($fileName!=""){
             $uploadObj = new \Zend\File\Transfer\Adapter\Http(); 
             $newName=time();

@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SFPv2 Smartfanpage | PLATFORMS</title>
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->basePath('img/favicon.ico') ?>" />
+
+<link rel="stylesheet" href="/editcss/publish.css" />
+<style>
+div.tab_content {
+	clear: both;
+	width: 1020px;
+	margin:0 auto;
+}
+
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="/js3/publish.js"></script>
+<script type="text/javascript" src="/js3/facebookConnect/facebook.js"></script>
+</head>
+
+ <!-- code to get folder name  -->
+<?php 
+	$folderprv = $_SERVER['REQUEST_URI'];
+	$folderprv = explode('/',$folderprv);
+	$valueprv = $folderprv[3];
+?>
+<body>
+
+<!-- input for WEB & FB Publish -->
+	<input type="hidden" id="newName" />
+	<input type="hidden" id="cNo" />
+	<input type="hidden" id="fNo" />
+	<input type="hidden" id="fbUrl" />
+	
+	<div class="popup_new">
+
+		<h2>publish</h2>
+		<div class="go-to-nxt-wrap"><a
+			href="<?php echo $this->url('application/default',array('controller'=>'Frontend','action' =>'previewforpublish','id'=>$valueprv)); ?>"
+			target="_blank" class="go-to-next-step">Preview</a></div>
+
+
+		<div class="tab">
+			<ul class="nav nav-pills nav-wizard">
+				<!--<li><a>step 1) - preview</a><div class="nav-arrow"></div></li>-->
+				<li class="active"><div class="nav-wedge"></div> <a>Step 1) - Platforms</a>
+					<div class="nav-arrow"></div></li>
+				<li><div class="nav-wedge"></div> <a>step 2) -
+						Payment</a>
+					<div class="nav-arrow"></div></li>
+				<!--<li><div class="nav-wedge"></div><a href="publish.html">step 4) - publish</a><div class="nav-arrow"></div></li>-->
+			</ul>
+
+			<div id="tab4" class="tab_content">
+				<div>
+					<ul>
+						<li><h3>Choose your publishing platform</h3></li>
+					</ul>
+					<hr / style="margin-bottom: 0;">
+
+					<div class="side_opti">
+						<div class="checkboxes">
+							<span id="web" class="span_check"><input id="checkbox-01"
+								value="1" type="checkbox" /> WEB</span>
+
+						</div>
+						
+						<div id="domain" style="display: none;">
+							<div class="radio">
+								<span id="sfpDom" class="span_radio">
+									<input id="radio-01" value="1" type="radio" /> Use Smartfanpage
+								</span>
+								<span id="ownDom" class="span_radio">
+									<input id="radio-01" value="1" type="radio" /> Use your own domain
+								</span>
+							</div>
+						</div>
+						
+						<div id="webPart" style="display: none;">
+							<h4>Insert your campaign name :</h4>
+							<div class="insert-col">
+								<input type="text" name="insert" id="nameCam">
+							</div>
+						</div>
+
+						<div style="height: 85px;"></div>
+						<div id="yourDomain" style="display: none;">
+							
+							<h4>Enter your Domain name:</h4>
+							<div class="insert-col">
+								<input type="text" name="insert"
+									style="margin-bottom: 15px; width: 91%;" />
+
+
+							</div>
+
+							<h4 style="clear: both;">Enter your Domain IP:</h4>
+							<div class="insert-col">
+								<input type="text" name="insert"
+									style="width: 91%; margin-bottom: 20px;" />
+								<button type="submit"
+									style="clear: both; width: auto; padding: 15px;">Verify your
+									domain</button>
+
+							</div>
+						</div>
+
+					</div>
+
+
+					<div class="side_opti">
+						<div class="checkboxes">
+							<span id="facebook" class="span_check"><input id="checkbox-01"
+								value="1" type="checkbox" /> FACEBOOK</span>
+
+						</div>
+						
+						<div id="fbPages" style="display: none;">
+							<h4>Choose your Facebook page:</h4>
+							<select name="connected" id="myItem">
+								
+							</select>
+						</div>
+						<h4 id="noConn" style="display: none;">You're not connected to Facebook yet!</h4>
+						<a class="close_bottom" id="connBtn" title="Connect Now" onclick="logInWithToPublish();" style="display: none; cursor:pointer;">Connect now</a>
+
+
+						<div class="price">
+							<p id=setPrice>$ <?php echo $price;?></p>
+							<img src="/popupImg/burst.png" alt="">
+						</div>
+						
+
+
+					</div>
+
+				</div>
+
+				<a onclick="savencontinue();" class="close_bottom" title="Save &amp; Continue" style="cursor:pointer;">save &amp; continue</a>
+			</div>
+			<!-- end of tab3/tab_content -->
+		</div>
+	</div>
+	<!-- end of popup_new -->
+</body>
+</html>

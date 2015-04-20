@@ -2,20 +2,25 @@
 
 //new added
 
- 
 
+	  function rgb2hex(rgb){
+	         rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+	     return (rgb && rgb.length === 4) ? "#" +
+	    		 		("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+	      ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+	      ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+	    }
+ 
  $(document).on("mouseover", ".SFPTWO_EDITFORM .sortable-list li.dottedLi", function(e) {
-  $(this).find("div.setting-2").show(); 
-   $(this).find("div.ullidrag").show(); 
-     $(this).find("div.setedit").show();
-      $(this).find("div.seteditopt").show();
-       $(this).find("div.seteditdrop").show();
-      
-     
-});
+	 // $(this).find("div.setting-2").show(); 
+
+	      
+	     
+	});
 
 $(document).on("mouseleave", ".SFPTWO_EDITFORM .sortable-list li.dottedLi", function(e) {
-   $(this).find("div.setting-2").hide();
+  // $(this).find("div.setting-2").hide();
+   $(this).find("div.SFP_settings").hide(); 
    $(this).find("div.ullidrag").hide();
     $(this).find("div.setedit").hide(); 
     $(this).find("div.seteditopt").hide();
@@ -38,7 +43,7 @@ $(document).on("mouseleave", ".SFPTWO_EDITFORM .sortable-list li.dottedLi", func
      
     }
    
-      var setme = '<div id="ullidrag" class="ullidrag" style="display:none; cursor:move;"><img src="/img/1416497040_cursor_drag_arrow_2.png"/></div><div class="setting-2 prevnext" style="display:none;"><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid" /><a title="Spacing" class="spacing" href="javascript:void(0)"></a><input type="hidden" value="0" id="imgCount" /></div>';
+      var setme = '<div id="ullidrag" class="ullidrag" style="display:none; cursor:move;"><img src="/img/1416497040_cursor_drag_arrow_2.png"/></div><div class="setting-2 prevnext" style="display:none;"><a title="delete" class="delete" href="javascript:void(0)"></a><input type="hidden" id="hid" /><a title="Spacing" class="spacing" href="javascript:void(0)"></a><input type="hidden" value="0" id="imgCount" /></div><div class="SFP_settings" style="display:none"><a title="Setting" class="setSFPic" href="javascript:void(0)"></a></div>';
     
      if( $('#SFPLEBELFORM').length )         // use this if you are using id to check
    {
@@ -525,11 +530,15 @@ $(document).ready(function() {
            
              function () {
               // alert('dd');
-               $(this).find("div.setting-2").show(); 
+             //  $(this).find("div.setting-2").show(); 
+            	// $(this).find("div.SFP_settings").show(); 
+            	 $(this).find("div.SFP_settings").show(); 
                 $(this).find("div.ullidrag").show(); 
              }, 
              function () {
-             $(this).find("div.setting-2").hide();
+             //$(this).find("div.setting-2").hide();
+            	// $(this).find("div.SFP_settings").hide(); 
+            	 $(this).find("div.SFP_settings").hide(); 
               $(this).find("div.ullidrag").hide();
              }
              
@@ -648,10 +657,10 @@ $(document).ready(function() {
               getdDefaultdivme3 = getdDefaultdivme2[1].split(')');
               //alert(getdDefaultdivme3[0]);
               
-             $('.defaultdiv ul').append('<li><p style="color:black;">Default Background Image</p><strong><a class="imgdfltimg" href="'+getdDefaultdivme3[0]+'" title="Loading image"><img style="height:60px; width:60px;" alt="libraimages" src="'+getdDefaultdivme3[0]+'"></a></strong></li>');
+             $('.defaultdiv ul').html('<li><p style="color:black;">Default Background Image</p><strong><a class="imgdfltimg" href="'+getdDefaultdivme3[0]+'" title="Loading image"><img style="height:60px; width:60px;" alt="libraimages" src="'+getdDefaultdivme3[0]+'"></a></strong></li>');
         }
         else{
-          $('.defaultdiv ul').append('<li><p style="color:black;">Default Background Image</p><strong><a class="imgdfltimg" href="'+getdDefaultdivnext2[1]+'" title="Loading image"><img style="height:60px; width:60px;" alt="libraimages" src="'+getdDefaultdivnext2[1]+'"></a></strong></li>');   
+          $('.defaultdiv ul').html('<li><p style="color:black;">Default Background Image</p><strong><a class="imgdfltimg" href="'+getdDefaultdivnext2[1]+'" title="Loading image"><img style="height:60px; width:60px;" alt="libraimages" src="'+getdDefaultdivnext2[1]+'"></a></strong></li>');   
         }
         // alert(getdDefaultdivnext2[1]);
         
@@ -673,17 +682,35 @@ $(document).ready(function() {
             $('#ulleft').val(posX);  
             
             // $('.justifyme').css('text-align','check');
-             // $('.justifyme').children().find('font').css('text-align','check');          
+             // $('.justifyme').children().find('font').css('text-align','check');   
+            	
           }, 7000);
           
           //Left menu content hide show depending on template    
          // alert($('.ulshow li').length);
-         if ( $('.ulshow li').length < 3 ) {
-           
-              $('div.left_panel ul li.pages').remove();
+        var uri = document.URL;
+        var resln = uri.split("/");
+        console.log(resln[4]);
+        if(resln[4] == 'editnew')
+        	{
+        	if ( $('.ulshow li').length < 3 ) {
+                
+                $('div.left_panel ul li.pages').remove();
+              
+              }
             
+        	}
+        else{
+        	
+        	if ( $('.ulshow li').length < 2 ) {
+                
+                $('div.left_panel ul li.pages').remove();
+              
+              }
+            
+        	
             }
-          
+         
            setTimeout(function(){   
            var geteditable = $('.wrapper').find('form.SFPTWO_EDITFORM').length;
            
@@ -701,9 +728,29 @@ $(document).ready(function() {
                 
       $(".defaultdiv .imgdfltcolor").live("click",function() {
         var getdfltdivcolor = $(this).find('#getdaultcolrdiv').css('background-color');
-         $('.wrapper .SFPTWO_BACKGROUND').css('background-color',getdfltdivcolor);
+        if($('.inback').val() == 'SFPTWO_BACKGROUND')
+        	{
+        	$('.wrapper .SFPTWO_BACKGROUND').css('background-color',getdfltdivcolor);
+        	}
+        else if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+           {
+        	 $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-color',getdfltdivcolor);
+        	}
+         
     });
     
+      $(".defaultdivs .imgdfltcolor").live("click",function() {
+          var getdfltdivcolor = $(this).find('#getdaultcolrdiv').css('background-color');
+          if($('.inback').val() == 'SFPTWO_BACKGROUND')
+          	{
+          	$('.wrapper .SFPTWO_BACKGROUND').css('background-color',getdfltdivcolor);
+          	}
+          else if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+             {
+          	 $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-color',getdfltdivcolor);
+          	}
+           
+      });
      /**
  *  $(".defaultdiv .imgdfltcolor2").live("click",function() {
  *         var getdfltdivcolor = $(this).find('#getdaultcolrdiv2').css('background');
@@ -714,11 +761,65 @@ $(document).ready(function() {
      $(".defaultdiv .imgdfltimg").live("click",function() {
         var getdfltdivcolor = $(this).find('img').attr("src");
        // alert(getdfltdivcolor);
+        if($('.inback').val() == 'SFPTWO_BACKGROUND')
+    	{
            $('.wrapper .SFPTWO_BACKGROUND').css({backgroundImage: "url("+getdfltdivcolor+")"});
            $('.wrapper .SFPTWO_BACKGROUND').css('background-position','left top');
-            $('.wrapper .SFPTWO_BACKGROUND').css('background-repeat','repeat');
+           $('.wrapper .SFPTWO_BACKGROUND').css('background-repeat','repeat');
+           $('.wrapper .SFPTWO_BACKGROUND').css('background-color' , '');
+    	}
+        else
+  	  {
+  	   var a=0;
+  	  }
+          
        return false;
     });
+     
+    $(".defaultdivs .imgdfltimg").live("click",function() {  
+      if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+     	
+      { 
+     	 //alert('aa');
+    	  var getdfltdivcolor = $(this).parent().find('input').val();
+     	 if($(this).find('img').length)
+     	{
+     		 console.log('hsimg');
+     		  var getdfltdivcolors = $(this).find('img').attr("src"); 
+     		  console.log(getdfltdivcolors);
+
+       	   $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-color' , '');
+     		 $('.wrapper .SFPTWO_BACKGROUNDSingle').css({backgroundImage: "url("+getdfltdivcolors+")"});
+     		
+     	}
+     		
+     	
+     	 else if($(this).find('span.hscolor').length)
+         {
+     		 console.log('hscolor');
+     		 var getdfltdivcolor = $(this).find('span.hscolor').css('background-color');
+     		  $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-image' , '');
+              
+        	   $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-color' , getdfltdivcolor);
+     	  }
+     	 else if($(this).find('span.hsnotcolor').length)
+         {
+     		 console.log('hsnotcolor');
+     		  $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-image' , '');
+              
+        	   $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-color' , '');
+     	  }
+	      else
+	    	  {
+	    	   var a=0;
+	    	  }
+      }
+      else
+	  {
+	   var a=0;
+	  }
+    return false;
+});   
         //autosave functionlity start
          $('#check').click(function() { 
             
@@ -736,11 +837,15 @@ $(document).ready(function() {
            
              function () {
              //   alert('dd');
-               $(this).find("div.setting-2").show(); 
+              // $(this).find("div.setting-2").show(); 
+            	// $(this).find("div.SFP_settings").show(); 
+            	 $(this).find("div.SFP_settings").show(); 
                 $(this).find("div.ullidrag").show(); 
              }, 
              function () {
-             $(this).find("div.setting-2").hide();
+           //  $(this).find("div.setting-2").hide();
+          //  $(this).find("div.SFP_settings").hide();
+            $(this).find("div.SFP_settings").hide(); 
               $(this).find("div.ullidrag").hide();
              }
              
@@ -774,6 +879,7 @@ $(document).ready(function() {
              if(getautovalue == 'true')
              {
                   $('div.setting-2 a').removeClass('SFPdisabled'); 
+                   $('div.SFP_settings a').removeClass('SFPdisabled');
                   //$('.urlset').removeClass('disabled'); 
                   $('div.setedit a').removeClass('SFPdisabled'); 
                   $('div.seteditopt a').removeClass('SFPdisabled');  
@@ -1154,6 +1260,7 @@ $(document).ready(function() {
             $('.wrapper button').addClass('inputdisabled');
             $('.wrapper a').addClass('SFPdisabled');
              $('div.setting-2 a').removeClass('SFPdisabled');  
+              $('div.SFP_settings a').removeClass('SFPdisabled');
              $('div.setedit a').removeClass('SFPdisabled'); 
              $('div.seteditopt a').removeClass('SFPdisabled');  
              $('div.seteditdrop a').removeClass('SFPdisabled'); 
@@ -1263,16 +1370,19 @@ $(document).ready(function() {
                       $('#saveautosave').val(time);	
                   if($('.textme').length == 0)
                   {	     
-               	      $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:inline;"></div>');
-	                  $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:inline;"></div>');
+               	      $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:block;"></div>');
+	                  $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:block;"></div>');
                   }
                   else
                   {
                 	  var geetme = 0;
                   }	  
+                  
+                  $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
                $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
 
-            $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
+               $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+            $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
               $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".selectboxaddnow").append('<div class="seteditopt"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
             $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".chkboxaddnow").append('<div class="setedit"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
             $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".dropdowndrag").append('<div class="seteditdrop"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
@@ -1280,8 +1390,12 @@ $(document).ready(function() {
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
-               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	$(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
+               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
 
             },1000);
 		
@@ -1292,7 +1406,12 @@ $(document).ready(function() {
              {  
           	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
        		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.setting-2').remove();
+       		 $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.SFP_settings').remove();
        			    setTimeout(function(){
+       			    	
+       			    	$(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+    			    	
+       			    	
                      $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
 
                   },1000);
@@ -1305,7 +1424,11 @@ $(document).ready(function() {
    		      //alert("hh");
        	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
    		    $(".sfpfbDynamicLike").find('.setting-2').remove();
+   		 $(".sfpfbDynamicLike").find('.SFP_settings').remove();
    			    setTimeout(function(){
+   			    	
+   			     $(".sfpfbDynamicLike").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+   			    	
                   $(".sfpfbDynamicLike").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
                },1000);
@@ -1316,7 +1439,11 @@ $(document).ready(function() {
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicShare").find('.setting-2').remove();
+		    $(".sfpfbDynamicShare").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicShare").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicShare").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -1328,7 +1455,11 @@ $(document).ready(function() {
 		      //alert("hh");
    	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweet").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweet").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicTweet").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
               $(".sfpfbDynamicTweet").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
            },1000);
@@ -1342,7 +1473,11 @@ $(document).ready(function() {
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweetBird").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweetBird").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicTweetBird").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpfbDynamicTweetBird").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -1355,7 +1490,11 @@ $(document).ready(function() {
 		      //alert("hh");
 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicLinkedin").find('.setting-2').remove();
+		    $(".sfpDynamicLinkedin").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicLinkedin").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
            $(".sfpDynamicLinkedin").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
         },1000);
@@ -1368,7 +1507,11 @@ $(document).ready(function() {
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicPinterest").find('.setting-2').remove();
+		    $(".sfpDynamicPinterest").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicPinterest").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicPinterest").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -1380,12 +1523,36 @@ $(document).ready(function() {
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicMail").find('.setting-2').remove();
+		    $(".sfpDynamicMail").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicMail").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicMail").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
 		
 		 } 
+         
+          if($(".wrapper .SFPTWO_IMAGEEDIT").find('.sfpDynamicVideo').length)
+		  {  
+		      //alert("hh");
+ 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
+		    $(".sfpDynamicVideo").parent().find('.setting-2').remove();
+		     $(".sfpDynamicVideo").parent().find('.SFP_settings').remove();
+			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicVideo").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
+            $(".sfpDynamicVideo").parent().append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a title='Video setting' class='vidseting' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
+            
+           
+
+
+         },1000);
+		
+		 }
+            $('.dragSFPfirst').find('.SFP_settings').remove();
             $(".wrapper .nowdrag").parent().find('.setting-2').remove();
             $(".wrapper #dragfirst").parent().find('.setting-2').remove();
            // $(".SFPTWO_EDITFORM").append("<div class='setting-2' style='display:none'><a title='setup' class='setup' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /></div>");
@@ -1401,6 +1568,7 @@ $(document).ready(function() {
             $('.wrapper button').addClass('inputdisabled');
             $('.wrapper a').addClass('SFPdisabled');
              $('div.setting-2 a').removeClass('SFPdisabled');  
+              $('div.SFP_settings a').removeClass('SFPdisabled');
                   $('div.setedit a').removeClass('SFPdisabled'); 
                   $('div.seteditopt a').removeClass('SFPdisabled');  
                   $('div.seteditdrop a').removeClass('SFPdisabled'); 
@@ -1601,24 +1769,30 @@ $(document).ready(function() {
 //Show setting div on mouse hover
 
     $(".SFPTWO_IMAGEEDIT").live('mouseover',function(){
-      $(this).find("div.setting-2").show();
+      //$(this).find("div.setting-2").show();
+      $(this).find("div.SFP_settings").show(); 
     });
     $(".SFPTWO_IMAGEEDIT").live('mouseout',function(){
-      $(this).find("div.setting-2").hide();
+      //$(this).find("div.setting-2").hide();
+      $(this).find("div.SFP_settings").hide(); 
     });
     
     $(".SFPTWO_TIMER").live('mouseover',function(){
-        $(this).find("div.setting-2").show();
+       // $(this).find("div.setting-2").show();
+        $(this).find("div.SFP_settings").show(); 
       });
       $(".SFPTWO_TIMER").live('mouseout',function(){
-        $(this).find("div.setting-2").hide();
+      //  $(this).find("div.setting-2").hide();
+    	  $(this).find("div.SFP_settings").hide(); 
       });
     
     $(".SFPTWO_TEXTEDIT").live('mouseover',function(){
-      $(this).find("div.setting-2").show();
+     // $(this).find("div.setting-2").show();
+    	$(this).find("div.SFP_settings").show(); 
     });
     $(".SFPTWO_TEXTEDIT").live('mouseout',function(){
-      $(this).find("div.setting-2").hide();
+     // $(this).find("div.setting-2").hide();
+    	$(this).find("div.SFP_settings").hide(); 
     });
     
     $('.wrapper input[type="file"]').addClass('inputdisabled');
@@ -1628,6 +1802,7 @@ $(document).ready(function() {
     //$('.wrapper .inputdisabled').attr('disabled', 'disabled');
      $('.wrapper a').addClass('SFPdisabled');
      $('div.setting-2 a').removeClass('SFPdisabled');  
+      $('div.SFP_settings a').removeClass('SFPdisabled');
      $('div.setedit a').removeClass('SFPdisabled'); 
      $('div.seteditopt a').removeClass('SFPdisabled');  
      $('div.seteditdrop a').removeClass('SFPdisabled'); 
@@ -1828,11 +2003,12 @@ $(function() {
     
         $('.megallery li').find('span.customSelect:not(:last)').remove();
       }, 1000);
-         
+      $(".spacediv").css('display','none');   
     }); 
     
       $("#showUserImageLibraryback").live('click', function(){
 		  $("#image_div").hide();   
+          $("#defaultdiv").hide();
           $("#defaultdiv").hide();
 	   $("#tabupload").hide();
 	    $(".pickshell").hide();     
@@ -1842,7 +2018,7 @@ $(function() {
         $("div.pop_img2background").fadeIn(300);
         $('.scroll-pane').jScrollPane();
       $('select.styled').customSelect();
-	  
+	  $(".spacediv").css('display','none'); 
           setTimeout(function(){     
     
         $('.megalleryback li').find('span.customSelect:not(:last)').remove();
@@ -1867,6 +2043,7 @@ $(function() {
            var htm = $(this).parent().parent().attr('class').split('nownsfpimgdel');
            var getnextClass = htm[1].split('imgEdit');
            var getrandClass = getnextClass[0].split('rand');
+           getrandClass = getrandClass[0].split('SFPonlyIcon'); //new 
            //console.log(getrandClass);
            var gettrim = getrandClass[0].trim();
            var html = $("."+gettrim).html();
@@ -2256,10 +2433,21 @@ var text = img_html + text_html;
         var generalH = containHeight;
         var generalW = containWidth;
           //alert(hold);
-           $('.wrapper .SFPTWO_BACKGROUND').css({backgroundImage: "url("+hold+")"});
+        if($('.inback').val() == 'SFPTWO_BACKGROUND')
+        {
+        	$('.wrapper .SFPTWO_BACKGROUND').css({backgroundImage: "url("+hold+")"});
             $('.wrapper .SFPTWO_BACKGROUND').css('background-position','left top');
             $('.wrapper .SFPTWO_BACKGROUND').css('background-repeat','repeat');
          
+        }	
+         
+        else  if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+        {
+        	$('.wrapper .SFPTWO_BACKGROUNDSingle').css({backgroundImage: "url("+hold+")"});
+            $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-position','left top');
+            $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-repeat','repeat');
+         
+        }	 
         return false;
         //$('#editable div#wrapimgdiv').kinetic(); //8th move    
         e.preventDefault();
@@ -2282,11 +2470,19 @@ var text = img_html + text_html;
         var generalH = containHeight;
         var generalW = containWidth;
         //  alert(hold);
-       
+        if($('.inback').val() == 'SFPTWO_BACKGROUND')
+        {
            $('.wrapper .SFPTWO_BACKGROUND').css({backgroundImage: "url("+hold+")"});
             $('.wrapper .SFPTWO_BACKGROUND').css('background-position','left top');
             $('.wrapper .SFPTWO_BACKGROUND').css('background-repeat','repeat');
-         
+        }	
+        
+        else  if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+        {
+        	$('.wrapper .SFPTWO_BACKGROUNDSingle').css({backgroundImage: "url("+hold+")"});
+            $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-position','left top');
+            $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-repeat','repeat');
+        }	  
         return false;
         //$('#editable div#wrapimgdiv').kinetic(); //8th move    
         e.preventDefault();
@@ -2296,6 +2492,7 @@ var text = img_html + text_html;
     
     $(".SFPTWO_IMAGEEDIT a.edit").live("click",function(){
          
+          $(".spacediv").css('display','none');
           $("div.popupusbackground").css('display','none');    
         
         $("#editable img#uploadLoading").hide();
@@ -2345,7 +2542,10 @@ var text = img_html + text_html;
     
     
      $(".background_bt").live("click",function(){
-    	 
+    	
+    	 $('.defaultdiv').show();
+    	 $('.defaultdivs').hide();
+    	 $('.inback').val('SFPTWO_BACKGROUND');
 		   var effect = 'slide';
 
       // Set the options for the effect type chosen
@@ -2362,10 +2562,101 @@ var text = img_html + text_html;
         if($("div.user_list").css('display')=='block'){
         	$("div.user").trigger('click');
         }
-       
+      
         $("div.popup, div.popupusbackground").toggle(effect, options, duration);              
        
    });
+     
+     
+     $(".background_sinbt").live("click",function(){
+    	
+    	 $('.defaultdivs').show();
+    	 $('.defaultdiv').hide();
+    	 
+		   var effect = 'slide';
+
+    // Set the options for the effect type chosen
+     var options = { direction: 'right' };
+
+     // Set the duration (default: 400 milliseconds)
+     var duration = 700;
+      $(".popupus").hide();  
+      $(".slide_popup1").hide();  
+      $("div.popup").hide();
+      $("ul.ulshow").hide();
+      $("div.slide_popup").hide();
+      $('.restore1').hide();
+      if($("div.user_list").css('display')=='block'){
+      	$("div.user").trigger('click');
+      }
+     $('.inback').val('SFPTWO_BACKGROUNDSingle');
+     if($('.inback').val() == 'SFPTWO_BACKGROUNDSingle')
+    {
+    	
+     
+     if($('.defaultdivs ul').find('.li').length == 0)
+    {
+    	
+     var getdDefaultdiv = $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-image');
+     var getdDefaultdivcolr = $('.wrapper .SFPTWO_BACKGROUNDSingle').css('background-color');
+     //alert(getdDefaultdivcolr);
+  //   var getdDefaultdivcolr2 = $('.wrapper .SFPTWO_BACKGROUND').css('background'); 
+     converthex = rgb2hex(getdDefaultdivcolr);
+    // alert(converthex);
+// alert(getdDefaultdiv);
+if(getdDefaultdiv != 'none'){
+getdDefaultdiv = getdDefaultdiv.split('url');
+
+
+//getdDefaultdivnext = getdDefaultdiv[1].split("'");
+getdDefaultdivnext2 = getdDefaultdiv[1].split('"');
+if(getdDefaultdivnext2[1] == null){
+	console.log("cond");
+     getdDefaultdivme2 = getdDefaultdiv[1].split('(');
+     getdDefaultdivme3 = getdDefaultdivme2[1].split(')');
+     //alert(getdDefaultdivme3[0]);
+   
+    	
+    $('.defaultdivs ul').append('<li>p style="color:black;">Default Background Image</p><strong><input type="hidden" class="justchkspfim" val= "'+getdDefaultdivnext2[1]+'"/><input type="hidden" class="justchkspf" val= "'+getdDefaultdivcolr+'"/><a class="imgdfltimg" href="'+getdDefaultdivme3[0]+'" title="Loading image"><img style="height:60px; width:60px;" alt="libraimages" src="'+getdDefaultdivme3[0]+'"></a></strong></li>');
+    $('.defaultdivs ul li:not(:first)').remove();
+}
+else{
+	
+ $('.defaultdivs ul').append('<li>p style="color:black;">Default Background Image</p><strong><input type="hidden" class="justchkspfim" val= "'+getdDefaultdivnext2[1]+'"/><input type="hidden" class="justchkspf" val= "'+getdDefaultdivcolr+'"/><a class="imgdfltimg" href="'+getdDefaultdivnext2[1]+'" title="Loading image"><img style="height:60px; width:60px;" alt="libraimages" src="'+getdDefaultdivnext2[1]+'"></a></strong></li>'); 
+ 
+ $('.defaultdivs ul li:not(:first)').remove();
+}
+// alert(getdDefaultdivnext2[1]);
+
+}
+else if(getdDefaultdivcolr == '' || getdDefaultdivcolr == 'transparent')
+{
+
+		$('.defaultdivs ul').append('<li class="whitebox" ><p style="color:black;">Default Background Color</p><strong><input type="hidden" class="justchkspf" val= "'+getdDefaultdivcolr+'"/><a class="imgdfltimg" href="javascript:void(0)" title="Loading image"><span class="hsnotcolor" style="background-color:white; width:60px; height:60px; display:block; border: 2px solid #000;">></span></a></strong></li>');
+		
+	    $('.defaultdivs ul li:not(:first)').remove();
+}	
+	
+else if(getdDefaultdivcolr != '' || getdDefaultdivcolr != 'transparent')
+{
+	    console.log('df');
+
+		$('.defaultdivs ul').append('<li class="whitebox" ><p style="color:black;">Default Background Color</p><strong><input type="hidden" class="justchkspf" val= "'+getdDefaultdivcolr+'"/><a class="imgdfltimg" href="javascript:void(0)" title="Loading image"><span class="hscolor" style="background-color:'+getdDefaultdivcolr+'; width:60px; height:60px; display:block; border: 2px solid #000;"></span></a></strong></li>');
+		
+	    $('.defaultdivs ul li:not(:first)').remove();
+}	
+
+ 	}
+    }  
+     else
+    	{
+    	 var a=0;
+    	} 
+    
+
+      $("div.popup, div.popupusbackground").show();              
+     
+ });
    
      $(".tabup").live("click",function(){
           $(this).parent().addClass('active');
@@ -2376,6 +2667,7 @@ var text = img_html + text_html;
         $("#image_div").hide();    
 		$("div.pop_img2background").hide();
         $("#defaultdiv").hide();
+        $("#defaultdivs").hide();
         $("#tabupload").show();                 
       
    }); 
@@ -2388,8 +2680,18 @@ var text = img_html + text_html;
        $(".pickshell").hide();   
         $("#image_div").hide();    
 		$("div.pop_img2background").hide();
-          $("#tabupload").hide();            
-        $("#defaultdiv").show();                 
+          $("#tabupload").hide(); 
+          if($('.inback').val() == 'SFPTWO_BACKGROUND')
+        {
+        	  $("#defaultdiv").show();    
+        	  $("#defaultdivs").hide();     
+        }	  
+       else
+    	 {
+    	   $("#defaultdivs").show();    
+     	  $("#defaultdiv").hide();    
+    	 }  
+                    
       
    }); 
    
@@ -2403,6 +2705,7 @@ var text = img_html + text_html;
         $(".pickshell").hide();   
 		$("div.pop_img2background").hide();
         $("#defaultdiv").hide();
+        $("#defaultdivs").hide();
         $("#image_div").show();                 
       
    }); 
@@ -2416,6 +2719,7 @@ var text = img_html + text_html;
 	   $("#tabupload").hide();  
 	   $("div.pop_img2background").hide();
        $("#defaultdiv").hide();
+       $("#defaultdivs").hide();
         $(".pickshell").show();                 
       
    }); 
@@ -2466,10 +2770,55 @@ var text = img_html + text_html;
         });
     });
     
+    $("#images1backgroundwtr").live("change",function() {
+        hold1 = parseInt(hold) + 1;
+      
+      $("#image_backgroundwtr").ajaxSubmit({
+          data : {filename:'images1backgroundwtr'},
+          success: function(result) {
+         //alert(result);
+         if(result == 'error')
+        	 {
+        	   alert("Please upload only png image")
+        	 }
+         else
+        	 {
+        	 $('.liwtrsfp').find('img').attr('src',result);
+             $('.liwtrsfp').css('display','block');
+             $('.sfpwtr').val(result);
+             $('.watermarkdefltsfp').val(result);
+        	 }
+          
+          },
+      });
+  });
  
+    $("#images1backgroundwtrfb").live("change",function() {
+        hold1 = parseInt(hold) + 1;
+      
+      $("#image_backgroundwtrfb").ajaxSubmit({
+          data : {filename:'images1backgroundwtrfb'},
+          success: function(result) {
+           //alert(result);
+        	  if(result == 'error')
+         	 {
+         	   alert("Please upload only png image")
+         	 }
+          else
+        	  {
+        	  $('.liwtrsfpfb').find('img').attr('src',result);
+              $('.liwtrsfpfb').css('display','block');
+               $('.sfppbwtr').val(result);
+              $('.watermarkpblshfp').val(result);
+        	  }
+          
+          },
+      });
+  });  
+    
  $('.SFPTWO_TEXTEDIT a.edit').live('click',function(){
     
-     
+      $(".spacediv").css('display','none');
           var str = '';
         var  ptagfind = '';
         var minNumber = 0000; // The minimum number you want
@@ -2883,7 +3232,7 @@ var text = img_html + text_html;
 
     $(".SFPTWO_EDITFORM a.edit").live('click',function(){
     
-       
+        $(".spacediv").css('display','none');
         var htm = $(".wrapper").html();
         var base_url = window.location.origin;
         var uri = document.URL;
@@ -3185,25 +3534,39 @@ function appendall(newurl)
      {	 
 		
    	 
-	$(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:inline;"></div>');
-	$(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:inline;"></div>');
+	$(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:block;"></div>');
+	$(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:block;"></div>');
      }
 	 else
 	{
 		 var geetme = 0;
 	}	 
+	 
+	 $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+	 
    $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
-//    $(".SFPTWO_TAGEDIT").attr('contenteditable','true');
-    $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
+  
+  
+   
+   $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+   
+   //    $(".SFPTWO_TAGEDIT").attr('contenteditable','true');
+    $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
+   
+ 
     
     $(".wrapper .SFPTWO_TIMER").append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a title='Timer' class='timer' href='javascript:void(0)'></a></div>");
+    $(".wrapper .SFPTWO_TIMER").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
     
       if($(".wrapper .SFPTWO_TEXTEDIT").find('a').hasClass('sfpDynamic'))
        {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
-               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	 $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	 
+               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
 
             },1000);
 		
@@ -3214,7 +3577,11 @@ function appendall(newurl)
       {  
    	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    
+			 $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 	
+			    	
               $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
 
            },1000);
@@ -3227,8 +3594,14 @@ function appendall(newurl)
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicLike").find('.setting-2').remove();
+		    $(".sfpfbDynamicLike").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpfbDynamicLike").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
                $(".sfpfbDynamicLike").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+               
+              
 
             },1000);
 		
@@ -3239,9 +3612,15 @@ function appendall(newurl)
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicGoogle").find('.setting-2').remove();
+		    $(".sfpfbDynamicGoogle").find('.SFP_settings').remove();
 			    setTimeout(function(){
-               $(".sfpfbDynamicGoogle").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	  $(".sfpfbDynamicGoogle").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	   
 
+               $(".sfpfbDynamicGoogle").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+               
+          
             },1000);
 		
 		 } 
@@ -3250,8 +3629,14 @@ function appendall(newurl)
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicShare").find('.setting-2').remove();
+		    $(".sfpfbDynamicShare").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	   $(".sfpfbDynamicShare").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	   
                $(".sfpfbDynamicShare").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+               
+            
 
             },1000);
 		
@@ -3262,9 +3647,15 @@ function appendall(newurl)
 		      //alert("hh");
    	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweet").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweet").find('.SFP_settings').remove();
 			    setTimeout(function(){
-              $(".sfpfbDynamicTweet").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	   $(".sfpfbDynamicTweet").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
 
+
+              $(".sfpfbDynamicTweet").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+              
+           
            },1000);
 		
 		 }
@@ -3274,9 +3665,14 @@ function appendall(newurl)
 		      //alert("hh");
   	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweetBird").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweetBird").find('.SFP_settings').remove();
 			    setTimeout(function(){
-             $(".sfpfbDynamicTweetBird").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	 $(".sfpfbDynamicTweetBird").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
 
+             $(".sfpfbDynamicTweetBird").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+             
+            
           },1000);
 		
 		 }
@@ -3287,8 +3683,14 @@ function appendall(newurl)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicLinkedin").find('.setting-2').remove();
+		    $(".sfpDynamicLinkedin").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			        $(".sfpDynamicLinkedin").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			        
             $(".sfpDynamicLinkedin").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+            
+       
 
          },1000);
 		
@@ -3299,8 +3701,14 @@ function appendall(newurl)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicPinterest").find('.setting-2').remove();
+		    $(".sfpDynamicPinterest").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			        $(".sfpDynamicPinterest").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			        
             $(".sfpDynamicPinterest").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+            
+     
 
          },1000);
 		
@@ -3311,13 +3719,39 @@ function appendall(newurl)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicMail").find('.setting-2').remove();
+		    $(".sfpDynamicMail").find('.SFP_settings').remove();
 			    setTimeout(function(){
-            $(".sfpDynamicMail").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	$(".sfpDynamicMail").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
 
+
+            $(".sfpDynamicMail").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+            
+            
+            
          },1000);
 		
 		 }
          
+          if($(".wrapper .SFPTWO_IMAGEEDIT").find('.sfpDynamicVideo').length)
+		  {  
+		      //alert("hh");
+ 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
+		    $(".sfpDynamicVideo").parent().find('.setting-2').remove();
+		     $(".sfpDynamicVideo").parent().find('.SFP_settings').remove();
+			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicVideo").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
+            $(".sfpDynamicVideo").parent().append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a title='Video setting' class='vidseting' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
+            
+           
+
+
+         },1000);
+		
+		 }
+          $('.dragSFPfirst').find('.SFP_settings').remove(); 
        $(".wrapper .SFPTWO_EDITFORM ul").find("li").append('<div id="ullidrag" class="ullidrag" style="display:none; cursor:move;"><img src="/img/1416497040_cursor_drag_arrow_2.png"/></div><div class="setting-2 prevnext" style="display:none;"><a title="delete" class="delete" href="javascript:void(0)"></a><a title="Spacing" class="spacing" href="javascript:void(0)"></a><input type="hidden" id="hid" /><input type="hidden" value="0" id="imgCount" /></div>');
     //$(".SFPTWO_EDITFORM").append("<div class='setting-2' style='display:none'><a title='setup' class='setup' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /></div>");
         $(".wrapper .SFPTWO_TAGEDIT").addClass("explicit_edit");
@@ -3329,8 +3763,12 @@ function appendall(newurl)
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
-               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
+               
+              
 
             },1000);
 		
@@ -3340,8 +3778,15 @@ function appendall(newurl)
           {  
        	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
     		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.setting-2').remove();
+    		    
+    		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.SFP_settings').remove();
     			    setTimeout(function(){
+    			    	$(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+
+    			    	
                   $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
+                  
+                  
 
                },1000);
     		
@@ -3354,8 +3799,14 @@ function appendall(newurl)
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicGoogle").find('.setting-2').remove();
+		    $(".sfpfbDynamicGoogle").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	 $(".sfpfbDynamicGoogle").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
                $(".sfpfbDynamicGoogle").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+               
+              
+  
 
             },1000);
 		
@@ -3368,8 +3819,14 @@ function appendall(newurl)
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweet").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweet").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	  $(".sfpfbDynamicTweet").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	  
                $(".sfpfbDynamicTweet").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+               
+             
+               
 
             },1000);
 		
@@ -3382,9 +3839,16 @@ function appendall(newurl)
 		      //alert("hh");
   	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweetBird").find('.setting-2').remove();
+		    
+		    $(".sfpfbDynamicTweetBird").find('.SFP_settings').remove();
 			    setTimeout(function(){
-             $(".sfpfbDynamicTweetBird").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	  
+		             $(".sfpfbDynamicTweetBird").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
 
+		             
+             $(".sfpfbDynamicTweetBird").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+           
           },1000);
 		
 		 }
@@ -3395,8 +3859,16 @@ function appendall(newurl)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicLinkedin").find('.setting-2').remove();
+		    
+		    $(".sfpDynamicLinkedin").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			        
+		            $(".sfpDynamicLinkedin").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+
+		            
             $(".sfpDynamicLinkedin").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+        
 
          },1000);
 		
@@ -3408,8 +3880,14 @@ function appendall(newurl)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicPinterest").find('.setting-2').remove();
+		    $(".sfpDynamicPinterest").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	  $(".sfpDynamicPinterest").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	  
             $(".sfpDynamicPinterest").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+            
+          
 
          },1000);
 		
@@ -3420,13 +3898,60 @@ function appendall(newurl)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicMail").find('.setting-2').remove();
+		    $(".sfpDynamicMail").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicMail").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
             $(".sfpDynamicMail").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+            
+           
+
 
          },1000);
 		
 		 }
-         
+		 
+          if($(".wrapper .SFPTWO_IMAGEEDIT").find('.sfpDynamicVideo').length)
+		  {  
+		      //alert("hh");
+ 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
+		    $(".sfpDynamicVideo").parent().find('.setting-2').remove();
+		     $(".sfpDynamicVideo").parent().find('.SFP_settings').remove();
+			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicVideo").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
+            $(".sfpDynamicVideo").parent().append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a title='Video setting' class='vidseting' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
+            
+           
+
+
+         },1000);
+		
+		 }
+          $('.dragSFPfirst').find('.SFP_settings').remove();
+		   if($(".wrapper .SFPTWO_IMAGEEDIT").find('.sfpDynamicVideo').length)
+		  {  
+		      //alert("hh");
+ 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
+		    $(".sfpDynamicVideo").parent().find('.setting-2').remove();
+		     $(".sfpDynamicVideo").parent().find('.SFP_settings').remove();
+			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicVideo").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
+            $(".sfpDynamicVideo").parent().append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a title='Video setting' class='vidseting' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
+            
+           
+
+
+         },1000);
+		
+		 }
+		 
+	   $('.dragSFPfirst').find('.SFP_settings').remove();
+		  
 		//$(".setting-2").find('.btn_set').remove();
 			//$(".ullidrag").find('.btn_set').remove();
 }
@@ -3611,16 +4136,22 @@ function requestUrlWithAjax(url)
       if($('.textme').length == 0)
       {	 
  		
-         $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:inline;"></div>');
-	     $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:inline;"></div>');
+         $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:block;"></div>');
+	     $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:block;"></div>');
       } 
       else
     {
     	  var geetme = 0;
      }
+      
+      $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+      
 	     $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><input type='hidden' value='0' id='imgCount' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
     //$(".SFPTWO_TAGEDIT").attr('contenteditable','true');
-    $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'>spacing</a></div>");
+	     
+	     $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+	     
+    $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'>spacing</a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
    // $(".SFPTWO_EDITFORM").append("<div class='setting-2' style='display:none'><a title='setup' class='setup' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /></div>"); 
    // $(".overlay").hide();
    
@@ -3631,8 +4162,12 @@ function requestUrlWithAjax(url)
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
-               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	$(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
+               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
 
             },1000);
 		
@@ -3643,7 +4178,11 @@ function requestUrlWithAjax(url)
      {  
   	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
              $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
 
           },1000);
@@ -3654,7 +4193,11 @@ function requestUrlWithAjax(url)
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicLike").find('.setting-2').remove();
+		    $(".sfpfbDynamicLike").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			   $(".sfpfbDynamicLike").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicLike").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -3664,8 +4207,12 @@ function requestUrlWithAjax(url)
           if($(".wrapper .SFPTWO_IMAGEEDIT").hasClass('sfpfbDynamicShare'))
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
+        	  $(".sfpfbDynamicShare").find('.SFP_settings').remove();
 		    $(".sfpfbDynamicShare").find('.setting-2').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicShare").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicShare").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -3677,7 +4224,11 @@ function requestUrlWithAjax(url)
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweet").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweet").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    $(".sfpfbDynamicTweet").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicTweet").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -3691,7 +4242,10 @@ function requestUrlWithAjax(url)
 		      //alert("hh");
   	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweetBird").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweetBird").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	$(".sfpfbDynamicTweetBird").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
              $(".sfpfbDynamicTweetBird").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
           },1000);
@@ -3704,7 +4258,11 @@ function requestUrlWithAjax(url)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicLinkedin").find('.setting-2').remove();
+		    $(".sfpDynamicLinkedin").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicLinkedin").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicLinkedin").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -3716,7 +4274,11 @@ function requestUrlWithAjax(url)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicPinterest").find('.setting-2').remove();
+		    $(".sfpDynamicPinterest").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicPinterest").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicPinterest").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -3728,13 +4290,38 @@ function requestUrlWithAjax(url)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicMail").find('.setting-2').remove();
+		    $(".sfpDynamicMail").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicMail").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicMail").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
 		
 		 }
+         
+          if($(".wrapper .SFPTWO_IMAGEEDIT").find('.sfpDynamicVideo').length)
+		  {  
+		      //alert("hh");
+ 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
+		    $(".sfpDynamicVideo").parent().find('.setting-2').remove();
+		     $(".sfpDynamicVideo").parent().find('.SFP_settings').remove();
+			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicVideo").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
+            $(".sfpDynamicVideo").parent().append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a title='Video setting' class='vidseting' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
+            
+           
+
+
+         },1000);
+		
+		 }
+          $('.dragSFPfirst').find('.SFP_settings').remove();  
        $('div.setting-2 a').removeClass('SFPdisabled');  
+        $('div.SFP_settings a').removeClass('SFPdisabled');
        $('div.setedit a').removeClass('SFPdisabled'); 
       $('div.seteditopt a').removeClass('SFPdisabled');  
        $('div.seteditdrop a').removeClass('SFPdisabled');
@@ -3749,6 +4336,7 @@ $('.wrapper button').addClass('inputdisabled');
 //$('.wrapper .inputdisabled').attr('disabled', 'disabled');
 $('.wrapper a').addClass('SFPdisabled');
  $('div.setting-2 a').removeClass('SFPdisabled');  
+  $('div.SFP_settings a').removeClass('SFPdisabled');
  $('div.setedit a').removeClass('SFPdisabled'); 
  $('div.seteditopt a').removeClass('SFPdisabled');  
 $('div.seteditdrop a').removeClass('SFPdisabled'); 
@@ -3883,17 +4471,20 @@ $('.closethisdrag').removeClass('SFPdisabled');
          if($('.textme').length == 0)
          {	 
  		
-                $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:inline;"></div>');
-              $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:inline;"></div>');
+                $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:block;"></div>');
+              $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:block;"></div>');
          } 
          
          else
          {
         	 var geetme = 0;
          }
+         
+         $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
               $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><input type='hidden' value='0' id='imgCount' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
              // $(".SFPTWO_TAGEDIT").attr('contenteditable','true');
-        $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
+              $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+        $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
       //  $(".SFPTWO_EDITFORM").append("<div class='setting-2' style='display:none'><a title='setup' class='setup' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /></div>"); 
         // $(".overlay").hide();
           $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".selectboxaddnow").append('<div class="seteditopt"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
@@ -3903,8 +4494,12 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
-               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	$(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
+               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
 
             },1000);
 		
@@ -3915,7 +4510,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
        {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
  		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.setting-2').remove();
+ 		   $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.SFP_settings').remove();
  			    setTimeout(function(){
+ 			    	
+ 			    	$(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+ 			    	
                $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
 
             },1000);
@@ -3927,7 +4526,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicLike").find('.setting-2').remove();
+		    $(".sfpfbDynamicLike").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicLike").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpfbDynamicLike").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -3939,7 +4542,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicGoogle").find('.setting-2').remove();
+		    $(".sfpfbDynamicGoogle").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	  $(".sfpfbDynamicGoogle").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicGoogle").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -3950,7 +4557,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicShare").find('.setting-2').remove();
+		    $(".sfpfbDynamicShare").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicShare").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicShare").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -3962,7 +4573,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweet").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweet").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicTweet").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicTweet").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -3976,7 +4591,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
   	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweetBird").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweetBird").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicTweetBird").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
              $(".sfpfbDynamicTweetBird").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
           },1000);
@@ -3989,7 +4608,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicLinkedin").find('.setting-2').remove();
+		    $(".sfpDynamicLinkedin").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicLinkedin").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicLinkedin").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -4001,7 +4624,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicPinterest").find('.setting-2').remove();
+		    $(".sfpDynamicPinterest").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicPinterest").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicPinterest").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -4013,13 +4640,38 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicMail").find('.setting-2').remove();
+		    $(".sfpDynamicMail").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicMail").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicMail").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
 		
 		 }
+         
+          if($(".wrapper .SFPTWO_IMAGEEDIT").find('.sfpDynamicVideo').length)
+		  {  
+		      //alert("hh");
+ 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
+		    $(".sfpDynamicVideo").parent().find('.setting-2').remove();
+		     $(".sfpDynamicVideo").parent().find('.SFP_settings').remove();
+			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicVideo").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
+            $(".sfpDynamicVideo").parent().append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a title='Video setting' class='vidseting' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
+            
+           
+
+
+         },1000);
+		
+		 }
+          $('.dragSFPfirst').find('.SFP_settings').remove();  
        $('div.setting-2 a').removeClass('SFPdisabled');  
+        $('div.SFP_settings a').removeClass('SFPdisabled');
        $('div.setedit a').removeClass('SFPdisabled'); 
       $('div.seteditopt a').removeClass('SFPdisabled');  
        $('div.seteditdrop a').removeClass('SFPdisabled'); 
@@ -4031,7 +4683,8 @@ $('.closethisdrag').removeClass('SFPdisabled');
         $('.wrapper button').addClass('inputdisabled');
 //        $('.wrapper .inputdisabled').attr('disabled', 'disabled');
         $('.wrapper a').addClass('SFPdisabled');
-         $('div.setting-2 a').removeClass('SFPdisabled');  
+         $('div.setting-2 a').removeClass('SFPdisabled');
+          $('div.SFP_settings a').removeClass('SFPdisabled');  
          $('div.setedit a').removeClass('SFPdisabled'); 
          $('div.seteditopt a').removeClass('SFPdisabled');  
          $('div.seteditdrop a').removeClass('SFPdisabled'); 
@@ -4181,25 +4834,34 @@ $('.closethisdrag').removeClass('SFPdisabled');
       if($('.textme').length == 0)
       {	 
  		
-             $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:inline;"></div>');
-	         $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:inline;"></div>');
+             $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:block;"></div>');
+	         $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:block;"></div>');
       }
       
       else
       {
     	  var getelse = 0;
       }
+      
+      $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+      
     $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><input type='hidden' value='0' id='imgCount' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
          // $(".SFPTWO_TAGEDIT").attr('contenteditable','true');
-    $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
+    $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+    
+    $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
     //$(".SFPTWO_EDITFORM").append("<div class='setting-2' style='display:none'><a title='setup' class='setup' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /></div>"); 
     //$(".overlay").hide();
      if($(".wrapper .SFPTWO_TEXTEDIT").find('a').hasClass('sfpDynamic'))
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
-               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	$(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
+               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
 
             },1000);
 		
@@ -4210,7 +4872,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
      {  
   	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
              $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
 
           },1000);
@@ -4222,7 +4888,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 	      //alert("hh");
 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 	    $(".sfpfbDynamicLike").find('.setting-2').remove();
+	    $(".sfpfbDynamicLike").find('.SFP_settings').remove();
 		    setTimeout(function(){
+		    	
+		    	 $(".sfpfbDynamicLike").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+		    	
           $(".sfpfbDynamicLike").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
        },1000);
@@ -4234,7 +4904,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicGoogle").find('.setting-2').remove();
+		    $(".sfpfbDynamicGoogle").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicGoogle").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicGoogle").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -4245,7 +4919,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicShare").find('.setting-2').remove();
+		    $(".sfpfbDynamicShare").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpfbDynamicShare").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicShare").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -4257,7 +4935,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweet").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweet").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicTweet").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicTweet").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -4271,7 +4953,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
   	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweetBird").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweetBird").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpfbDynamicTweetBird").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
              $(".sfpfbDynamicTweetBird").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
           },1000);
@@ -4284,7 +4970,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicLinkedin").find('.setting-2').remove();
+		    $(".sfpDynamicLinkedin").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicLinkedin").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicLinkedin").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -4297,7 +4987,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicPinterest").find('.setting-2').remove();
+		    $(".sfpDynamicPinterest").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicPinterest").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicPinterest").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -4309,12 +5003,36 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicMail").find('.setting-2').remove();
+		    $(".sfpDynamicMail").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicMail").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicMail").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
 		
 		 }
+         
+          if($(".wrapper .SFPTWO_IMAGEEDIT").find('.sfpDynamicVideo').length)
+		  {  
+		      //alert("hh");
+ 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
+		    $(".sfpDynamicVideo").parent().find('.setting-2').remove();
+		     $(".sfpDynamicVideo").parent().find('.SFP_settings').remove();
+			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicVideo").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
+            $(".sfpDynamicVideo").parent().append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a title='Video setting' class='vidseting' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
+            
+           
+
+
+         },1000);
+		
+		 }
+          $('.dragSFPfirst').find('.SFP_settings').remove();
       $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".selectboxaddnow").append('<div class="seteditopt"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
     $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".chkboxaddnow").append('<div class="setedit"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
       $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".dropdowndrag").append('<div class="seteditdrop"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
@@ -4328,7 +5046,8 @@ $('.closethisdrag').removeClass('SFPdisabled');
 //    $('.wrapper .inputdisabled').attr('disabled', 'disabled');
     $('.wrapper a').addClass('SFPdisabled');
     $('.SFPTWO_EDITFORM a').removeClass('SFPdisabled');
-     $('div.setting-2 a').removeClass('SFPdisabled');  
+     $('div.setting-2 a').removeClass('SFPdisabled'); 
+      $('div.SFP_settings a').removeClass('SFPdisabled'); 
      $('div.setedit a').removeClass('SFPdisabled'); 
      $('div.seteditopt a').removeClass('SFPdisabled');  
      $('div.seteditdrop a').removeClass('SFPdisabled'); 
@@ -4428,11 +5147,13 @@ $('.closethisdrag').removeClass('SFPdisabled');
             appendall('newurl');
             $(".SFPTWO_TEXTEDIT").live('mouseover',function(){
               
-              $(this).find("div.setting-2").show();
+             // $(this).find("div.setting-2").show();
+            	$(this).find("div.SFP_settings").show(); 
             });
             $(".SFPTWO_TEXTEDIT").live('mouseout',function(){
             //    alert('out');
-              $(this).find("div.setting-2").hide();
+             // $(this).find("div.setting-2").hide();
+              $(this).find("div.SFP_settings").hide(); 
               
             });            
           // location.reload();
@@ -4480,16 +5201,22 @@ $('.closethisdrag').removeClass('SFPdisabled');
       });
       if($('.textme').length == 0)
       {	 
-      $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:inline;"></div>');
-	  $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:inline;"></div>');
+      $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:block;"></div>');
+	  $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:block;"></div>');
       }
       else
       {
     	  geetme = 0;
       }	  
+      
+      $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+      
           $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><input type='hidden' value='0' id='imgCount' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
          // $(".SFPTWO_TAGEDIT").attr('contenteditable','true');
-        $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
+          
+          $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+          
+        $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
         //$(".SFPTWO_EDITFORM").append("<div class='setting-2' style='display:none'><a title='setup' class='setup' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /></div>"); 
        // $(".overlay").hide();
         $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".selectboxaddnow").append('<div class="seteditopt"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
@@ -4502,8 +5229,12 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
-               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	 $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
+               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
 
             },1000);
 		
@@ -4514,7 +5245,13 @@ $('.closethisdrag').removeClass('SFPdisabled');
          {  
       	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
    		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.setting-2').remove();
+   		    
+   		 $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.SFP_settings').remove();
+   		 
    			    setTimeout(function(){
+   			    	
+   			    	$(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+   			    	
                  $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
 
               },1000);
@@ -4526,7 +5263,12 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
    	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicLike").find('.setting-2').remove();
+		    
+		    $(".sfpfbDynamicLike").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			  $(".sfpfbDynamicLike").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
               $(".sfpfbDynamicLike").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
            },1000);
@@ -4538,7 +5280,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicGoogle").find('.setting-2').remove();
+		    $(".sfpfbDynamicGoogle").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicGoogle").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicGoogle").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -4549,7 +5295,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicShare").find('.setting-2').remove();
+		    $(".sfpfbDynamicShare").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicShare").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicShare").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -4560,7 +5310,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweet").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweet").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicTweet").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicTweet").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -4573,7 +5327,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
   	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweetBird").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweetBird").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicTweetBird").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
              $(".sfpfbDynamicTweetBird").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
           },1000);
@@ -4586,7 +5344,12 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicLinkedin").find('.setting-2').remove();
+		    $(".sfpDynamicLinkedin").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicLinkedin").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
+			    	
             $(".sfpDynamicLinkedin").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -4598,7 +5361,11 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicPinterest").find('.setting-2').remove();
+		    $(".sfpDynamicPinterest").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicPinterest").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicPinterest").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -4610,13 +5377,35 @@ $('.closethisdrag').removeClass('SFPdisabled');
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicMail").find('.setting-2').remove();
+		    $(".sfpDynamicMail").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicMail").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicMail").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
 		
 		 }
-         
+          if($(".wrapper .SFPTWO_IMAGEEDIT").find('.sfpDynamicVideo').length)
+		  {  
+		      //alert("hh");
+ 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
+		    $(".sfpDynamicVideo").parent().find('.setting-2').remove();
+		     $(".sfpDynamicVideo").parent().find('.SFP_settings').remove();
+			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicVideo").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
+            $(".sfpDynamicVideo").parent().append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a title='Video setting' class='vidseting' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
+            
+           
+
+
+         },1000);
+		
+		 }
+          $('.dragSFPfirst').find('.SFP_settings').remove();
          $('.explicit_edit').attr('contenteditable','true'); 
          
         $('.wrapper input[type="file"]').addClass('inputdisabled');
@@ -4625,7 +5414,8 @@ $('.closethisdrag').removeClass('SFPdisabled');
        $('.wrapper button').addClass('inputdisabled');
 //       $('.wrapper .inputdisabled').attr('disabled', 'disabled');
        $('.wrapper a').addClass('SFPdisabled');
-        $('div.setting-2 a').removeClass('SFPdisabled');  
+        $('div.setting-2 a').removeClass('SFPdisabled'); 
+         $('div.SFP_settings a').removeClass('SFPdisabled'); 
         $('div.setedit a').removeClass('SFPdisabled'); 
         $('div.seteditopt a').removeClass('SFPdisabled');  
          $('div.seteditdrop a').removeClass('SFPdisabled'); 
@@ -4753,13 +5543,83 @@ $('.closethisdrag').removeClass('SFPdisabled');
              $(".overlay").hide();
                $('.overlay_div').css('display','none'); 
             },8000);
-         
+              setTimeout(function(){
+            	  
+            	  $('.dragSFPfirst').find('.SFP_settings').remove();
+                  $(".wrapper .nowdrag").parent().find('.setting-2').remove();
+                  $(".wrapper #dragfirst").parent().find('.setting-2').remove();
+
+            if($('.watermarkdefltsfp').length >= 1)
+            	{
+            	   console.log($('.watermarkdefltsfp').length);
+            	//console.log($('.watermarkdefltsfp').val());
+                 
+            	$('.sfpdfliwtr').css('display','block');
+	                if($('.watermarkdefltsfp').val() != '')
+	                {
+	                	//console.log("ddsf");
+	                	var watermarkdefltsfp = $('.watermarkdefltsfp').val();
+	                	$('.liwtrsfp').find('img').attr('src',watermarkdefltsfp);
+                         $('.sfpwtr').val(watermarkdefltsfp);
+	                	$('.liwtrsfp').css('display','block');
+                        
+	            	}
+	            else
+	            	{
+	            	  	//console.log("ddsf");
+	            	$('.liwtrsfp').css('display','none');
+             	   
+	            	}
+                
+            	}
+            else
+            	{
+            	   	//console.log("ddsf");
+            	$('.sfpdfliwtr').css('display','none');
+                 
+            	}
+            
+            if($('.watermarkpblshfp').length >= 1)
+        	{
+   	        $('#watermark').css('display','block');
+        	$('.sfpfbliwtr').css('display','block');
+
+	            if($('.watermarkpblshfp').val() != '')
+	            {
+	            	var watermarkpblshfp = $('.watermarkpblshfp').val();
+	            	$('.liwtrsfpfb').find('img').attr('src',watermarkpblshfp);
+                     $('.sfppbwtr').val(watermarkpblshfp);
+	            	$('.liwtrsfpfb').css('display','block');
+                   
+	        	}
+	        else
+	        	{
+	        	$('.liwtrsfpfb').css('display','none');
+                
+	        	}
+        	}
+        else
+        	{
+        	$('.sfpfbliwtr').css('display','none');
+             
+        	}
+            
+            if($('.sfpwatermarkbai').length)
+            {
+            	$('#watermark').css('display','block')
+        	}
+        else
+        	{
+        	$('#watermark').css('display','none')
+        	}
+            //alert("fgd");
+     },8000);
             }
         });  
         
       
             
-    
+
              
  
 }
@@ -4887,23 +5747,31 @@ function edit(sid)
     
     if($('.textme').length == 0)
     {	 
-            $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:inline;"></div>');
-	        $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:inline;"></div>');
+            $(".wrapper .SFPTWO_IMAGEEDIT").before('<div class="textme" style="display:block;"></div>');
+	        $(".wrapper .SFPTWO_TEXTEDIT").before('<div class="textme" style="display:block;"></div>');
     }
     
     else
     {
     	var geetme = 0;
     }	
+    
+    $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
           $(".wrapper .SFPTWO_IMAGEEDIT").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><input type='hidden' value='0' id='imgCount' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
-    $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a></div>");
+          
+          $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+    $(".wrapper .SFPTWO_TAGEDIT").parent().append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
     //$(".SFPTWO_EDITFORM").append("<div class='setting-2' style='display:none'><a title='setup' class='setup' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /></div>");
      if($(".wrapper .SFPTWO_TEXTEDIT").find('a').hasClass('sfpDynamic'))
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
-               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a></div>");
+			    	
+			    	 $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
+               $(".sfpDynamic").parents('.SFPTWO_TEXTEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><a title='Background change' class='background_sinbt' href='javascript:void(0)'></a></div>");
 
             },1000);
 		
@@ -4913,7 +5781,11 @@ function edit(sid)
      {  
   	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.setting-2').remove();
+		    $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
              $(".sfpDynamic").parents('.SFPTWO_IMAGEEDIT').append("<div class='setting-2' id='text' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><a title='imgcaption' class='imgcaption' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><a class='urlset' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
 
           },1000);
@@ -4926,7 +5798,11 @@ function edit(sid)
 	      //alert("hh");
 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 	    $(".sfpfbDynamicLike").find('.setting-2').remove();
+	    $(".sfpfbDynamicLike").find('.SFP_settings').remove();
 		    setTimeout(function(){
+		    	
+		    	 $(".sfpfbDynamicLike").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+		    	
           $(".sfpfbDynamicLike").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
        },1000);
@@ -4938,7 +5814,11 @@ function edit(sid)
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicGoogle").find('.setting-2').remove();
+		    $(".sfpfbDynamicGoogle").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpfbDynamicGoogle").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicGoogle").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -4949,7 +5829,11 @@ function edit(sid)
 		  {  
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicShare").find('.setting-2').remove();
+		    $(".sfpfbDynamicShare").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpfbDynamicShare").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicShare").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -4960,7 +5844,11 @@ function edit(sid)
 		      //alert("hh");
     	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweet").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweet").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpfbDynamicTweet").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
                $(".sfpfbDynamicTweet").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
             },1000);
@@ -4973,7 +5861,11 @@ function edit(sid)
 		      //alert("hh");
   	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpfbDynamicTweetBird").find('.setting-2').remove();
+		    $(".sfpfbDynamicTweetBird").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpfbDynamicTweetBird").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
              $(".sfpfbDynamicTweetBird").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
           },1000);
@@ -4986,7 +5878,11 @@ function edit(sid)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicLinkedin").find('.setting-2').remove();
+		    $(".sfpDynamicLinkedin").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	$(".sfpDynamicLinkedin").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicLinkedin").append("<div class='setting-2' style='display:none'><a title='Edit' class='edit' href='javascript:void(0)'></a><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -4998,7 +5894,11 @@ function edit(sid)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicPinterest").find('.setting-2').remove();
+		    $(".sfpDynamicPinterest").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicPinterest").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicPinterest").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
@@ -5010,13 +5910,35 @@ function edit(sid)
 		      //alert("hh");
  	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
 		    $(".sfpDynamicMail").find('.setting-2').remove();
+		    $(".sfpDynamicMail").find('.SFP_settings').remove();
 			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicMail").append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>");
+			    	
             $(".sfpDynamicMail").append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a class='urlset' href='javascript:void(0)'></a></div>");
 
          },1000);
 		
 		 }
-    
+          if($(".wrapper .SFPTWO_IMAGEEDIT").find('.sfpDynamicVideo').length)
+		  {  
+		      //alert("hh");
+ 	  // $(".wrapper .SFPTWO_TEXTEDIT").find('a').after('<span class="btn_set"><a class="urlset" href="javascript:void(0)"></a></span>');
+		    $(".sfpDynamicVideo").parent().find('.setting-2').remove();
+		     $(".sfpDynamicVideo").parent().find('.SFP_settings').remove();
+			    setTimeout(function(){
+			    	
+			    	 $(".sfpDynamicVideo").parent().append("<div class='SFP_settings' style='display:none'><a title='Setting' class='setSFPic' href='javascript:void(0)'></a></div>"); 
+			    	 
+            $(".sfpDynamicVideo").parent().append("<div class='setting-2' style='display:none'><a title='delete' class='delete' href='javascript:void(0)'></a><input type='hidden' value='"+newurl+"' id='hid' /><a title='Spacing' class='spacing' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /><a title='Video setting' class='vidseting' href='javascript:void(0)'></a><input type='hidden' value='0' id='imgCount' /></div>");
+            
+           
+
+
+         },1000);
+		
+		 }
+          $('.dragSFPfirst').find('.SFP_settings').remove();
      $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".selectboxaddnow").append('<div class="seteditopt"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
     $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".chkboxaddnow").append('<div class="setedit"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
       $(".wrapper .SFPTWO_EDITFORM ul").find("li").find(".dropdowndrag").append('<div class="seteditdrop"><a title="edit" class="editnow" href="javascript:void(0)"></a></div> ');
@@ -5067,10 +5989,27 @@ function getSelected() {
             return false;
         };
         
+      
      $('body').on('mouseup', '.wrapper', function(e) {
 
-             
-                var text = getSelected();
+    	 var selection = "{"+window.getSelection().toString()+"}";
+		    var result = (window.getSelection().toString() != "");
+		    //alert(selection + " - " + result);
+		    
+		setTimeout(function(){
+   
+						if ((selection != "{}")) {
+							//alert($('.navbar').html());
+							
+							$('.navbar').show();
+						}
+						else
+							{
+							 //alert(selection + " - " + result);
+							$('.navbar').hide();
+							}
+		},70);				
+              var text = getSelected();
                
                 if(text) {
                   //  alert("selected");
@@ -5106,12 +6045,122 @@ function getSelected() {
                   
                
              });
- 
+            
+            
+              $(document).click(function(e){
+                
+            	
+                console.log($(e.target));
+                if($(e.target).is(".setSFPic") || $(e.target).closest(".setSFPic").length)
+            	{
+                	
+                  $('.SFPTWO_TEXTEDIT').removeClass('SFPonlyIcon');
+           		  $('.SFPTWO_IMAGEEDIT').removeClass('SFPonlyIcon');
+                	$(e.target).parent().parent().addClass('SFPonlyIcon');
+                	$('.SFPTWO_TEXTEDIT').removeClass('SFPTWO_BACKGROUNDSingle');
+               	    $(e.target).parent().parent().addClass('SFPTWO_BACKGROUNDSingle');
+                	$('.SFPcloneIcon').html('');
+                	$(e.target).parent().parent().find('.setting-2').last().clone().appendTo('.SFPcloneIcon');
+                	$('.SFPcloneIcon').find('.setting-2').prepend('<span>Edit Option</span>');
+                	$('.SFPcloneIcon').find('.setting-2').addClass('setting-body');
+                	$('.SFPcloneIcon').find('.setting-body').find('.spacing').addClass('spacing-1');
+                	$('.SFPcloneIcon').find('.setting-body').find('.spacing-1').removeClass('spacing');
+                	$('.SFPcloneIcon').find('.setting-body').find('.delete').addClass('delete-1');
+                	$('.SFPcloneIcon').find('.setting-body').find('.delete-1').removeClass('delete');
+                	$('.SFPcloneIcon').find('.setting-body').find('.background_sinbt').addClass('background_sinbt-1');
+                	$('.SFPcloneIcon').find('.setting-body').find('.background_sinbt-1').removeClass('background_sinbt');
+                	$('.SFPcloneIcon').find('.setting-body').find('.background_sinbt-1').remove();
+                	$('.SFPcloneIcon').find('a.edit').text("Image Link");
+                	$('.SFPcloneIcon').find('a.delete-1').text("Delete");  
+                	$('.SFPcloneIcon').find('a.imgcaption').text("Caption");
+                	$('.SFPcloneIcon').find('a.spacing-1').text("Spacing");
+					$('.SFPcloneIcon').find('a.urlset').text("Link set");
+					$('.SFPcloneIcon').find('a.timer').text("Timer set");
+    	            $('.SFPcloneIcon').find('a.vidseting').text("Video link");
+    	            $('.SFPcloneIcon').find('a.background_sinbt-1').text("Background Change"); 
+                	$('.SFPcloneIcon').find('.setting-2').toggle();
+                     
+            	}
+           	  
+            	 else 
+            	 {
+            		 $('.SFPcloneIcon').find('.setting-2').hide();
+            	  }
+            
+            	 if($(e.target).is(".spacing") || $(e.target).closest(".spacing").length)
+            	{	
+            	 $(".spacediv").css('display','block');
+                }
+                else if($(e.target).is(".spacing-1") || $(e.target).closest(".spacing-1").length)
+            	{	
+            	 $(".spacediv").css('display','block');
+                }
+                else if($(e.target).is(".spacediv") || $(e.target).closest(".spacediv").length)
+            	{	
+            	   if($(e.target).is(".cls_space") || $(e.target).closest(".cls_space").length)
+            	    {
+            	       $(".spacediv").css('display','none');
+            	    }
+                    else
+                    {
+                        $(".spacediv").css('display','block');
+                    }
+                 
+                }
+                else 
+            	 {
+            		 $(".spacediv").css('display','none');
+            	  }
+             });
+             
+              $('body').on('click', '.SFPcloneIcon a.edit', function(e) { 
+
+               $('.SFPonlyIcon').find('a.edit').trigger('click');
+              });
+              
+              $('body').on('click', '.SFPcloneIcon a.delete-1', function(e) { 
+
+               $('.SFPonlyIcon').find('.setting-2').last().find('a.delete').trigger('click');
+               
+              });
+              
+              $('body').on('click', '.SFPcloneIcon a.imgcaption', function(e) { 
+            
+                  $('.SFPonlyIcon').find('a.imgcaption').trigger('click');
+          });
+              
+              $('body').on('click', '.SFPcloneIcon a.spacing-1', function(e) { 
+           
+            	  $('.SFPonlyIcon').find('a.spacing').trigger('click');
+          });
+              
+          $('body').on('click', '.SFPcloneIcon a.timer', function(e) { 
+           
+            	  $('.SFPonlyIcon').find('a.timer').trigger('click');
+          });    
+            	 
+        $('body').on('click', '.SFPcloneIcon a.urlset', function(e) { 
+           
+            	  $('.SFPonlyIcon').find('a.urlset').trigger('click');
+          });    
+            
+            
+          $('body').on('click', '.SFPcloneIcon a.vidseting', function(e) { 
+           
+            	  $('.SFPonlyIcon').find('a.vidseting').trigger('click');
+          });  
+          
+          $('body').on('click', '.SFPcloneIcon a.background_sinbt-1', function(e) { 
+              
+        	  $('.SFPonlyIcon').find('a.background_sinbt').trigger('click');
+      });  
+          
+            	
             $('body').on('click', '.imgcaption', function(e) {
             	
             	var $this = $(this).parent().parent();
         		//console.log($this.html());
-        		var offset = $this.offset();
+       		 var offset = $this.offset();
         		var width = $this.width();
 
         		var height = $this.height();
@@ -5130,8 +6179,16 @@ function getSelected() {
             	//alert($(this).parent().parent().find('img').style());
             
             	
-              $(this).parent().parent().find('img:first').after('<div id="dragfirst" class="SFPTWO_TEXTEDIT getdragit" style="position:absolute; padding:'+padding+';  margin-bottom:'+marginbottom+';  margin:'+margin+';  margin-top:'+margintop+'; margin-left:'+marginleft+'; margin-right:'+marginright+'; z-index:999;"><div id="nowdrag" class="explicit_edit nowdrag SFPTWO_TAGEDIT" contenteditable="true">Text</div><div><a class="imgedivdrg"></a><a class="closethisdrag deleteme"></a></div></div>');
-               
+              
+              if( $(this).parent().parent().find('a').find('img').length)
+            	   {
+            	  $(this).parent().parent().append('<div id="dragfirst" class="SFPTWO_TEXTEDIT getdragit" style="position:absolute; padding:'+padding+';  margin-bottom:'+marginbottom+';  margin:'+margin+';  margin-top:'+margintop+'; margin-left:'+marginleft+'; margin-right:'+marginright+'; z-index:999;"><div><a class="imgedivdrg"></a><a class="closethisdrag deleteme"></a></div><div id="nowdrag" class="explicit_edit nowdrag SFPTWO_TAGEDIT" contenteditable="true">Write Your Text Here.</div></div>');
+                  
+            	   }
+              else{
+            	  $(this).parent().parent().find('img:first').after('<div id="dragfirst" class="SFPTWO_TEXTEDIT getdragit" style="position:absolute; padding:'+padding+';  margin-bottom:'+marginbottom+';  margin:'+margin+';  margin-top:'+margintop+'; margin-left:'+marginleft+'; margin-right:'+marginright+'; z-index:999;"><div><a class="imgedivdrg"></a><a class="closethisdrag deleteme"></a></div><div id="nowdrag" class="explicit_edit nowdrag SFPTWO_TAGEDIT" contenteditable="true">Write Your Text Here.</div></div>');
+                  
+              }
           	var height1= $(this).parent().parent().find('#dragfirst:first').height();
     		var width2 = $(this).parent().parent().find('#dragfirst:first').width();
     		var top = height/2 - height1/2;
@@ -5192,10 +6249,11 @@ function getSelected() {
          //start................................................
 $(document).click(function(e){
     
-	 $('.form-group').find('label').hide();
+	
      
  if($(e.target).is(".explicit_edit") || $(e.target).closest(".explicit_edit").length || $(e.target).is(".navbar") || $(e.target).closest(".navbar").length)
   {  
+	 $('.toolbar_text').removeClass('open');
 	 $('.form-group').hide();
      $('.minicolors').css('display','none');
 	  $('.minicolors-panel').hide();
@@ -5216,10 +6274,11 @@ $('.navbar').css('display','none');
 });
   $('body').on('click', '.explicit_edit', function() {
 	  
-		  $('.form-group').hide();
+	     $('.toolbar_text').removeClass('open');
+	       $('.form-group').hide();
 		   $('.minicolors').css('display','none');
 		  $('.minicolors-panel').hide();
-   
+          
             $("#editable").attr("id","");
             $('.bydelete').removeClass('editme');
            $(this).addClass('editme');
@@ -5618,19 +6677,46 @@ $('body').on('change', '.styled', function() {
  $(".cls_space").live("click",function(e){
 	$(".spacediv").css('display','none');
 	});
-          
+   
+ $(".SFP_settings").live("click",function(e){
+	 
+   $('.SFPcloneIcon').css( 'position', 'absolute' );
+    $('.SFPcloneIcon').css( 'z-index', '9999' );
+    var lefts = (e.pageX);
+	var lefty = (e.pageX) + parseInt(11);
+	var topy = (e.pageY) + parseInt(9);
+    $('.SFPcloneIcon').css( 'top', topy  );
+    $('.SFPcloneIcon').css( 'left',lefty );
+    if(lefty > 1185)
+    {
+    	lefts = lefts - parseInt(119);	
+    	$('.SFPcloneIcon').css( 'left',lefts );
+    }	
+  $(this).toggleClass("openslide");
+                    if($(this).hasClass('openslide'))
+                 { 
+                	$('.SFPcloneIcon').find('.setting-2').show();
+            	}
+                else
+                {
+                     $('.SFPcloneIcon').find('.setting-2').hide();
+                }
+  $(".spacediv").css('display','none');
+	});
+ 
  $(".spacing").live("click",function(e){
 	 $('.SFPTWO_TEXTEDIT').removeClass('spaceedit');
 	 $('.SFPTWO_IMAGEEDIT').removeClass('spaceedit');
 	 $(this).parent().parent().addClass("spaceedit");
+	 $('.jui-checkbox-row').removeClass("spaceedit");
 	 //var getleft =  $(this).offset.left;
 	 // var gettop =  $(this).offset.left;
 	 
 	   // $(".spacediv") .css({top:gettop,left:getleft})
        var getleft = (e.pageX)- parseInt(417);
-		 $('.spacediv').css( 'position', 'absolute' );
-   
-    $('.spacediv').css( 'top', e.pageY );
+		 $('.wrapper').find('.spacediv').css( 'position', 'absolute' );
+     var topme  =$('.SFPcloneIcon').css('top');
+    $('.spacediv').css( 'top',topme);
     $('.spacediv').css( 'left', '573px' );
   $(".spacediv").css("display",'block');
 	});
@@ -5648,7 +6734,7 @@ $('body').on('change', '.styled', function() {
 	        value: iValue,
 	        slide: function(event, ui) {
 	            $(".lblVertical").val(ui.value);
-	            $('.spaceedit').prev().css("display",'inline-block' ); 
+	            $('.spaceedit').prev().css("display",'block' ); 
 	            $('.spaceedit').prev().css("height",ui.value ); 
 	            var valueme= ui.value;
 	            if(valueme == 0)
@@ -5673,6 +6759,115 @@ $('body').on('change', '.styled', function() {
 });  
 
 });
+ 
+ //video
+ 
+ 
+ 
+  $(".SFPTWO_IMAGEEDIT a.vidseting").live('click', function(){
+    
+
+	 
+	   $('a.vidseting').removeClass('sfpvideo');
+       $(this).addClass('sfpvideo');
+       
+       var num =  $.trim($(this).parent().parent().find('.sfpDynamicVideo').html());
+       
+       $(".linksfpvideo").val(num);
+     
+	
+     // Set the effect type
+	    var effect = 'slide';
+
+	    // Set the options for the effect type chosen
+	    var options = { direction: 'right' };
+
+	    // Set the duration (default: 400 milliseconds)
+	    var duration = 700;
+	
+         if($("div.slide_popup").show())
+      {
+        $("div.slide_popup").hide();
+      }
+      if($("div.slide_popup1").show())
+      {
+        $("div.slide_popup1").hide();
+      }
+      
+      if($("div.slide_popup2").show())
+      {
+        $("div.slide_popup2").hide();
+      }
+      
+      if($("div.popupusbackground").show())
+      {
+        $("div.popupusbackground").hide();
+      }
+      
+       if($("div.popupusbackground").show())
+      {
+        $("div.popupusbackground").hide();
+      }
+     
+     
+      if($("div.slide_popupurl").show())
+    {
+    $("div.slide_popupurl").hide();
+    }
+     
+     if($("div.slide_fblike").show())
+     {
+    	 $("div.slide_fblike").hide();
+     }
+     
+     if($("div.slide_fbshare").show())
+     {
+    	 $("div.slide_fbshare").hide();
+     }
+    
+     if($("div.slide_timer").show())
+     {
+    	 $("div.slide_timer").hide();
+     }
+     
+     if($("div.slide_fbSimple_Share").show())
+     {
+    	 $("div.slide_fbSimple_Share").hide();
+     }
+     
+     if($("div.slide_linkedin_share").show())
+     {
+    	 $("div.slide_linkedin_share").hide();
+     }
+     
+      if($("div.slide_linkedin").show())
+     {
+    	 $("div.slide_linkedin").hide();
+     }
+    
+    if($("div.slide_google_share").show())
+     {
+    	 $("div.slide_google_share").hide();
+     }
+    
+    if($("div.slide_tweet_bird").show())
+     {
+    	 $("div.slide_tweet_bird").hide();
+     }
+     
+      if($("div.slide_tweet_share").show())
+     {
+    	 $("div.slide_tweet_share").hide();
+     }
+      $("div.popup").animate({"right":0},300);
+      $("div.popup1").animate({"right":0},300);
+       $("div.popup2").animate({"right":0},300);
+       $("div.slide_video").show(effect, options, duration);
+  return false
+ });
+
+ 
+  
  
  // anchor click url change
  $(".SFPTWO_IMAGEEDIT a.urlset").live('click', function(){
@@ -5729,10 +6924,55 @@ $('body').on('change', '.styled', function() {
     $("div.popupusbackground").hide();
   }
   
+    if($("div.slide_fblike").show())
+     {
+    	 $("div.slide_fblike").hide();
+     }
+     
+     if($("div.slide_fbshare").show())
+     {
+    	 $("div.slide_fbshare").hide();
+     }
+    
+     if($("div.slide_timer").show())
+     {
+    	 $("div.slide_timer").hide();
+     }
+     
+     if($("div.slide_fbSimple_Share").show())
+     {
+    	 $("div.slide_fbSimple_Share").hide();
+     }
+     
+     if($("div.slide_linkedin_share").show())
+     {
+    	 $("div.slide_linkedin_share").hide();
+     }
+     
+      if($("div.slide_linkedin").show())
+     {
+    	 $("div.slide_linkedin").hide();
+     }
+    
+    if($("div.slide_google_share").show())
+     {
+    	 $("div.slide_google_share").hide();
+     }
+    
+    if($("div.slide_tweet_bird").show())
+     {
+    	 $("div.slide_tweet_bird").hide();
+     }
+     
+      if($("div.slide_tweet_share").show())
+     {
+    	 $("div.slide_tweet_share").hide();
+     }
+  
   $("div.popup").animate({"right":0},300);
   $("div.popup1").animate({"right":0},300);
    $("div.popup2").animate({"right":0},300);
-   $("div.slide_popupurl").toggle(effect, options, duration);
+   $("div.slide_popupurl").show();
   return false
  });
 
@@ -5789,10 +7029,55 @@ if($("div.popupusbackground").show())
   $("div.popupusbackground").hide();
 }
 
+     
+     if($("div.slide_fblike").show())
+     {
+    	 $("div.slide_fblike").hide();
+     }
+     
+     if($("div.slide_fbshare").show())
+     {
+    	 $("div.slide_fbshare").hide();
+     }
+    
+     if($("div.slide_timer").show())
+     {
+    	 $("div.slide_timer").hide();
+     }
+     
+     if($("div.slide_fbSimple_Share").show())
+     {
+    	 $("div.slide_fbSimple_Share").hide();
+     }
+     
+     if($("div.slide_linkedin_share").show())
+     {
+    	 $("div.slide_linkedin_share").hide();
+     }
+     
+      if($("div.slide_linkedin").show())
+     {
+    	 $("div.slide_linkedin").hide();
+     }
+    
+    if($("div.slide_google_share").show())
+     {
+    	 $("div.slide_google_share").hide();
+     }
+    
+    if($("div.slide_tweet_bird").show())
+     {
+    	 $("div.slide_tweet_bird").hide();
+     }
+     
+      if($("div.slide_tweet_share").show())
+     {
+    	 $("div.slide_tweet_share").hide();
+     }
 $("div.popup").animate({"right":0},300);
 $("div.popup1").animate({"right":0},300);
  $("div.popup2").animate({"right":0},300);
- $("div.slide_popupurl").toggle(effect, options, duration);
+ $("div.slide_popupurl").show(effect, options, duration);
 return false
 });
 
@@ -5815,6 +7100,36 @@ return false
 
  }); 
      
+ 
+ //video
+ 
+ $('body').on('click',".btnsfpvdo", function(event) {
+    
+    
+	 
+	 var num = $.trim($(".linksfpvideo").val());
+     if(num != '')
+     {
+        
+          $(".sfpvideo").parent().parent().find('.sfpDynamicVideo').prev('img').remove();
+          $(".sfpvideo").parent().parent().find('.sfpDynamicVideo').html('');
+          $(".sfpvideo").parent().parent().find('.sfpDynamicVideo').html(num);
+     }
+	 else
+     {
+	  var chk = 0; 
+	 }
+     var effect = 'slide';
+
+ // Set the options for the effect type chosen
+ var options = { direction: 'right' };
+
+ // Set the duration (default: 400 milliseconds)
+ var duration = 700;
+
+     $('div.slide_video').toggle(effect, options, duration);
+     });
+ 
  
  $('body').on('click',".doneurl", function(event) {
 	 
@@ -5845,7 +7160,7 @@ return false
        $("div.popupusbackground").hide();
      }
      
-     $('div.slide_popupurl').toggle(effect, options, duration);
+     $('div.slide_popupurl').show(effect, options, duration);
      });
  
  });
@@ -5899,6 +7214,36 @@ $(".sfpfbDynamicLike a.urlset").live('click', function(){
     	 $("div.slide_tweet_share").hide();
      }
     
+     if($("div.slide_timer").show())
+     {
+    	 $("div.slide_timer").hide();
+     }
+     
+     if($("div.slide_fbSimple_Share").show())
+     {
+    	 $("div.slide_fbSimple_Share").hide();
+     }
+     
+     if($("div.slide_linkedin_share").show())
+     {
+    	 $("div.slide_linkedin_share").hide();
+     }
+     
+      if($("div.slide_linkedin").show())
+     {
+    	 $("div.slide_linkedin").hide();
+     }
+    
+    if($("div.slide_google_share").show())
+     {
+    	 $("div.slide_google_share").hide();
+     }
+    
+    if($("div.slide_tweet_bird").show())
+     {
+    	 $("div.slide_tweet_bird").hide();
+     }
+     
     $("div.popup").animate({"right":0},300);
     $("div.popup1").animate({"right":0},300);
     $("div.popup2").animate({"right":0},300);
@@ -5954,6 +7299,38 @@ $(".sfpfbDynamicTweet a.urlset").live('click', function(){
     	 $("div.slide_fbshare").hide();
      }
     
+     
+     if($("div.slide_timer").show())
+     {
+    	 $("div.slide_timer").hide();
+     }
+     
+     if($("div.slide_fbSimple_Share").show())
+     {
+    	 $("div.slide_fbSimple_Share").hide();
+     }
+     
+     if($("div.slide_linkedin_share").show())
+     {
+    	 $("div.slide_linkedin_share").hide();
+     }
+     
+      if($("div.slide_linkedin").show())
+     {
+    	 $("div.slide_linkedin").hide();
+     }
+    
+    if($("div.slide_google_share").show())
+     {
+    	 $("div.slide_google_share").hide();
+     }
+    
+    if($("div.slide_tweet_bird").show())
+     {
+    	 $("div.slide_tweet_bird").hide();
+     }
+     
+     
     $("div.popup").animate({"right":0},300);
     $("div.popup1").animate({"right":0},300);
     $("div.popup2").animate({"right":0},300);
@@ -6013,6 +7390,48 @@ $(".sfpfbDynamicTweetBird a.urlset").live('click', function(){
      {
     	 $("div.slide_tweet_share").hide();
      }
+     
+      if($("div.slide_popupurl").show())
+    {
+    $("div.slide_popupurl").hide();
+    }
+     
+     if($("div.slide_fblike").show())
+     {
+    	 $("div.slide_fblike").hide();
+     }
+     
+     if($("div.slide_fbshare").show())
+     {
+    	 $("div.slide_fbshare").hide();
+     }
+    
+     if($("div.slide_timer").show())
+     {
+    	 $("div.slide_timer").hide();
+     }
+     
+     if($("div.slide_fbSimple_Share").show())
+     {
+    	 $("div.slide_fbSimple_Share").hide();
+     }
+     
+     if($("div.slide_linkedin_share").show())
+     {
+    	 $("div.slide_linkedin_share").hide();
+     }
+     
+      if($("div.slide_linkedin").show())
+     {
+    	 $("div.slide_linkedin").hide();
+     }
+    
+    if($("div.slide_google_share").show())
+     {
+    	 $("div.slide_google_share").hide();
+     }
+    
+    
     
     $("div.popup").animate({"right":0},300);
     $("div.popup1").animate({"right":0},300);
@@ -6546,21 +7965,46 @@ $('body').on('click',".btnshare", function(event) {
 		 
 		
 		$('body').on('click',".btnfbSimple_Share", function(event) 
-		 {
+				{
 			var uri =  $(".sfpselectaccesslnkedshare").val();   
-			   var num = $(".pinterestimagetext").val();
-			    $('.sfpsharelpinterestme').find(".sfppinterestImage").val(uri+num);
-		     var effect = 'slide';
+			var num = $(".pinterestimagetext").val();
+			$('.sfpsharelpinterestme').find(".sfppinterestImage").val(uri+num);
+			var effect = 'slide';
 
-		     // Set the options for the effect type chosen
-		     var options = { direction: 'right' };
+			// Set the options for the effect type chosen
+			var options = { direction: 'right' };
 
-		     // Set the duration (default: 400 milliseconds)
-		     var duration = 700;
+			// Set the duration (default: 400 milliseconds)
+			var duration = 700;
 
 			$(".sfpsharelpinterestme a").attr('onclick',"pinitDyn()");
-			   $("div.slide_fbSimple_Share").toggle(effect, options, duration);   
-		     });
+			$("div.slide_fbSimple_Share").toggle(effect, options, duration);   
+				});
+             
+             //watermark
+ 	$('body').on('click',".btnwatermark", function(event) 
+ 			{
+ 		var sfpwtr = $('.sfpwtr').val();
+ 		if($('.watermarkdefltsfp').length >= 1)
+ 		{           
+ 			$('.watermarkdefltsfp').val(sfpwtr);
+ 		}
+ 		var sfppbwtr = $('.sfppbwtr').val();
+ 		if($('.watermarkpblshfp').length >= 1)
+ 		{           
+ 			$('.watermarkpblshfp').val(sfppbwtr);
+ 		}
+ 		var effect = 'slide';
+
+ 		// Set the options for the effect type chosen
+ 		var options = { direction: 'right' };
+
+ 		// Set the duration (default: 400 milliseconds)
+ 		var duration = 700;
+ 		$("div.slide_watermark").toggle(effect, options, duration);   
+ 			});
+		  
+ 
 		   });  
  
  
@@ -6569,111 +8013,192 @@ $('body').on('click',".btnshare", function(event) {
  
  
  $(".sfpDynamicMailTo a.urlset").live('click', function(){
-	    
-	    $('.sfpDynamicMailTo').removeClass('sfpsharelmailme');
-	       $(this).parents('.sfpDynamicMailTo').addClass('sfpsharelmailme');
-	    
-	    // Set the effect type
-	    var effect = 'slide';
-	    
-	    // Set the options for the effect type chosen
-	    var options = { direction: 'right' };
-	    
-	    // Set the duration (default: 400 milliseconds)
-	    var duration = 700;
-	    
-	    if($("div.slide_popup").show())
-	    {
-	    $("div.slide_popup").hide();
-	    }
-	    if($("div.slide_popup1").show())
-	    {
-	    $("div.slide_popup1").hide();
-	    }
-	    
-	    if($("div.slide_popup2").show())
-	    {
-	    $("div.slide_popup2").hide();
-	    }
-	    
-	    if($("div.popupusbackground").show())
-	    {
-	    $("div.popupusbackground").hide();
-	    }
-	    
-	     if($("div.slide_popupurl").show())
-	    {
-	    $("div.slide_popupurl").hide();
-	    }
-	    
-	    
-	     if($("div.slide_fblike").show())
-	    {
-	    $("div.slide_fblike").hide();
-	    }
-	     
-	     if($("div.slide_tweet_share").show())
-	     {
-	    	 $("div.slide_tweet_share").hide();
-	     }
-	     
-	     if($("div.slide_fbSimple_Share").show())
-		 {
-		  $("div.slide_fbSimple_Share").hide();
-		 }
-		    
-	     if($("div.slide_linkedin").show())
-	     {
-	    	 $("div.slide_linkedin").hide();
-	     }
-	     
-	     
-	     if($("div.slide_linkedin_share").show())
-	     {
-	    	 $("div.slide_linkedin_share").hide();
-	     }
-	     
-	     
-	     if($("div.slide_fbSimple_Share").show())
-	     {
-	    	 $("div.slide_fbSimple_Share").hide();
-	     }
-  
-	     
-	    $("div.popup").animate({"right":0},300);
-	    $("div.popup1").animate({"right":0},300);
-	    $("div.popup2").animate({"right":0},300);
-	    
-	    var url =   $('.sfpsharelmailme').find(".sfpdynmail").val();
-	  
-	    $(".mail").val(url);
-	  
-	  
-	    $("div.slide_linkedin").toggle(effect, options, duration);   
-	});
+
+	 $('.sfpDynamicMailTo').removeClass('sfpsharelmailme');
+	 $(this).parents('.sfpDynamicMailTo').addClass('sfpsharelmailme');
+
+	 // Set the effect type
+	 var effect = 'slide';
+
+	 // Set the options for the effect type chosen
+	 var options = { direction: 'right' };
+
+	 // Set the duration (default: 400 milliseconds)
+	 var duration = 700;
+
+	 if($("div.slide_popup").show())
+	 {
+		 $("div.slide_popup").hide();
+	 }
+	 if($("div.slide_popup1").show())
+	 {
+		 $("div.slide_popup1").hide();
+	 }
+
+	 if($("div.slide_popup2").show())
+	 {
+		 $("div.slide_popup2").hide();
+	 }
+
+	 if($("div.popupusbackground").show())
+	 {
+		 $("div.popupusbackground").hide();
+	 }
+
+	 if($("div.slide_popupurl").show())
+	 {
+		 $("div.slide_popupurl").hide();
+	 }
+
+
+	 if($("div.slide_fblike").show())
+	 {
+		 $("div.slide_fblike").hide();
+	 }
+
+	 if($("div.slide_tweet_share").show())
+	 {
+		 $("div.slide_tweet_share").hide();
+	 }
+
+	 if($("div.slide_fbSimple_Share").show())
+	 {
+		 $("div.slide_fbSimple_Share").hide();
+	 }
+
+	 if($("div.slide_linkedin").show())
+	 {
+		 $("div.slide_linkedin").hide();
+	 }
+
+
+	 if($("div.slide_linkedin_share").show())
+	 {
+		 $("div.slide_linkedin_share").hide();
+	 }
+
+
+	 if($("div.slide_fbSimple_Share").show())
+	 {
+		 $("div.slide_fbSimple_Share").hide();
+	 }
+
+
+	 $("div.popup").animate({"right":0},300);
+	 $("div.popup1").animate({"right":0},300);
+	 $("div.popup2").animate({"right":0},300);
+
+	 var url =   $('.sfpsharelmailme').find(".sfpdynmail").val();
+
+	 $(".mail").val(url);
+
+
+	 $("div.slide_linkedin").toggle(effect, options, duration);   
+ });
 
 
 $(function() 
-		 {
-		$(".mail").live("keyup",function(){
-		     
-		     var num = $(this).val();
-		    $('.sfpsharelmailme').find(".sfpdynmail").val(num);
+{
+	$(".mail").live("keyup",function(){
 
-		 }); 
-		 
-		
-		$('body').on('click',".btnlinkedin", function(event) 
-		 {
-		     var effect = 'slide';
+		var num = $(this).val();
+		$('.sfpsharelmailme').find(".sfpdynmail").val(num);
 
-		     // Set the options for the effect type chosen
-		     var options = { direction: 'right' };
+	}); 
 
-		     // Set the duration (default: 400 milliseconds)
-		     var duration = 700;
 
-			$(".sfpsharelmailme a").attr('onclick',"SFPsendmail()");
-			   $("div.slide_linkedin").toggle(effect, options, duration);   
-		     });
-		   });  
+	$('body').on('click',".btnlinkedin", function(event) 
+			{
+		var effect = 'slide';
+
+		// Set the options for the effect type chosen
+		var options = { direction: 'right' };
+
+		// Set the duration (default: 400 milliseconds)
+		var duration = 700;
+
+		$(".sfpsharelmailme a").attr('onclick',"SFPsendmail()");
+		$("div.slide_linkedin").toggle(effect, options, duration);   
+			});
+
+	$('body').on('click', '.sfppreview', function(event) {
+		var sfpprvhid = $('.sfppreviewtrig').val();
+		var base_url = window.location.origin;
+		$('.save_hgdfggfdgdfgfdsygfyfdsy').trigger('click');
+		$('.save_btn').trigger('click');
+		setTimeout(function(){
+			window.open(base_url+sfpprvhid,'_blank');
+		},100);
+	});  
+});  
+
+
+   setTimeout(function(){
+
+            if($('.watermarkdefltsfp').length >= 1)
+            	{
+            	   console.log($('.watermarkdefltsfp').length);
+            	//console.log($('.watermarkdefltsfp').val());
+                 
+            	$('.sfpdfliwtr').css('display','block');
+	                if($('.watermarkdefltsfp').val() != '')
+	                {
+	                	//console.log("ddsf");
+	                	var watermarkdefltsfp = $('.watermarkdefltsfp').val();
+	                	$('.liwtrsfp').find('img').attr('src',watermarkdefltsfp);
+                        $('.sfpwtr').val(watermarkdefltsfp);
+	                	$('.liwtrsfp').css('display','block');
+                        
+	            	}
+	            else
+	            	{
+	            	  	//console.log("ddsf");
+	            	$('.liwtrsfp').css('display','none');
+             	   
+	            	}
+                
+            	}
+            else
+            	{
+            	   	//console.log("ddsf");
+            	$('.sfpdfliwtr').css('display','none');
+                 
+            	}
+            
+            if($('.watermarkpblshfp').length >= 1)
+        	{
+   	        $('#watermark').css('display','block');
+        	$('.sfpfbliwtr').css('display','block');
+
+	            if($('.watermarkpblshfp').val() != '')
+	            {
+	            	var watermarkpblshfp = $('.watermarkpblshfp').val();
+	            	$('.liwtrsfpfb').find('img').attr('src',watermarkpblshfp);
+                    $('.sfppbwtr').val(watermarkpblshfp);
+	            	$('.liwtrsfpfb').css('display','block');
+                   
+	        	}
+	        else
+	        	{
+	        	$('.liwtrsfpfb').css('display','none');
+                
+	        	}
+        	}
+        else
+        	{
+        	$('.sfpfbliwtr').css('display','none');
+             
+        	}
+            
+            if($('.sfpwatermarkbai').length)
+            {
+            	$('#watermark').css('display','block')
+        	}
+        else
+        	{
+        	$('#watermark').css('display','none')
+        	}
+            
+            $('.SFPTWO_IMAGEEDIT').css('position','relative');
+            //alert("fgd");
+     },8000);

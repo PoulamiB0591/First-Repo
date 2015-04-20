@@ -296,3 +296,4 @@ chmod($pathfolder1, 0777);
 } 
 
 ?>
+

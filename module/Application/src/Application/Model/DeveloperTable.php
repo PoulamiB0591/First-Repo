@@ -219,6 +219,7 @@ class DeveloperTable
     }
     
     public function updateReg1($data,$id){
+    	
           $result = $this->tableGWay->update($data,array('id'=>$id));
           return $result;
     }

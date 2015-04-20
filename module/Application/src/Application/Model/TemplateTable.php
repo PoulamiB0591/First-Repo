@@ -162,6 +162,20 @@ class TemplateTable
      return $arr;
     }
     
+    /******** get template price for publish *******/
+    public function getTempPrice($tempName)
+    {
+    	$rowset = $this->tableGWay->select(array('templateName'=>$tempName));
+    	$arr    = array();
+    	
+    	foreach($rowset as $rset){
+    		$arr[]=array(
+    			"price"=>$rset->templatePrice,
+     		);
+    	}
+    	return $arr;
+    }
+    
  public function selectTemplate($id)
  {
   $id = (int) $id;
@@ -243,7 +257,14 @@ public function insertautometicreview($data)
         $resultSet = $this->tableGWay->select(array('id' => $templateid)); 
         return $resultSet->current(); 
     }
-    
+    public function updateThumbImage($data,$tempid)
+    {
+    	//print_r($data);exit;
+    	//$result=$this->tableGWay->update($data,array('id'=>$tempId));
+    	$result = $this->tableGWay->update($data,array('id'=>$tempid));
+    	print_r(trim($result));exit;
+    	
+    }
     
     public function searchcategory($dev)
     {
